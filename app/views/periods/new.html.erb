@@ -1,6 +1,6 @@
-<h1>New epoch</h1>
+<h1>Ny epoke</h1>
 
-<% form_for(@epoch) do |f| %>
+<% form_for(@period) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -8,8 +8,8 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.submit "Create" %>
+    <%= f.submit "Opprett" %>
   </p>
 <% end %>
 
-<%= link_to 'Back', epochs_path %>
+<%= link_to 'Tilbake', periods_path %>

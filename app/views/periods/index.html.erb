@@ -1,0 +1,19 @@
+<h2>Epoker</h2>
+
+<br />
+
+<table>
+
+<% for period in @periods %>
+  <tr>
+    <td><%=h period.name %></td>
+    <td><%= link_to 'endre', edit_period_path(period) %></td>
+    <td><%= link_to 'slett', period, :confirm => 'Er du sikker?',
+            :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Ny epoke', new_period_path %>

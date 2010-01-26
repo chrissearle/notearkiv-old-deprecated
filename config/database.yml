@@ -2,10 +2,9 @@
 #   gem install sqlite3-ruby (not necessary on OS X Leopard)
 development:
 #  adapter: postgresql
-#  encoding: unicode
 #  database: notearkiv-development
 #  pool: 5
-#  username: test
+# username: test
 #  password: test
   adapter: sqlite3
   database: db/development.sqlite3
