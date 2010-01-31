@@ -44,4 +44,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :periods
   map.resources :genres
   map.resources :composers
+  map.resources :languages
+  map.resources :instruments
 end
