@@ -1,0 +1,19 @@
+<h2>Genres</h2>
+
+<br />
+
+<table>
+
+<% for genre in @genres %>
+  <tr>
+    <td><%=h genre.name %></td>
+    <td><%= link_to 'endre', edit_genre_path(genre) %></td>
+    <td><%= link_to 'slett', genre, :confirm => 'Er du sikker?',
+            :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Ny genre', new_genre_path %>

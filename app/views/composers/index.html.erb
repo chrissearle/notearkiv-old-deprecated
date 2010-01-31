@@ -1,0 +1,19 @@
+<h2>Komponister</h2>
+
+<br />
+
+<table>
+
+<% for composer in @composers %>
+  <tr>
+    <td><%=h composer.name %></td>
+    <td><%= link_to 'endre', edit_composer_path(composer) %></td>
+    <td><%= link_to 'slett', composer, :confirm => 'Er du sikker?',
+            :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Ny komponist', new_composer_path %>
