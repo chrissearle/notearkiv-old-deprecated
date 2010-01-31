@@ -41,7 +41,5 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 
-  map.resources :periods
-  map.resources :genres
-  map.resources :composers
+  map.resources :epochs
 end
