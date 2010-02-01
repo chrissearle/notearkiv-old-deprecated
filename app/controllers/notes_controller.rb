@@ -13,12 +13,23 @@ class NotesController < ApplicationController
 
   def excel
     book = Spreadsheet::Workbook.new
-    sheet1 = book.create_worksheet
-    sheet1.name = "Notearkiv"
-    sheet1.row(0).concat %w{ID Tittel Original Kopi Instrumental Besetning}
+
+    sheet = book.create_worksheet
+    sheet.name = "Notearkiv"
+
+    header = sheet.row(0)
+
+    format = Spreadsheet::Format.new :weight => :bold,
+                                     :align => :center
+
+    header.default_format = format
+
+
+    header.concat %w{ID Tittel Original Kopi Instr. Besetning}
+
 
     Note.find(:all).each do |note|
-      row = sheet1.row(sheet1.last_row_index() + 1)
+      row = sheet.row(sheet.last_row_index() + 1)
 
       row.push note.display_id
       row.push note.title
@@ -27,6 +38,13 @@ class NotesController < ApplicationController
       row.push note.count_instrumental
       row.push note.voice
     end
+
+    sheet.column(0).width = 8
+    sheet.column(1).width = 50
+    sheet.column(2).width = 8
+    sheet.column(3).width = 8
+    sheet.column(4).width = 8
+    sheet.column(5).width = 15
 
     tmp_file = Tempfile.new('notearkiv')
 
