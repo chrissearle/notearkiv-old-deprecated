@@ -1,35 +1,28 @@
 <h2>Noter</h2>
 
-<br />
-
-<%= link_to 'Last ned', excel_url %>
-
-<br />
+<p><%= link_to 'Last ned', excel_url %></p>
 
 <table>
 
   <tr>
     <th>ID</th>
     <th>Tittel</th>
-    <th>Original</th>
-    <th>Kopi</th>
-    <th>Instrumental</th>
-    <th>Besetning</th>
-    <th>&nbsp;</th>
-    <th>&nbsp;</th>
+    <th>Genre</th>
+    <th>Komponist</th>
+    <th>Epoke</th>
   </tr>
 
   <% for note in @notes %>
   <tr>
-    <td><%=h note.display_id %></td>
+    <td>
+      <% link_to(note) do %>
+         <%= note.display_id%>
+       <% end %>
+    </td>
     <td><%= note.title %></td>
-    <td><%= note.count_originals %></td>
-    <td><%= note.count_copies %></td>
-    <td><%= note.count_instrumental %></td>
-    <td><%= note.voice %></td>
-    <td><%= link_to 'endre', edit_note_path(note) %></td>
-    <td><%= link_to 'slett', note, :confirm => 'Er du sikker?',
-            :method => :delete %></td>
+    <td>PLACEHOLDER</td>
+    <td>PLACEHOLDER</td>
+    <td>PLACEHOLDER</td>
   </tr>
 <% end %>
 </table>
