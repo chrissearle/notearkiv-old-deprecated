@@ -2,8 +2,8 @@
 
 <p><%= link_to 'Last ned', excel_url %></p>
 
-<table>
-
+<table id="noteTable" class="tablesorter">
+  <thead>
   <tr>
     <th>ID</th>
     <th>Tittel</th>
@@ -11,22 +11,32 @@
     <th>Komponist</th>
     <th>Epoke</th>
   </tr>
-
+  </thead>
+  <tbody>
   <% for note in @notes %>
-  <tr>
-    <td>
-      <% link_to(note) do %>
-         <%= note.display_id%>
-       <% end %>
-    </td>
-    <td><%= note.title %></td>
-    <td>PLACEHOLDER</td>
-    <td>PLACEHOLDER</td>
-    <td>PLACEHOLDER</td>
-  </tr>
-<% end %>
+      <tr>
+        <td>
+          <% link_to(note) do %>
+              <%= note.display_id %>
+          <% end %>
+        </td>
+        <td><%= note.title %></td>
+        <td>PLACEHOLDER</td>
+        <td>PLACEHOLDER</td>
+        <td>PLACEHOLDER</td>
+      </tr>
+  <% end %>
+  </tbody>
 </table>
 
-<br />
+<br/>
 
 <%= link_to 'Ny note', new_note_path %>
+
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $("#noteTable").tablesorter( {sortList: [[0,0], [1,0]], textExtraction: "complex"} );
+    }
+            );
+</script>
