@@ -1,6 +1,6 @@
-<h2>Endre</h2>
+<h1>Ny språk</h1>
 
-<% form_for(@genre) do |f| %>
+<% form_for(@language) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -8,8 +8,8 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.submit 'Lagre' %>
+    <%= f.submit "Opprett" %>
   </p>
 <% end %>
 
-<%= link_to 'Liste', genres_path %>
+<%= link_to 'Tilbake', languages_path %>
