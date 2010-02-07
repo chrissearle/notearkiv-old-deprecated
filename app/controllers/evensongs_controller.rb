@@ -1,30 +1,30 @@
 require 'spreadsheet'
 
-class NotesController < ApplicationController
+class EvensongsController < ApplicationController
 
   def index
-    @notes = Note.find(:all)
+    @evensongs = Evensong.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @notes }
+      format.xml  { render :xml => @evensongs }
     end
   end
 
   def show
-    @note = Note.find(params[:id])
+    @evensong = Evensong.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @note }
+      format.xml  { render :xml => @evensong }
     end
   end
 
   def excel
-    spreadsheet = NoteSpreadsheet.new(Note.find(:all))
+    spreadsheet = EvensongSpreadsheet.new(Evensong.find(:all))
 
 
-    send_file spreadsheet.get_spreadsheet, :filename => 'notearkiv.xls', :type => 'application/vnd.ms-excel', :disposition => 'attachment'
+    send_file spreadsheet.get_spreadsheet, :filename => 'evensongarkiv.xls', :type => 'application/vnd.ms-excel', :disposition => 'attachment'
   end
 
 end
@@ -38,25 +38,21 @@ class HeaderColumn
   end
 end
 
-class NoteSpreadsheet
+class EvensongSpreadsheet
 
-  def initialize(notes)
-    @notes = notes
+  def initialize(evensongs)
+    @evensongs = evensongs
 
     @header_format = Spreadsheet::Format.new :weight => :bold,
                                              :align => :center
 
-    @header_columns = [HeaderColumn.new("ID", 8),
-                       HeaderColumn.new("Tittel", 50),
-                       HeaderColumn.new("Original", 8),
-                       HeaderColumn.new("Kopi", 8),
-                       HeaderColumn.new("Instr.", 8),
-                       HeaderColumn.new("Besetning", 15)]
+    @header_columns = [HeaderColumn.new("Tittel", 50),
+                       HeaderColumn.new("Salme", 8)]
   end
 
   def generate_sheet(book)
     sheet = book.create_worksheet
-    sheet.name = "Notearkiv"
+    sheet.name = "Evensongarkiv"
 
     return sheet
   end
@@ -78,20 +74,16 @@ class NoteSpreadsheet
   end
 
   def generate_rows(sheet)
-    @notes.each do |note|
+    @evensongs.each do |evensong|
       row = sheet.row(sheet.last_row_index() + 1)
 
-      row.push note.display_id
-      row.push note.title
-      row.push note.count_originals
-      row.push note.count_copies
-      row.push note.count_instrumental
-      row.push note.voice
+      row.push evensong.title
+      row.push evensong.psalm
     end
   end
 
   def write_to_temporary_file(book)
-    tmp_file = Tempfile.new('notearkiv')
+    tmp_file = Tempfile.new('evensongarkiv')
 
     book.write(tmp_file)
 

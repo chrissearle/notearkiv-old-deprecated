@@ -15,7 +15,7 @@
   <div id="menu">
     <ul id="nav">
       <li><%= link_to 'Notearkiv', notes_path %></li>
-      <li><a href="#">Evensong</a></li>
+      <li><%= link_to 'Evensong', evensongs_path %></li>
     </ul>
   </div>
 </div>
@@ -29,9 +29,7 @@
 
   <div id="left">
     <div class="box">
-      <h2>Metadata lister : </h2>
-
-      <p>Følgende metadata lister brukes av Notearkiv : </p>
+      <h2>Metadata lister for Noter</h2>
 
       <ul>
         <li><%= link_to 'Epoker', periods_path %></li>
@@ -40,8 +38,14 @@
         <li><%= link_to 'Genre', genres_path %></li>
         <li><%= link_to 'Språk', languages_path %></li>
       </ul>
+    </div>
 
-      <p>Følgende metadata lister brukes av Evensong : </p>
+    <div class="box">
+      <h2>Metadata lister for Evensong</h2>
+
+      <ul>
+        <li>TITTEL? (salme/mag&nunc/Preces & Responses)</li>
+      </ul>
     </div>
 
 

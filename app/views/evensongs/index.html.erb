@@ -1,0 +1,44 @@
+<h2>Evensong</h2>
+
+<p><%= link_to 'Last ned', evensongexcel_url %></p>
+
+<table id="noteTable" class="tablesorter">
+  <thead>
+  <tr>
+    <th>Tittel</th>
+    <th>Salme</th>
+    <th>TITTEL?</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% for evensong in @evensongs %>
+      <tr>
+        <td>
+          <% link_to(evensong) do %>
+              <%= evensong.title %>
+          <% end %>
+        </td>
+        <td><%= evensong.psalm %></td>
+        <td>PLACEHOLDER</td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br/>
+
+<%= link_to 'Ny evensong', new_evensong_path %>
+
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $("#noteTable").tablesorter(
+        {
+            sortList: [[0,0]],
+            textExtraction: "complex",
+            headers: { 1: { sorter:'digit' } }
+        }
+                );
+    }
+            );
+</script>

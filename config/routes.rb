@@ -41,12 +41,14 @@ ActionController::Routing::Routes.draw do |map|
   # map.connect ':controller/:action/:id'
   # map.connect ':controller/:action/:id.:format'
 
-  map.excel 'notes/excel', :controller => 'notes', :action => 'excel'
-  
+  map.noteexcel 'notes/excel', :controller => 'notes', :action => 'excel'
+  map.evensongexcel 'evensongs/excel', :controller => 'evensongs', :action => 'excel'
+
   map.resources :periods
   map.resources :genres
   map.resources :composers
   map.resources :languages
   map.resources :instruments
   map.resources :notes
+  map.resources :evensongs
 end
