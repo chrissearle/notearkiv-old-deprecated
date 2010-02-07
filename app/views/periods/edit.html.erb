@@ -1,2 +1,16 @@
-<h1>Epoch#edit</h1>
-<p>Find me in app/views/epoch/edit.html.erb</p>
+<h2>Endre</h2>
+
+<% form_for(@period) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit 'Lagre' %>
+  </p>
+<% end %>
+
+<%= link_to 'Vis', @period %> |
+<%= link_to 'Liste', periods_path %>

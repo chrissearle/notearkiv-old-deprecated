@@ -1,6 +1,6 @@
 class PeriodsController < ApplicationController
   def index
-    @periods = Period.find(:all)
+    @periods = Period.find(:all).sort_by{|p| p.name.downcase}
 
     respond_to do |format|
       format.html # index.html.erb
@@ -22,8 +22,8 @@ class PeriodsController < ApplicationController
 
     respond_to do |format|
       if @period.save
-        flash[:notice] = 'period was successfully created.'
-        format.html { redirect_to(@period) }
+        flash[:notice] = 'Epoke opprettet.'
+        format.html { redirect_to :action => "index" }
         format.xml  { render :xml => @period, :status => :created,
                       :location => @period }
       else
@@ -35,9 +35,24 @@ class PeriodsController < ApplicationController
   end
 
   def edit
+    @period = Period.find(params[:id])
   end
 
   def update
+    @period = Period.find(params[:id])
+
+    respond_to do |format|
+      @period.name = params["period"]["name"]
+
+      if @period.save
+        flash[:notice] = 'Epoke oppdatert.'
+        format.html { redirect_to :action => "index" }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @period.errors, :status => :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
