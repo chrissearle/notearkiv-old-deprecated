@@ -4,6 +4,6 @@ class AddDropboxUrlToEvensong < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :url
+    remove_column :evensongs, :url
   end
 end
