@@ -55,7 +55,8 @@ class EvensongSpreadsheet
     @header_format = Spreadsheet::Format.new :weight => :bold,
                                              :align => :center
 
-    @header_columns = [HeaderColumn.new("Tittel", 50),
+    @header_columns = [HeaderColumn.new("SysID", 8),
+                       HeaderColumn.new("Tittel", 50),
                        HeaderColumn.new("Salme", 8)]
   end
 
@@ -86,6 +87,7 @@ class EvensongSpreadsheet
     @evensongs.each do |evensong|
       row = sheet.row(sheet.last_row_index() + 1)
 
+      row.push evensong.id
       row.push evensong.title
       row.push evensong.psalm
     end

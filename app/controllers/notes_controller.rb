@@ -46,7 +46,8 @@ class NoteSpreadsheet
     @header_format = Spreadsheet::Format.new :weight => :bold,
                                              :align => :center
 
-    @header_columns = [HeaderColumn.new("ID", 8),
+    @header_columns = [HeaderColumn.new("SysID", 8),
+                       HeaderColumn.new("ID", 8),
                        HeaderColumn.new("Tittel", 50),
                        HeaderColumn.new("Original", 8),
                        HeaderColumn.new("Kopi", 8),
@@ -81,6 +82,7 @@ class NoteSpreadsheet
     @notes.each do |note|
       row = sheet.row(sheet.last_row_index() + 1)
 
+      row.push note.id
       row.push note.display_id
       row.push note.title
       row.push note.count_originals
