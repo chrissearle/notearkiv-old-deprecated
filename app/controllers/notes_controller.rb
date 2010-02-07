@@ -11,6 +11,15 @@ class NotesController < ApplicationController
     end
   end
 
+  def show
+    @note = Note.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @note }
+    end
+  end
+
   def excel
     spreadsheet = NoteSpreadsheet.new(Note.find(:all))
 
