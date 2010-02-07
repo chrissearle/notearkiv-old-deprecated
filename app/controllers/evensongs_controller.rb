@@ -11,6 +11,15 @@ class EvensongsController < ApplicationController
     end
   end
 
+  def mapping
+    @evensongs = Evensong.find(:all)
+
+    respond_to do |format|
+      format.html # mapping.html.erb
+      format.xml  { render :xml => @evensongs }
+    end
+  end
+
   def show
     @evensong = Evensong.find(params[:id])
 

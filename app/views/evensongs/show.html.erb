@@ -1,41 +1,26 @@
-<h2>Note: <%= @note.title %></h2>
+<h2>Evensong: <%= @evensong.title %></h2>
 
 <br/>
 
 <table>
 
   <tr>
-    <td>ID</td>
-    <td><%= @note.display_id %></td>
-  </tr>
-
-  <tr>
     <td>Tittel</td>
-    <td><%= @note.title %></td>
+    <td><%= @evensong.title %></td>
   </tr>
 
   <tr>
-    <td>Besetning</td>
-    <td><%= @note.voice %></td>
+    <td>Salme</td>
+    <td><%= @evensong.psalm %></td>
   </tr>
 
   <tr>
-    <td>Antall original</td>
-    <td><%= @note.count_originals %></td>
+    <td>Fil</td>
+    <td><%= link_to_evensong_file(@evensong) %></td>
   </tr>
-
-  <tr>
-    <td>Antall kopi</td>
-    <td><%= @note.count_copies %></td>
-  </tr>
-
-  <tr>
-    <td>Antall instrumental</td>
-    <td><%= @note.count_instrumental %></td>
-  </tr>
-
 </table>
+
 
 <br/>
 
-<%= link_to 'Tilbake', notes_path %>
+<%= link_to 'Tilbake', evensongs_path %>

@@ -8,6 +8,7 @@
     <th>Tittel</th>
     <th>Salme</th>
     <th>TITTEL?</th>
+    <th>Fil</th>
   </tr>
   </thead>
   <tbody>
@@ -20,6 +21,7 @@
         </td>
         <td><%= evensong.psalm %></td>
         <td>PLACEHOLDER</td>
+        <td><%= link_to_evensong_file(evensong) %></td>
       </tr>
   <% end %>
   </tbody>
