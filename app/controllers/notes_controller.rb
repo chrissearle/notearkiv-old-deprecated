@@ -12,23 +12,64 @@ class NotesController < ApplicationController
   end
 
   def excel
-    book = Spreadsheet::Workbook.new
+    spreadsheet = NoteSpreadsheet.new(Note.find(:all))
 
+
+    send_file spreadsheet.get_spreadsheet, :filename => 'notearkiv.xls', :type => 'application/vnd.ms-excel', :disposition => 'attachment'
+  end
+
+end
+
+class HeaderColumn
+  attr_reader :title, :width
+
+  def initialize(title, width)
+    @title = title
+    @width =width
+  end
+end
+
+class NoteSpreadsheet
+
+  def initialize(notes)
+    @notes = notes
+
+    @header_format = Spreadsheet::Format.new :weight => :bold,
+                                             :align => :center
+
+    @header_columns = [HeaderColumn.new("ID", 8),
+                       HeaderColumn.new("Tittel", 50),
+                       HeaderColumn.new("Original", 8),
+                       HeaderColumn.new("Kopi", 8),
+                       HeaderColumn.new("Instr.", 8),
+                       HeaderColumn.new("Besetning", 15)]
+  end
+
+  def generate_sheet(book)
     sheet = book.create_worksheet
     sheet.name = "Notearkiv"
 
+    return sheet
+  end
+
+  def generate_header_row(sheet)
     header = sheet.row(0)
 
-    format = Spreadsheet::Format.new :weight => :bold,
-                                     :align => :center
+    header.default_format = @header_format
 
-    header.default_format = format
+    col = 0
 
+    @header_columns.each do |column|
+      header.push column.title
 
-    header.concat %w{ID Tittel Original Kopi Instr. Besetning}
+      sheet.column(col).width = column.width
 
+      col += 1
+    end
+  end
 
-    Note.find(:all).each do |note|
+  def generate_rows(sheet)
+    @notes.each do |note|
       row = sheet.row(sheet.last_row_index() + 1)
 
       row.push note.display_id
@@ -38,19 +79,25 @@ class NotesController < ApplicationController
       row.push note.count_instrumental
       row.push note.voice
     end
+  end
 
-    sheet.column(0).width = 8
-    sheet.column(1).width = 50
-    sheet.column(2).width = 8
-    sheet.column(3).width = 8
-    sheet.column(4).width = 8
-    sheet.column(5).width = 15
-
+  def write_to_temporary_file(book)
     tmp_file = Tempfile.new('notearkiv')
 
     book.write(tmp_file)
-    
-    send_file tmp_file.path, :filename => 'notearkiv.xls', :type => 'application/vnd.ms-excel', :disposition => 'attachment'
+
+    return tmp_file.path
   end
 
+  def get_spreadsheet
+    book = Spreadsheet::Workbook.new
+
+    sheet = generate_sheet(book)
+
+    generate_header_row(sheet)
+
+    generate_rows(sheet)
+
+    return write_to_temporary_file(book)
+  end
 end
