@@ -12,8 +12,8 @@ data = Hash.new
 
 data.each do |file, oldfile|
   if FileTest.exists?(oldfile)
-    #   db.create(oldfile)
-    #   db.rename(oldfile, "#{file}.pdf")
+    db.create(oldfile)
+    db.rename(oldfile, "#{file}.pdf")
   else
     print "Missing file #{oldfile} for file #{file}\n"
   end
