@@ -9,6 +9,8 @@ module ApplicationHelper
                          ENV['DROPBOX_PASS'],
                          "Public/#{prefix.capitalize}")
 
+        print "Looking for #{prefix}_#{object.id}.pdf"
+
         file = db.list.find {|f| f["name"] == "#{prefix}_#{object.id}.pdf" }
 
         if (file)
