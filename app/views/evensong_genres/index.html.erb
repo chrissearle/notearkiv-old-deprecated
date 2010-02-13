@@ -1,0 +1,19 @@
+<h2>Evensong Genre</h2>
+
+<br />
+
+<table>
+
+<% for evensong_genre in @evensong_genres %>
+  <tr>
+    <td><%=h evensong_genre.name %></td>
+    <td><%= link_to 'endre', edit_evensong_genre_path(evensong_genre) %></td>
+    <td><%= link_to 'slett', evensong_genre, :confirm => 'Er du sikker?',
+            :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Ny evensong genre', new_evensong_genre_path %>

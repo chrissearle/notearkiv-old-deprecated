@@ -29,11 +29,18 @@
 
   <div id="left">
     <div class="box">
-      <h2>Metadata lister for Noter</h2>
+      <h2>Metadata for Noter &amp; Evensong</h2>
+
+      <ul>
+        <li><%= link_to 'Komponister', composers_path %></li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Metadata for Noter</h2>
 
       <ul>
         <li><%= link_to 'Epoker', periods_path %></li>
-        <li><%= link_to 'Komponister', composers_path %></li>
         <li><%= link_to 'Akkompagnement', instruments_path %></li>
         <li><%= link_to 'Genre', genres_path %></li>
         <li><%= link_to 'Språk', languages_path %></li>
@@ -41,10 +48,10 @@
     </div>
 
     <div class="box">
-      <h2>Metadata lister for Evensong</h2>
+      <h2>Metadata for Evensong</h2>
 
       <ul>
-        <li>TITTEL? (salme/mag&nunc/Preces & Responses)</li>
+        <li><%= link_to 'Genre', evensong_genres_path %></li>
       </ul>
     </div>
 

@@ -46,6 +46,7 @@ ActionController::Routing::Routes.draw do |map|
   map.evensongmapping 'evensongs/mapping', :controller => 'evensongs', :action => 'mapping'
 
   map.resources :periods
+  map.resources :evensong_genres
   map.resources :genres
   map.resources :composers
   map.resources :languages

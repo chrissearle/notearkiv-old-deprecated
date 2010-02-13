@@ -1,0 +1,15 @@
+<h2>Endre</h2>
+
+<% form_for(@evensong_genre) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit 'Lagre' %>
+  </p>
+<% end %>
+
+<%= link_to 'Liste', evensong_genres_path %>

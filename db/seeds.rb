@@ -159,6 +159,10 @@ Genre.create([{ :name => 'Chant' },
               { :name => 'Verdslig' },
               { :name => 'Vise' }])
 
+EvensongGenre.create([{ :name => 'Salme' },
+              { :name => 'Mag & Nunc' },
+              { :name => 'Preces & Responses' }])
+
 Language.create([{ :name => 'Dansk' },
                  { :name => 'Engelsk' },
                  { :name => 'Finsk' },
