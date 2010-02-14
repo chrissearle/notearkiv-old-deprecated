@@ -185,19 +185,17 @@ Genre.create([{ :name => 'Chant' },
               { :name => 'Koral' },
               { :name => 'Liturgi' },
               { :name => 'Madrigal' },
+              { :name => 'Mag & Nunc' },
               { :name => 'Motett' },
               { :name => 'Nasjonalsang' },
               { :name => 'Oratorium' },
               { :name => 'Pop' },
+              { :name => 'Preces & Responses' },
               { :name => 'Salme' },
               { :name => 'Spiritual' },
               { :name => 'Te Deum' },
               { :name => 'Verdslig' },
               { :name => 'Vise' }])
-
-EvensongGenre.create([{ :name => 'Salme' },
-              { :name => 'Mag & Nunc' },
-              { :name => 'Preces & Responses' }])
 
 Language.create([{ :name => 'Dansk' },
                  { :name => 'Engelsk' },
