@@ -137,7 +137,7 @@ class NoteSpreadsheet
       row.push get_name_if_exists note.composer
       row.push get_name_if_exists note.genre
       row.push get_name_if_exists note.period
-      row.push get_name_if_exists note.instrument
+      row.push note.instrument
       row.push note.count_originals
       row.push note.count_copies
       row.push note.count_instrumental

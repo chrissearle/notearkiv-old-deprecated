@@ -1,8 +1,39 @@
+<% content_for :head do %>
+    <script type="text/javascript" src="/js/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            $('#noteTable').dataTable({
+                "bPaginate": false,
+                "bInfo": false,
+                "oLanguage": {
+                    "sSearch": "Filtrere i tabellen:",
+                    "sZeroRecords": "Ingen treff"
+                },
+                "aoColumns": [
+                    {
+                        "sType": "html"
+                    },
+                    null,
+                    null,
+                    null,
+                    {
+                        "bSearchable": false
+                    }
+                ]
+            });
+        }
+                );
+    </script>
+<% end %>
+
 <h2>Evensong</h2>
 
 <p><%= link_to 'Last ned', evensongexcel_url %></p>
 
-<table id="noteTable" class="tablesorter">
+<table id="noteTable">
   <thead>
   <tr>
     <th>Tittel</th>
@@ -32,17 +63,3 @@
 <br/>
 
 <%= link_to 'Ny evensong', new_evensong_path %>
-
-<script type="text/javascript">
-    $(document).ready(function()
-    {
-        $("#noteTable").tablesorter(
-        {
-            sortList: [[0,0]],
-            textExtraction: "complex",
-            headers: { 1: { sorter:'digit' } }
-        }
-                );
-    }
-            );
-</script>

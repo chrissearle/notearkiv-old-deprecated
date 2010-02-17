@@ -1,8 +1,43 @@
+<% content_for :head do %>
+    <script type="text/javascript" src="/js/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            $('#noteTable').dataTable({
+                "bPaginate": false,
+                "bInfo": false,
+                "oLanguage": {
+                    "sSearch": "Filtrere i tabellen:",
+                    "sZeroRecords": "Ingen treff"
+                },
+                "aoColumns": [
+                    {
+                        "sType": "html"
+                    },
+                    {
+                        "sType": "html"
+                    },
+                    null,
+                    null,
+                    null,
+                    null,
+                    {
+                        "bSearchable": false
+                    }
+                ]
+            });
+        }
+                );
+    </script>
+<% end %>
+
 <h2>Noter</h2>
 
 <p><%= link_to 'Last ned', noteexcel_url %></p>
 
-<table id="noteTable" class="tablesorter">
+<table id="noteTable">
   <thead>
   <tr>
     <th>ID</th>
@@ -30,7 +65,7 @@
         <td><%= note.composer.name if note.composer %></td>
         <td><%= note.genre.name if note.genre %></td>
         <td><%= note.period.name if note.period %></td>
-        <td><%= note.instrument.name if note.instrument %></td>
+        <td><%= note.instrument %></td>
         <td><%= link_to_note_file(note) %></td>
       </tr>
   <% end %>
@@ -40,11 +75,3 @@
 <br/>
 
 <%= link_to 'Ny note', new_note_path %>
-
-<script type="text/javascript">
-    $(document).ready(function()
-    {
-        $("#noteTable").tablesorter( {sortList: [[0,0], [1,0]], textExtraction: "complex"} );
-    }
-            );
-</script>
