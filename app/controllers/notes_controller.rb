@@ -66,7 +66,7 @@ class NotesController < ApplicationController
   end
 
   def excel
-    spreadsheet = NoteSpreadsheet.new(Note.find(:all))
+    spreadsheet = NoteSpreadsheet.new(Note.find(:all).sort_by{|p| p.title.downcase})
 
 
     send_file spreadsheet.get_spreadsheet, :filename => 'notearkiv.xls', :type => 'application/vnd.ms-excel', :disposition => 'attachment'

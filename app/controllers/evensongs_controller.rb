@@ -75,7 +75,7 @@ class EvensongsController < ApplicationController
   end
 
   def excel
-    spreadsheet = EvensongSpreadsheet.new(Evensong.find(:all))
+    spreadsheet = EvensongSpreadsheet.new(Evensong.find(:all).sort_by{|p| p.title.downcase})
 
 
     send_file spreadsheet.get_spreadsheet, :filename => 'evensongarkiv.xls', :type => 'application/vnd.ms-excel', :disposition => 'attachment'
