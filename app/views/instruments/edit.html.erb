@@ -1,15 +1,5 @@
-<h2>Endre</h2>
+<h1>Endre <%= @instrument.name %></h1>
 
-<% form_for(@instrument) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit 'Lagre' %>
-  </p>
-<% end %>
+<%= render :partial => "instrument" %>
 
 <%= link_to 'Liste', instruments_path %>

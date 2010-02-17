@@ -1,15 +1,5 @@
 <h1>Ny akkompagnement</h1>
 
-<% form_for(@instrument) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit "Opprett" %>
-  </p>
-<% end %>
+<%= render :partial => "instrument" %>
 
 <%= link_to 'Tilbake', instruments_path %>

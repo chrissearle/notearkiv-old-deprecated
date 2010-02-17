@@ -1,15 +1,5 @@
-<h2>Endre</h2>
+<h1>Endre <%= @genre.name %></h1>
 
-<% form_for(@genre) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit 'Lagre' %>
-  </p>
-<% end %>
+<%= render :partial => "genre" %>
 
 <%= link_to 'Liste', genres_path %>

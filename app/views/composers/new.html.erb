@@ -1,15 +1,5 @@
 <h1>Ny komponist</h1>
 
-<% form_for(@composer) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit "Opprett" %>
-  </p>
-<% end %>
+<%= render :partial => "composer" %>
 
 <%= link_to 'Tilbake', composers_path %>

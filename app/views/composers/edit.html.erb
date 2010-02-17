@@ -1,15 +1,5 @@
-<h2>Endre</h2>
+<h1>Endre <%= @composer.name %></h1>
 
-<% form_for(@composer) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit 'Lagre' %>
-  </p>
-<% end %>
+<%= render :partial => "composer" %>
 
 <%= link_to 'Liste', composers_path %>

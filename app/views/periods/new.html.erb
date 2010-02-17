@@ -1,15 +1,5 @@
 <h1>Ny epoke</h1>
 
-<% form_for(@period) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit "Opprett" %>
-  </p>
-<% end %>
+<%= render :partial => "period" %>
 
 <%= link_to 'Tilbake', periods_path %>
