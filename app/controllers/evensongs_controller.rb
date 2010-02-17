@@ -103,7 +103,8 @@ class EvensongSpreadsheet
     @header_columns = [HeaderColumn.new("SysID", 8),
                        HeaderColumn.new("Tittel", 50),
                        HeaderColumn.new("Salme", 8),
-                       HeaderColumn.new("Komponist", 50)]
+                       HeaderColumn.new("Komponist", 50),
+                       HeaderColumn.new("Genre", 35)]
   end
 
   def generate_sheet(book)
@@ -137,6 +138,7 @@ class EvensongSpreadsheet
       row.push evensong.title
       row.push evensong.psalm
       row.push get_name_if_exists evensong.composer
+      row.push get_name_if_exists evensong.genre
     end
   end
 

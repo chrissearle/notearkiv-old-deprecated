@@ -22,7 +22,7 @@
         </td>
         <td><%= evensong.psalm %></td>
         <td><%= evensong.composer.name if evensong.composer %></td>
-        <td>PLACEHOLDER</td>
+        <td><%= evensong.genre.name if evensong.genre %></td>
         <td><%= link_to_evensong_file(evensong) %></td>
       </tr>
   <% end %>
