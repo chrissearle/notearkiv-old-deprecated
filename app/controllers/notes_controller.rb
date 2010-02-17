@@ -94,6 +94,10 @@ class NoteSpreadsheet
     @header_columns = [HeaderColumn.new("SysID", 8),
                        HeaderColumn.new("ID", 8),
                        HeaderColumn.new("Tittel", 50),
+                       HeaderColumn.new("Komponist", 35),
+                       HeaderColumn.new("Genre", 35),
+                       HeaderColumn.new("Epoke", 35),
+                       HeaderColumn.new("Akkomp.", 35),
                        HeaderColumn.new("Original", 8),
                        HeaderColumn.new("Kopi", 8),
                        HeaderColumn.new("Instr.", 8),
@@ -130,10 +134,22 @@ class NoteSpreadsheet
       row.push note.id
       row.push note.item
       row.push note.title
+      row.push get_name_if_exists note.composer
+      row.push get_name_if_exists note.genre
+      row.push get_name_if_exists note.period
+      row.push get_name_if_exists note.instrument
       row.push note.count_originals
       row.push note.count_copies
       row.push note.count_instrumental
       row.push note.voice
+    end
+  end
+
+  def get_name_if_exists(object)
+    if (object)
+      return object.name
+    else
+      return ""
     end
   end
 
