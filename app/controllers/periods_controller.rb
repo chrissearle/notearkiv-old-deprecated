@@ -1,4 +1,6 @@
 class PeriodsController < ApplicationController
+  filter_access_to :all
+
   def index
     @periods = Period.find(:all).sort_by{|p| p.name.downcase}
 

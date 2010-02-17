@@ -1,0 +1,11 @@
+<% title "Logg på" %>
+
+<% semantic_form_for @user_session do |form| %>
+    <% form.inputs do %>
+    <%= form.input :username, :label => "Brukernavn" %>
+    <%= form.input :password, :label => "Passord" %>
+        <% end %>
+    <% form.buttons do %>
+        <%= form.commit_button :label => "Logg på" %>
+    <% end %>
+<% end %>

@@ -87,4 +87,4 @@
 
 <br/>
 
-<%= link_to 'Ny note', new_note_path %>
+<%= link_to 'Ny note', new_note_path if permitted_to? :new, :notes %>

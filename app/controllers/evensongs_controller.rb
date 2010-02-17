@@ -1,6 +1,7 @@
 require 'spreadsheet'
 
 class EvensongsController < ApplicationController
+  filter_access_to :all
 
   def index
     @evensongs = Evensong.find(:all)

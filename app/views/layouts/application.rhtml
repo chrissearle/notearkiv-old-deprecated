@@ -14,9 +14,11 @@
 
   <div id="menu">
     <ul id="nav">
-      <li><%= link_to 'Notearkiv', notes_path %></li>
-      <li><%= link_to 'Evensong', evensongs_path %></li>
-      <li><a href="http://intranett.ochs.no">Intranett</a></li>
+      <% if current_user %>
+          <li><%= link_to 'Notearkiv', notes_path %></li>
+          <li><%= link_to 'Evensong', evensongs_path %></li>
+          <li><a href="http://intranett.ochs.no">Intranett</a></li>
+      <% end %>
       <li><a href="http://www.ochs.no">OCHS</a></li>
     </ul>
   </div>
@@ -30,26 +32,37 @@
   </div>
 
   <div id="left">
+    <% if current_user %>
+        <div class="box">
+          <h2><%= current_user.username %></h2>
+          <ul>
+            <li><%= link_to 'Logg av', logout_path %></li>
+          </ul>
+        </div>
+
+
+        <div class="box">
+          <h2>Metadata for Noter &amp; Evensong</h2>
+
+          <ul>
+            <li><%= link_to 'Komponister', composers_path %></li>
+            <li><%= link_to 'Genre', genres_path %></li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h2>Metadata for Noter</h2>
+
+          <ul>
+            <li><%= link_to 'Epoker', periods_path %></li>
+            <li><%= link_to 'Språk', languages_path %></li>
+          </ul>
+        </div>
+    <% end %>
+
     <div class="box">
-      <h2>Metadata for Noter &amp; Evensong</h2>
-
-      <ul>
-        <li><%= link_to 'Komponister', composers_path %></li>
-        <li><%= link_to 'Genre', genres_path %></li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <h2>Metadata for Noter</h2>
-
-      <ul>
-        <li><%= link_to 'Epoker', periods_path %></li>
-        <li><%= link_to 'Språk', languages_path %></li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <div style="font-size: 0.8em;">Design by <a href="http://www.minimalistic-design.net">Minimalistic Design</a>
+      <div style="font-size: 0.8em;">Design by
+        <a href="http://www.minimalistic-design.net">Minimalistic Design</a>
       </div>
     </div>
   </div>

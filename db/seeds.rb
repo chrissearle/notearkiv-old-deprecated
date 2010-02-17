@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+Role.create([{ :name => "admin" },
+             { :name => "normal" }])
+
+
 Period.create([{ :name => 'Barokk' },
                { :name => 'Klassisisme' },
                { :name => 'Nasjonalromantikk' },

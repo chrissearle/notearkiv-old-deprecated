@@ -37,6 +37,8 @@
 
 <br/>
 
-<%= link_to 'Endre', edit_evensong_path %>
+<% if permitted_to? :edit, @evensong %>
+    <%= link_to 'Endre', edit_evensong_path %>
+<% end %>
 <br/>
 <%= link_to 'Tilbake', evensongs_path %>

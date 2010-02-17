@@ -1,4 +1,6 @@
 class LanguagesController < ApplicationController
+  filter_access_to :all
+
   def index
     @languages = Language.find(:all).sort_by{|p| p.name.downcase}
 

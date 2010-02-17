@@ -1,4 +1,6 @@
 class GenresController < ApplicationController
+  filter_access_to :all
+
   def index
     @genres = Genre.find(:all).sort_by{|p| p.name.downcase}
 

@@ -1,19 +1,23 @@
 <h2>Epoker</h2>
 
-<br />
+<br/>
 
 <table>
 
-<% for period in @periods %>
-  <tr>
-    <td><%=h period.name %></td>
-    <td><%= link_to 'endre', edit_period_path(period) %></td>
-    <td><%= link_to 'slett', period, :confirm => 'Er du sikker?',
-            :method => :delete %></td>
-  </tr>
-<% end %>
+  <% for period in @periods %>
+      <tr>
+        <td><%= h period.name %></td>
+        <% if permitted_to? :edit, period %>
+            <td><%= link_to 'endre', edit_period_path(period) %></td>
+        <% end %>
+        <% if permitted_to? :destroy, period %>
+            <td><%= link_to 'slett', period, :confirm => 'Er du sikker?',
+                            :method => :delete %></td>
+        <% end %>
+      </tr>
+  <% end %>
 </table>
 
-<br />
+<br/>
 
-<%= link_to 'Ny epoke', new_period_path %>
+<%= link_to 'Ny epoke', new_period_path if permitted_to? :new, :periods %>

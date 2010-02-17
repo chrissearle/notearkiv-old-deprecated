@@ -1,19 +1,23 @@
 <h2>Genre</h2>
 
-<br />
+<br/>
 
 <table>
 
-<% for genre in @genres %>
-  <tr>
-    <td><%=h genre.name %></td>
-    <td><%= link_to 'endre', edit_genre_path(genre) %></td>
-    <td><%= link_to 'slett', genre, :confirm => 'Er du sikker?',
-            :method => :delete %></td>
-  </tr>
-<% end %>
+  <% for genre in @genres %>
+      <tr>
+        <td><%= h genre.name %></td>
+        <% if permitted_to? :edit, genre %>
+            <td><%= link_to 'endre', edit_genre_path(genre) %></td>
+        <% end %>
+        <% if permitted_to? :destroy, genre %>
+            <td><%= link_to 'slett', genre, :confirm => 'Er du sikker?',
+                            :method => :delete %></td>
+        <% end %>
+      </tr>
+  <% end %>
 </table>
 
-<br />
+<br/>
 
-<%= link_to 'Ny genre', new_genre_path %>
+<%= link_to 'Ny genre', new_genre_path if permitted_to? :new, :genres %>

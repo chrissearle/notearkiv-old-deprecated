@@ -71,6 +71,8 @@
 
 <br/>
 
-<%= link_to 'Endre', edit_note_path %>
+<% if permitted_to? :edit, @note %>
+    <%= link_to 'Endre', edit_note_path %>
+<% end %>
 <br/>
 <%= link_to 'Tilbake', notes_path %>

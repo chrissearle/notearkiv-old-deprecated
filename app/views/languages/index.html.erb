@@ -1,19 +1,23 @@
 <h2>Språk</h2>
 
-<br />
+<br/>
 
 <table>
 
-<% for language in @languages %>
-  <tr>
-    <td><%=h language.name %></td>
-    <td><%= link_to 'endre', edit_language_path(language) %></td>
-    <td><%= link_to 'slett', language, :confirm => 'Er du sikker?',
-            :method => :delete %></td>
-  </tr>
-<% end %>
+  <% for language in @languages %>
+      <tr>
+        <td><%= h language.name %></td>
+        <% if permitted_to? :edit, language %>
+            <td><%= link_to 'endre', edit_language_path(language) %></td>
+        <% end %>
+        <% if permitted_to? :destroy, language %>
+            <td><%= link_to 'slett', language, :confirm => 'Er du sikker?',
+                            :method => :delete %></td>
+        <% end %>
+      </tr>
+  <% end %>
 </table>
 
-<br />
+<br/>
 
-<%= link_to 'Ny språk', new_language_path %>
+<%= link_to 'Ny språk', new_language_path if permitted_to? :new, :languages %>

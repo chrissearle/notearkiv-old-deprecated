@@ -1,4 +1,6 @@
 class ComposersController < ApplicationController
+  filter_access_to :all
+
   def index
     @composers = Composer.find(:all).sort_by{|p| p.name.downcase}
 

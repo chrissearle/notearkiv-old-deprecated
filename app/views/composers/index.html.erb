@@ -1,19 +1,24 @@
 <h2>Komponistr</h2>
 
-<br />
+<br/>
 
 <table>
 
-<% for composer in @composers %>
-  <tr>
-    <td><%=h composer.name %></td>
-    <td><%= link_to 'endre', edit_composer_path(composer) %></td>
-    <td><%= link_to 'slett', composer, :confirm => 'Er du sikker?',
-            :method => :delete %></td>
-  </tr>
-<% end %>
+  <% for composer in @composers %>
+      <tr>
+        <td><%= h composer.name %></td>
+
+        <% if permitted_to? :edit, composer %>
+            <td><%= link_to 'endre', edit_composer_path(composer) %></td>
+        <% end %>
+        <% if permitted_to? :destroy, composer %>
+            <td><%= link_to 'slett', composer, :confirm => 'Er du sikker?',
+                            :method => :delete %></td>
+        <% end %>
+      </tr>
+  <% end %>
 </table>
 
-<br />
+<br/>
 
-<%= link_to 'Ny komponist', new_composer_path %>
+<%= link_to 'Ny komponist', new_composer_path  if permitted_to? :new, :composers  %>

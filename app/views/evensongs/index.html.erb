@@ -62,4 +62,4 @@
 
 <br/>
 
-<%= link_to 'Ny evensong', new_evensong_path %>
+<%= link_to 'Ny evensong', new_evensong_path if permitted_to? :new, :evensongs %>
