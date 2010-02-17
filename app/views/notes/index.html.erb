@@ -28,7 +28,7 @@
         </td>
         <td><%= note.composer.name if note.composer %></td>
         <td><%= note.genre.name if note.genre %></td>
-        <td>PLACEHOLDER</td>
+        <td><%= note.period.name if note.period %></td>
         <td><%= link_to_note_file(note) %></td>
       </tr>
   <% end %>
