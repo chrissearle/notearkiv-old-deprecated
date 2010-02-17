@@ -22,6 +22,13 @@
   </tr>
 
   <tr>
+    <td>Genre</td>
+    <td>
+      <%= @note.genre.name if @note.genre %>
+    </td>
+  </tr>
+
+  <tr>
     <td>Besetning</td>
     <td><%= @note.voice %></td>
   </tr>
