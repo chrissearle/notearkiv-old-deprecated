@@ -1,3 +1,5 @@
 class Instrument < ActiveRecord::Base
- validates_presence_of :name
+  has_many :notes
+
+  validates_presence_of :name
 end

@@ -10,6 +10,7 @@
     <th>Komponist</th>
     <th>Genre</th>
     <th>Epoke</th>
+    <th>Akkomp.</th>
     <th>Fil</th>
   </tr>
   </thead>
@@ -29,6 +30,7 @@
         <td><%= note.composer.name if note.composer %></td>
         <td><%= note.genre.name if note.genre %></td>
         <td><%= note.period.name if note.period %></td>
+        <td><%= note.instrument.name if note.instrument %></td>
         <td><%= link_to_note_file(note) %></td>
       </tr>
   <% end %>
