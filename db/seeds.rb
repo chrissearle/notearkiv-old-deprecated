@@ -2281,356 +2281,435 @@ Note.create([
                 :count_instrumental => '1'
         }])
 
+magnunc = Genre.find_by_name("Mag & Nunc")
+precresp = Genre.find_by_name("Preces & Responses")
+salme = Genre.find_by_name("Chant")
+
 Evensong.create([
         {
                 :title => 'Walsh',
-                :old_file_path => 'Walsh.pdf'
+                :old_file_path => 'Walsh.pdf',
+                :genre => precresp
         },
         {
                 :title => 'Tomkins',
-                :old_file_path => 'Tomkins.pdf'
+                :old_file_path => 'Tomkins.pdf',
+                :genre => precresp
         },
         {
                 :title => 'Sumsion',
-                :old_file_path => 'Sumsion.pdf'
+                :old_file_path => 'Sumsion.pdf',
+                :genre => precresp
         },
         {
                 :title => 'Smith',
-                :old_file_path => 'Smith.pdf'
+                :old_file_path => 'Smith.pdf',
+                :genre => precresp
         },
         {
                 :title => 'Skjølaas',
-                :old_file_path => 'Skjølaas.pdf'
+                :old_file_path => 'Skjølaas.pdf',
+                :genre => precresp
         },
         {
                 :title => 'Reading',
-                :old_file_path => 'Reading.pdf'
+                :old_file_path => 'Reading.pdf',
+                :genre => precresp
         },
         {
                 :title => 'Millington',
-                :old_file_path => 'Millington.pdf'
+                :old_file_path => 'Millington.pdf',
+                :genre => precresp
         },
         {
                 :title => 'Leighton',
-                :old_file_path => 'Leighton.pdf'
+                :old_file_path => 'Leighton.pdf',
+                :genre => precresp
         },
         {
                 :title => 'Ihlebæk',
-                :old_file_path => 'Ihlebæk.pdf'
+                :old_file_path => 'Ihlebæk.pdf',
+                :genre => precresp
         },
         {
                 :title => 'Sumsion in G',
-                :old_file_path => 'Sumsion in G.pdf'
+                :old_file_path => 'Sumsion in G.pdf',
+                :genre => magnunc
         },
         {
                 :title => 'Stanford in C',
-                :old_file_path => 'Stanford in C.pdf'
+                :old_file_path => 'Stanford in C.pdf',
+                :genre => magnunc
         },
         {
                 :title => 'Stanford in B',
-                :old_file_path => 'Stanford in B.pdf'
+                :old_file_path => 'Stanford in B.pdf',
+                :genre => magnunc
         },
         {
                 :title => 'Stanford in A',
-                :old_file_path => 'Stanford in A.pdf'
+                :old_file_path => 'Stanford in A.pdf',
+                :genre => magnunc
         },
         {
                 :title => 'Kverno i Fiss',
-                :old_file_path => 'Kverno i Fiss.pdf'
+                :old_file_path => 'Kverno i Fiss.pdf',
+                :genre => magnunc
         },
         {
                 :title => 'Howells Regale',
-                :old_file_path => 'Howells regale.pdf'
+                :old_file_path => 'Howells regale.pdf',
+                :genre => magnunc
         },
         {
                 :title => 'Howells Gloucester',
-                :old_file_path => 'Howells Gloucester.pdf'
+                :old_file_path => 'Howells Gloucester.pdf',
+                :genre => magnunc
         },
         {
                 :title => 'Darke in F',
-                :old_file_path => 'Darke in F.pdf'
+                :old_file_path => 'Darke in F.pdf',
+                :genre => magnunc
         },
         {
                 :psalm => '148',
                 :title => 'Laudate Dominum',
-                :old_file_path => '148 Laudate Dominum.pdf'
+                :old_file_path => '148 Laudate Dominum.pdf',
+                :genre => salme
         },
         {
                 :psalm => '147',
                 :title => 'Laudate Dominum',
-                :old_file_path => '147 Laudate Dominum.pdf'
+                :old_file_path => '147 Laudate Dominum.pdf',
+                :genre => salme
         },
         {
                 :psalm => '146',
                 :title => 'Lauda, anima mea',
-                :old_file_path => '146 Lauda, anima mea.pdf'
+                :old_file_path => '146 Lauda, anima mea.pdf',
+                :genre => salme
         },
         {
                 :psalm => '145',
                 :title => 'Exaltabo te, Deus',
-                :old_file_path => '145 Exaltabo te, Deus.pdf'
+                :old_file_path => '145 Exaltabo te, Deus.pdf',
+                :genre => salme
         },
         {
                 :psalm => '139',
                 :title => 'Domine, probasti',
-                :old_file_path => '139 Domine, probasti.pdf'
+                :old_file_path => '139 Domine, probasti.pdf',
+                :genre => salme
         },
         {
                 :psalm => '138',
                 :title => 'Confitebor tibi',
-                :old_file_path => '138 Confitebor tibi.pdf'
+                :old_file_path => '138 Confitebor tibi.pdf',
+                :genre => salme
         },
         {
                 :psalm => '130',
                 :title => 'De profundis',
-                :old_file_path => '130 De profundis.pdf'
+                :old_file_path => '130 De profundis.pdf',
+                :genre => salme
         },
         {
                 :psalm => '127',
                 :title => 'Nisi Dominus',
-                :old_file_path => '127 Nisi Dominus.pdf'
+                :old_file_path => '127 Nisi Dominus.pdf',
+                :genre => salme
         },
         {
                 :psalm => '126',
                 :title => 'In convertendo',
-                :old_file_path => '126 In convertendo.pdf'
+                :old_file_path => '126 In convertendo.pdf',
+                :genre => salme
         },
         {
                 :psalm => '125',
                 :title => 'Qui confidunt',
-                :old_file_path => '125 Qui confidunt.pdf'
+                :old_file_path => '125 Qui confidunt.pdf',
+                :genre => salme
         },
         {
                 :psalm => '124',
                 :title => 'Nisi quia Dominus',
-                :old_file_path => '124 Nisi quia Dominus.pdf'
+                :old_file_path => '124 Nisi quia Dominus.pdf',
+                :genre => salme
         },
         {
                 :psalm => '121',
                 :title => 'Levavi oculos',
-                :old_file_path => '121 Levavi oculos.pdf'
+                :old_file_path => '121 Levavi oculos.pdf',
+                :genre => salme
         },
         {
                 :psalm => '120',
                 :title => 'Ad Dominum',
-                :old_file_path => '120 Ad Dominum.pdf'
+                :old_file_path => '120 Ad Dominum.pdf',
+                :genre => salme
         },
         {
                 :psalm => '118',
                 :title => 'Confitemini Domino',
-                :old_file_path => '118 Confitemini Domino.pdf'
+                :old_file_path => '118 Confitemini Domino.pdf',
+                :genre => salme
         },
         {
                 :psalm => '116',
                 :title => 'Dilexi, quoniam',
-                :old_file_path => '116 Dilexi, quoniam.pdf'
+                :old_file_path => '116 Dilexi, quoniam.pdf',
+                :genre => salme
         },
         {
                 :psalm => '114',
                 :title => 'In exitu Israel',
-                :old_file_path => '114 In exitu Israel.pdf'
+                :old_file_path => '114 In exitu Israel.pdf',
+                :genre => salme
         },
         {
                 :psalm => '111',
                 :title => 'Confitebor tibi',
-                :old_file_path => '111 Confitebor tibi.pdf'
+                :old_file_path => '111 Confitebor tibi.pdf',
+                :genre => salme
         },
         {
                 :psalm => '100',
                 :title => 'Jubilate Deo',
-                :old_file_path => '100 Jubilate Deo.pdf'
+                :old_file_path => '100 Jubilate Deo.pdf',
+                :genre => salme
         },
         {
                 :psalm => '99',
                 :title => 'Dominus regnavit',
-                :old_file_path => '99 Dominus regnavit.pdf'
+                :old_file_path => '99 Dominus regnavit.pdf',
+                :genre => salme
         },
         {
                 :psalm => '93',
                 :title => 'Dominus regnavit',
-                :old_file_path => '93 Dominus regnavit.pdf'
+                :old_file_path => '93 Dominus regnavit.pdf',
+                :genre => salme
         },
         {
                 :psalm => '85',
                 :title => 'Benedixisti, Domine',
-                :old_file_path => '85 Benedixisti, Domine.pdf'
+                :old_file_path => '85 Benedixisti, Domine.pdf',
+                :genre => salme
         },
         {
                 :psalm => '84',
                 :title => 'Quam dilecta',
-                :old_file_path => '84 Quam dilecta.pdf'
+                :old_file_path => '84 Quam dilecta.pdf',
+                :genre => salme
         },
         {
                 :psalm => '83',
                 :title => 'Deus, quis similis',
-                :old_file_path => '83 Deus, quis similis.pdf'
+                :old_file_path => '83 Deus, quis similis.pdf',
+                :genre => salme
         },
         {
                 :psalm => '82',
                 :title => 'Deus stetit',
-                :old_file_path => '82 Deus stetit.pdf'
+                :old_file_path => '82 Deus stetit.pdf',
+                :genre => salme
         },
         {
                 :psalm => '80',
                 :title => 'Qui regis Israel',
-                :old_file_path => '80 Qui regis Israel.pdf'
+                :old_file_path => '80 Qui regis Israel.pdf',
+                :genre => salme
         },
         {
                 :psalm => '79',
                 :title => 'Deus, venerunt',
-                :old_file_path => '79 Deus, venerunt.pdf'
+                :old_file_path => '79 Deus, venerunt.pdf',
+                :genre => salme
         },
         {
                 :psalm => '77',
                 :title => 'Voce mea ad Dominum',
-                :old_file_path => '77 Voce mea ad Dominum.pdf'
+                :old_file_path => '77 Voce mea ad Dominum.pdf',
+                :genre => salme
         },
         {
                 :psalm => '75',
                 :title => 'Confitebimur tibi',
-                :old_file_path => '75 Confitebimur tibi.pdf'
+                :old_file_path => '75 Confitebimur tibi.pdf',
+                :genre => salme
         },
         {
                 :psalm => '72',
                 :title => 'Deus, judicium',
-                :old_file_path => '72 Deus, judicium.pdf'
+                :old_file_path => '72 Deus, judicium.pdf',
+                :genre => salme
         },
         {
                 :psalm => '71',
                 :title => 'In te, Domine, speravi',
-                :old_file_path => '71 In te, Domine, speravi.pdf'
+                :old_file_path => '71 In te, Domine, speravi.pdf',
+                :genre => salme
         },
         {
                 :psalm => '51',
                 :title => 'Miserere mei, Deus',
-                :old_file_path => '51 Miserere mei, Deus.pdf'
+                :old_file_path => '51 Miserere mei, Deus.pdf',
+                :genre => salme
         },
         {
                 :psalm => '49',
                 :title => 'Audite hæc, omnes',
-                :old_file_path => '49 Audite hæc, omnes.pdf'
+                :old_file_path => '49 Audite hæc, omnes.pdf',
+                :genre => salme
         },
         {
                 :psalm => '42',
                 :title => 'Quemadmodum-43 Judica me, Deus',
-                :old_file_path => '42 Quemadmodum-43 Judica me, Deus.pdf'
+                :old_file_path => '42 Quemadmodum-43 Judica me, Deus.pdf',
+                :genre => salme
         },
         {
                 :psalm => '42',
                 :title => 'Quemadmodum ',
-                :old_file_path => '42 Quemadmodum.pdf'
+                :old_file_path => '42 Quemadmodum.pdf',
+                :genre => salme
         },
         {
                 :psalm => '38',
                 :title => 'Domine, ne in furore',
-                :old_file_path => '38 Domine, ne in furore.pdf'
+                :old_file_path => '38 Domine, ne in furore.pdf',
+                :genre => salme
         },
         {
                 :psalm => '33',
                 :title => 'Exultate, justi',
-                :old_file_path => '33 Exultate, justi.pdf'
+                :old_file_path => '33 Exultate, justi.pdf',
+                :genre => salme
         },
         {
                 :psalm => '28',
                 :title => 'Ad te, Domine',
-                :old_file_path => '28 Ad te, Domine.pdf'
+                :old_file_path => '28 Ad te, Domine.pdf',
+                :genre => salme
         },
         {
                 :psalm => '26',
                 :title => 'Judica me, Domine',
-                :old_file_path => '26 Judica me, Domine.pdf'
+                :old_file_path => '26 Judica me, Domine.pdf',
+                :genre => salme
         },
         {
                 :psalm => '25',
                 :title => 'Ad te, Domini, levavi',
-                :old_file_path => '25 Ad te, Domini, levavi.pdf'
+                :old_file_path => '25 Ad te, Domini, levavi.pdf',
+                :genre => salme
         },
         {
                 :psalm => '24',
                 :title => 'Domine est terra',
-                :old_file_path => '24 Domine est terra.pdf'
+                :old_file_path => '24 Domine est terra.pdf',
+                :genre => salme
         },
         {
                 :psalm => '23',
                 :title => 'Dominus regit me',
-                :old_file_path => '23 Dominus regit me.pdf'
+                :old_file_path => '23 Dominus regit me.pdf',
+                :genre => salme
         },
         {
                 :psalm => '21',
                 :title => 'Domine, in virtute tua',
-                :old_file_path => '21 Domine, in virtute tua.pdf'
+                :old_file_path => '21 Domine, in virtute tua.pdf',
+                :genre => salme
         },
         {
                 :psalm => '15',
                 :title => 'Domine, quis habitabit',
-                :old_file_path => '15 Domine, quis habitabit.pdf'
+                :old_file_path => '15 Domine, quis habitabit.pdf',
+                :genre => salme
         },
         {
                 :psalm => '8',
                 :title => 'Domine, Dominus noster',
-                :old_file_path => '8 Domine, Dominus noster.pdf'
+                :old_file_path => '8 Domine, Dominus noster.pdf',
+                :genre => salme
         },
         {
                 :psalm => '5',
                 :title => 'Verba mea auribus',
-                :old_file_path => '5 Verba mea auribus.pdf'
+                :old_file_path => '5 Verba mea auribus.pdf',
+                :genre => salme
         },
         {
                 :psalm => '4',
                 :title => 'Cum invocarem',
-                :old_file_path => '4 Cum invocarem.pdf'
+                :old_file_path => '4 Cum invocarem.pdf',
+                :genre => salme
         },
         {
                 :psalm => '3',
                 :title => 'Domine, quid multiplicati',
-                :old_file_path => '3 Domine, quid multiplicati.pdf'
+                :old_file_path => '3 Domine, quid multiplicati.pdf',
+                :genre => salme
         },
         {
                 :psalm => '1',
                 :title => 'Beatus vir, qui non abbit',
-                :old_file_path => '1 Beatus vir, qui non abbit.pdf'
+                :old_file_path => '1 Beatus vir, qui non abbit.pdf',
+                :genre => salme
         },
         {
                 :title => 'Walmisley in d',
-                :old_file_path => 'Walmisley in d.pdf'
+                :old_file_path => 'Walmisley in d.pdf',
+                :genre => precresp
         },
         {
                 :psalm => '73',
                 :title => 'Quam bonus Israel',
-                :old_file_path => '73 Quam bonus Israel.pdf'
+                :old_file_path => '73 Quam bonus Israel.pdf',
+                :genre => salme
         },
         {
                 :psalm => '113',
                 :title => 'Laudate, pueri',
-                :old_file_path => '113 Laudate, pueri.pdf'
+                :old_file_path => '113 Laudate, pueri.pdf',
+                :genre => salme
         },
         {
                 :title => 'Barnard',
-                :old_file_path => 'Barnard.pdf'
+                :old_file_path => 'Barnard.pdf',
+                :genre => precresp
         },
         {
                 :title => 'Draagen',
-                :old_file_path => 'Draagen.pdf'
+                :old_file_path => 'Draagen.pdf',
+                :genre => magnunc
         },
         {
                 :title => 'Noble in B',
-                :old_file_path => 'Noble in B.pdf'
+                :old_file_path => 'Noble in B.pdf',
+                :genre => magnunc
         },
         {
                 :psalm => '89',
                 :title => 'Misericordias Domini',
-                :old_file_path => 'Ps.89 Misericordias Domini.pdf'
+                :old_file_path => 'Ps.89 Misericordias Domini.pdf',
+                :genre => salme
         },
         {
                 :psalm => '115',
                 :title => 'Non nobis, Domine',
-                :old_file_path => '115 Non nobis, Domine.pdf'
+                :old_file_path => '115 Non nobis, Domine.pdf',
+                :genre => salme
         },
         {
                 :psalm => '66',
                 :title => 'Jubilate Deo - 67 Deus misereatur',
+                :genre => salme
         },
         {
                 :psalm => '27',
-                :title => 'Dominus illuminato'
+                :title => 'Dominus illuminato',
+                :genre => salme
         }])
