@@ -6,12 +6,19 @@
 
   <tr>
     <td>ID</td>
-    <td><%= @note.display_id %></td>
+    <td><%= @note.item %></td>
   </tr>
 
   <tr>
     <td>Tittel</td>
     <td><%= @note.title %></td>
+  </tr>
+
+  <tr>
+    <td>Komponist</td>
+    <td>
+      <%= @note.composer.name if @note.composer %>
+    </td>
   </tr>
 
   <tr>
@@ -43,4 +50,6 @@
 
 <br/>
 
+<%= link_to 'Endre', edit_note_path %>
+<br/>
 <%= link_to 'Tilbake', notes_path %>

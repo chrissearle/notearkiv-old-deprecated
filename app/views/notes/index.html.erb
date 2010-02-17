@@ -18,11 +18,15 @@
       <tr>
         <td>
           <% link_to(note) do %>
-              <%= note.display_id %>
+              <%= note.item %>
           <% end %>
         </td>
-        <td><%= note.title %></td>
-        <td>PLACEHOLDER</td>
+        <td>
+          <% link_to(note) do %>
+              <%= note.title %>
+          <% end %>
+        </td>
+        <td><%= note.composer.name if note.composer %></td>
         <td>PLACEHOLDER</td>
         <td>PLACEHOLDER</td>
         <td><%= link_to_note_file(note) %></td>

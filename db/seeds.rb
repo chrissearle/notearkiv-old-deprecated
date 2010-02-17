@@ -233,7 +233,7 @@ Instrument.create([{ :name => 'A capella' },
                    { :name => 'Tromme' }])
 Note.create([
         {
-                :display_id => '13',
+                :item => '13',
                 :title => 'Herre, vår Gud',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -241,7 +241,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '93',
+                :item => '93',
                 :title => 'Guds Sønn har gjort meg fri (3. Vers)',
                 :voice => 'SATTBB',
                 :count_originals => '0',
@@ -249,7 +249,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '341',
+                :item => '341',
                 :title => 'Te Deum',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -257,7 +257,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '629',
+                :item => '629',
                 :title => 'Peace I leave with you',
                 :voice => 'SATB',
                 :count_originals => '1',
@@ -265,7 +265,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '469',
+                :item => '469',
                 :title => 'Santa Lucia',
                 :voice => 'SAB',
                 :count_originals => '0',
@@ -273,7 +273,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '466',
+                :item => '466',
                 :title => 'Gläns över sjö och strand',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -281,7 +281,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '596',
+                :item => '596',
                 :title => 'Der 43. Psalm (Richte mich, Gott)',
                 :voice => 'SSAATTBB',
                 :count_originals => '0',
@@ -289,7 +289,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '306',
+                :item => '306',
                 :title => 'Alleluia',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -297,7 +297,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '471',
+                :item => '471',
                 :title => 'Det hev ei rosa sprunge',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -305,7 +305,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '464',
+                :item => '464',
                 :title => 'Her kommer Jesus dine små',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -313,7 +313,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '604',
+                :item => '604',
                 :title => 'Tota pulchra es',
                 :voice => 'SSAA',
                 :count_originals => '18',
@@ -321,7 +321,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '625',
+                :item => '625',
                 :title => 'Preces and responses',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -329,7 +329,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '452',
+                :item => '452',
                 :title => 'Bow down thine ear, O Lord',
                 :voice => 'SSA',
                 :count_originals => '0',
@@ -337,7 +337,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '36',
+                :item => '36',
                 :title => 'Herre, jeg blir alltid hos deg',
                 :voice => 'SSATB',
                 :count_originals => '28',
@@ -345,7 +345,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '462',
+                :item => '462',
                 :title => 'Spise-Seddelen',
                 :voice => 'TTBB',
                 :count_originals => '0',
@@ -353,7 +353,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '558',
+                :item => '558',
                 :title => 'Os iusti',
                 :voice => 'SSAATTBB',
                 :count_originals => '29',
@@ -361,7 +361,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '509',
+                :item => '509',
                 :title => 'Salme 46',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -369,7 +369,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '485',
+                :item => '485',
                 :title => 'Within Seasons',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -377,7 +377,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '446',
+                :item => '446',
                 :title => 'Three Sacred Choruses',
                 :voice => 'SSAA',
                 :count_originals => '0',
@@ -385,7 +385,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '491',
+                :item => '491',
                 :title => 'Nu vandrer fra hver en verdens krok',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -393,7 +393,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '490',
+                :item => '490',
                 :title => 'Nu takker alle Gud',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -401,7 +401,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '224',
+                :item => '224',
                 :title => 'Venite filii',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -409,7 +409,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '483',
+                :item => '483',
                 :title => 'Machet die Tore weit',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -417,7 +417,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '479',
+                :item => '479',
                 :title => 'Hvem skal vi gå til, Herre',
                 :voice => 'SATB',
                 :count_originals => '17',
@@ -425,7 +425,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '600',
+                :item => '600',
                 :title => 'Crucifixus',
                 :voice => 'SSAATTBB',
                 :count_originals => '19',
@@ -433,7 +433,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '475',
+                :item => '475',
                 :title => 'Ave Verum Corpus',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -441,7 +441,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '522',
+                :item => '522',
                 :title => 'Lähtö',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -449,7 +449,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '481',
+                :item => '481',
                 :title => 'Voggevise',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -457,7 +457,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '480',
+                :item => '480',
                 :title => 'Amen! Jesus han skal råde',
                 :voice => 'SATB',
                 :count_originals => '25',
@@ -465,7 +465,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '449',
+                :item => '449',
                 :title => 'Kvöldbænir',
                 :voice => 'SSAATTBB',
                 :count_originals => '23',
@@ -473,7 +473,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '391',
+                :item => '391',
                 :title => 'Karin Boyes aftonbön',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -481,7 +481,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '383',
+                :item => '383',
                 :title => 'Den stunda i Getsemane',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -489,7 +489,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '381',
+                :item => '381',
                 :title => 'Jerusalem',
                 :voice => 'SSAATTBB',
                 :count_originals => '0',
@@ -497,7 +497,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '212',
+                :item => '212',
                 :title => 'Ride on, king Jesus',
                 :voice => 'SATB',
                 :count_originals => '13',
@@ -505,7 +505,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '403',
+                :item => '403',
                 :title => 'Til ungdommen (av Nordahl Grieg)',
                 :voice => 'SATTBB',
                 :count_originals => '31',
@@ -513,7 +513,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '364',
+                :item => '364',
                 :title => 'Din herlegdom, Frelsar',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -521,7 +521,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '352',
+                :item => '352',
                 :title => 'Deck the Halls',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -529,7 +529,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '344',
+                :item => '344',
                 :title => 'Kyrie eleison',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -537,7 +537,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '342',
+                :item => '342',
                 :title => 'Akk, mon min vei. Jeg ser deg, O Guds lam. Nu la oss takke Gud',
                 :voice => 'SSAATBB',
                 :count_originals => '16',
@@ -545,7 +545,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '6',
+                :item => '6',
                 :title => 'Fire koralbearbeidelser',
                 :voice => 'SSATB',
                 :count_originals => '37',
@@ -553,7 +553,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '494',
+                :item => '494',
                 :title => 'Gebet',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -561,7 +561,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '355',
+                :item => '355',
                 :title => 'Gud signe Norigs land',
                 :voice => 'TTBB',
                 :count_originals => '0',
@@ -569,7 +569,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '440',
+                :item => '440',
                 :title => 'Musik till en stor kyrka',
                 :voice => 'SSAATTBB',
                 :count_originals => '21',
@@ -577,7 +577,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '439',
+                :item => '439',
                 :title => 'Det finnes en dyrebar rose',
                 :voice => 'SATB',
                 :count_originals => '28',
@@ -585,7 +585,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '482',
+                :item => '482',
                 :title => 'Adam lay ybounden',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -593,7 +593,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '447',
+                :item => '447',
                 :title => 'Salme 150',
                 :voice => 'SSA',
                 :count_originals => '0',
@@ -601,7 +601,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '484',
+                :item => '484',
                 :title => 'Styrman Karlsson',
                 :voice => 'SSATB',
                 :count_originals => '25',
@@ -609,7 +609,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '441',
+                :item => '441',
                 :title => 'Ave Maria',
                 :voice => 'SSAATTBB',
                 :count_originals => '17',
@@ -617,7 +617,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '181',
+                :item => '181',
                 :title => 'In these delightful, pleasant groves',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -625,7 +625,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '421',
+                :item => '421',
                 :title => 'I himmelen, i himmelen',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -633,7 +633,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '319',
+                :item => '319',
                 :title => 'Salme 131',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -641,7 +641,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '406',
+                :item => '406',
                 :title => 'Jungfru Maria till Betlehem gick',
                 :voice => 'SATBB',
                 :count_originals => '0',
@@ -649,7 +649,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '432',
+                :item => '432',
                 :title => 'Inter natos mulierem',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -657,7 +657,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '431',
+                :item => '431',
                 :title => 'Salme 73',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -665,7 +665,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '546',
+                :item => '546',
                 :title => 'Brændte ikke vort hjerte i os',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -673,7 +673,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '567',
+                :item => '567',
                 :title => 'Übers Gebirg Maria geht',
                 :voice => 'SSATB',
                 :count_originals => '6',
@@ -681,7 +681,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '438',
+                :item => '438',
                 :title => 'Vi stemmer i en frydesang',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -689,7 +689,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '465',
+                :item => '465',
                 :title => 'Bach goes to town',
                 :voice => 'SATB',
                 :count_originals => '24',
@@ -697,7 +697,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '198',
+                :item => '198',
                 :title => 'The infant king',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -705,7 +705,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '582',
+                :item => '582',
                 :title => 'I denne søte juletid',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -713,7 +713,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '577',
+                :item => '577',
                 :title => 'Ego sum panis vivus',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -721,7 +721,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '576',
+                :item => '576',
                 :title => 'På Fjeldesti (av Bjørnson)',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -729,7 +729,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '586',
+                :item => '586',
                 :title => 'The crown of roses',
                 :voice => 'SATBB',
                 :count_originals => '0',
@@ -737,7 +737,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '581',
+                :item => '581',
                 :title => 'O sanctissima',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -745,7 +745,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '580',
+                :item => '580',
                 :title => 'Kling no, klokka',
                 :voice => 'SSA',
                 :count_originals => '19',
@@ -753,7 +753,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '343',
+                :item => '343',
                 :title => 'Salme 103',
                 :voice => 'SSAATTBB',
                 :count_originals => '30',
@@ -761,7 +761,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '307',
+                :item => '307',
                 :title => 'A hymn to the Virgin',
                 :voice => 'SSAATTBB',
                 :count_originals => '27',
@@ -769,7 +769,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '94',
+                :item => '94',
                 :title => 'Now is the month of Maying',
                 :voice => 'SSATB',
                 :count_originals => '4',
@@ -777,7 +777,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '435',
+                :item => '435',
                 :title => 'ABBA för damkör',
                 :voice => 'SSAA',
                 :count_originals => '12',
@@ -785,7 +785,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '627',
+                :item => '627',
                 :title => 'Preces and responses',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -793,7 +793,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '626',
+                :item => '626',
                 :title => 'Preces and responses',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -801,7 +801,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '220',
+                :item => '220',
                 :title => 'Agnus Dei',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -809,7 +809,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '613',
+                :item => '613',
                 :title => 'I my Best-Beloveds ams am',
                 :voice => 'SSAATTBB',
                 :count_originals => '14',
@@ -817,7 +817,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '601',
+                :item => '601',
                 :title => 'Ubi Caritas',
                 :voice => 'SATTBB',
                 :count_originals => '0',
@@ -825,7 +825,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '14',
+                :item => '14',
                 :title => 'Folkefrelsar til oss kom',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -833,7 +833,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '599',
+                :item => '599',
                 :title => 'Hear my prayer, O Lord',
                 :voice => 'SSAATTBB',
                 :count_originals => '27',
@@ -841,7 +841,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '611',
+                :item => '611',
                 :title => 'Requiem',
                 :voice => 'SSAATTBB',
                 :count_originals => '26',
@@ -849,7 +849,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '605',
+                :item => '605',
                 :title => 'Tu es Petrus',
                 :voice => 'SATB',
                 :count_originals => '27',
@@ -857,7 +857,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '573',
+                :item => '573',
                 :title => 'Magnificat',
                 :voice => 'SSATTB',
                 :count_originals => '32',
@@ -865,7 +865,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '588',
+                :item => '588',
                 :title => 'Se Krist, som lå i dødens bånd',
                 :voice => 'SSAATTBB',
                 :count_originals => '0',
@@ -873,7 +873,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '525',
+                :item => '525',
                 :title => 'Kun Herra vain mua paimentaa (salme 23)',
                 :voice => 'SSATB',
                 :count_originals => '0',
@@ -881,7 +881,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '523',
+                :item => '523',
                 :title => 'De salige',
                 :voice => 'SATB',
                 :count_originals => '1',
@@ -889,7 +889,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '541',
+                :item => '541',
                 :title => 'Gud, du er rik!',
                 :voice => 'SATB',
                 :count_originals => '20',
@@ -897,7 +897,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '533',
+                :item => '533',
                 :title => 'Miserere mei, Deus',
                 :voice => 'SSATB',
                 :count_originals => '25',
@@ -905,7 +905,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '518',
+                :item => '518',
                 :title => 'God be in my head',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -913,7 +913,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '192',
+                :item => '192',
                 :title => 'Bereden väg for Herran',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -921,7 +921,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '493',
+                :item => '493',
                 :title => 'In stiller Nacht',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -929,7 +929,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '463',
+                :item => '463',
                 :title => 'Halling',
                 :voice => 'TTBB',
                 :count_originals => '0',
@@ -937,7 +937,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '486',
+                :item => '486',
                 :title => 'In Winter',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -945,7 +945,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '502',
+                :item => '502',
                 :title => 'Open thou mine eyes',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -953,7 +953,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '565',
+                :item => '565',
                 :title => 'Acht geistliche Gesänge (1,6,8)',
                 :voice => 'SSAATTBB',
                 :count_originals => '0',
@@ -961,7 +961,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '564',
+                :item => '564',
                 :title => 'Denn Er hat seinen Engeln befohlen',
                 :voice => 'SSAATTBB',
                 :count_originals => '0',
@@ -969,7 +969,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '430',
+                :item => '430',
                 :title => 'Salme 146',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -977,7 +977,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '571',
+                :item => '571',
                 :title => 'Sei Lob und Preis',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -985,7 +985,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '570',
+                :item => '570',
                 :title => 'Den yndigste rose',
                 :voice => 'SSATBB',
                 :count_originals => '1',
@@ -993,7 +993,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '566',
+                :item => '566',
                 :title => 'Three Motets ("Beati" m.m.)',
                 :voice => 'SSAATTBB',
                 :count_originals => '1',
@@ -1001,7 +1001,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '560',
+                :item => '560',
                 :title => 'Pange lingua',
                 :voice => 'SATB',
                 :count_originals => '27',
@@ -1009,7 +1009,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '555',
+                :item => '555',
                 :title => 'Finaste jenta',
                 :voice => 'SATB',
                 :count_originals => '26',
@@ -1017,7 +1017,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '427',
+                :item => '427',
                 :title => 'Salme 22',
                 :voice => 'SSAATTBB',
                 :count_originals => '0',
@@ -1025,7 +1025,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '293',
+                :item => '293',
                 :title => 'Kyrie eleison',
                 :voice => 'SSAATTBB',
                 :count_originals => '0',
@@ -1033,7 +1033,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '559',
+                :item => '559',
                 :title => 'Vexilla regis prodeunt',
                 :voice => 'SATB',
                 :count_originals => '29',
@@ -1041,7 +1041,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '557',
+                :item => '557',
                 :title => 'Ave Maris Stella',
                 :voice => 'SSAATTBB',
                 :count_originals => '32',
@@ -1049,7 +1049,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '556',
+                :item => '556',
                 :title => 'Trolldans',
                 :voice => 'SSATTBB',
                 :count_originals => '28',
@@ -1057,7 +1057,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '328',
+                :item => '328',
                 :title => 'Fem latinske kirkekor',
                 :voice => 'SATB',
                 :count_originals => '1',
@@ -1065,7 +1065,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '213',
+                :item => '213',
                 :title => 'I denna ljuva sommartid',
                 :voice => 'SSATB',
                 :count_originals => '0',
@@ -1073,7 +1073,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '126',
+                :item => '126',
                 :title => 'Canticorum jubilo (Deg være ære)',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1081,7 +1081,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '610',
+                :item => '610',
                 :title => 'Songs of Farewell',
                 :voice => 'SSAATTBB',
                 :count_originals => '29',
@@ -1089,7 +1089,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '121',
+                :item => '121',
                 :title => 'I will praise thee, O Lord',
                 :voice => 'SATB',
                 :count_originals => '4',
@@ -1097,7 +1097,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '151',
+                :item => '151',
                 :title => 'Rop ut med fryd',
                 :voice => 'SSATTB',
                 :count_originals => '24',
@@ -1105,7 +1105,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '302',
+                :item => '302',
                 :title => 'Neslandskyrkja',
                 :voice => 'SSAATB',
                 :count_originals => '40',
@@ -1113,7 +1113,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '127',
+                :item => '127',
                 :title => 'Matona mia cara',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1121,7 +1121,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '531',
+                :item => '531',
                 :title => 'Litl - Ola - mann',
                 :voice => 'TTBB',
                 :count_originals => '0',
@@ -1129,7 +1129,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '149',
+                :item => '149',
                 :title => 'For Guds folk er hvilen tilbake',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1137,7 +1137,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '97',
+                :item => '97',
                 :title => 'Tanzen und Springen',
                 :voice => 'SSATB',
                 :count_originals => '0',
@@ -1145,7 +1145,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '12',
+                :item => '12',
                 :title => 'Julesalme',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1153,7 +1153,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '116',
+                :item => '116',
                 :title => 'Er Gud for meg, så trede',
                 :voice => 'SATB',
                 :count_originals => '40',
@@ -1161,7 +1161,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '112',
+                :item => '112',
                 :title => 'I stallen, i krybben (Away in a Manger)',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1169,7 +1169,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '583',
+                :item => '583',
                 :title => 'Den dag kjem aldri',
                 :voice => 'SSATB',
                 :count_originals => '24',
@@ -1177,7 +1177,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '194',
+                :item => '194',
                 :title => 'Away in a manger',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1185,7 +1185,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '191',
+                :item => '191',
                 :title => 'Han kom til oss (The babe in Bethlehems manger)',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1193,7 +1193,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '408',
+                :item => '408',
                 :title => 'I tro under himmelens skyer',
                 :voice => 'SSAATTBB',
                 :count_originals => '0',
@@ -1201,7 +1201,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '210',
+                :item => '210',
                 :title => 'Preces and responses',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1209,7 +1209,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '209',
+                :item => '209',
                 :title => 'Din, o Herre er makten',
                 :voice => 'SATB',
                 :count_originals => '39',
@@ -1217,7 +1217,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '167',
+                :item => '167',
                 :title => 'Sing and rejoice',
                 :voice => 'SATB',
                 :count_originals => '1',
@@ -1225,7 +1225,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '30',
+                :item => '30',
                 :title => 'Exultate Deo',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1233,7 +1233,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '188',
+                :item => '188',
                 :title => 'Syng Herren Gud',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1241,7 +1241,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '156',
+                :item => '156',
                 :title => 'Bred dina vida vingar m.fl.',
                 :voice => 'SATB',
                 :count_originals => '19',
@@ -1249,7 +1249,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '43',
+                :item => '43',
                 :title => 'Get you up',
                 :voice => 'SSAATTBB',
                 :count_originals => '27',
@@ -1257,7 +1257,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '34',
+                :item => '34',
                 :title => 'Himlenes rike',
                 :voice => 'SSATB',
                 :count_originals => '34',
@@ -1265,7 +1265,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '32',
+                :item => '32',
                 :title => 'Musica sacra',
                 :voice => 'SSATBB',
                 :count_originals => '32',
@@ -1273,7 +1273,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '22',
+                :item => '22',
                 :title => 'Jesu, deine Passion',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1281,7 +1281,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '41',
+                :item => '41',
                 :title => 'Sicut cervus',
                 :voice => 'SATB',
                 :count_originals => '24',
@@ -1289,7 +1289,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '221',
+                :item => '221',
                 :title => 'Pater Noster',
                 :voice => 'SSATB',
                 :count_originals => '5',
@@ -1297,7 +1297,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '35',
+                :item => '35',
                 :title => 'Jeg vil prise deg, Gud',
                 :voice => 'SSATTB',
                 :count_originals => '37',
@@ -1305,7 +1305,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '10',
+                :item => '10',
                 :title => 'Lover den Herre',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1313,7 +1313,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '7',
+                :item => '7',
                 :title => 'Agnus Dei',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1321,7 +1321,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '363',
+                :item => '363',
                 :title => 'Å at jeg kunne min Jesus prise',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1329,7 +1329,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '478',
+                :item => '478',
                 :title => 'Preces and responses',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1337,7 +1337,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '95',
+                :item => '95',
                 :title => 'Ja, vi elsker',
                 :voice => 'SATB',
                 :count_originals => '20',
@@ -1345,7 +1345,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '512',
+                :item => '512',
                 :title => 'Vakna þú sál mín',
                 :voice => 'SATB',
                 :count_originals => '21',
@@ -1353,7 +1353,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '70',
+                :item => '70',
                 :title => 'Velt alle dine veier',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1361,7 +1361,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '618',
+                :item => '618',
                 :title => 'Ave Maria (F-dur)',
                 :voice => 'SAATTBB',
                 :count_originals => '0',
@@ -1369,7 +1369,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '51',
+                :item => '51',
                 :title => 'Jeg bier på Herren',
                 :voice => 'SSATBB',
                 :count_originals => '0',
@@ -1377,7 +1377,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '47',
+                :item => '47',
                 :title => 'On the day',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1385,7 +1385,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '314',
+                :item => '314',
                 :title => 'Improperia Salvatoris Nostri',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1393,7 +1393,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '603',
+                :item => '603',
                 :title => 'Tantum ergo',
                 :voice => 'SATB',
                 :count_originals => '24',
@@ -1401,7 +1401,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '11',
+                :item => '11',
                 :title => 'Psalmus CXX',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1409,7 +1409,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '274',
+                :item => '274',
                 :title => 'Nu rinner solen opp',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1417,7 +1417,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '562',
+                :item => '562',
                 :title => 'Ved Rondane',
                 :voice => 'SSAATBB',
                 :count_originals => '29',
@@ -1425,7 +1425,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '53',
+                :item => '53',
                 :title => 'Komm, o Tod',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1433,7 +1433,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '268',
+                :item => '268',
                 :title => 'Där rosor aldrig dör',
                 :voice => 'SATB',
                 :count_originals => '39',
@@ -1441,7 +1441,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '380',
+                :item => '380',
                 :title => 'Ave Verum Corpus',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1449,7 +1449,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '277',
+                :item => '277',
                 :title => 'The eyes of all wait upon thee',
                 :voice => 'SATB',
                 :count_originals => '21',
@@ -1457,7 +1457,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '316',
+                :item => '316',
                 :title => 'Lik en väderpinad båt',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1465,7 +1465,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '412',
+                :item => '412',
                 :title => 'Brurmarsj frå (?)',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1473,7 +1473,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '115',
+                :item => '115',
                 :title => 'Bye and bye',
                 :voice => 'SSAATTBB',
                 :count_originals => '7',
@@ -1481,7 +1481,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '579',
+                :item => '579',
                 :title => 'Jeg synger julekvad',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1489,7 +1489,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '148',
+                :item => '148',
                 :title => 'Come again',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1497,7 +1497,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '472',
+                :item => '472',
                 :title => 'Jeg er frelst, å for en nåde',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1505,7 +1505,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '619',
+                :item => '619',
                 :title => 'Fire salmer',
                 :voice => 'SATTBB',
                 :count_originals => '13',
@@ -1513,7 +1513,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '301',
+                :item => '301',
                 :title => 'Cry out and shout',
                 :voice => 'SSATTB',
                 :count_originals => '0',
@@ -1521,7 +1521,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '300',
+                :item => '300',
                 :title => 'Ave Maris Stella',
                 :voice => 'SSATBB',
                 :count_originals => '36',
@@ -1529,7 +1529,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '310',
+                :item => '310',
                 :title => 'Corpus Christi Carol',
                 :voice => 'SATB',
                 :count_originals => '1',
@@ -1537,7 +1537,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '46',
+                :item => '46',
                 :title => 'I Betlehem oss fødtes',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1545,7 +1545,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '124',
+                :item => '124',
                 :title => 'Alene Gud i himmerik',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1553,7 +1553,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '318',
+                :item => '318',
                 :title => 'Salme 25',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1561,7 +1561,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '280',
+                :item => '280',
                 :title => 'Se, dager kommer',
                 :voice => 'SSSSAA',
                 :count_originals => '21',
@@ -1569,7 +1569,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '223',
+                :item => '223',
                 :title => 'Sanctus',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1577,7 +1577,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '624',
+                :item => '624',
                 :title => 'Preces and responses',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1585,7 +1585,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '324',
+                :item => '324',
                 :title => 'Also hat Gott die Welt geliebt',
                 :voice => 'SATTB',
                 :count_originals => '0',
@@ -1593,7 +1593,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '487',
+                :item => '487',
                 :title => 'Springtime',
                 :voice => 'SATB',
                 :count_originals => '28',
@@ -1601,7 +1601,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '222',
+                :item => '222',
                 :title => 'Vær frimodig, sønn!',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1609,7 +1609,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '218',
+                :item => '218',
                 :title => 'La de små barn komme til mig',
                 :voice => 'SSATB',
                 :count_originals => '0',
@@ -1617,7 +1617,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '225',
+                :item => '225',
                 :title => 'Warum ist das Licht gegeben dem Mühseligen?',
                 :voice => 'SSATBB',
                 :count_originals => '0',
@@ -1625,7 +1625,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '597',
+                :item => '597',
                 :title => 'Cantate Domino',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1633,7 +1633,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '598',
+                :item => '598',
                 :title => 'Psalm 100 (Jauchzet dem Herrn)',
                 :voice => 'SSAATTBB',
                 :count_originals => '0',
@@ -1641,7 +1641,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '554',
+                :item => '554',
                 :title => 'Jesu, meine Freude',
                 :voice => 'SSATB',
                 :count_originals => '10',
@@ -1649,7 +1649,7 @@ Note.create([
                 :count_instrumental => '1'
         },
         {
-                :display_id => '575',
+                :item => '575',
                 :title => 'Komm, Jesu, komm',
                 :voice => 'SSAATTBB',
                 :count_originals => '2',
@@ -1657,7 +1657,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '607',
+                :item => '607',
                 :title => 'Motetten',
                 :voice => 'SSAATTBB',
                 :count_originals => '30',
@@ -1665,7 +1665,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '98',
+                :item => '98',
                 :title => 'Fäbodpsalm från Dalarna',
                 :voice => 'SSATBB',
                 :count_originals => '33',
@@ -1673,7 +1673,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '238',
+                :item => '238',
                 :title => 'Seks religiøse folketoner',
                 :voice => 'SATB',
                 :count_originals => '37',
@@ -1681,7 +1681,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '206',
+                :item => '206',
                 :title => 'Magnificat & Nunc dimittis',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1689,7 +1689,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '321',
+                :item => '321',
                 :title => 'Magnificat & Nunc dimittis (G-dur)',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1697,7 +1697,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '585',
+                :item => '585',
                 :title => 'Ding dong! Merrily on high',
                 :voice => 'SATTB',
                 :count_originals => '0',
@@ -1705,7 +1705,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '458',
+                :item => '458',
                 :title => 'Norsk kantoribok (proprium)',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1713,7 +1713,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '584',
+                :item => '584',
                 :title => 'Alle de som Faderen gir meg',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1721,7 +1721,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '467',
+                :item => '467',
                 :title => 'O little town of Bethlehem',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1729,7 +1729,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '405',
+                :item => '405',
                 :title => 'Hear my prayer',
                 :voice => 'SATB',
                 :count_originals => '26',
@@ -1737,7 +1737,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '240',
+                :item => '240',
                 :title => 'Frykt ikke, Maria',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1745,7 +1745,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '621',
+                :item => '621',
                 :title => 'Magnificat & Nunc Dimittis (A-dur)',
                 :voice => 'SSAATTBB',
                 :count_originals => '0',
@@ -1753,7 +1753,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '340',
+                :item => '340',
                 :title => 'Herre Gud vi til deg ber',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1761,7 +1761,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '305',
+                :item => '305',
                 :title => 'Du Far og Herre',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1769,7 +1769,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '617',
+                :item => '617',
                 :title => 'Magnificat & Nunc Dimittis (G-moll)',
                 :voice => 'SATB',
                 :count_originals => '33',
@@ -1777,7 +1777,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '606',
+                :item => '606',
                 :title => 'Cantique de Jean Racine',
                 :voice => 'SATB',
                 :count_originals => '31',
@@ -1785,7 +1785,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '317',
+                :item => '317',
                 :title => 'Så går en dag än från vår tid',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1793,7 +1793,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '118',
+                :item => '118',
                 :title => 'O bli hos meg',
                 :voice => 'SSAATB',
                 :count_originals => '28',
@@ -1801,7 +1801,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '602',
+                :item => '602',
                 :title => 'Go forth into the world in peace',
                 :voice => 'SATB',
                 :count_originals => '30',
@@ -1809,7 +1809,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '362',
+                :item => '362',
                 :title => 'O, pray for the peace of Jerusalem',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1817,7 +1817,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '620',
+                :item => '620',
                 :title => 'Magnificat & Nunc Dimittis (B-dur)',
                 :voice => 'SATB',
                 :count_originals => '14',
@@ -1825,7 +1825,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '40',
+                :item => '40',
                 :title => 'Tre bibliska scener',
                 :voice => 'SSATB',
                 :count_originals => '5',
@@ -1833,7 +1833,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '622',
+                :item => '622',
                 :title => 'Magnificat i Fiss-dur (+ Nunc Dimittis)',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1841,7 +1841,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '311',
+                :item => '311',
                 :title => 'Rejoice in the Lamb',
                 :voice => 'SATB',
                 :count_originals => '8',
@@ -1849,7 +1849,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '623',
+                :item => '623',
                 :title => 'Magnificat & Nunc Dimittis',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1857,7 +1857,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '615',
+                :item => '615',
                 :title => 'Thou wilt keep him',
                 :voice => 'SATTB',
                 :count_originals => '33',
@@ -1865,7 +1865,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '336',
+                :item => '336',
                 :title => 'Overmåte fullt av nåde',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1873,7 +1873,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '278',
+                :item => '278',
                 :title => 'I sin hytte satt Marie',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1881,7 +1881,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '470',
+                :item => '470',
                 :title => 'Advent',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1889,7 +1889,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '433',
+                :item => '433',
                 :title => 'Gud, riv oss ut av tidens jag',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1897,7 +1897,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '178',
+                :item => '178',
                 :title => 'Fanfare (Gloria in excelsis Deo)',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1905,7 +1905,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '501',
+                :item => '501',
                 :title => 'Salme fra Allehelgensmesse',
                 :voice => 'Unis + disk',
                 :count_originals => '4',
@@ -1913,7 +1913,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '358',
+                :item => '358',
                 :title => 'Maria hun er en jomfru ren',
                 :voice => 'SSAA',
                 :count_originals => '0',
@@ -1921,7 +1921,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '265',
+                :item => '265',
                 :title => 'Til dig, Herre, tar jeg min tilflukt',
                 :voice => 'SATB',
                 :count_originals => '24',
@@ -1929,7 +1929,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '165',
+                :item => '165',
                 :title => 'I himmelen',
                 :voice => 'SA',
                 :count_originals => '15',
@@ -1937,7 +1937,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '510',
+                :item => '510',
                 :title => 'Rejoice in the Lord always',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1945,7 +1945,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '520',
+                :item => '520',
                 :title => 'In the bleak mid-winter',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1953,7 +1953,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '207',
+                :item => '207',
                 :title => 'He that shall endure to the end (fra Elias)',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1961,7 +1961,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '574',
+                :item => '574',
                 :title => 'The Beatitudes',
                 :voice => 'SATB',
                 :count_originals => '31',
@@ -1969,7 +1969,7 @@ Note.create([
                 :count_instrumental => '1'
         },
         {
-                :display_id => '473',
+                :item => '473',
                 :title => 'Herrens bønn',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1977,7 +1977,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '459',
+                :item => '459',
                 :title => 'Guds menighet er jordens største under',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -1985,7 +1985,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '593',
+                :item => '593',
                 :title => 'Evening hymn',
                 :voice => 'SATB',
                 :count_originals => '30',
@@ -1993,7 +1993,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '197',
+                :item => '197',
                 :title => 'Å kom, å kom, Immanuel',
                 :voice => 'SSAATTBB',
                 :count_originals => '0',
@@ -2001,7 +2001,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '205',
+                :item => '205',
                 :title => 'And then shall your light break forth (fra Elias)',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -2009,7 +2009,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '203',
+                :item => '203',
                 :title => 'Se, solens skjønne lys og prakt',
                 :voice => 'SSATB',
                 :count_originals => '0',
@@ -2017,7 +2017,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '616',
+                :item => '616',
                 :title => 'Ave Verum Corpus',
                 :voice => 'SATB',
                 :count_originals => '33',
@@ -2025,7 +2025,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '110',
+                :item => '110',
                 :title => 'Den første sang (The first Nowell)',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -2033,7 +2033,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '297',
+                :item => '297',
                 :title => 'Du åpner døren for ditt rikes komme',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -2041,7 +2041,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '434',
+                :item => '434',
                 :title => 'Laudes organi',
                 :voice => 'SATB',
                 :count_originals => '15',
@@ -2049,7 +2049,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '460',
+                :item => '460',
                 :title => 'Salme 121',
                 :voice => 'SATB',
                 :count_originals => '21',
@@ -2057,7 +2057,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '109',
+                :item => '109',
                 :title => 'Missa Verbi',
                 :voice => 'Unis + disk',
                 :count_originals => '0',
@@ -2065,7 +2065,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '425',
+                :item => '425',
                 :title => 'Requiem',
                 :voice => 'SATTBB',
                 :count_originals => '0',
@@ -2073,7 +2073,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '315',
+                :item => '315',
                 :title => 'Bli hos oss',
                 :voice => 'SSATTBB',
                 :count_originals => '18',
@@ -2081,7 +2081,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '96',
+                :item => '96',
                 :title => 'Landkjenning',
                 :voice => 'SATB',
                 :count_originals => '16',
@@ -2089,7 +2089,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '437',
+                :item => '437',
                 :title => 'Norsk kantoribok (ordinarium)',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -2097,7 +2097,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '614',
+                :item => '614',
                 :title => 'Be thou my vision',
                 :voice => 'SATB',
                 :count_originals => '26',
@@ -2105,7 +2105,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '561',
+                :item => '561',
                 :title => 'Ave Maria (F-dur)',
                 :voice => 'SAATTBB',
                 :count_originals => '27',
@@ -2113,7 +2113,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '190',
+                :item => '190',
                 :title => 'Som den gyldne sol frembryter',
                 :voice => 'SATB',
                 :count_originals => '16',
@@ -2121,7 +2121,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '262',
+                :item => '262',
                 :title => 'Som Maria, lær at lytte',
                 :voice => 'SATB',
                 :count_originals => '33',
@@ -2129,7 +2129,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '202',
+                :item => '202',
                 :title => 'Misjonskantate',
                 :voice => 'SATB',
                 :count_originals => '15',
@@ -2137,7 +2137,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '474',
+                :item => '474',
                 :title => 'Ave Verum Corpus',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -2145,7 +2145,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '612',
+                :item => '612',
                 :title => 'Credo',
                 :voice => 'SSAATTBB',
                 :count_originals => '29',
@@ -2153,7 +2153,7 @@ Note.create([
                 :count_instrumental => '14'
         },
         {
-                :display_id => '552',
+                :item => '552',
                 :title => 'Messe i G-dur',
                 :voice => 'SATB',
                 :count_originals => '1',
@@ -2161,7 +2161,7 @@ Note.create([
                 :count_instrumental => '1'
         },
         {
-                :display_id => '248',
+                :item => '248',
                 :title => 'Wie der Hirsch schreit nach frischem Wasser',
                 :voice => 'SATB',
                 :count_originals => '39',
@@ -2169,7 +2169,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '628',
+                :item => '628',
                 :title => 'Messias',
                 :voice => 'SATB',
                 :count_originals => '1',
@@ -2177,7 +2177,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '609',
+                :item => '609',
                 :title => 'Requiem',
                 :voice => 'SATB',
                 :count_originals => '29',
@@ -2185,7 +2185,7 @@ Note.create([
                 :count_instrumental => '1'
         },
         {
-                :display_id => '608',
+                :item => '608',
                 :title => 'Dettinger Te Deum',
                 :voice => 'SSATB',
                 :count_originals => '30',
@@ -2193,7 +2193,7 @@ Note.create([
                 :count_instrumental => '1'
         },
         {
-                :display_id => '553',
+                :item => '553',
                 :title => 'Liebster Jesu, mein Verlangen',
                 :voice => 'SATB',
                 :count_originals => '25',
@@ -2201,7 +2201,7 @@ Note.create([
                 :count_instrumental => '1'
         },
         {
-                :display_id => '189',
+                :item => '189',
                 :title => 'Zadok the Priest',
                 :voice => 'SSAATBB',
                 :count_originals => '0',
@@ -2209,7 +2209,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '492',
+                :item => '492',
                 :title => 'Jag såg',
                 :voice => 'SATB',
                 :count_originals => '22',
@@ -2217,7 +2217,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '495',
+                :item => '495',
                 :title => 'Down by the sally gardens',
                 :voice => 'TTBB',
                 :count_originals => '0',
@@ -2225,7 +2225,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '526',
+                :item => '526',
                 :title => 'Folkliga koralmelodier for kör och instrument',
                 :voice => 'SAB',
                 :count_originals => '2',
@@ -2233,7 +2233,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '544',
+                :item => '544',
                 :title => 'Sønderbrudt pigtråd',
                 :voice => 'SATB',
                 :count_originals => '25',
@@ -2241,7 +2241,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '396',
+                :item => '396',
                 :title => 'Tomorrow shall be my dancing day',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -2249,7 +2249,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '521',
+                :item => '521',
                 :title => 'Alleluia from Brazilian Psalm',
                 :voice => 'SATBB',
                 :count_originals => '23',
@@ -2257,7 +2257,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '1111',
+                :item => '1111',
                 :title => 'Like as the Hart',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -2265,7 +2265,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '90000',
+                :item => '90000',
                 :title => 'Ye Choirs of New Jerusalem',
                 :voice => 'SATB',
                 :count_originals => '0',
@@ -2273,7 +2273,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
-                :display_id => '630',
+                :item => '630',
                 :title => 'Julehefte 2009',
                 :voice => 'SATB',
                 :count_originals => '1',

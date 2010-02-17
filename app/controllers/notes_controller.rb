@@ -20,6 +20,51 @@ class NotesController < ApplicationController
     end
   end
 
+  def new
+    @note = Note.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @note }
+    end
+  end
+
+  def create
+    @note = Note.new(params[:note])
+
+    respond_to do |format|
+      if @note.save
+        flash[:notice] = 'Note opprettet.'
+        format.html { redirect_to :action => "index" }
+        format.xml  { render :xml => @note, :status => :created,
+                      :location => @note }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @note.errors,
+                      :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def edit
+    @note = Note.find(params[:id])
+  end
+
+  def update
+    @note = Note.find(params[:id])
+
+    respond_to do |format|
+      if @note.update_attributes(params[:note])
+        flash[:notice] = 'Note oppdatert.'
+        format.html { redirect_to :action => "index" }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @note.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
   def excel
     spreadsheet = NoteSpreadsheet.new(Note.find(:all))
 
@@ -83,7 +128,7 @@ class NoteSpreadsheet
       row = sheet.row(sheet.last_row_index() + 1)
 
       row.push note.id
-      row.push note.display_id
+      row.push note.item
       row.push note.title
       row.push note.count_originals
       row.push note.count_copies

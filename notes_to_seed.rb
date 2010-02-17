@@ -18,7 +18,7 @@ File.open("notes.txt").each do |line|
     parts = line.split(/:/)
     
     print "#{sep}{\n"
-    print " :display_id => '#{parts[0]}',\n"
+    print " :item => '#{parts[0]}',\n"
     print " :title => '#{parts[1].escape_single_quotes}',\n"
     print " :voice => '#{parts[2]}',\n"
     print " :count_originals => '#{parts[3]}',\n"

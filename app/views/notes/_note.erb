@@ -1,0 +1,12 @@
+<% semantic_form_for @note do |form| %>
+    <% form.inputs do %>
+        <%= form.input :item, :label => "ID" %>
+        <%= form.input :title, :label => "Tittel" %>
+        <%= form.input :composer, :label => "Komponist" %>
+        <%= form.input :voice, :label => "Besetning" %>
+        <%= form.input :count_originals, :label => "Antall original" %>
+        <%= form.input :count_copies, :label => "Antall kopi" %>
+        <%= form.input :count_instrumental, :label => "Antall instrumental" %>
+    <% end %>
+    <%= form.buttons %>
+<% end %>
