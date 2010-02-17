@@ -3,6 +3,18 @@
     <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
 
     <script type="text/javascript">
+        jQuery.fn.dataTableExt.oSort['html-numeric-asc'] = function(a, b) {
+            var x = a.replace(/<.*?>/g, "") * 1;
+            var y = b.replace(/<.*?>/g, "") * 1;
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        };
+
+        jQuery.fn.dataTableExt.oSort['html-numeric-desc'] = function(a, b) {
+            var x = a.replace(/<.*?>/g, "") * 1;
+            var y = b.replace(/<.*?>/g, "") * 1;
+            return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+        };
+
         $(document).ready(function()
         {
             $('#noteTable').dataTable({
@@ -14,7 +26,7 @@
                 },
                 "aoColumns": [
                     {
-                        "sType": "html"
+                        "sType": "html-numeric"
                     },
                     {
                         "sType": "html"
@@ -26,7 +38,8 @@
                     {
                         "bSearchable": false
                     }
-                ]
+                ],
+                "aaSorting": [[1,'asc']]
             });
         }
                 );
