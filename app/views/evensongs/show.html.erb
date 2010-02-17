@@ -15,6 +15,13 @@
   </tr>
 
   <tr>
+    <td>Komponist</td>
+    <td>
+      <%= @evensong.composer.name if @evensong.composer %>
+    </td>
+  </tr>
+
+  <tr>
     <td>Fil</td>
     <td><%= link_to_evensong_file(@evensong, true) %></td>
   </tr>

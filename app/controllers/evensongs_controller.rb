@@ -29,6 +29,51 @@ class EvensongsController < ApplicationController
     end
   end
 
+  def new
+    @evensong = Evensong.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @evensong }
+    end
+  end
+
+  def create
+    @evensong = Evensong.new(params[:evensong])
+
+    respond_to do |format|
+      if @evensong.save
+        flash[:notice] = 'Evensong opprettet.'
+        format.html { redirect_to :action => "index" }
+        format.xml  { render :xml => @evensong, :status => :created,
+                      :location => @evensong }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @evensong.errors,
+                      :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def edit
+    @evensong = Evensong.find(params[:id])
+  end
+
+  def update
+    @evensong = Evensong.find(params[:id])
+
+    respond_to do |format|
+      if @evensong.update_attributes(params[:evensong])
+        flash[:notice] = 'Evensong oppdatert.'
+        format.html { redirect_to :action => "index" }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @evensong.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
   def excel
     spreadsheet = EvensongSpreadsheet.new(Evensong.find(:all))
 
@@ -57,7 +102,8 @@ class EvensongSpreadsheet
 
     @header_columns = [HeaderColumn.new("SysID", 8),
                        HeaderColumn.new("Tittel", 50),
-                       HeaderColumn.new("Salme", 8)]
+                       HeaderColumn.new("Salme", 8),
+                       HeaderColumn.new("Komponist", 50)]
   end
 
   def generate_sheet(book)
@@ -90,6 +136,7 @@ class EvensongSpreadsheet
       row.push evensong.id
       row.push evensong.title
       row.push evensong.psalm
+      row.push get_name_if_exists evensong.composer
     end
   end
 
@@ -99,6 +146,14 @@ class EvensongSpreadsheet
     book.write(tmp_file)
 
     return tmp_file.path
+  end
+
+  def get_name_if_exists(object)
+    if (object)
+      return object.name
+    else
+      return ""
+    end
   end
 
   def get_spreadsheet
