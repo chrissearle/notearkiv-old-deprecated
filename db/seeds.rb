@@ -233,6 +233,9 @@ Instrument.create([{ :name => 'A capella' },
                    { :name => 'Tromme' }])
 Note.create([
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '13',
                 :title => 'Herre, vår Gud',
                 :voice => 'SATB',
@@ -241,6 +244,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nasjonalromantikk'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Grieg, Edvard'),
                 :item => '93',
                 :title => 'Guds Sønn har gjort meg fri (3. Vers)',
                 :voice => 'SATTBB',
@@ -249,6 +256,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Klassisisme'),
+                :genre => Genre.find_by_name('Hymne'),
+                :instrument => Instrument.find_by_name('Cello;Fiolin 1&2;Orgel'),
+                :composer => Composer.find_by_name('Mozart, Wolfgang Amadeus'),
                 :item => '341',
                 :title => 'Te Deum',
                 :voice => 'SATB',
@@ -257,6 +268,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Nystedt, Knut'),
                 :item => '629',
                 :title => 'Peace I leave with you',
                 :voice => 'SATB',
@@ -265,6 +280,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '469',
                 :title => 'Santa Lucia',
                 :voice => 'SAB',
@@ -273,6 +291,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Widéen, Ivar'),
                 :item => '466',
                 :title => 'Gläns över sjö och strand',
                 :voice => 'SATB',
@@ -281,6 +303,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '596',
                 :title => 'Der 43. Psalm (Richte mich, Gott)',
                 :voice => 'SSAATTBB',
@@ -289,6 +314,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Thompson, Randall'),
                 :item => '306',
                 :title => 'Alleluia',
                 :voice => 'SATB',
@@ -297,6 +326,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Prätorius, Michael'),
                 :item => '471',
                 :title => 'Det hev ei rosa sprunge',
                 :voice => 'SATB',
@@ -305,6 +338,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '464',
                 :title => 'Her kommer Jesus dine små',
                 :voice => 'SATB',
@@ -313,6 +349,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Duruflé, Maurice'),
                 :item => '604',
                 :title => 'Tota pulchra es',
                 :voice => 'SSAA',
@@ -321,6 +361,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Smith, William'),
                 :item => '625',
                 :title => 'Preces and responses',
                 :voice => 'SATB',
@@ -329,6 +373,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '452',
                 :title => 'Bow down thine ear, O Lord',
                 :voice => 'SSA',
@@ -337,6 +385,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Skauen, Guttorm'),
                 :item => '36',
                 :title => 'Herre, jeg blir alltid hos deg',
                 :voice => 'SSATB',
@@ -345,6 +397,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Verdslig'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Zöllner, C.'),
                 :item => '462',
                 :title => 'Spise-Seddelen',
                 :voice => 'TTBB',
@@ -353,6 +409,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Bruckner, Anton'),
                 :item => '558',
                 :title => 'Os iusti',
                 :voice => 'SSAATTBB',
@@ -361,6 +421,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Chant'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '509',
                 :title => 'Salme 46',
                 :voice => 'SATB',
@@ -369,6 +432,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Verdslig'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Lundin, Bengt'),
                 :item => '485',
                 :title => 'Within Seasons',
                 :voice => 'SATB',
@@ -377,6 +444,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Brahms, Johannes'),
                 :item => '446',
                 :title => 'Three Sacred Choruses',
                 :voice => 'SSAA',
@@ -385,6 +456,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '491',
                 :title => 'Nu vandrer fra hver en verdens krok',
                 :voice => 'SATB',
@@ -393,6 +467,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '490',
                 :title => 'Nu takker alle Gud',
                 :voice => 'SATB',
@@ -401,6 +478,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '224',
                 :title => 'Venite filii',
                 :voice => 'SATB',
@@ -409,6 +489,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Briegel, Wolfgang Carl'),
                 :item => '483',
                 :title => 'Machet die Tore weit',
                 :voice => 'SATB',
@@ -417,6 +501,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '479',
                 :title => 'Hvem skal vi gå til, Herre',
                 :voice => 'SATB',
@@ -425,6 +513,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Lotti, Antonio'),
                 :item => '600',
                 :title => 'Crucifixus',
                 :voice => 'SSAATTBB',
@@ -433,6 +525,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Byrd, William'),
                 :item => '475',
                 :title => 'Ave Verum Corpus',
                 :voice => 'SATB',
@@ -441,6 +537,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Rautavaara, Einojuhani'),
                 :item => '522',
                 :title => 'Lähtö',
                 :voice => 'SATB',
@@ -449,6 +549,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Årva, Øystein'),
                 :item => '481',
                 :title => 'Voggevise',
                 :voice => 'SATB',
@@ -457,6 +561,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Sommerro, Henning'),
                 :item => '480',
                 :title => 'Amen! Jesus han skal råde',
                 :voice => 'SATB',
@@ -465,6 +573,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Sigurbjörnsson, Thorkell'),
                 :item => '449',
                 :title => 'Kvöldbænir',
                 :voice => 'SSAATTBB',
@@ -473,6 +585,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Vise'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '391',
                 :title => 'Karin Boyes aftonbön',
                 :voice => 'SATB',
@@ -481,6 +597,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '383',
                 :title => 'Den stunda i Getsemane',
                 :voice => 'SATB',
@@ -489,6 +608,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '381',
                 :title => 'Jerusalem',
                 :voice => 'SSAATTBB',
@@ -497,6 +620,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Spiritual'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Fleming, L. L.'),
                 :item => '212',
                 :title => 'Ride on, king Jesus',
                 :voice => 'SATB',
@@ -505,6 +632,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Vise'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Sommerro, Henning'),
                 :item => '403',
                 :title => 'Til ungdommen (av Nordahl Grieg)',
                 :voice => 'SATTBB',
@@ -513,6 +644,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Møller, Svein'),
                 :item => '364',
                 :title => 'Din herlegdom, Frelsar',
                 :voice => 'SATB',
@@ -521,6 +656,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '352',
                 :title => 'Deck the Halls',
                 :voice => 'SATB',
@@ -529,6 +667,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Lasso, Orlando'),
                 :item => '344',
                 :title => 'Kyrie eleison',
                 :voice => 'SATB',
@@ -537,6 +679,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Sateren, Leland B.'),
                 :item => '342',
                 :title => 'Akk, mon min vei. Jeg ser deg, O Guds lam. Nu la oss takke Gud',
                 :voice => 'SSAATBB',
@@ -545,6 +691,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Koral'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Nielsen, Ludvig'),
                 :item => '6',
                 :title => 'Fire koralbearbeidelser',
                 :voice => 'SSATB',
@@ -553,6 +703,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Bruch, Max'),
                 :item => '494',
                 :title => 'Gebet',
                 :voice => 'SATB',
@@ -561,6 +715,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Borg, Oscar'),
                 :item => '355',
                 :title => 'Gud signe Norigs land',
                 :voice => 'TTBB',
@@ -569,6 +727,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Jennefelt, Thomas'),
                 :item => '440',
                 :title => 'Musik till en stor kyrka',
                 :voice => 'SSAATTBB',
@@ -577,6 +739,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '439',
                 :title => 'Det finnes en dyrebar rose',
                 :voice => 'SATB',
@@ -585,6 +751,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Ord, Boris'),
                 :item => '482',
                 :title => 'Adam lay ybounden',
                 :voice => 'SATB',
@@ -593,6 +763,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '447',
                 :title => 'Salme 150',
                 :voice => 'SSA',
@@ -601,6 +775,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Verdslig'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '484',
                 :title => 'Styrman Karlsson',
                 :voice => 'SSATB',
@@ -609,6 +786,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Ragnarsson, Hjálmar H.'),
                 :item => '441',
                 :title => 'Ave Maria',
                 :voice => 'SSAATTBB',
@@ -617,6 +798,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Madrigal'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Purcell, Henry'),
                 :item => '181',
                 :title => 'In these delightful, pleasant groves',
                 :voice => 'SATB',
@@ -625,6 +810,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Kverno, Trond'),
                 :item => '421',
                 :title => 'I himmelen, i himmelen',
                 :voice => 'SATB',
@@ -633,6 +822,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Chant'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Willcocks, David'),
                 :item => '319',
                 :title => 'Salme 131',
                 :voice => 'SATB',
@@ -641,6 +834,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Öhrwall, Anders'),
                 :item => '406',
                 :title => 'Jungfru Maria till Betlehem gick',
                 :voice => 'SATBB',
@@ -649,6 +846,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Klassisisme'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '432',
                 :title => 'Inter natos mulierem',
                 :voice => 'SATB',
@@ -657,6 +857,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Chant'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Monk, E. G.'),
                 :item => '431',
                 :title => 'Salme 73',
                 :voice => 'SATB',
@@ -665,6 +869,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Sark, Einar Trærup'),
                 :item => '546',
                 :title => 'Brændte ikke vort hjerte i os',
                 :voice => 'SATB',
@@ -673,6 +881,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Eccard, Johannes'),
                 :item => '567',
                 :title => 'Übers Gebirg Maria geht',
                 :voice => 'SSATB',
@@ -681,6 +893,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '438',
                 :title => 'Vi stemmer i en frydesang',
                 :voice => 'SATB',
@@ -689,6 +905,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Verdslig'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '465',
                 :title => 'Bach goes to town',
                 :voice => 'SATB',
@@ -697,6 +916,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Willcocks, David'),
                 :item => '198',
                 :title => 'The infant king',
                 :voice => 'SATB',
@@ -705,6 +928,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Kverno, Trond'),
                 :item => '582',
                 :title => 'I denne søte juletid',
                 :voice => 'SATB',
@@ -713,6 +940,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Byrd, William'),
                 :item => '577',
                 :title => 'Ego sum panis vivus',
                 :voice => 'SATB',
@@ -721,6 +952,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Verdslig'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Peterson-Berger, W.'),
                 :item => '576',
                 :title => 'På Fjeldesti (av Bjørnson)',
                 :voice => 'SATB',
@@ -729,6 +964,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Tchaikovsky, Peter'),
                 :item => '586',
                 :title => 'The crown of roses',
                 :voice => 'SATBB',
@@ -737,6 +976,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Kverno, Trond'),
                 :item => '581',
                 :title => 'O sanctissima',
                 :voice => 'SATB',
@@ -745,6 +988,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '580',
                 :title => 'Kling no, klokka',
                 :voice => 'SSA',
@@ -753,6 +1000,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Sløgedal, Bjarne'),
                 :item => '343',
                 :title => 'Salme 103',
                 :voice => 'SSAATTBB',
@@ -761,6 +1012,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Hymne'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Britten, Benjamin'),
                 :item => '307',
                 :title => 'A hymn to the Virgin',
                 :voice => 'SSAATTBB',
@@ -769,6 +1024,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Madrigal'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Morley, Thomas'),
                 :item => '94',
                 :title => 'Now is the month of Maying',
                 :voice => 'SSATB',
@@ -777,6 +1036,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Pop'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '435',
                 :title => 'ABBA för damkör',
                 :voice => 'SSAA',
@@ -785,6 +1047,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Barnard, John'),
                 :item => '627',
                 :title => 'Preces and responses',
                 :voice => 'SATB',
@@ -793,6 +1059,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Millington, Andrew'),
                 :item => '626',
                 :title => 'Preces and responses',
                 :voice => 'SATB',
@@ -801,6 +1071,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hassler, Hans Leo'),
                 :item => '220',
                 :title => 'Agnus Dei',
                 :voice => 'SATB',
@@ -809,6 +1083,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Rutter, John'),
                 :item => '613',
                 :title => 'I my Best-Beloveds ams am',
                 :voice => 'SSAATTBB',
@@ -817,6 +1095,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Duruflé, Maurice'),
                 :item => '601',
                 :title => 'Ubi Caritas',
                 :voice => 'SATTBB',
@@ -825,6 +1107,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '14',
                 :title => 'Folkefrelsar til oss kom',
                 :voice => 'SATB',
@@ -833,6 +1118,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Purcell, Henry'),
                 :item => '599',
                 :title => 'Hear my prayer, O Lord',
                 :voice => 'SSAATTBB',
@@ -841,6 +1130,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Howells, Herbert'),
                 :item => '611',
                 :title => 'Requiem',
                 :voice => 'SSAATTBB',
@@ -849,6 +1142,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Duruflé, Maurice'),
                 :item => '605',
                 :title => 'Tu es Petrus',
                 :voice => 'SATB',
@@ -857,6 +1154,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Pärt, Arvo'),
                 :item => '573',
                 :title => 'Magnificat',
                 :voice => 'SSATTB',
@@ -865,6 +1166,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Simonsen, Terje'),
                 :item => '588',
                 :title => 'Se Krist, som lå i dødens bånd',
                 :voice => 'SSAATTBB',
@@ -873,6 +1178,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hulkkonen, Jaakko'),
                 :item => '525',
                 :title => 'Kun Herra vain mua paimentaa (salme 23)',
                 :voice => 'SSATB',
@@ -881,6 +1190,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '523',
                 :title => 'De salige',
                 :voice => 'SATB',
@@ -889,6 +1202,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '541',
                 :title => 'Gud, du er rik!',
                 :voice => 'SATB',
@@ -897,6 +1213,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Allegri, Gregorio'),
                 :item => '533',
                 :title => 'Miserere mei, Deus',
                 :voice => 'SSATB',
@@ -905,6 +1225,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Rutter, John'),
                 :item => '518',
                 :title => 'God be in my head',
                 :voice => 'SATB',
@@ -913,6 +1237,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Bond, Anders'),
                 :item => '192',
                 :title => 'Bereden väg for Herran',
                 :voice => 'SATB',
@@ -921,6 +1249,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Verdslig'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Brahms, Johannes'),
                 :item => '493',
                 :title => 'In stiller Nacht',
                 :voice => 'SATB',
@@ -929,6 +1261,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Alnes, Eyvind'),
                 :item => '463',
                 :title => 'Halling',
                 :voice => 'TTBB',
@@ -937,6 +1273,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Verdslig'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hindemith, Paul'),
                 :item => '486',
                 :title => 'In Winter',
                 :voice => 'SATB',
@@ -945,6 +1285,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Rutter, John'),
                 :item => '502',
                 :title => 'Open thou mine eyes',
                 :voice => 'SATB',
@@ -953,6 +1297,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Reger, Max'),
                 :item => '565',
                 :title => 'Acht geistliche Gesänge (1,6,8)',
                 :voice => 'SSAATTBB',
@@ -961,6 +1309,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '564',
                 :title => 'Denn Er hat seinen Engeln befohlen',
                 :voice => 'SSAATTBB',
@@ -969,6 +1320,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Chant'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Walmisley, T. A.'),
                 :item => '430',
                 :title => 'Salme 146',
                 :voice => 'SATB',
@@ -977,6 +1332,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Bach, Johann Sebastian'),
                 :item => '571',
                 :title => 'Sei Lob und Preis',
                 :voice => 'SATB',
@@ -985,6 +1344,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Ødegård, Henrik'),
                 :item => '570',
                 :title => 'Den yndigste rose',
                 :voice => 'SSATBB',
@@ -993,6 +1356,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '566',
                 :title => 'Three Motets ("Beati" m.m.)',
                 :voice => 'SSAATTBB',
@@ -1001,6 +1367,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Bruckner, Anton'),
                 :item => '560',
                 :title => 'Pange lingua',
                 :voice => 'SATB',
@@ -1009,6 +1379,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Kvandal, Johan'),
                 :item => '555',
                 :title => 'Finaste jenta',
                 :voice => 'SATB',
@@ -1017,6 +1391,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Kverno, Trond'),
                 :item => '427',
                 :title => 'Salme 22',
                 :voice => 'SSAATTBB',
@@ -1025,6 +1403,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '293',
                 :title => 'Kyrie eleison',
                 :voice => 'SSAATTBB',
@@ -1033,6 +1414,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Bruckner, Anton'),
                 :item => '559',
                 :title => 'Vexilla regis prodeunt',
                 :voice => 'SATB',
@@ -1041,6 +1426,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Grieg, Edvard'),
                 :item => '557',
                 :title => 'Ave Maris Stella',
                 :voice => 'SSAATTBB',
@@ -1049,6 +1438,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Kruse, Bjørn'),
                 :item => '556',
                 :title => 'Trolldans',
                 :voice => 'SSATTBB',
@@ -1057,6 +1450,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Sandvold, Arild'),
                 :item => '328',
                 :title => 'Fem latinske kirkekor',
                 :voice => 'SATB',
@@ -1065,6 +1462,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Öhrwall, Anders'),
                 :item => '213',
                 :title => 'I denna ljuva sommartid',
                 :voice => 'SSATB',
@@ -1073,6 +1474,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Händel, Georg Friedrich'),
                 :item => '126',
                 :title => 'Canticorum jubilo (Deg være ære)',
                 :voice => 'SATB',
@@ -1081,6 +1486,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Parry, C. Hubert H.'),
                 :item => '610',
                 :title => 'Songs of Farewell',
                 :voice => 'SSAATTBB',
@@ -1089,6 +1498,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Nystedt, Knut'),
                 :item => '121',
                 :title => 'I will praise thee, O Lord',
                 :voice => 'SATB',
@@ -1097,6 +1510,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Nystedt, Knut'),
                 :item => '151',
                 :title => 'Rop ut med fryd',
                 :voice => 'SSATTB',
@@ -1105,6 +1522,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Nystedt, Knut'),
                 :item => '302',
                 :title => 'Neslandskyrkja',
                 :voice => 'SSAATB',
@@ -1113,6 +1534,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Madrigal'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Lasso, Orlando'),
                 :item => '127',
                 :title => 'Matona mia cara',
                 :voice => 'SATB',
@@ -1121,6 +1546,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Anderssen, Fridthjov'),
                 :item => '531',
                 :title => 'Litl - Ola - mann',
                 :voice => 'TTBB',
@@ -1129,6 +1558,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Sløgedal, Bjarne'),
                 :item => '149',
                 :title => 'For Guds folk er hvilen tilbake',
                 :voice => 'SATB',
@@ -1137,6 +1570,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hassler, Hans Leo'),
                 :item => '97',
                 :title => 'Tanzen und Springen',
                 :voice => 'SSATB',
@@ -1145,6 +1582,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Sibelius, Jean'),
                 :item => '12',
                 :title => 'Julesalme',
                 :voice => 'SATB',
@@ -1153,6 +1594,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Koral'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Bach, Johann Sebastian'),
                 :item => '116',
                 :title => 'Er Gud for meg, så trede',
                 :voice => 'SATB',
@@ -1161,6 +1606,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Willcocks, David'),
                 :item => '112',
                 :title => 'I stallen, i krybben (Away in a Manger)',
                 :voice => 'SATB',
@@ -1169,6 +1618,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Egge, Klaus'),
                 :item => '583',
                 :title => 'Den dag kjem aldri',
                 :voice => 'SSATB',
@@ -1177,6 +1630,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Jaques, Reginald'),
                 :item => '194',
                 :title => 'Away in a manger',
                 :voice => 'SATB',
@@ -1185,6 +1642,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Öhrwall, Anders'),
                 :item => '191',
                 :title => 'Han kom til oss (The babe in Bethlehems manger)',
                 :voice => 'SATB',
@@ -1193,6 +1654,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Skotte, G'),
                 :item => '408',
                 :title => 'I tro under himmelens skyer',
                 :voice => 'SSAATTBB',
@@ -1201,6 +1666,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Reading, John'),
                 :item => '210',
                 :title => 'Preces and responses',
                 :voice => 'SATB',
@@ -1209,6 +1678,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Reger, Max'),
                 :item => '209',
                 :title => 'Din, o Herre er makten',
                 :voice => 'SATB',
@@ -1217,6 +1690,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Nystedt, Knut'),
                 :item => '167',
                 :title => 'Sing and rejoice',
                 :voice => 'SATB',
@@ -1225,6 +1702,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Scarlatti, A'),
                 :item => '30',
                 :title => 'Exultate Deo',
                 :voice => 'SATB',
@@ -1233,6 +1714,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Koral'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Schütz, Heinrich'),
                 :item => '188',
                 :title => 'Syng Herren Gud',
                 :voice => 'SATB',
@@ -1241,6 +1726,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Koral'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Tveit, Sigvald'),
                 :item => '156',
                 :title => 'Bred dina vida vingar m.fl.',
                 :voice => 'SATB',
@@ -1249,6 +1738,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Nystedt, Knut'),
                 :item => '43',
                 :title => 'Get you up',
                 :voice => 'SSAATTBB',
@@ -1257,6 +1750,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Nystedt, Knut'),
                 :item => '34',
                 :title => 'Himlenes rike',
                 :voice => 'SSATB',
@@ -1265,6 +1762,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Nystedt, Knut'),
                 :item => '32',
                 :title => 'Musica sacra',
                 :voice => 'SSATBB',
@@ -1273,6 +1774,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Koral'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Bach, Johann Sebastian'),
                 :item => '22',
                 :title => 'Jesu, deine Passion',
                 :voice => 'SATB',
@@ -1281,6 +1786,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Palestrina, Giovanni Pierluigi'),
                 :item => '41',
                 :title => 'Sicut cervus',
                 :voice => 'SATB',
@@ -1289,6 +1798,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Hymne'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Verdi, Guiseppe'),
                 :item => '221',
                 :title => 'Pater Noster',
                 :voice => 'SSATB',
@@ -1297,6 +1810,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Nystedt, Knut'),
                 :item => '35',
                 :title => 'Jeg vil prise deg, Gud',
                 :voice => 'SSATTB',
@@ -1305,6 +1822,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Koral'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Bach, Johann Sebastian'),
                 :item => '10',
                 :title => 'Lover den Herre',
                 :voice => 'SATB',
@@ -1313,6 +1834,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '7',
                 :title => 'Agnus Dei',
                 :voice => 'SATB',
@@ -1321,6 +1846,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Dahlen, Trond'),
                 :item => '363',
                 :title => 'Å at jeg kunne min Jesus prise',
                 :voice => 'SATB',
@@ -1329,6 +1858,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Næss, Carl-Andreas'),
                 :item => '478',
                 :title => 'Preces and responses',
                 :voice => 'SATB',
@@ -1337,6 +1870,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nasjonalromantikk'),
+                :genre => Genre.find_by_name('Nasjonalsang'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Nordraak, Rikard'),
                 :item => '95',
                 :title => 'Ja, vi elsker',
                 :voice => 'SATB',
@@ -1345,6 +1882,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Thorarinsson, Jón'),
                 :item => '512',
                 :title => 'Vakna þú sál mín',
                 :voice => 'SATB',
@@ -1353,6 +1894,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Koral'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Bach, Johann Sebastian'),
                 :item => '70',
                 :title => 'Velt alle dine veier',
                 :voice => 'SATB',
@@ -1361,6 +1906,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Bruckner, Anton'),
                 :item => '618',
                 :title => 'Ave Maria (F-dur)',
                 :voice => 'SAATTBB',
@@ -1369,6 +1918,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Skauen, Guttorm'),
                 :item => '51',
                 :title => 'Jeg bier på Herren',
                 :voice => 'SSATBB',
@@ -1377,6 +1930,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '47',
                 :title => 'On the day',
                 :voice => 'SATB',
@@ -1385,6 +1941,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Kverno, Trond'),
                 :item => '314',
                 :title => 'Improperia Salvatoris Nostri',
                 :voice => 'SATB',
@@ -1393,6 +1953,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Duruflé, Maurice'),
                 :item => '603',
                 :title => 'Tantum ergo',
                 :voice => 'SATB',
@@ -1401,6 +1965,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Hymne'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Olsson, Otto'),
                 :item => '11',
                 :title => 'Psalmus CXX',
                 :voice => 'SATB',
@@ -1409,6 +1977,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '274',
                 :title => 'Nu rinner solen opp',
                 :voice => 'SATB',
@@ -1417,6 +1988,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nasjonalromantikk'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Grieg, Edvard'),
                 :item => '562',
                 :title => 'Ved Rondane',
                 :voice => 'SSAATBB',
@@ -1425,6 +2000,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Koral'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Bach, Johann Sebastian'),
                 :item => '53',
                 :title => 'Komm, o Tod',
                 :voice => 'SATB',
@@ -1433,6 +2012,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Vise'),
+                :instrument => Instrument.find_by_name('A capella'),
                 :item => '268',
                 :title => 'Där rosor aldrig dör',
                 :voice => 'SATB',
@@ -1441,6 +2023,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Hymne'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Saint-Saëns, Camille'),
                 :item => '380',
                 :title => 'Ave Verum Corpus',
                 :voice => 'SATB',
@@ -1449,6 +2035,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Berger, Jean'),
                 :item => '277',
                 :title => 'The eyes of all wait upon thee',
                 :voice => 'SATB',
@@ -1457,6 +2047,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Hymne'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Campian, Thomas'),
                 :item => '316',
                 :title => 'Lik en väderpinad båt',
                 :voice => 'SATB',
@@ -1465,6 +2059,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Sommerro, Henning'),
                 :item => '412',
                 :title => 'Brurmarsj frå (?)',
                 :voice => 'SATB',
@@ -1473,6 +2071,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Spiritual'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Luboff, Norman'),
                 :item => '115',
                 :title => 'Bye and bye',
                 :voice => 'SSAATTBB',
@@ -1481,6 +2083,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Klug, J.'),
                 :item => '579',
                 :title => 'Jeg synger julekvad',
                 :voice => 'SATB',
@@ -1489,6 +2095,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Madrigal'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Dowland, John'),
                 :item => '148',
                 :title => 'Come again',
                 :voice => 'SATB',
@@ -1497,6 +2107,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Kleive, Iver'),
                 :item => '472',
                 :title => 'Jeg er frelst, å for en nåde',
                 :voice => 'SATB',
@@ -1505,6 +2119,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Grieg, Edvard'),
                 :item => '619',
                 :title => 'Fire salmer',
                 :voice => 'SATTBB',
@@ -1513,6 +2131,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Nystedt, Knut'),
                 :item => '301',
                 :title => 'Cry out and shout',
                 :voice => 'SSATTB',
@@ -1521,6 +2143,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Kverno, Trond'),
                 :item => '300',
                 :title => 'Ave Maris Stella',
                 :voice => 'SSATBB',
@@ -1529,6 +2155,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Hymne'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Kverno, Trond'),
                 :item => '310',
                 :title => 'Corpus Christi Carol',
                 :voice => 'SATB',
@@ -1537,6 +2167,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Aamodt, Thorleif'),
                 :item => '46',
                 :title => 'I Betlehem oss fødtes',
                 :voice => 'SATB',
@@ -1545,6 +2179,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Aafløy, Helge'),
                 :item => '124',
                 :title => 'Alene Gud i himmerik',
                 :voice => 'SATB',
@@ -1553,6 +2191,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Chant'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Aveyard, J.'),
                 :item => '318',
                 :title => 'Salme 25',
                 :voice => 'SATB',
@@ -1561,6 +2203,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '280',
                 :title => 'Se, dager kommer',
                 :voice => 'SSSSAA',
@@ -1569,6 +2215,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hassler, Hans Leo'),
                 :item => '223',
                 :title => 'Sanctus',
                 :voice => 'SATB',
@@ -1577,6 +2227,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Walsh, Michael'),
                 :item => '624',
                 :title => 'Preces and responses',
                 :voice => 'SATB',
@@ -1585,6 +2239,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Schütz, Heinrich'),
                 :item => '324',
                 :title => 'Also hat Gott die Welt geliebt',
                 :voice => 'SATTB',
@@ -1593,6 +2251,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Verdslig'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Hindemith, Paul'),
                 :item => '487',
                 :title => 'Springtime',
                 :voice => 'SATB',
@@ -1601,6 +2263,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Karlsen, Kjell Mørk'),
                 :item => '222',
                 :title => 'Vær frimodig, sønn!',
                 :voice => 'SATB',
@@ -1609,6 +2275,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Sløgedal, Bjarne'),
                 :item => '218',
                 :title => 'La de små barn komme til mig',
                 :voice => 'SSATB',
@@ -1617,6 +2287,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella'),
+                :composer => Composer.find_by_name('Brahms, Johannes'),
                 :item => '225',
                 :title => 'Warum ist das Licht gegeben dem Mühseligen?',
                 :voice => 'SSATBB',
@@ -1625,6 +2299,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella el. Continuo'),
+                :composer => Composer.find_by_name('Schütz, Heinrich'),
                 :item => '597',
                 :title => 'Cantate Domino',
                 :voice => 'SATB',
@@ -1633,6 +2311,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Renessanse'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella el. Continuo'),
+                :composer => Composer.find_by_name('Schütz, Heinrich'),
                 :item => '598',
                 :title => 'Psalm 100 (Jauchzet dem Herrn)',
                 :voice => 'SSAATTBB',
@@ -1641,6 +2323,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella el. Orkester'),
+                :composer => Composer.find_by_name('Bach, Johann Sebastian'),
                 :item => '554',
                 :title => 'Jesu, meine Freude',
                 :voice => 'SSATB',
@@ -1649,6 +2335,10 @@ Note.create([
                 :count_instrumental => '1'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella el. Strykere'),
+                :composer => Composer.find_by_name('Bach, Johann Sebastian'),
                 :item => '575',
                 :title => 'Komm, Jesu, komm',
                 :voice => 'SSAATTBB',
@@ -1657,6 +2347,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('A capella el. Strykere'),
+                :composer => Composer.find_by_name('Bach, Johann Sebastian'),
                 :item => '607',
                 :title => 'Motetten',
                 :voice => 'SSAATTBB',
@@ -1665,6 +2359,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('Fløyte;Kontrabass'),
+                :composer => Composer.find_by_name('Öhrwall, Anders'),
                 :item => '98',
                 :title => 'Fäbodpsalm från Dalarna',
                 :voice => 'SSATBB',
@@ -1673,6 +2371,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('Klaver;Kontrabass'),
+                :composer => Composer.find_by_name('Tveit, Sigvald'),
                 :item => '238',
                 :title => 'Seks religiøse folketoner',
                 :voice => 'SATB',
@@ -1681,6 +2383,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
                 :item => '206',
                 :title => 'Magnificat & Nunc dimittis',
                 :voice => 'SATB',
@@ -1689,6 +2394,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Sumsion, Herbert'),
                 :item => '321',
                 :title => 'Magnificat & Nunc dimittis (G-dur)',
                 :voice => 'SATB',
@@ -1697,6 +2406,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Willcocks, David'),
                 :item => '585',
                 :title => 'Ding dong! Merrily on high',
                 :voice => 'SATTB',
@@ -1705,6 +2418,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
                 :item => '458',
                 :title => 'Norsk kantoribok (proprium)',
                 :voice => 'SATB',
@@ -1713,6 +2429,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Gulliksen, Harald'),
                 :item => '584',
                 :title => 'Alle de som Faderen gir meg',
                 :voice => 'SATB',
@@ -1721,6 +2441,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Davies, Walford'),
                 :item => '467',
                 :title => 'O little town of Bethlehem',
                 :voice => 'SATB',
@@ -1729,6 +2453,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Mendelssohn, Felix Bartholdy'),
                 :item => '405',
                 :title => 'Hear my prayer',
                 :voice => 'SATB',
@@ -1737,6 +2465,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Sløgedal, Bjarne'),
                 :item => '240',
                 :title => 'Frykt ikke, Maria',
                 :voice => 'SATB',
@@ -1745,6 +2477,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Stanford, Charles Villiers'),
                 :item => '621',
                 :title => 'Magnificat & Nunc Dimittis (A-dur)',
                 :voice => 'SSAATTBB',
@@ -1753,6 +2489,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Koral'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Bach, Johann Sebastian'),
                 :item => '340',
                 :title => 'Herre Gud vi til deg ber',
                 :voice => 'SATB',
@@ -1761,6 +2501,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Parry, C. Hubert H.'),
                 :item => '305',
                 :title => 'Du Far og Herre',
                 :voice => 'SATB',
@@ -1769,6 +2513,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Howells, Herbert'),
                 :item => '617',
                 :title => 'Magnificat & Nunc Dimittis (G-moll)',
                 :voice => 'SATB',
@@ -1777,6 +2525,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Fauré, Gabriel'),
                 :item => '606',
                 :title => 'Cantique de Jean Racine',
                 :voice => 'SATB',
@@ -1785,6 +2537,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Hymne'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
                 :item => '317',
                 :title => 'Så går en dag än från vår tid',
                 :voice => 'SATB',
@@ -1793,6 +2548,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Martin, Gilbert M.'),
                 :item => '118',
                 :title => 'O bli hos meg',
                 :voice => 'SSAATB',
@@ -1801,6 +2560,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Rutter, John'),
                 :item => '602',
                 :title => 'Go forth into the world in peace',
                 :voice => 'SATB',
@@ -1809,6 +2572,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Howells, Herbert'),
                 :item => '362',
                 :title => 'O, pray for the peace of Jerusalem',
                 :voice => 'SATB',
@@ -1817,6 +2584,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Stanford, Charles Villiers'),
                 :item => '620',
                 :title => 'Magnificat & Nunc Dimittis (B-dur)',
                 :voice => 'SATB',
@@ -1825,6 +2596,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Schütz, Heinrich'),
                 :item => '40',
                 :title => 'Tre bibliska scener',
                 :voice => 'SSATB',
@@ -1833,6 +2608,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Kverno, Trond'),
                 :item => '622',
                 :title => 'Magnificat i Fiss-dur (+ Nunc Dimittis)',
                 :voice => 'SATB',
@@ -1841,6 +2620,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Kantate'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Britten, Benjamin'),
                 :item => '311',
                 :title => 'Rejoice in the Lamb',
                 :voice => 'SATB',
@@ -1849,6 +2632,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Darke, Harold'),
                 :item => '623',
                 :title => 'Magnificat & Nunc Dimittis',
                 :voice => 'SATB',
@@ -1857,6 +2644,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Wesley, Samuel Sebastian'),
                 :item => '615',
                 :title => 'Thou wilt keep him',
                 :voice => 'SATTB',
@@ -1865,6 +2656,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Takle, Mons Leidvin'),
                 :item => '336',
                 :title => 'Overmåte fullt av nåde',
                 :voice => 'SATB',
@@ -1873,6 +2668,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Tveit, Sigvald'),
                 :item => '278',
                 :title => 'I sin hytte satt Marie',
                 :voice => 'SATB',
@@ -1881,6 +2680,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Olsson, Otto'),
                 :item => '470',
                 :title => 'Advent',
                 :voice => 'SATB',
@@ -1889,6 +2692,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Møller, Svein'),
                 :item => '433',
                 :title => 'Gud, riv oss ut av tidens jag',
                 :voice => 'SATB',
@@ -1897,6 +2704,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Shaw, Martin'),
                 :item => '178',
                 :title => 'Fanfare (Gloria in excelsis Deo)',
                 :voice => 'SATB',
@@ -1905,6 +2716,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '501',
                 :title => 'Salme fra Allehelgensmesse',
                 :voice => 'Unis + disk',
@@ -1913,6 +2728,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Tveit, Sigvald'),
                 :item => '358',
                 :title => 'Maria hun er en jomfru ren',
                 :voice => 'SSAA',
@@ -1921,6 +2740,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Sandvold, Arild'),
                 :item => '265',
                 :title => 'Til dig, Herre, tar jeg min tilflukt',
                 :voice => 'SATB',
@@ -1929,6 +2752,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '165',
                 :title => 'I himmelen',
                 :voice => 'SA',
@@ -1937,6 +2764,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Rathbone, George'),
                 :item => '510',
                 :title => 'Rejoice in the Lord always',
                 :voice => 'SATB',
@@ -1945,6 +2776,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Darke, Harold'),
                 :item => '520',
                 :title => 'In the bleak mid-winter',
                 :voice => 'SATB',
@@ -1953,6 +2788,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Oratorium'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
                 :item => '207',
                 :title => 'He that shall endure to the end (fra Elias)',
                 :voice => 'SATB',
@@ -1961,6 +2799,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Pärt, Arvo'),
                 :item => '574',
                 :title => 'The Beatitudes',
                 :voice => 'SATB',
@@ -1969,6 +2811,10 @@ Note.create([
                 :count_instrumental => '1'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '473',
                 :title => 'Herrens bønn',
                 :voice => 'SATB',
@@ -1977,6 +2823,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Sandvold, Arild'),
                 :item => '459',
                 :title => 'Guds menighet er jordens største under',
                 :voice => 'SATB',
@@ -1985,6 +2835,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Balfour Gardiner, H.'),
                 :item => '593',
                 :title => 'Evening hymn',
                 :voice => 'SATB',
@@ -1993,6 +2847,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Willcocks, David'),
                 :item => '197',
                 :title => 'Å kom, å kom, Immanuel',
                 :voice => 'SSAATTBB',
@@ -2001,6 +2859,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Oratorium'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Mendelssohn, Felix Bartholdy'),
                 :item => '205',
                 :title => 'And then shall your light break forth (fra Elias)',
                 :voice => 'SATB',
@@ -2009,6 +2871,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Kverno, Trond'),
                 :item => '203',
                 :title => 'Se, solens skjønne lys og prakt',
                 :voice => 'SSATB',
@@ -2017,6 +2883,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Elgar, Edward'),
                 :item => '616',
                 :title => 'Ave Verum Corpus',
                 :voice => 'SATB',
@@ -2025,6 +2895,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Willcocks, David'),
                 :item => '110',
                 :title => 'Den første sang (The first Nowell)',
                 :voice => 'SATB',
@@ -2033,6 +2907,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Kverno, Trond'),
                 :item => '297',
                 :title => 'Du åpner døren for ditt rikes komme',
                 :voice => 'SATB',
@@ -2041,6 +2919,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Kodály, Zoltán'),
                 :item => '434',
                 :title => 'Laudes organi',
                 :voice => 'SATB',
@@ -2049,6 +2931,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Sandvold, Arild'),
                 :item => '460',
                 :title => 'Salme 121',
                 :voice => 'SATB',
@@ -2057,6 +2943,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '109',
                 :title => 'Missa Verbi',
                 :voice => 'Unis + disk',
@@ -2065,6 +2955,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Fauré, Gabriel'),
                 :item => '425',
                 :title => 'Requiem',
                 :voice => 'SATTBB',
@@ -2073,6 +2967,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Hovland, Egil'),
                 :item => '315',
                 :title => 'Bli hos oss',
                 :voice => 'SSATTBB',
@@ -2081,6 +2979,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nasjonalromantikk'),
+                :genre => Genre.find_by_name('Epos'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
+                :composer => Composer.find_by_name('Grieg, Edvard'),
                 :item => '96',
                 :title => 'Landkjenning',
                 :voice => 'SATB',
@@ -2089,6 +2991,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('Orgel;Tromme'),
                 :item => '437',
                 :title => 'Norsk kantoribok (ordinarium)',
                 :voice => 'SATB',
@@ -2097,6 +3002,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Tromme'),
+                :composer => Composer.find_by_name('Rutter, John'),
                 :item => '614',
                 :title => 'Be thou my vision',
                 :voice => 'SATB',
@@ -2105,6 +3014,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Cello;Orgel'),
+                :composer => Composer.find_by_name('Bruckner, Anton'),
                 :item => '561',
                 :title => 'Ave Maria (F-dur)',
                 :voice => 'SAATTBB',
@@ -2113,6 +3026,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('Cymbal;Orgel;Tam-tam (med køller)'),
+                :composer => Composer.find_by_name('Sommerro, Henning'),
                 :item => '190',
                 :title => 'Som den gyldne sol frembryter',
                 :voice => 'SATB',
@@ -2121,6 +3038,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Folketone'),
+                :instrument => Instrument.find_by_name('Fløyte;Orgel;Tam-tam (med køller)'),
+                :composer => Composer.find_by_name('Sommerro, Henning'),
                 :item => '262',
                 :title => 'Som Maria, lær at lytte',
                 :voice => 'SATB',
@@ -2129,6 +3050,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Kantate'),
+                :instrument => Instrument.find_by_name('Fløyte;Orgel el. Orkester;Tam-tam (med køller)'),
+                :composer => Composer.find_by_name('Sandvold, Arild'),
                 :item => '202',
                 :title => 'Misjonskantate',
                 :voice => 'SATB',
@@ -2137,6 +3062,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Klassisisme'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Fløyte;Orgel el. Strykere;Tam-tam (med køller)'),
+                :composer => Composer.find_by_name('Mozart, Wolfgang Amadeus'),
                 :item => '474',
                 :title => 'Ave Verum Corpus',
                 :voice => 'SATB',
@@ -2145,6 +3074,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('Fløyte;Orkester;Tam-tam (med køller)'),
+                :composer => Composer.find_by_name('Lotti, Antonio'),
                 :item => '612',
                 :title => 'Credo',
                 :voice => 'SSAATTBB',
@@ -2153,6 +3086,10 @@ Note.create([
                 :count_instrumental => '14'
         },
         {
+                :period => Period.find_by_name('Klassisisme'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('Fløyte;Orkester;Tam-tam (med køller)'),
+                :composer => Composer.find_by_name('Schubert, Franz'),
                 :item => '552',
                 :title => 'Messe i G-dur',
                 :voice => 'SATB',
@@ -2161,6 +3098,9 @@ Note.create([
                 :count_instrumental => '1'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('Fløyte;Orkester;Tam-tam (med køller)'),
                 :item => '248',
                 :title => 'Wie der Hirsch schreit nach frischem Wasser',
                 :voice => 'SATB',
@@ -2169,6 +3109,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Oratorium'),
+                :instrument => Instrument.find_by_name('Fløyte;Orkester;Tam-tam (med køller)'),
+                :composer => Composer.find_by_name('Händel, Georg Friedrich'),
                 :item => '628',
                 :title => 'Messias',
                 :voice => 'SATB',
@@ -2177,6 +3121,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Klassisisme'),
+                :genre => Genre.find_by_name('Liturgi'),
+                :instrument => Instrument.find_by_name('Fløyte;Orkester;Tam-tam (med køller)'),
+                :composer => Composer.find_by_name('Mozart, Wolfgang Amadeus'),
                 :item => '609',
                 :title => 'Requiem',
                 :voice => 'SATB',
@@ -2185,6 +3133,9 @@ Note.create([
                 :count_instrumental => '1'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Te Deum'),
+                :instrument => Instrument.find_by_name('Fløyte;Orkester;Tam-tam (med køller)'),
                 :item => '608',
                 :title => 'Dettinger Te Deum',
                 :voice => 'SSATB',
@@ -2193,6 +3144,10 @@ Note.create([
                 :count_instrumental => '1'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Kantate'),
+                :instrument => Instrument.find_by_name('Fløyte;Orkester;Tam-tam (med køller)'),
+                :composer => Composer.find_by_name('Bach, Johann Sebastian'),
                 :item => '553',
                 :title => 'Liebster Jesu, mein Verlangen',
                 :voice => 'SATB',
@@ -2201,6 +3156,10 @@ Note.create([
                 :count_instrumental => '1'
         },
         {
+                :period => Period.find_by_name('Barokk'),
+                :genre => Genre.find_by_name('Hymne'),
+                :instrument => Instrument.find_by_name('Fløyte;Orkester;Tam-tam (med køller)'),
+                :composer => Composer.find_by_name('Händel, Georg Friedrich'),
                 :item => '189',
                 :title => 'Zadok the Priest',
                 :voice => 'SSAATBB',
@@ -2209,6 +3168,9 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Fløyte;Piano;Tam-tam (med køller)'),
                 :item => '492',
                 :title => 'Jag såg',
                 :voice => 'SATB',
@@ -2217,6 +3179,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Irsk folketone'),
+                :instrument => Instrument.find_by_name('Fløyte;Piano;Tam-tam (med køller)'),
+                :composer => Composer.find_by_name('Rutter, John'),
                 :item => '495',
                 :title => 'Down by the sally gardens',
                 :voice => 'TTBB',
@@ -2225,6 +3191,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Trad.'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('Fløyte;Orgel el. Piano;Tam-tam (med køller)'),
+                :composer => Composer.find_by_name('Öhrwall, Anders'),
                 :item => '526',
                 :title => 'Folkliga koralmelodier for kör och instrument',
                 :voice => 'SAB',
@@ -2233,6 +3203,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Salme'),
+                :instrument => Instrument.find_by_name('Bass;Piano;Tromme'),
+                :composer => Composer.find_by_name('Høybye, John'),
                 :item => '544',
                 :title => 'Sønderbrudt pigtråd',
                 :voice => 'SATB',
@@ -2241,6 +3215,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Jul'),
+                :instrument => Instrument.find_by_name('Piano;Stortromme;Tamburin'),
+                :composer => Composer.find_by_name('Gardner, John'),
                 :item => '396',
                 :title => 'Tomorrow shall be my dancing day',
                 :voice => 'SATB',
@@ -2249,6 +3227,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Nyere'),
+                :genre => Genre.find_by_name('Motett'),
+                :instrument => Instrument.find_by_name('Piano;Stortromme;Tamburin'),
+                :composer => Composer.find_by_name('Berger, Jean'),
                 :item => '521',
                 :title => 'Alleluia from Brazilian Psalm',
                 :voice => 'SATBB',
@@ -2257,6 +3239,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :composer => Composer.find_by_name('Howells, Herbert'),
                 :item => '1111',
                 :title => 'Like as the Hart',
                 :voice => 'SATB',
@@ -2265,6 +3248,10 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :period => Period.find_by_name('Romantikken'),
+                :genre => Genre.find_by_name('Hymne'),
+                :instrument => Instrument.find_by_name('Orgel'),
+                :composer => Composer.find_by_name('Stanford, Charles Villiers'),
                 :item => '90000',
                 :title => 'Ye Choirs of New Jerusalem',
                 :voice => 'SATB',
@@ -2273,6 +3260,7 @@ Note.create([
                 :count_instrumental => '0'
         },
         {
+                :genre => Genre.find_by_name('Jul'),
                 :item => '630',
                 :title => 'Julehefte 2009',
                 :voice => 'SATB',
