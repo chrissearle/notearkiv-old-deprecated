@@ -110,6 +110,7 @@ class NoteSpreadsheet
                        HeaderColumn.new("Komponist", 35),
                        HeaderColumn.new("Genre", 35),
                        HeaderColumn.new("Epoke", 35),
+                       HeaderColumn.new("Språk", 35),
                        HeaderColumn.new("Akkomp.", 35),
                        HeaderColumn.new("Original", 8),
                        HeaderColumn.new("Kopi", 8),
@@ -144,12 +145,15 @@ class NoteSpreadsheet
     @notes.each do |note|
       row = sheet.row(sheet.last_row_index() + 1)
 
+      langs = note.languages.map{|lang| lang.name }
+
       row.push note.id
       row.push note.item
       row.push note.title
       row.push get_name_if_exists note.composer
       row.push get_name_if_exists note.genre
       row.push get_name_if_exists note.period
+      row.push langs.join(", ")
       row.push note.instrument
       row.push note.count_originals
       row.push note.count_copies
