@@ -51,6 +51,7 @@ ActionController::Routing::Routes.draw do |map|
   map.noteexcel 'notes/excel', :controller => 'notes', :action => 'excel'
   map.evensongexcel 'evensongs/excel', :controller => 'evensongs', :action => 'excel'
   map.evensongmapping 'evensongs/mapping', :controller => 'evensongs', :action => 'mapping'
+  map.voice 'notes/voice', :controller => 'notes', :action => 'voice'
 
   map.resources :periods
   map.resources :evensong_genres

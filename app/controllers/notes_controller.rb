@@ -66,6 +66,17 @@ class NotesController < ApplicationController
     end
   end
 
+  def voice
+    data = ""
+
+    Note.find(:all, :conditions => ["voice like ?", params[:q] + "%"], :select => 'DISTINCT voice' ).each do |voice|
+      data = data + "#{voice.voice}\n"
+    end
+
+    send_data data, :type => 'text/plain'
+  end
+
+
   def excel
     spreadsheet = NoteSpreadsheet.new(Note.find(:all).sort_by{|p| p.title.downcase})
 

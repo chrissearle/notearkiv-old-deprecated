@@ -1,3 +1,21 @@
+<% content_for :head do %>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jquery.autocomplete.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets//thickbox.css"/>
+    <script type="text/javascript" src="/js/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.autocomplete.min.js"></script>
+    <script type='text/javascript' src='/js/jquery.bgiframe.min.js'></script>
+    <script type='text/javascript' src='/js/jquery.ajaxQueue.js'></script>
+    <script type='text/javascript' src='/js/thickbox-compressed.js'></script>
+
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            $("#note_voice").autocomplete('<%= voice_path %>');
+        });
+    </script>
+<% end %>
+
+
 <% semantic_form_for @note do |form| %>
     <% form.inputs do %>
         <%= form.input :item, :label => "ID" %>
