@@ -1,0 +1,8 @@
+spreadsheet -v '0.6.4.1'
+exceptional -v '2.0.9'
+nokogiri -v '1.4.1'
+mechanize -v '1.0.0'
+formtastic -v '0.9.7'
+rails -v '2.3.5'
+authlogic -v '2.1.3'
+declarative_authorization -v '0.4'
