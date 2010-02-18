@@ -36,6 +36,19 @@
   </tr>
 
   <tr>
+    <td>Språk</td>
+    <td>
+      <% if @note.languages.size() > 0 %>
+          <ul>
+            <% @note.languages.each do |lang| %>
+                <li><%= lang.name %></li>
+            <% end %>
+          </ul>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
     <td>Akkomp.</td>
     <td>
       <%= @note.instrument %>

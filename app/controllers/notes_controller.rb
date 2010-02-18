@@ -69,7 +69,8 @@ class NotesController < ApplicationController
   def voice
     data = ""
 
-    Note.find(:all, :conditions => ["voice like ?", params[:q] + "%"], :select => 'DISTINCT voice' ).each do |voice|
+    # The following query goes thru to the database and needs to be specific for postgres - since production is postgres.
+    Note.find(:all, :conditions => ["voice ilike ?", params[:q] + "%"], :select => 'DISTINCT voice' ).each do |voice|
       data = data + "#{voice.voice}\n"
     end
 

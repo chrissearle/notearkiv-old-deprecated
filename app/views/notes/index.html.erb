@@ -34,12 +34,17 @@
                     null,
                     null,
                     null,
+                    {
+                        "bSortable": false
+                    },
                     null,
                     {
                         "bSearchable": false
                     }
                 ],
-                "aaSorting": [[1,'asc']]
+                "aaSorting": [
+                    [1,'asc']
+                ]
             });
         }
                 );
@@ -58,6 +63,7 @@
     <th>Komponist</th>
     <th>Genre</th>
     <th>Epoke</th>
+    <th>Språk</th>
     <th>Akkomp.</th>
     <th>Fil</th>
   </tr>
@@ -78,6 +84,15 @@
         <td><%= note.composer.name if note.composer %></td>
         <td><%= note.genre.name if note.genre %></td>
         <td><%= note.period.name if note.period %></td>
+        <td>
+          <% if note.languages.size() > 0 %>
+              <ul>
+                <% note.languages.each do |lang| %>
+                    <li><%= lang.name %></li>
+                <% end %>
+              </ul>
+          <% end %>
+        </td>
         <td><%= note.instrument %></td>
         <td><%= link_to_note_file(note) %></td>
       </tr>
