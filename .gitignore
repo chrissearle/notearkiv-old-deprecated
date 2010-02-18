@@ -8,3 +8,4 @@ vendor/bundler_gems
 vendor/plugins
 start.sh
 .bundle
+users.rb
