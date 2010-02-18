@@ -1471,7 +1471,7 @@ Note.create([
                 :period => Period.find_by_name('Romantikken'),
                 :genre => Genre.find_by_name('Motett'),
                 :instrument => 'A capella',
-                :composer => Composer.find_by_name('Parry, C. Hubert H.'),
+                :composer => Composer.find_by_name('Parry, Charles Hubert H.'),
                 :item => '610',
                 :title => 'Songs of Farewell',
                 :voice => 'SSAATTBB',
@@ -2486,7 +2486,7 @@ Note.create([
                 :period => Period.find_by_name('Romantikken'),
                 :genre => Genre.find_by_name('Salme'),
                 :instrument => 'Orgel, Tromme',
-                :composer => Composer.find_by_name('Parry, C. Hubert H.'),
+                :composer => Composer.find_by_name('Parry, Charles Hubert H.'),
                 :item => '305',
                 :title => 'Du Far og Herre',
                 :voice => 'SATB',
@@ -2629,7 +2629,7 @@ Note.create([
                 :period => Period.find_by_name('Romantikken'),
                 :genre => Genre.find_by_name('Motett'),
                 :instrument => 'Orgel, Tromme',
-                :composer => Composer.find_by_name('Wesley, Samuel Sebastian'),
+                :composer => Composer.find_by_name('Wesley, Samual Sebastian (1810-1876)'),
                 :item => '615',
                 :title => 'Thou wilt keep him',
                 :voice => 'SATTB',
@@ -3259,429 +3259,511 @@ salme = Genre.find_by_name("Chant")
 
 Evensong.create([
         {
-                :title => 'Walsh',
+                :title => 'The Preces and Responses',
                 :old_file_path => 'Walsh.pdf',
-                :genre => precresp
+                :genre => precresp,
+                :composer => Composer.find_by_name('Walsh, Michael')
         },
         {
-                :title => 'Tomkins',
+                :title => 'The Preces and Responses',
                 :old_file_path => 'Tomkins.pdf',
-                :genre => precresp
+                :genre => precresp,
+                :composer => Composer.find_by_name('Tomkins, Thomas (1572-1656)')
         },
         {
-                :title => 'Sumsion',
+                :title => 'Versicles, Responses and Lord\'s Prayer',
                 :old_file_path => 'Sumsion.pdf',
-                :genre => precresp
+                :genre => precresp,
+                :composer => Composer.find_by_name('Sumsion, Herbert W.')
         },
         {
-                :title => 'Smith',
+                :title => 'The Preces and Responses',
                 :old_file_path => 'Smith.pdf',
-                :genre => precresp
+                :genre => precresp,
+                :composer => Composer.find_by_name('Smith, William (1603-1645)')
         },
         {
-                :title => 'Skjølaas',
+                :title => 'The Preces and Responses',
                 :old_file_path => 'Skjølaas.pdf',
-                :genre => precresp
+                :genre => precresp,
+                :composer => Composer.find_by_name('Skjølaas, Marius (1972-)')
         },
         {
-                :title => 'Reading',
+                :title => 'The Preces and Responses',
                 :old_file_path => 'Reading.pdf',
-                :genre => precresp
+                :genre => precresp,
+                :composer => Composer.find_by_name('Reading, John')
         },
         {
-                :title => 'Millington',
+                :title => 'The Preces and Responses',
                 :old_file_path => 'Millington.pdf',
-                :genre => precresp
+                :genre => precresp,
+                :composer => Composer.find_by_name('Millington, Andrew')
         },
         {
-                :title => 'Leighton',
+                :title => 'The Preces and Responses',
                 :old_file_path => 'Leighton.pdf',
-                :genre => precresp
+                :genre => precresp,
+                :composer => Composer.find_by_name('Leighton, Kenneth')
         },
         {
-                :title => 'Ihlebæk',
+                :title => 'The Preces and Responses',
                 :old_file_path => 'Ihlebæk.pdf',
-                :genre => precresp
+                :genre => precresp,
+                :composer => Composer.find_by_name('Ihlebæk, G.')
         },
         {
-                :title => 'Sumsion in G',
+                :title => 'Magnificat and Nunc Dimittis in G',
                 :old_file_path => 'Sumsion in G.pdf',
-                :genre => magnunc
+                :genre => magnunc,
+                :composer => Composer.find_by_name('Sumsion, Herbert W.')
         },
         {
-                :title => 'Stanford in C',
+                :title => 'Magnificat and Nunc Dimittis in C',
                 :old_file_path => 'Stanford in C.pdf',
-                :genre => magnunc
+                :genre => magnunc,
+                :composer => Composer.find_by_name('Stanford, Charles Villiers (1852-1924)')
         },
         {
-                :title => 'Stanford in B',
+                :title => 'Magnificat and Nunc Dimittis in b',
                 :old_file_path => 'Stanford in B.pdf',
-                :genre => magnunc
+                :genre => magnunc,
+                :composer => Composer.find_by_name('Stanford, Charles Villiers (1852-1924)')
         },
         {
-                :title => 'Stanford in A',
+                :title => 'Magnificat and Nunc Dimittis in A',
                 :old_file_path => 'Stanford in A.pdf',
-                :genre => magnunc
+                :genre => magnunc,
+                :composer => Composer.find_by_name('Stanford, Charles Villiers (1852-1924)')
         },
         {
-                :title => 'Kverno i Fiss',
+                :title => 'Magnificat og Nunc Dimittis i Fiss',
                 :old_file_path => 'Kverno i Fiss.pdf',
-                :genre => magnunc
+                :genre => magnunc,
+                :composer => Composer.find_by_name('Kverno, Trond')
         },
         {
-                :title => 'Howells Regale',
+                :title => 'Magnificat and Nunc Dimittis (Collegium Regale)',
                 :old_file_path => 'Howells regale.pdf',
-                :genre => magnunc
+                :genre => magnunc,
+                :composer => Composer.find_by_name('Howells, Herbert (1892-1983)')
         },
         {
-                :title => 'Howells Gloucester',
+                :title => 'Magnificat and Nunc Dimittis (Gloucester)',
                 :old_file_path => 'Howells Gloucester.pdf',
-                :genre => magnunc
+                :genre => magnunc,
+                :composer => Composer.find_by_name('Howells, Herbert (1892-1983)')
         },
         {
-                :title => 'Darke in F',
+                :title => 'Magnificat and Nunc Dimittis in F',
                 :old_file_path => 'Darke in F.pdf',
-                :genre => magnunc
+                :genre => magnunc,
+                :composer => Composer.find_by_name('Darke, Harold')
         },
         {
                 :psalm => '148',
-                :title => 'Laudate Dominum',
                 :old_file_path => '148 Laudate Dominum.pdf',
-                :genre => salme
+                :title => 'Laudate Dominum',
+                :genre => salme,
+                :composer => Composer.find_by_name('Walmisley, Thomas Attwood (1814-1856)')
         },
         {
                 :psalm => '147',
-                :title => 'Laudate Dominum',
                 :old_file_path => '147 Laudate Dominum.pdf',
-                :genre => salme
+                :title => 'Laudate Dominum',
+                :genre => salme,
+                :composer => Composer.find_by_name('Thalben-Ball, George')
         },
         {
                 :psalm => '146',
-                :title => 'Lauda, anima mea',
                 :old_file_path => '146 Lauda, anima mea.pdf',
-                :genre => salme
+                :title => 'Lauda, anima mea',
+                :genre => salme,
+                :composer => Composer.find_by_name('Wesley, Samual Sebastian (1810-1876)')
         },
         {
                 :psalm => '145',
-                :title => 'Exaltabo te, Deus',
                 :old_file_path => '145 Exaltabo te, Deus.pdf',
-                :genre => salme
+                :title => 'Exaltabo te, Deus',
+                :genre => salme,
+                :composer => Composer.find_by_name('Stanford, Charles Villiers (1852-1924)')
         },
         {
                 :psalm => '139',
-                :title => 'Domine, probasti',
                 :old_file_path => '139 Domine, probasti.pdf',
-                :genre => salme
+                :title => 'Domine, probasti',
+                :genre => salme,
+                :composer => Composer.find_by_name('Draagen, Magne H.')
         },
         {
                 :psalm => '138',
-                :title => 'Confitebor tibi',
                 :old_file_path => '138 Confitebor tibi.pdf',
-                :genre => salme
+                :title => 'Confitebor tibi',
+                :genre => salme,
+                :composer => Composer.find_by_name('Draagen, Magne H.')
         },
         {
                 :psalm => '130',
-                :title => 'De profundis',
                 :old_file_path => '130 De profundis.pdf',
-                :genre => salme
+                :title => 'De profundis',
+                :genre => salme,
+                :composer => Composer.find_by_name('Macpherson, Charles / Rogers, J.L.')
         },
         {
                 :psalm => '127',
-                :title => 'Nisi Dominus',
                 :old_file_path => '127 Nisi Dominus.pdf',
-                :genre => salme
+                :title => 'Nisi Dominus',
+                :genre => salme,
+                :composer => Composer.find_by_name('Buck, P.C.')
         },
         {
                 :psalm => '126',
-                :title => 'In convertendo',
                 :old_file_path => '126 In convertendo.pdf',
-                :genre => salme
+                :title => 'In convertendo',
+                :genre => salme,
+                :composer => Composer.find_by_name('Garrett, George M.')
         },
         {
                 :psalm => '125',
-                :title => 'Qui confidunt',
                 :old_file_path => '125 Qui confidunt.pdf',
-                :genre => salme
+                :title => 'Qui confidunt',
+                :genre => salme,
+                :composer => Composer.find_by_name('Lloyd, C.H.')
         },
         {
                 :psalm => '124',
-                :title => 'Nisi quia Dominus',
                 :old_file_path => '124 Nisi quia Dominus.pdf',
-                :genre => salme
+                :title => 'Nisi quia Dominus',
+                :genre => salme,
+                :composer => Composer.find_by_name('Buverud, Olaf')
         },
         {
                 :psalm => '121',
-                :title => 'Levavi oculos',
                 :old_file_path => '121 Levavi oculos.pdf',
-                :genre => salme
+                :title => 'Levavi oculos',
+                :genre => salme,
+                :composer => Composer.find_by_name('Sir Davies, Henry Walford')
         },
         {
                 :psalm => '120',
-                :title => 'Ad Dominum',
                 :old_file_path => '120 Ad Dominum.pdf',
-                :genre => salme
+                :title => 'Ad Dominum',
+                :genre => salme,
+                :composer => Composer.find_by_name('Stewart, Charles Hylton (1884-1932)')
         },
         {
                 :psalm => '118',
-                :title => 'Confitemini Domino',
                 :old_file_path => '118 Confitemini Domino.pdf',
-                :genre => salme
+                :title => 'Confitemini Domino',
+                :genre => salme,
+                :composer => Composer.find_by_name('Goodson, Richard B. (1655-1718) / Hopkins, Edward John (1818-1901)')
         },
         {
                 :psalm => '116',
-                :title => 'Dilexi, quoniam',
                 :old_file_path => '116 Dilexi, quoniam.pdf',
-                :genre => salme
+                :title => 'Dilexi, quoniam',
+                :genre => salme,
+                :composer => Composer.find_by_name('Robinson, John (1682-1762)')
         },
         {
                 :psalm => '114',
-                :title => 'In exitu Israel',
                 :old_file_path => '114 In exitu Israel.pdf',
-                :genre => salme
+                :title => 'In exitu Israel',
+                :genre => salme,
+                :composer => Composer.find_by_name('Anon')
         },
         {
                 :psalm => '111',
                 :title => 'Confitebor tibi',
-                :old_file_path => '111 Confitebor tibi.pdf',
-                :genre => salme
+                :title => 'Confitebor tibi',
+                :genre => salme,
+                :composer => Composer.find_by_name('Randall, John (1715-1799)')
         },
         {
                 :psalm => '100',
-                :title => 'Jubilate Deo',
                 :old_file_path => '100 Jubilate Deo.pdf',
-                :genre => salme
+                :title => 'Jubilate Deo',
+                :genre => salme,
+                :composer => Composer.find_by_name('Walmisley, Thomas Attwood (1814-1856)')
         },
         {
                 :psalm => '99',
-                :title => 'Dominus regnavit',
                 :old_file_path => '99 Dominus regnavit.pdf',
-                :genre => salme
+                :title => 'Dominus regnavit',
+                :genre => salme,
+                :composer => Composer.find_by_name('Stonex, Henry')
         },
         {
                 :psalm => '93',
-                :title => 'Dominus regnavit',
                 :old_file_path => '93 Dominus regnavit.pdf',
-                :genre => salme
+                :title => 'Dominus regnavit',
+                :genre => salme,
+                :composer => Composer.find_by_name('Ley, Henry George (1887-1962)')
         },
         {
                 :psalm => '85',
-                :title => 'Benedixisti, Domine',
                 :old_file_path => '85 Benedixisti, Domine.pdf',
-                :genre => salme
+                :title => 'Benedixisti, Domine',
+                :genre => salme,
+                :composer => Composer.find_by_name('Cooper, George')
         },
         {
                 :psalm => '84',
-                :title => 'Quam dilecta',
                 :old_file_path => '84 Quam dilecta.pdf',
-                :genre => salme
+                :title => 'Quam dilecta',
+                :genre => salme,
+                :composer => Composer.find_by_name('Parry, Charles Hubert H.')
         },
         {
                 :psalm => '83',
-                :title => 'Deus, quis similis',
                 :old_file_path => '83 Deus, quis similis.pdf',
-                :genre => salme
+                :title => 'Deus, quis similis',
+                :genre => salme,
+                :composer => Composer.find_by_name('Cook, Robert (1768-1814)')
         },
         {
                 :psalm => '82',
-                :title => 'Deus stetit',
                 :old_file_path => '82 Deus stetit.pdf',
-                :genre => salme
+                :title => 'Deus stetit',
+                :genre => salme,
+                :composer => Composer.find_by_name('Camidge, Matthew (1758-1844)')
         },
         {
                 :psalm => '80',
-                :title => 'Qui regis Israel',
                 :old_file_path => '80 Qui regis Israel.pdf',
-                :genre => salme
+                :title => 'Qui regis Israel',
+                :genre => salme,
+                :composer => Composer.find_by_name('Draagen, Magne H.')
         },
         {
                 :psalm => '79',
-                :title => 'Deus, venerunt',
                 :old_file_path => '79 Deus, venerunt.pdf',
-                :genre => salme
+                :title => 'Deus, venerunt',
+                :genre => salme,
+                :composer => Composer.find_by_name('Draagen, Magne H.')
         },
         {
                 :psalm => '77',
-                :title => 'Voce mea ad Dominum',
                 :old_file_path => '77 Voce mea ad Dominum.pdf',
-                :genre => salme
+                :title => 'Voce mea ad Dominum',
+                :genre => salme,
+                :composer => Composer.find_by_name('Draagen, Magne H.')
         },
         {
                 :psalm => '75',
-                :title => 'Confitebimur tibi',
                 :old_file_path => '75 Confitebimur tibi.pdf',
-                :genre => salme
+                :title => 'Confitebimur tibi',
+                :genre => salme,
+                :composer => Composer.find_by_name('South, Charles Frederic (1850-1916)')
         },
         {
                 :psalm => '72',
-                :title => 'Deus, judicium',
                 :old_file_path => '72 Deus, judicium.pdf',
-                :genre => salme
+                :title => 'Deus, judicium',
+                :genre => salme,
+                :composer => Composer.find_by_name('Stanford, Charles Villiers (1852-1924)')
         },
         {
                 :psalm => '71',
-                :title => 'In te, Domine, speravi',
                 :old_file_path => '71 In te, Domine, speravi.pdf',
-                :genre => salme
+                :title => 'In te, Domine, speravi',
+                :genre => salme,
+                :composer => Composer.find_by_name('Turle, James (1802-1882)')
         },
         {
                 :psalm => '51',
-                :title => 'Miserere mei, Deus',
                 :old_file_path => '51 Miserere mei, Deus.pdf',
-                :genre => salme
+                :title => 'Miserere mei, Deus',
+                :genre => salme,
+                :composer => Composer.find_by_name('Kverno, Trond')
         },
         {
                 :psalm => '49',
-                :title => 'Audite hæc, omnes',
                 :old_file_path => '49 Audite hæc, omnes.pdf',
-                :genre => salme
+                :title => 'Audite hæc, omnes',
+                :genre => salme,
+                :composer => Composer.find_by_name('Walmisley, Thomas Attwood (1814-1856)')
         },
         {
                 :psalm => '42',
-                :title => 'Quemadmodum-43 Judica me, Deus',
                 :old_file_path => '42 Quemadmodum-43 Judica me, Deus.pdf',
-                :genre => salme
+                :title => 'Quemadmodum-43 Judica me, Deus',
+                :genre => salme,
+                :composer => Composer.find_by_name('Bayley, William / Atkins, Ivor Algernon')
         },
         {
                 :psalm => '42',
-                :title => 'Quemadmodum ',
                 :old_file_path => '42 Quemadmodum.pdf',
-                :genre => salme
+                :title => 'Quemadmodum ',
+                :genre => salme,
+                :composer => Composer.find_by_name('Wesley, Samual Sebastian (1810-1876)')
         },
         {
                 :psalm => '38',
-                :title => 'Domine, ne in furore',
                 :old_file_path => '38 Domine, ne in furore.pdf',
-                :genre => salme
+                :title => 'Domine, ne in furore',
+                :genre => salme,
+                :composer => Composer.find_by_name('Battishill, Jonathan (1738-1801)')
         },
         {
                 :psalm => '33',
-                :title => 'Exultate, justi',
                 :old_file_path => '33 Exultate, justi.pdf',
-                :genre => salme
+                :title => 'Exultate, justi',
+                :genre => salme,
+                :composer => Composer.find_by_name('Goss, John (1800-1880)')
         },
         {
                 :psalm => '28',
-                :title => 'Ad te, Domine',
                 :old_file_path => '28 Ad te, Domine.pdf',
-                :genre => salme
+                :title => 'Ad te, Domine',
+                :genre => salme,
+                :composer => Composer.find_by_name('Hopkins, Edward John (1818-1901)')
         },
         {
                 :psalm => '26',
-                :title => 'Judica me, Domine',
                 :old_file_path => '26 Judica me, Domine.pdf',
-                :genre => salme
+                :title => 'Judica me, Domine',
+                :genre => salme,
+                :composer => Composer.find_by_name('Hopkins, Edward John (1818-1901)')
         },
         {
                 :psalm => '25',
-                :title => 'Ad te, Domini, levavi',
                 :old_file_path => '25 Ad te, Domini, levavi.pdf',
-                :genre => salme
+                :title => 'Ad te, Domini, levavi',
+                :genre => salme,
+                :composer => Composer.find_by_name('Draagen, Magne H.')
         },
         {
                 :psalm => '24',
-                :title => 'Domine est terra',
                 :old_file_path => '24 Domine est terra.pdf',
-                :genre => salme
+                :title => 'Domine est terra',
+                :genre => salme,
+                :composer => Composer.find_by_name('Hawes, William')
         },
         {
                 :psalm => '23',
-                :title => 'Dominus regit me',
                 :old_file_path => '23 Dominus regit me.pdf',
-                :genre => salme
+                :title => 'Dominus regit me',
+                :genre => salme,
+                :composer => Composer.find_by_name('Goss, John (1800-1880)')
         },
         {
                 :psalm => '21',
-                :title => 'Domine, in virtute tua',
                 :old_file_path => '21 Domine, in virtute tua.pdf',
-                :genre => salme
+                :title => 'Domine, in virtute tua',
+                :genre => salme,
+                :composer => Composer.find_by_name('Cooper, George')
         },
         {
                 :psalm => '15',
-                :title => 'Domine, quis habitabit',
                 :old_file_path => '15 Domine, quis habitabit.pdf',
-                :genre => salme
+                :title => 'Domine, quis habitabit',
+                :genre => salme,
+                :composer => Composer.find_by_name('Draagen, Magne H.')
         },
         {
                 :psalm => '8',
-                :title => 'Domine, Dominus noster',
                 :old_file_path => '8 Domine, Dominus noster.pdf',
-                :genre => salme
+                :title => 'Domine, Dominus noster',
+                :genre => salme,
+                :composer => Composer.find_by_name('Hopkins, Edward John (1818-1901)')
         },
         {
                 :psalm => '5',
-                :title => 'Verba mea auribus',
                 :old_file_path => '5 Verba mea auribus.pdf',
-                :genre => salme
+                :title => 'Verba mea auribus',
+                :genre => salme,
+                :composer => Composer.find_by_name('Bairstow, E.C.')
         },
         {
                 :psalm => '4',
-                :title => 'Cum invocarem',
                 :old_file_path => '4 Cum invocarem.pdf',
-                :genre => salme
+                :title => 'Cum invocarem',
+                :genre => salme,
+                :composer => Composer.find_by_name('Hopkins, Edward John (1818-1901)')
         },
         {
                 :psalm => '3',
-                :title => 'Domine, quid multiplicati',
                 :old_file_path => '3 Domine, quid multiplicati.pdf',
-                :genre => salme
+                :title => 'Domine, quid multiplicati',
+                :genre => salme,
+                :composer => Composer.find_by_name('Turle, James (1802-1882)')
         },
         {
                 :psalm => '1',
-                :title => 'Beatus vir, qui non abbit',
                 :old_file_path => '1 Beatus vir, qui non abbit.pdf',
-                :genre => salme
+                :title => 'Beatus vir, qui non abbit',
+                :genre => salme,
+                :composer => Composer.find_by_name('Ley, Henry George (1887-1962)')
         },
         {
-                :title => 'Walmisley in d',
+                :title => 'Magnificat and Nunc Dimittis in d',
                 :old_file_path => 'Walmisley in d.pdf',
-                :genre => precresp
+                :genre => magnunc,
+                :composer => Composer.find_by_name('Walmisley, Thomas Attwood (1814-1856)')
         },
         {
                 :psalm => '73',
-                :title => 'Quam bonus Israel',
                 :old_file_path => '73 Quam bonus Israel.pdf',
-                :genre => salme
+                :title => 'Quam bonus Israel',
+                :genre => salme,
+                :composer => Composer.find_by_name('Sir Barnby, Joseph / Soaper, John')
         },
         {
                 :psalm => '113',
-                :title => 'Laudate, pueri',
                 :old_file_path => '113 Laudate, pueri.pdf',
-                :genre => salme
+                :title => 'Laudate, pueri',
+                :genre => salme,
+                :composer => Composer.find_by_name('Turle, James (1802-1882)')
         },
         {
-                :title => 'Barnard',
+                :title => 'The Preces and Responses',
                 :old_file_path => 'Barnard.pdf',
-                :genre => precresp
+                :genre => precresp,
+                :composer => Composer.find_by_name('Barnard, John')
         },
         {
-                :title => 'Draagen',
+                :title => 'Magnificat og Nunc Dimittis',
                 :old_file_path => 'Draagen.pdf',
-                :genre => magnunc
+                :genre => magnunc,
+                :composer => Composer.find_by_name('Draagen, Magne H.')
         },
         {
-                :title => 'Noble in B',
+                :title => 'Magnificat and Nunc Dimittis in B',
                 :old_file_path => 'Noble in B.pdf',
-                :genre => magnunc
+                :genre => magnunc,
+                :composer => Composer.find_by_name('Noble')
         },
         {
                 :psalm => '89',
-                :title => 'Misericordias Domini',
                 :old_file_path => 'Ps.89 Misericordias Domini.pdf',
-                :genre => salme
+                :title => 'Misericordias Domini',
+                :genre => salme,
+                :composer => Composer.find_by_name('')
         },
         {
                 :psalm => '115',
-                :title => 'Non nobis, Domine',
                 :old_file_path => '115 Non nobis, Domine.pdf',
-                :genre => salme
+                :title => 'Non nobis, Domine',
+                :genre => salme,
+                :composer => Composer.find_by_name('Knight, Gerald Hocken (1908-1979)')
         },
         {
                 :psalm => '66',
                 :title => 'Jubilate Deo - 67 Deus misereatur',
-                :genre => salme
+                :genre => salme,
+                :composer => Composer.find_by_name('Atkins, I.A. / Bairstow, E.C. ')
         },
         {
                 :psalm => '27',
                 :title => 'Dominus illuminato',
-                :genre => salme
-        }])
+                :genre => salme,
+                :composer => Composer.find_by_name('Chipp, E.T.')
+        },
+        {
+                :psalm => '98',
+                :title => 'Cantate Domino',
+                :genre => salme,
+                :composer => Composer.find_by_name('Knight, Gerald Hocken (1908-1979)')
+        }
+])
