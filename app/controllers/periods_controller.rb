@@ -58,6 +58,17 @@ class PeriodsController < ApplicationController
   end
 
   def destroy
+    @period = Period.find(params[:id])
+
+    flash[:notice] = "Epoke #{@period.name} slettet."
+
+    @period.destroy
+
+
+    respond_to do |format|
+      format.html { redirect_to(periods_url) }
+      format.xml  { head :ok }
+    end
   end
 
 end
