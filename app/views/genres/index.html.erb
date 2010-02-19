@@ -11,8 +11,35 @@
             <td><%= link_to 'endre', edit_genre_path(genre) %></td>
         <% end %>
         <% if permitted_to? :destroy, genre %>
-            <td><%= link_to 'slett', genre, :confirm => 'Er du sikker?',
-                            :method => :delete %></td>
+            <td>
+              <% if genre.notes.size() == 0 && genre.evensongs.size() == 0 %>
+                  <%= link_to 'slett', genre, :confirm => 'Er du sikker?',
+                              :method => :delete %>
+              <% else %>
+                  <ul>
+                    <% if genre.notes.size() > 0 %>
+                        <li>
+                          <%= genre.notes.size() %>
+                          <% if genre.notes.size() == 1 %>
+                              note
+                          <% else %>
+                              noter
+                          <% end %>
+                        </li>
+                    <% end %>
+                    <% if genre.evensongs.size() > 0 %>
+                        <li>
+                          <%= genre.evensongs.size() %> evensong
+                          <% if genre.evensongs.size() == 1 %>
+                              note
+                          <% else %>
+                              noter
+                          <% end %>
+                        </li>
+                    <% end %>
+                  </ul>
+              <% end %>
+            </td>
         <% end %>
       </tr>
   <% end %>

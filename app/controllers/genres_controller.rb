@@ -58,6 +58,16 @@ class GenresController < ApplicationController
   end
 
   def destroy
+    @genre = Genre.find(params[:id])
+
+    flash[:notice] = "Genre #{@genre.name} slettet."
+
+    @genre.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(genres_url) }
+      format.xml  { head :ok }
+    end
   end
 
 end
