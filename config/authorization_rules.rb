@@ -1,6 +1,6 @@
 authorization do
   role :admin do
-    has_permission_on [:notes, :evensongs, :composers, :genres, :periods, :languages, :users], :to => [:index, :show, :new, :create, :edit, :update, :destroy, :excel, :voice, :voices]
+    has_permission_on [:notes, :evensongs, :composers, :genres, :periods, :languages, :users], :to => [:index, :show, :new, :create, :edit, :update, :destroy, :excel, :voice, :mapping]
   end
 
   role :normal do
