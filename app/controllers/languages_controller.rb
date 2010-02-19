@@ -58,6 +58,17 @@ class LanguagesController < ApplicationController
   end
 
   def destroy
+    @language = Language.find(params[:id])
+
+    flash[:notice] = "Språk #{@language.name} slettet."
+
+    @language.destroy
+
+
+    respond_to do |format|
+      format.html { redirect_to(languages_url) }
+      format.xml  { head :ok }
+    end
   end
 
 end

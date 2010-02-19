@@ -11,8 +11,25 @@
             <td><%= link_to 'endre', edit_language_path(language) %></td>
         <% end %>
         <% if permitted_to? :destroy, language %>
-            <td><%= link_to 'slett', language, :confirm => 'Er du sikker?',
-                            :method => :delete %></td>
+            <td>
+              <% if language.notes.size() == 0 %>
+                   <%= link_to 'slett', language, :confirm => 'Er du sikker?',
+                               :method => :delete %>
+               <% else %>
+                   <ul>
+                     <% if language.notes.size() > 0 %>
+                         <li>
+                           <%= language.notes.size() %>
+                           <% if language.notes.size() == 1 %>
+                               note
+                           <% else %>
+                               noter
+                           <% end %>
+                         </li>
+                     <% end %>
+                   </ul>
+               <% end %>
+            </td>
         <% end %>
       </tr>
   <% end %>
