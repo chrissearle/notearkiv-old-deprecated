@@ -46,6 +46,8 @@ class EvensongsController < ApplicationController
 
     respond_to do |format|
       if @evensong.save
+        @evensong.upload
+
         flash[:notice] = 'Evensong opprettet.'
         format.html { redirect_to :action => "index" }
         format.xml  { render :xml => @evensong, :status => :created,
@@ -54,6 +56,14 @@ class EvensongsController < ApplicationController
         format.html { render :action => "new" }
         format.xml  { render :xml => @evensong.errors,
                              :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def upload(file)
+    if file instance_of? File
+      if file.exists?
+        
       end
     end
   end
@@ -67,6 +77,8 @@ class EvensongsController < ApplicationController
 
     respond_to do |format|
       if @evensong.update_attributes(params[:evensong])
+        @evensong.upload
+
         flash[:notice] = 'Evensong oppdatert.'
         format.html { redirect_to :action => "index" }
         format.xml  { head :ok }

@@ -1,9 +1,10 @@
-<% semantic_form_for @evensong do |form| %>
+<% semantic_form_for @evensong, :html => { :enctype => "multipart/form-data" } do |form| %>
     <% form.inputs do %>
         <%= form.input :title, :label => "Tittel" %>
         <%= form.input :psalm, :label => "Salme", :required => false %>
         <%= form.input :composer, :label => "Komponist" %>
         <%= form.input :genre, :label => "Genre" %>
+        <%= form.input :pdf_file, :label => "PDF", :as => :file, :required => false %>
     <% end %>
     <%= form.buttons %>
 <% end %>
