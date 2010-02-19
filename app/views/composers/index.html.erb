@@ -12,8 +12,35 @@
             <td><%= link_to 'endre', edit_composer_path(composer) %></td>
         <% end %>
         <% if permitted_to? :destroy, composer %>
-            <td><%= link_to 'slett', composer, :confirm => 'Er du sikker?',
-                            :method => :delete %></td>
+            <td>
+              <% if composer.notes.size() == 0 && composer.evensongs.size() == 0 %>
+                  <%= link_to 'slett', composer, :confirm => 'Er du sikker?',
+                              :method => :delete %>
+              <% else %>
+                  <ul>
+                    <% if composer.notes.size() > 0 %>
+                        <li>
+                          <%= composer.notes.size() %>
+                          <% if composer.notes.size() == 1 %>
+                              note
+                          <% else %>
+                              noter
+                          <% end %>
+                        </li>
+                    <% end %>
+                    <% if composer.evensongs.size() > 0 %>
+                        <li>
+                          <%= composer.evensongs.size() %> evensong
+                          <% if composer.evensongs.size() == 1 %>
+                              note
+                          <% else %>
+                              noter
+                          <% end %>
+                        </li>
+                    <% end %>
+                  </ul>
+              <% end %>
+            </td>
         <% end %>
       </tr>
   <% end %>
@@ -21,4 +48,4 @@
 
 <br/>
 
-<%= link_to 'Ny komponist', new_composer_path  if permitted_to? :new, :composers  %>
+<%= link_to 'Ny komponist', new_composer_path  if permitted_to? :new, :composers %>

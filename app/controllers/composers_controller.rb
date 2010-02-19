@@ -58,6 +58,17 @@ class ComposersController < ApplicationController
   end
 
   def destroy
+    @composer = Composer.find(params[:id])
+
+    flash[:notice] = "Komponist #{@composer.name} slettet."
+
+    @composer.destroy
+
+
+    respond_to do |format|
+      format.html { redirect_to(composers_url) }
+      format.xml  { head :ok }
+    end
   end
 
 end
