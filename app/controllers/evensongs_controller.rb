@@ -1,4 +1,5 @@
-require 'spreadsheet'
+require 'excel/header_column'
+require 'excel/note_sheet'
 
 class EvensongsController < ApplicationController
   filter_access_to :all
@@ -47,11 +48,11 @@ class EvensongsController < ApplicationController
         flash[:notice] = 'Evensong opprettet.'
         format.html { redirect_to :action => "index" }
         format.xml  { render :xml => @evensong, :status => :created,
-                      :location => @evensong }
+                             :location => @evensong }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @evensong.errors,
-                      :status => :unprocessable_entity }
+                             :status => :unprocessable_entity }
       end
     end
   end
@@ -76,98 +77,28 @@ class EvensongsController < ApplicationController
   end
 
   def excel
-    spreadsheet = EvensongSpreadsheet.new(Evensong.find(:all).sort_by{|p| p.title.downcase})
+    sheet_title = 'Evensongarkiv'
 
+    spreadsheet = NoteSheet.new([HeaderColumn.new("SysID", 8),
+                                 HeaderColumn.new("Tittel", 50),
+                                 HeaderColumn.new("Salme", 8),
+                                 HeaderColumn.new("Komponist", 50),
+                                 HeaderColumn.new("Genre", 35)],
+                                Evensong.find(:all).sort_by{|p| p.title.downcase},
+                                sheet_title,
+                                lambda {|row, item|
+                                  row.push item.id
+                                  row.push item.title
+                                  row.push item.psalm
+                                  row.push (item.composer ? item.composer.name : "")
+                                  row.push (item.genre ? item.genre.name : "")
+                                })
 
-    send_file spreadsheet.get_spreadsheet, :filename => 'evensongarkiv.xls', :type => 'application/vnd.ms-excel', :disposition => 'attachment'
+    send_file spreadsheet.get_spreadsheet,
+              :filename => "#{sheet_title.downcase}.xls",
+              :type => 'application/vnd.ms-excel',
+              :disposition => 'attachment'
   end
 
 end
 
-class HeaderColumn
-  attr_reader :title, :width
-
-  def initialize(title, width)
-    @title = title
-    @width = width
-  end
-end
-
-class EvensongSpreadsheet
-
-  def initialize(evensongs)
-    @evensongs = evensongs
-
-    @header_format = Spreadsheet::Format.new :weight => :bold,
-                                             :align => :center
-
-    @header_columns = [HeaderColumn.new("SysID", 8),
-                       HeaderColumn.new("Tittel", 50),
-                       HeaderColumn.new("Salme", 8),
-                       HeaderColumn.new("Komponist", 50),
-                       HeaderColumn.new("Genre", 35)]
-  end
-
-  def generate_sheet(book)
-    sheet = book.create_worksheet
-    sheet.name = "Evensongarkiv"
-
-    return sheet
-  end
-
-  def generate_header_row(sheet)
-    header = sheet.row(0)
-
-    header.default_format = @header_format
-
-    col = 0
-
-    @header_columns.each do |column|
-      header.push column.title
-
-      sheet.column(col).width = column.width
-
-      col += 1
-    end
-  end
-
-  def generate_rows(sheet)
-    @evensongs.each do |evensong|
-      row = sheet.row(sheet.last_row_index() + 1)
-
-      row.push evensong.id
-      row.push evensong.title
-      row.push evensong.psalm
-      row.push get_name_if_exists evensong.composer
-      row.push get_name_if_exists evensong.genre
-    end
-  end
-
-  def write_to_temporary_file(book)
-    tmp_file = Tempfile.new('evensongarkiv')
-
-    book.write(tmp_file)
-
-    return tmp_file.path
-  end
-
-  def get_name_if_exists(object)
-    if (object)
-      return object.name
-    else
-      return ""
-    end
-  end
-
-  def get_spreadsheet
-    book = Spreadsheet::Workbook.new
-
-    sheet = generate_sheet(book)
-
-    generate_header_row(sheet)
-
-    generate_rows(sheet)
-
-    return write_to_temporary_file(book)
-  end
-end
