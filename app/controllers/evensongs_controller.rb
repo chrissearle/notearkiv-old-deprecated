@@ -77,6 +77,16 @@ class EvensongsController < ApplicationController
     end
   end
 
+  def destroy
+    @evensong = Evensong.find(params[:id])
+    @evensong.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(evensongs_url) }
+      format.xml  { head :ok }
+    end
+  end
+
   def excel
     sheet_title = 'Evensongarkiv'
     date_str = Date.today().strftime("%Y-%m-%d")
