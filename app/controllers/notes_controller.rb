@@ -71,6 +71,9 @@ class NotesController < ApplicationController
 
   def destroy
     @note = Note.find(params[:id])
+
+    flash[:notice] = "Note #{@note.title} slettet."
+
     @note.destroy
 
     respond_to do |format|

@@ -79,6 +79,9 @@ class EvensongsController < ApplicationController
 
   def destroy
     @evensong = Evensong.find(params[:id])
+
+    flash[:notice] = "Evensong #{@evensong.title} slettet."
+
     @evensong.destroy
 
     respond_to do |format|
