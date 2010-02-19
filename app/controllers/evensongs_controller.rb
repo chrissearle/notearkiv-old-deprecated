@@ -1,3 +1,4 @@
+require 'date'
 require 'excel/header_column'
 require 'excel/note_sheet'
 
@@ -78,6 +79,7 @@ class EvensongsController < ApplicationController
 
   def excel
     sheet_title = 'Evensongarkiv'
+    date_str = Date.today().strftime("%Y-%m-%d")
 
     spreadsheet = NoteSheet.new([HeaderColumn.new("SysID", 8),
                                  HeaderColumn.new("Tittel", 50),
@@ -86,6 +88,7 @@ class EvensongsController < ApplicationController
                                  HeaderColumn.new("Genre", 35)],
                                 Evensong.find(:all).sort_by{|p| p.title.downcase},
                                 sheet_title,
+                                date_str,
                                 lambda {|row, item|
                                   row.push item.id
                                   row.push item.title
@@ -95,7 +98,7 @@ class EvensongsController < ApplicationController
                                 })
 
     send_file spreadsheet.get_spreadsheet,
-              :filename => "#{sheet_title.downcase}.xls",
+              :filename => "#{sheet_title.downcase}_#{date_str}.xls",
               :type => 'application/vnd.ms-excel',
               :disposition => 'attachment'
   end

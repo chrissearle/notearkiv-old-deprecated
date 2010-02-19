@@ -1,3 +1,5 @@
+require 'date'
+
 require 'excel/header_column'
 require 'excel/note_sheet'
 
@@ -81,6 +83,7 @@ class NotesController < ApplicationController
 
   def excel
     sheet_title = 'Notearkiv'
+    date_str = Date.today().strftime("%Y-%m-%d")
 
     spreadsheet = NoteSheet.new([HeaderColumn.new("SysID", 8),
                        HeaderColumn.new("ID", 8),
@@ -96,6 +99,7 @@ class NotesController < ApplicationController
                        HeaderColumn.new("Besetning", 15)],
                                 Note.find(:all).sort_by{|p| p.title.downcase},
                                 sheet_title,
+                                date_str,
                                 lambda {|row, item|
                                   langs = item.languages.map{|lang| lang.name }
 
@@ -114,7 +118,7 @@ class NotesController < ApplicationController
                                 })
 
     send_file spreadsheet.get_spreadsheet,
-              :filename => "#{sheet_title.downcase}.xls",
+              :filename => "#{sheet_title.downcase}_#{date_str}.xls",
               :type => 'application/vnd.ms-excel',
               :disposition => 'attachment'
   end

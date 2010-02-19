@@ -2,12 +2,13 @@ require 'spreadsheet'
 
 class NoteSheet
 
-  def initialize(headers, items, title, row_handler)
+  def initialize(headers, items, title, date, row_handler)
     @items = items
 
     @header_columns = headers
 
     @title = title
+    @date = date
 
     @row_handler = row_handler
 
@@ -31,7 +32,7 @@ class NoteSheet
 
   def generate_sheet()
     @sheet = @book.create_worksheet
-    @sheet.name = @title
+    @sheet.name = "#{@title} - #{@date}"
   end
 
   def generate_header_row()
