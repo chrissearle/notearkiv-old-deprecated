@@ -1,7 +1,0 @@
-<pre>
-data = Hash.new
-
-  <% for evensong in @evensongs %>
-data["evensong_<%= evensong.id %>"] = "<%= evensong.old_file_path %>"
-  <% end %>
-</pre>

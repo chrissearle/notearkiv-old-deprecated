@@ -50,7 +50,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.noteexcel 'notes/excel', :controller => 'notes', :action => 'excel'
   map.evensongexcel 'evensongs/excel', :controller => 'evensongs', :action => 'excel'
-  map.evensongmapping 'evensongs/mapping', :controller => 'evensongs', :action => 'mapping'
   map.voice 'notes/voice', :controller => 'notes', :action => 'voice'
   map.evensongcron 'evensongs/cron', :controller => 'evensongs', :action => 'cron'
   map.notecron 'notes/cron', :controller => 'notes', :action => 'cron'
