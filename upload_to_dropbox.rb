@@ -1,7 +1,7 @@
 #!/opt/local/bin/ruby
 
 require 'rubygems'
-require 'lib/dropbox'
+require 'lib/archive/dropbox'
 
 db = DropBox.new(ENV['DROPBOX_USER'],
                  ENV['DROPBOX_PASS'],
