@@ -26,6 +26,14 @@ class EvensongsController < ApplicationController
     end
   end
 
+  def cron
+    Evensong.find(:all).each do |evensong|
+      evensong.update_link
+    end
+
+    head :ok
+  end
+
   def show
     @evensong = Evensong.find(params[:id])
 

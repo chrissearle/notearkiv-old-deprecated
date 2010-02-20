@@ -105,6 +105,13 @@ class NotesController < ApplicationController
     send_data data, :type => 'text/plain'
   end
 
+  def cron
+    Note.find(:all).each do |note|
+      note.update_link
+    end
+
+    head :ok
+  end
 
   def excel
     sheet_title = 'Notearkiv'
