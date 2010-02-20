@@ -24,9 +24,11 @@ class Evensong < ActiveRecord::Base
 
     if (url)
       self.url = url
-
-      self.save
+    else
+      self.url = nil
     end
+
+    self.save
   end
 
   belongs_to :composer
