@@ -20,9 +20,9 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
 
-  config.gem "formtastic"
-  config.gem "authlogic"
-  config.gem "declarative_authorization"
+  config.gem "formtastic", :version => "0.9.7"
+  config.gem "authlogic", :version => "2.1.3"
+  config.gem "declarative_authorization", :version => "0.4"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
