@@ -31,4 +31,6 @@ class Evensong < ActiveRecord::Base
 
   belongs_to :composer
   belongs_to :genre
+
+  validates_presence_of :title, :composer, :genre
 end

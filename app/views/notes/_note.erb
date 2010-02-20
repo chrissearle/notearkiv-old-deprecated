@@ -20,15 +20,15 @@
     <% form.inputs do %>
         <%= form.input :item, :label => "ID" %>
         <%= form.input :title, :label => "Tittel" %>
-        <%= form.input :composer, :label => "Komponist" %>
-        <%= form.input :period, :label => "Epoke" %>
-        <%= form.input :genre, :label => "Genre" %>
-        <%= form.input :languages, :label => "Språk" %>
-        <%= form.input :instrument, :label => "Akkomp." %>
-        <%= form.input :voice, :label => "Besetning" %>
+        <%= form.input :composer, :label => "Komponist", :required => false %>
+        <%= form.input :period, :label => "Epoke", :required => false %>
+        <%= form.input :genre, :label => "Genre", :required => false %>
+        <%= form.input :languages, :label => "Språk", :required => false %>
+        <%= form.input :instrument, :label => "Akkomp.", :required => false %>
+        <%= form.input :voice, :label => "Besetning", :required => false %>
         <%= form.input :count_originals, :label => "Antall original" %>
-        <%= form.input :count_copies, :label => "Antall kopi" %>
-        <%= form.input :count_instrumental, :label => "Antall instrumental" %>
+        <%= form.input :count_copies, :label => "Antall kopi", :required => false %>
+        <%= form.input :count_instrumental, :label => "Antall instrumental", :required => false %>
         <%= form.input :pdf_file, :label => "PDF", :as => :file, :required => false %>
     <% end %>
     <% form.buttons do %>
