@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Notearkiv &amp; Evensong</title>
+  <title>Arkiv for noter &amp; evensongnoter</title>
   <link rel="stylesheet" type="text/css" href="/style.css" media="screen"/>
   <link rel="stylesheet" type="text/css" href="/stylesheets/formtastic.css"/>
   <link rel="stylesheet" type="text/css" href="/stylesheets/formtastic_changes.css"/>
@@ -10,13 +10,13 @@
 </head>
 <body>
 <div id="header">
-  <h1>Notearkiv &amp; Evensong</h1>
+  <h1>Arkiv for noter &amp; evensongnoter</h1>
 
   <div id="menu">
     <ul id="nav">
       <% if current_user %>
-          <li><%= link_to 'Notearkiv', notes_path %></li>
-          <li><%= link_to 'Evensong', evensongs_path %></li>
+          <li><%= link_to 'Noter', notes_path %></li>
+          <li><%= link_to 'Evensongnoter', evensongs_path %></li>
           <li><a href="http://intranett.ochs.no">Intranett</a></li>
       <% end %>
       <li><a href="http://www.ochs.no">OCHS</a></li>
@@ -42,7 +42,7 @@
 
 
         <div class="box">
-          <h2>Metadata for Noter &amp; Evensong</h2>
+          <h2>Metadata for Noter &amp; Evensongnoter</h2>
 
           <ul>
             <li><%= link_to 'Komponister', composers_path %></li>

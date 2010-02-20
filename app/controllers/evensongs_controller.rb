@@ -51,7 +51,7 @@ class EvensongsController < ApplicationController
       if @evensong.save
         @evensong.upload
 
-        flash[:notice] = 'Evensong opprettet.'
+        flash[:notice] = 'Evensongnote opprettet.'
         format.html { redirect_to :action => "index" }
         format.xml  { render :xml => @evensong, :status => :created,
                              :location => @evensong }
@@ -82,7 +82,7 @@ class EvensongsController < ApplicationController
       if @evensong.update_attributes(params[:evensong])
         @evensong.upload
 
-        flash[:notice] = 'Evensong oppdatert.'
+        flash[:notice] = 'Evensongnote oppdatert.'
         format.html { redirect_to :action => "index" }
         format.xml  { head :ok }
       else
@@ -101,7 +101,7 @@ class EvensongsController < ApplicationController
       archive.remove_file_if_exists @evensong.id
     end
 
-    flash[:notice] = "Evensong #{@evensong.title} slettet."
+    flash[:notice] = "Evensongnote #{@evensong.title} slettet."
 
     @evensong.destroy
 

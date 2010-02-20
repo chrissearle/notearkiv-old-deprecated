@@ -29,7 +29,7 @@
     </script>
 <% end %>
 
-<h2>Evensong</h2>
+<h2>Evensongnoter</h2>
 
 <p><%= link_to 'Last ned', evensongexcel_url %></p>
 
@@ -62,4 +62,4 @@
 
 <br/>
 
-<%= link_to 'Ny evensong', new_evensong_path if permitted_to? :new, :evensongs %>
+<%= link_to 'Ny evensongnote', new_evensong_path if permitted_to? :new, :evensongs %>
