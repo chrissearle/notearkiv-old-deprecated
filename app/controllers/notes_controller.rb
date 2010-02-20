@@ -3,6 +3,8 @@ require 'date'
 require 'excel/header_column'
 require 'excel/note_sheet'
 
+require 'archive/archive'
+
 class NotesController < ApplicationController
   filter_access_to :all
 
@@ -38,6 +40,8 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
+        @note.upload
+
         flash[:notice] = 'Note opprettet.'
         format.html { redirect_to :action => "index" }
         format.xml { render :xml => @note, :status => :created,
@@ -59,6 +63,8 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.update_attributes(params[:note])
+        @note.upload
+
         flash[:notice] = 'Note oppdatert.'
         format.html { redirect_to :action => "index" }
         format.xml { head :ok }
@@ -71,6 +77,12 @@ class NotesController < ApplicationController
 
   def destroy
     @note = Note.find(params[:id])
+
+    if (!(@note.url.nil? || @note.url == ""))
+      archive = Archive.new :note_archive
+
+      archive.remove_file_if_exists @note.id
+    end
 
     flash[:notice] = "Note #{@note.title} slettet."
 

@@ -16,7 +16,7 @@
 <% end %>
 
 
-<% semantic_form_for @note do |form| %>
+<% semantic_form_for @note, :html => { :enctype => "multipart/form-data" }  do |form| %>
     <% form.inputs do %>
         <%= form.input :item, :label => "ID" %>
         <%= form.input :title, :label => "Tittel" %>
@@ -29,6 +29,7 @@
         <%= form.input :count_originals, :label => "Antall original" %>
         <%= form.input :count_copies, :label => "Antall kopi" %>
         <%= form.input :count_instrumental, :label => "Antall instrumental" %>
+        <%= form.input :pdf_file, :label => "PDF", :as => :file, :required => false %>
     <% end %>
     <%= form.buttons %>
 <% end %>

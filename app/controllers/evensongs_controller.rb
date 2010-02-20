@@ -1,6 +1,9 @@
 require 'date'
+
 require 'excel/header_column'
 require 'excel/note_sheet'
+
+require 'archive/archive'
 
 class EvensongsController < ApplicationController
   filter_access_to :all
@@ -91,6 +94,12 @@ class EvensongsController < ApplicationController
 
   def destroy
     @evensong = Evensong.find(params[:id])
+
+    if (!(@evensong.url.nil? || @evensong.url == ""))
+      archive = Archive.new :evensong_archive
+
+      archive.remove_file_if_exists @evensong.id
+    end
 
     flash[:notice] = "Evensong #{@evensong.title} slettet."
 

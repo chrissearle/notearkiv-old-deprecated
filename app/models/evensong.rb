@@ -1,43 +1,31 @@
-require 'dropbox'
+require 'archive/archive'
 
 class Evensong < ActiveRecord::Base
   attr_accessor :pdf_file
 
   def upload
-    db = DropBox.new(ENV['DROPBOX_USER'],
-                     ENV['DROPBOX_PASS'],
-                     'Public/Evensong')
+    archive = Archive.new :evensong_archive
 
     if @pdf_file && @pdf_file.content_type == "application/pdf"
-      remove_file
+      url = archive.upload self.id, @pdf_file
 
-      db.create(@pdf_file.path)
-      db.rename(@pdf_file.path.gsub(/.*\//, ''), "evensong_#{self.id}.pdf")
+      if (url)
+        self.url = url
 
-      if (find_file)
-        self.url = find_file['url']
         self.save
       end
     end
   end
 
-  def find_file
-    db = DropBox.new(ENV['DROPBOX_USER'],
-                     ENV['DROPBOX_PASS'],
-                     'Public/Evensong')
+  def update_link
+    archive = Archive.new :evensong_archive
 
-    return db.list.find {|f| f["name"] == "evensong_#{self.id}.pdf" }
-  end
+    url = archive.link_to_file self.id
 
-  def remove_file
-    db = DropBox.new(ENV['DROPBOX_USER'],
-                     ENV['DROPBOX_PASS'],
-                     'Public/Evensong')
+    if (url)
+      self.url = url
 
-    file = find_file
-
-    if (file)
-      db.destroy "evensong_#{self.id}.pdf"
+      self.save
     end
   end
 
