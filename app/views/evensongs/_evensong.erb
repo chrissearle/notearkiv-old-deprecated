@@ -6,5 +6,7 @@
         <%= form.input :genre, :label => "Genre" %>
         <%= form.input :pdf_file, :label => "PDF", :as => :file, :required => false %>
     <% end %>
-    <%= form.buttons %>
+    <% form.buttons do %>
+        <%= form.commit_button :label => "Lagre" %>
+    <% end %>
 <% end %>
