@@ -86,10 +86,10 @@
 
 <% if permitted_to? :edit, @note %>
     <%= link_to 'Endre', edit_note_path %>
+    |
 <% end %>
-<br/>
 <% if permitted_to? :destroy, @note %>
     <%= link_to 'Slett', @note, :confirm => 'Sikker?', :method => :delete %>
+    |
 <% end %>
-<br/>
 <%= link_to 'Tilbake', notes_path %>

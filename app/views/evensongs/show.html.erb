@@ -39,10 +39,10 @@
 
 <% if permitted_to? :edit, @evensong %>
     <%= link_to 'Endre', edit_evensong_path %>
+    |
 <% end %>
-<br/>
 <% if permitted_to? :destroy, @evensong %>
     <%= link_to 'Slett', @evensong, :confirm => 'Sikker?', :method => :delete %>
+    |
 <% end %>
-<br/>
 <%= link_to 'Tilbake', evensongs_path %>
