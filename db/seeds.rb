@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-Role.create([{ :name => "admin" },
+Role.create([{ :name => "siteadmin" },
+             { :name => "admin" },
              { :name => "normal" }])
 
 
