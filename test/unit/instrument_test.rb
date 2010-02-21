@@ -1,8 +1,14 @@
 require 'test_helper'
 
 class InstrumentTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "name required not provided" do
+    composer = Composer.new
+    assert !composer.save, "Saved without a name"
+  end
+
+  test "name required and provided" do
+    composer = Composer.new
+    composer.name = "Test Composer"
+    assert composer.save, "Failed to save with name"
   end
 end

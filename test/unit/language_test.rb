@@ -1,8 +1,14 @@
 require 'test_helper'
 
 class LanguageTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "name required not provided" do
+    language = Language.new
+    assert !language.save, "Saved without a name"
+  end
+
+  test "name required and provided" do
+    language = Language.new
+    language.name = "Test Language"
+    assert language.save, "Failed to save with name"
   end
 end
