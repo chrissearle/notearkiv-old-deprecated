@@ -138,9 +138,9 @@ class NotesController < ApplicationController
                                   row.push item.id
                                   row.push item.item
                                   row.push item.title
-                                  row.push (item.composer ? item.composer.name : "")
-                                  row.push (item.genre ? item.genre.name : "")
-                                  row.push (item.period ? item.period.name : "")
+                                  row.push item.composer ? item.composer.name : ""
+                                  row.push item.genre ? item.genre.name : ""
+                                  row.push item.period ? item.period.name : ""
                                   row.push langs.join(", ")
                                   row.push item.instrument
                                   row.push item.count_originals

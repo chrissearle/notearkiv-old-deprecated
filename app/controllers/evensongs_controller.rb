@@ -126,8 +126,8 @@ class EvensongsController < ApplicationController
                                   row.push item.id
                                   row.push item.title
                                   row.push item.psalm
-                                  row.push (item.composer ? item.composer.name : "")
-                                  row.push (item.genre ? item.genre.name : "")
+                                  row.push item.composer ? item.composer.name : ""
+                                  row.push item.genre ? item.genre.name : ""
                                 })
 
     send_file spreadsheet.get_spreadsheet,
