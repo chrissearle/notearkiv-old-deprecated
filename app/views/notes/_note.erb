@@ -30,6 +30,7 @@
         <%= form.input :count_copies, :label => "Antall kopi", :required => false %>
         <%= form.input :count_instrumental, :label => "Antall instrumental", :required => false %>
         <%= form.input :doc_file, :label => "PDF", :as => :file, :required => false %>
+        <%= form.input :music_file, :label => "MP3/M4A", :as => :file, :required => false %>
     <% end %>
     <% form.buttons do %>
         <%= form.commit_button :label => "Lagre" %>

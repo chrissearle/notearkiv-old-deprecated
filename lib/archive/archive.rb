@@ -15,6 +15,7 @@ class Archive
     @types = [SupportedFileTypes.new("pdf", "application/pdf", :document),
               SupportedFileTypes.new("mp3", "audio/mpeg", :music),
               SupportedFileTypes.new("m4a", "audio/mp4", :music),
+              SupportedFileTypes.new("m4a", "audio/x-m4a", :music)
     ]
 
     @doctype = doctype

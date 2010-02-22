@@ -1,7 +1,7 @@
 require 'archive/archive'
 
 class Evensong < ActiveRecord::Base
-  attr_accessor :doc_file
+  attr_accessor :doc_file, :music_file
 
   before_destroy :remove_files
 
@@ -14,10 +14,24 @@ class Evensong < ActiveRecord::Base
     archive = Archive.new :evensong_archive, :document
 
     if @doc_file && archive.mimetypes.include?(@doc_file.content_type)
+
       url = archive.upload self.id, @doc_file
 
       if (url)
         self.doc_url = url
+
+        self.save
+      end
+    end
+
+    archive = Archive.new :evensong_archive, :music
+
+    if @music_file && archive.mimetypes.include?(@music_file.content_type)
+
+      url = archive.upload self.id, @music_file
+
+      if (url)
+        self.music_url = url
 
         self.save
       end
@@ -35,6 +49,16 @@ class Evensong < ActiveRecord::Base
       self.doc_url = nil
     end
 
+    archive = Archive.new :evensong_archive, :music
+
+    url = archive.link_to_file self.id
+
+    if (url)
+      self.music_url = url
+    else
+      self.music_url = nil
+    end
+
     self.save
   end
 
@@ -43,6 +67,12 @@ class Evensong < ActiveRecord::Base
   def remove_files
     if (!self.doc_url.blank?)
       archive = Archive.new :evensong_archive, :document
+
+      archive.remove_file_if_exists self.id
+    end
+
+    if (!self.music_url.blank?)
+      archive = Archive.new :evensong_archive, :music
 
       archive.remove_file_if_exists self.id
     end

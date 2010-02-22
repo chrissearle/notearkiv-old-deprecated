@@ -1,7 +1,7 @@
 require 'archive/archive'
 
 class Note < ActiveRecord::Base
-  attr_accessor :doc_file
+  attr_accessor :doc_file, :music_file
 
   before_destroy :remove_files
 
@@ -26,6 +26,18 @@ class Note < ActiveRecord::Base
         self.save
       end
     end
+
+    archive = Archive.new :note_archive, :music
+
+    if @music_file && archive.mimetypes.include?(@music_file.content_type)
+      url = archive.upload self.id, @music_file
+
+      if (url)
+        self.music_url = url
+
+        self.save
+      end
+    end
   end
 
   def update_link
@@ -39,6 +51,16 @@ class Note < ActiveRecord::Base
       self.doc_url = nil
     end
 
+    archive = Archive.new :note_archive, :music
+
+    url = archive.link_to_file self.id
+
+    if (url)
+      self.music_url = url
+    else
+      self.music_url = nil
+    end
+
     self.save
   end
 
@@ -47,6 +69,12 @@ class Note < ActiveRecord::Base
   def remove_files
     if (!self.doc_url.blank?)
       archive = Archive.new :note_archive, :document
+
+      archive.remove_file_if_exists self.id
+    end
+
+    if (!self.music_url.blank?)
+      archive = Archive.new :note_archive, :music
 
       archive.remove_file_if_exists self.id
     end

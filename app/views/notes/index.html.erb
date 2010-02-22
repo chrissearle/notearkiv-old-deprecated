@@ -40,6 +40,9 @@
                     null,
                     {
                         "bSearchable": false
+                    },
+                    {
+                        "bSearchable": false
                     }
                 ],
                 "aaSorting": [
@@ -65,7 +68,8 @@
     <th>Epoke</th>
     <th>Språk</th>
     <th>Akkomp.</th>
-    <th>Fil</th>
+    <th>PDF</th>
+    <th>MP3/M4A</th>
   </tr>
   </thead>
   <tbody>
@@ -95,6 +99,7 @@
         </td>
         <td><%= note.instrument %></td>
         <td><%= link_to_dropbox_doc_file(note) %></td>
+        <td><%= link_to_dropbox_music_file(note) %></td>
       </tr>
   <% end %>
   </tbody>
