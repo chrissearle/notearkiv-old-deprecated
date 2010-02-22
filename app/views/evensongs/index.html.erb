@@ -54,7 +54,7 @@
         <td><%= evensong.psalm %></td>
         <td><%= evensong.composer.name if evensong.composer %></td>
         <td><%= evensong.genre.name if evensong.genre %></td>
-        <td><%= link_to_dropbox_file(evensong) %></td>
+        <td><%= link_to_dropbox_doc_file(evensong) %></td>
       </tr>
   <% end %>
   </tbody>

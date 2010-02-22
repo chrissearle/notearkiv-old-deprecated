@@ -94,8 +94,8 @@ class EvensongsController < ApplicationController
   def destroy
     @evensong = Evensong.find(params[:id])
 
-    if (!(@evensong.url.nil? || @evensong.url == ""))
-      archive = Archive.new :evensong_archive
+    if (!(@evensong.doc_url.nil? || @evensong.doc_url == ""))
+      archive = Archive.new :evensong_archive, :document
 
       archive.remove_file_if_exists @evensong.id
     end

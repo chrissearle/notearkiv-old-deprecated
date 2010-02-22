@@ -1,16 +1,16 @@
 require 'archive/archive'
 
 class Note < ActiveRecord::Base
-  attr_accessor :pdf_file
+  attr_accessor :doc_file
 
   def upload
-    archive = Archive.new :note_archive
+    archive = Archive.new :note_archive, :document
 
-    if @pdf_file && @pdf_file.content_type == "application/pdf"
-      url = archive.upload self.id, @pdf_file
+    if @doc_file && archive.mimetypes.include?(@doc_file.content_type)
+      url = archive.upload self.id, @doc_file
 
       if (url)
-        self.url = url
+        self.doc_url = url
 
         self.save
       end
@@ -18,14 +18,14 @@ class Note < ActiveRecord::Base
   end
 
   def update_link
-    archive = Archive.new :note_archive
+    archive = Archive.new :note_archive, :document
 
     url = archive.link_to_file self.id
 
     if (url)
-      self.url = url
+      self.doc_url = url
     else
-      self.url = nil
+      self.doc_url = nil
     end
 
     self.save

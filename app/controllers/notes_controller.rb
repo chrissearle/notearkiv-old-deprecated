@@ -78,8 +78,8 @@ class NotesController < ApplicationController
   def destroy
     @note = Note.find(params[:id])
 
-    if (!(@note.url.nil? || @note.url == ""))
-      archive = Archive.new :note_archive
+    if (!(@note.doc_url.nil? || @note.doc_url == ""))
+      archive = Archive.new :note_archive, :document
 
       archive.remove_file_if_exists @note.id
     end
