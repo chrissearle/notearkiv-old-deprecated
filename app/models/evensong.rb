@@ -3,6 +3,13 @@ require 'archive/archive'
 class Evensong < ActiveRecord::Base
   attr_accessor :doc_file
 
+  before_destroy :remove_files
+
+  belongs_to :composer
+  belongs_to :genre
+
+  validates_presence_of :title, :composer, :genre
+
   def upload
     archive = Archive.new :evensong_archive, :document
 
@@ -31,8 +38,13 @@ class Evensong < ActiveRecord::Base
     self.save
   end
 
-  belongs_to :composer
-  belongs_to :genre
+  private
 
-  validates_presence_of :title, :composer, :genre
+  def remove_files
+    if (!self.doc_url.blank?)
+      archive = Archive.new :evensong_archive, :document
+
+      archive.remove_file_if_exists self.id
+    end
+  end
 end

@@ -3,6 +3,17 @@ require 'archive/archive'
 class Note < ActiveRecord::Base
   attr_accessor :doc_file
 
+  before_destroy :remove_files
+
+  belongs_to :composer
+  belongs_to :genre
+  belongs_to :period
+
+  has_many :note_language_assignments
+  has_many :languages, :through => :note_language_assignments
+
+  validates_presence_of :item, :title, :count_originals
+
   def upload
     archive = Archive.new :note_archive, :document
 
@@ -31,13 +42,13 @@ class Note < ActiveRecord::Base
     self.save
   end
 
+  private
 
-  belongs_to :composer
-  belongs_to :genre
-  belongs_to :period
+  def remove_files
+    if (!self.doc_url.blank?)
+      archive = Archive.new :note_archive, :document
 
-  has_many :note_language_assignments
-  has_many :languages, :through => :note_language_assignments
-  
-  validates_presence_of :item, :title, :count_originals
+      archive.remove_file_if_exists self.id
+    end
+  end
 end

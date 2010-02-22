@@ -3,8 +3,6 @@ require 'date'
 require 'excel/header_column'
 require 'excel/note_sheet'
 
-require 'archive/archive'
-
 class NotesController < ApplicationController
   filter_access_to :all
 
@@ -77,12 +75,6 @@ class NotesController < ApplicationController
 
   def destroy
     @note = Note.find(params[:id])
-
-    if (!(@note.doc_url.nil? || @note.doc_url == ""))
-      archive = Archive.new :note_archive, :document
-
-      archive.remove_file_if_exists @note.id
-    end
 
     flash[:notice] = "Note #{@note.title} slettet."
 
