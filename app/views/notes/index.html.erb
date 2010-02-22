@@ -40,9 +40,6 @@
                     null,
                     {
                         "bSearchable": false
-                    },
-                    {
-                        "bSearchable": false
                     }
                 ],
                 "aaSorting": [
@@ -56,7 +53,13 @@
 
 <h2>Noter</h2>
 
-<p><%= link_to 'Last ned', noteexcel_url %></p>
+<p>
+  <% if permitted_to? :new, :notes %>
+      <%= link_to 'Ny note', new_note_path %>
+      |
+  <% end %>
+  <%= link_to 'Last ned', noteexcel_url %>
+</p>
 
 <table id="noteTable">
   <thead>
@@ -68,8 +71,7 @@
     <th>Epoke</th>
     <th>Språk</th>
     <th>Akkomp.</th>
-    <th>PDF</th>
-    <th>MP3/M4A</th>
+    <th>Fil</th>
   </tr>
   </thead>
   <tbody>
@@ -98,13 +100,16 @@
           <% end %>
         </td>
         <td><%= note.instrument %></td>
-        <td><%= link_to_dropbox_doc_file(note) %></td>
-        <td><%= link_to_dropbox_music_file(note) %></td>
+        <td><%= list_link_dropbox_files(note) %></td>
       </tr>
   <% end %>
   </tbody>
 </table>
 
-<br/>
-
-<%= link_to 'Ny note', new_note_path if permitted_to? :new, :notes %>
+<p>
+  <% if permitted_to? :new, :notes %>
+      <%= link_to 'Ny note', new_note_path %>
+      |
+  <% end %>
+  <%= link_to 'Last ned', noteexcel_url %>
+</p>

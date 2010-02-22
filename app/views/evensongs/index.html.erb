@@ -21,9 +21,6 @@
                     null,
                     {
                         "bSearchable": false
-                    },
-                    {
-                        "bSearchable": false
                     }
                 ]
             });
@@ -34,7 +31,13 @@
 
 <h2>Evensongnoter</h2>
 
-<p><%= link_to 'Last ned', evensongexcel_url %></p>
+<p>
+  <% if permitted_to? :new, :evensongs %>
+      <%= link_to 'Ny evensongnote', new_evensong_path %>
+      |
+  <% end %>
+  <%= link_to 'Last ned', evensongexcel_url %>
+</p>
 
 <table id="noteTable">
   <thead>
@@ -43,8 +46,7 @@
     <th>Salme</th>
     <th>Komponist</th>
     <th>Genre</th>
-    <th>PDF</th>
-    <th>MP3/M4A</th>
+    <th>Fil</th>
   </tr>
   </thead>
   <tbody>
@@ -58,13 +60,16 @@
         <td><%= evensong.psalm %></td>
         <td><%= evensong.composer.name if evensong.composer %></td>
         <td><%= evensong.genre.name if evensong.genre %></td>
-        <td><%= link_to_dropbox_doc_file(evensong) %></td>
-        <td><%= link_to_dropbox_music_file(evensong) %></td>
+        <td><%= list_link_dropbox_files(evensong) %></td>
       </tr>
   <% end %>
   </tbody>
 </table>
 
-<br/>
-
-<%= link_to 'Ny evensongnote', new_evensong_path if permitted_to? :new, :evensongs %>
+<p>
+  <% if permitted_to? :new, :evensongs %>
+      <%= link_to 'Ny evensongnote', new_evensong_path %>
+      |
+  <% end %>
+  <%= link_to 'Last ned', evensongexcel_url %>
+</p>

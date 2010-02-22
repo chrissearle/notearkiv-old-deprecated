@@ -1,21 +1,23 @@
 module ApplicationHelper
-  def link_to_dropbox_doc_file(object)
-    if (object.doc_url)
-      s = %{
-      <a href="#{object.doc_url}">PDF</a>
-      }
-    else
+  def list_link_dropbox_files(object)
+    if (object.doc_url.blank? && object.music_url.blank?)
       s = "Ikke tilgjengelig"
-    end
-  end
+    else
+      s = "<ul>"
 
-  def link_to_dropbox_music_file(object)
-    if (object.music_url)
-      s = %{
-      <a href="#{object.music_url}">MP3/M4A</a>
-      }
-    else
-      s = "Ikke tilgjengelig"
+      if (!object.doc_url.blank?)
+        s+= %{
+        <li><a href="#{object.doc_url}">PDF</a></li>
+        }
+      end
+
+      if (!object.music_url.blank?)
+        s+= %{
+        <li><a href="#{object.music_url}">MP3/M4A</a></li>
+        }
+      end
+
+      s+= "</ul>"
     end
   end
 end
