@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  acts_as_authentic
+  acts_as_authentic do |c|
+    c.logged_in_timeout(30.minutes)
+  end
 
   has_many :user_role_assignments
   has_many :roles, :through => :user_role_assignments
