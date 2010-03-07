@@ -3,9 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <title>Arkiv for noter &amp; evensongnoter</title>
-  <link rel="stylesheet" type="text/css" href="/style.css" media="screen"/>
-  <link rel="stylesheet" type="text/css" href="/stylesheets/formtastic.css"/>
-  <link rel="stylesheet" type="text/css" href="/stylesheets/formtastic_changes.css"/>
+  <%= stylesheet_link_tag 'style', :media => 'all' %>
+  <%= stylesheet_link_tag 'formtastic', 'formtastic_changes' %>
   <%= yield :head %>
 </head>
 <body>
