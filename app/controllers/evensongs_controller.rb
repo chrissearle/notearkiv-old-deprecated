@@ -109,6 +109,7 @@ class EvensongsController < ApplicationController
     spreadsheet = NoteSheet.new([HeaderColumn.new("SysID", 8),
                                  HeaderColumn.new("Tittel", 50),
                                  HeaderColumn.new("Salme", 8),
+                                 HeaderColumn.new("Soloister", 35),
                                  HeaderColumn.new("Komponist", 50),
                                  HeaderColumn.new("Genre", 35)],
                                 Evensong.find(:all).sort_by{|p| p.title.downcase},
@@ -118,6 +119,7 @@ class EvensongsController < ApplicationController
                                   row.push item.id
                                   row.push item.title
                                   row.push item.psalm
+                                  row.push item.soloists
                                   row.push item.composer ? item.composer.name : ""
                                   row.push item.genre ? item.genre.name : ""
                                 })

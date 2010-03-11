@@ -120,7 +120,8 @@ class NotesController < ApplicationController
                        HeaderColumn.new("Original", 8),
                        HeaderColumn.new("Kopi", 8),
                        HeaderColumn.new("Instr.", 8),
-                       HeaderColumn.new("Besetning", 15)],
+                       HeaderColumn.new("Besetning", 15),
+                       HeaderColumn.new("Soloister", 35)],
                                 Note.find(:all).sort_by{|p| p.title.downcase},
                                 sheet_title,
                                 date_str,
@@ -139,6 +140,7 @@ class NotesController < ApplicationController
                                   row.push item.count_copies
                                   row.push item.count_instrumental
                                   row.push item.voice
+                                  row.push item.soloists
                                 })
 
     send_file spreadsheet.get_spreadsheet,
