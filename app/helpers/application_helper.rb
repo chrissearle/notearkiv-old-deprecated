@@ -20,4 +20,32 @@ module ApplicationHelper
       s+= "</ul>"
     end
   end
+
+  def archive_stats
+    # We can use any archive type - stats are global
+
+    archive = Archive.new :note_archive, :document
+
+    stats = archive.stats
+
+    # In 0.0.6 dropbox gem used is coming back in bytes not gb's and the free calculation is not taking account of this
+
+    used = stats[:used] / (1024*1024)
+    free = stats[:total] - used
+
+    s = %{
+      <dl>
+        <dt>Percentage Used</dt>
+        <dd>#{stats[:percent]}</dd>
+
+        <dt>Used</dt>
+        <dd>#{"%.2f" % used} GB</dd>
+
+        <dt>Free</dt>
+        <dd>#{"%.2f" % free} GB</dd>
+
+        <dt>Total</dt>
+        <dd>#{"%.2f" % stats[:total]} GB</dd>
+    }
+  end
 end

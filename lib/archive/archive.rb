@@ -81,4 +81,7 @@ class Archive
     return @types.find_all{ |t| t.type == @doctype}.map { |type| type.mimetype }
   end
 
+  def stats
+    @db.usage_stats
+  end
 end
