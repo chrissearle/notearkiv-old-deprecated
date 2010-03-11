@@ -121,7 +121,7 @@ class NotesController < ApplicationController
                        HeaderColumn.new("Kopi", 8),
                        HeaderColumn.new("Instr.", 8),
                        HeaderColumn.new("Besetning", 15),
-                       HeaderColumn.new("Soloister", 35)],
+                       HeaderColumn.new("Solister", 35)],
                                 Note.find(:all).sort_by{|p| p.title.downcase},
                                 sheet_title,
                                 date_str,
