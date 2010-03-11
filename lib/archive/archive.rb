@@ -1,4 +1,4 @@
-require 'archive/dropbox'
+require 'dropbox'
 
 class SupportedFileTypes
   attr_reader :extension, :mimetype, :type
