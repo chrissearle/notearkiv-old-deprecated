@@ -11,10 +11,4 @@ class User < ActiveRecord::Base
       role.name.underscore.to_sym
     end
   end
-
-  def siteadmin?
-    rolenames = roles.map { |r| r.name }
-    
-    rolenames.include? "siteadmin"
-  end
 end

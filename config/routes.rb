@@ -53,13 +53,12 @@ ActionController::Routing::Routes.draw do |map|
   map.voice 'notes/voice', :controller => 'notes', :action => 'voice'
   map.evensongcron 'evensongs/cron', :controller => 'evensongs', :action => 'cron'
   map.notecron 'notes/cron', :controller => 'notes', :action => 'cron'
+  map.stats 'admin/stats', :controller => 'admin', :action => 'stats'
 
   map.resources :periods
-  map.resources :evensong_genres
   map.resources :genres
   map.resources :composers
   map.resources :languages
-  map.resources :instruments
   map.resources :notes
   map.resources :evensongs
 end

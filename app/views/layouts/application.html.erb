@@ -38,6 +38,9 @@
             <% if permitted_to? :index, :users %>
                 <li><%= link_to 'Users', users_path %></li>
             <% end %>
+            <% if permitted_to? :stats, :admin %>
+                <li><%= link_to 'File stats', stats_path %></li>
+            <% end %>
           </ul>
         </div>
 
@@ -59,14 +62,6 @@
             <li><%= link_to 'Språk', languages_path %></li>
           </ul>
         </div>
-
-        <% if current_user.siteadmin? %>
-            <div class="box">
-              <h2>Archive Stats</h2>
-
-              <%= archive_stats %>
-            </div>
-        <% end %>
     <% end %>
 
     <div class="box">
