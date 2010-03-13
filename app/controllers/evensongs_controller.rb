@@ -7,7 +7,7 @@ class EvensongsController < ApplicationController
   filter_access_to :all
 
   def index
-    @evensongs = Evensong.find(:all)
+    @evensongs = Evensong.find(:all, :include => [:composer, :genre])
 
     respond_to do |format|
       format.html # index.html.erb

@@ -7,7 +7,7 @@ class NotesController < ApplicationController
   filter_access_to :all
 
   def index
-    @notes = Note.find(:all)
+    @notes = Note.find(:all, :include => [:composer, :genre, :period, :languages])
 
     respond_to do |format|
       format.html # index.html.erb
