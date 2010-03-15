@@ -1,7 +1,7 @@
 require 'archive/archive'
 
-class AdminController < ApplicationController
-  def stats
+class StatsController < ApplicationController
+  def index
     # We can use any archive type - stats are global
     archive = Archive.new :note_archive, :document
 

@@ -1,6 +1,6 @@
 authorization do
   role :siteadmin do
-    has_permission_on [:notes, :evensongs, :users, :admin], :to => [:index, :cron, :stats]
+    has_permission_on [:notes, :evensongs, :users, :stats], :to => [:index]
   end
 
   role :admin do

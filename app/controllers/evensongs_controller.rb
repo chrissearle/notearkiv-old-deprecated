@@ -15,19 +15,11 @@ class EvensongsController < ApplicationController
     end
   end
 
-  def cron
-    Evensong.find(:all).each do |evensong|
-      evensong.update_link
-    end
-
-    head :ok
-  end
-
   def show
     @evensong = Evensong.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # index.html.erb
       format.xml  { render :xml => @evensong }
     end
   end
@@ -112,7 +104,7 @@ class EvensongsController < ApplicationController
                                  HeaderColumn.new("Solister", 35),
                                  HeaderColumn.new("Komponist", 50),
                                  HeaderColumn.new("Genre", 35)],
-                                Evensong.find(:all).sort_by{|p| p.title.downcase},
+                                Evensong.find(:all, :include => [:composer, :genre]).sort_by{|p| p.title.downcase},
                                 sheet_title,
                                 date_str,
                                 lambda {|row, item|

@@ -38,7 +38,7 @@
             <% if permitted_to? :index, :users %>
                 <li><%= link_to 'Users', users_path %></li>
             <% end %>
-            <% if permitted_to? :stats, :admin %>
+            <% if permitted_to? :index, :stats %>
                 <li><%= link_to 'File stats', stats_path %></li>
             <% end %>
           </ul>

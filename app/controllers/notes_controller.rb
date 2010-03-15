@@ -19,7 +19,7 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # index.html.erb
       format.xml { render :xml => @note }
     end
   end
@@ -97,14 +97,6 @@ class NotesController < ApplicationController
     send_data data, :type => 'text/plain'
   end
 
-  def cron
-    Note.find(:all).each do |note|
-      note.update_link
-    end
-
-    head :ok
-  end
-
   def excel
     sheet_title = 'Notearkiv'
     date_str = Date.today().strftime("%Y-%m-%d")
@@ -122,7 +114,7 @@ class NotesController < ApplicationController
                        HeaderColumn.new("Instr.", 8),
                        HeaderColumn.new("Besetning", 15),
                        HeaderColumn.new("Solister", 35)],
-                                Note.find(:all).sort_by{|p| p.title.downcase},
+                                Note.find(:all, :include => [:composer, :genre, :period, :languages]).sort_by{|p| p.title.downcase},
                                 sheet_title,
                                 date_str,
                                 lambda {|row, item|
