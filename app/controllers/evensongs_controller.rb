@@ -55,14 +55,6 @@ class EvensongsController < ApplicationController
     end
   end
 
-  def upload(file)
-    if file instance_of? File
-      if file.exists?
-        
-      end
-    end
-  end
-
   def edit
     @evensong = Evensong.find(params[:id])
   end
