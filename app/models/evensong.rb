@@ -1,5 +1,11 @@
 require 'archive/archive'
 
+require 'date'
+
+require 'excel/header_column'
+require 'excel/note_sheet'
+
+
 class Evensong < ActiveRecord::Base
   attr_accessor :doc_file, :music_file
 
@@ -60,6 +66,33 @@ class Evensong < ActiveRecord::Base
     end
 
     self.save
+  end
+
+  def self.find_all_sorted
+    Evensong.find(:all, :include => [:composer, :genre]).sort_by{|p| p.title.downcase}
+  end
+
+  def self.excel
+    sheet_title = 'Evensongarkiv'
+    date_str = Date.today().strftime("%Y-%m-%d")
+
+    NoteSheet.new([HeaderColumn.new("SysID", 8),
+                   HeaderColumn.new("Tittel", 50),
+                   HeaderColumn.new("Salme", 8),
+                   HeaderColumn.new("Solister", 35),
+                   HeaderColumn.new("Komponist", 50),
+                   HeaderColumn.new("Genre", 35)],
+                  Evensong.find_all_sorted,
+                  sheet_title,
+                  date_str,
+                  lambda {|row, item|
+                    row.push item.id
+                    row.push item.title
+                    row.push item.psalm
+                    row.push item.soloists
+                    row.push item.composer ? item.composer.name : ""
+                    row.push item.genre ? item.genre.name : ""
+                  })
   end
 
   private

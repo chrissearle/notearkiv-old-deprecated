@@ -58,7 +58,7 @@
       <%= link_to 'Ny note', new_note_path %>
       |
   <% end %>
-  <%= link_to 'Last ned', excel_notes_path %>
+  <%= link_to 'Last ned', notes_path(:format => :xls) %>
 </p>
 
 <table id="noteTable">
@@ -111,5 +111,5 @@
       <%= link_to 'Ny note', new_note_path %>
       |
   <% end %>
-  <%= link_to 'Last ned', excel_notes_path %>
+  <%= link_to 'Last ned', notes_path(:format => :xls) %>
 </p>

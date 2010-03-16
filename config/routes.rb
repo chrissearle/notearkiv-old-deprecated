@@ -13,6 +13,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :genres
   map.resources :composers
   map.resources :languages
-  map.resources :notes, :collection => { :excel => :get, :voice => :get }
-  map.resources :evensongs, :collection => { :excel => :get }
+  map.resources :notes, :collection => { :voice => :get }
+  map.resources :evensongs
 end

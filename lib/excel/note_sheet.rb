@@ -28,6 +28,10 @@ class NoteSheet
     return write_to_temporary_file()
   end
 
+  def get_filename
+    "#{@title.downcase}_#{@date}.xls"
+  end
+
   private
 
   def generate_sheet()

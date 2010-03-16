@@ -36,7 +36,7 @@
       <%= link_to 'Ny evensongnote', new_evensong_path %>
       |
   <% end %>
-  <%= link_to 'Last ned', excel_evensongs_path %>
+  <%= link_to 'Last ned', evensongs_path(:format => :xls) %>
 </p>
 
 <table id="noteTable">
@@ -71,5 +71,5 @@
       <%= link_to 'Ny evensongnote', new_evensong_path %>
       |
   <% end %>
-  <%= link_to 'Last ned', excel_evensongs_path %>
+  <%= link_to 'Last ned', evensongs_path(:format => :xls) %>
 </p>

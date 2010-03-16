@@ -1,17 +1,20 @@
-require 'date'
-
-require 'excel/header_column'
-require 'excel/note_sheet'
-
 class EvensongsController < ApplicationController
   filter_access_to :all
 
   def index
-    @evensongs = Evensong.find(:all, :include => [:composer, :genre])
+    @evensongs = Evensong.find_all_sorted
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @evensongs }
+      format.xls do
+        excel = Evensong.excel
+
+        send_file(excel.get_spreadsheet,
+                  :type => 'application/vnd.ms-excel',
+                  :disposition => 'attachment',
+                  :filename => excel.get_filename)
+      end
     end
   end
 
@@ -93,34 +96,5 @@ class EvensongsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-  def excel
-    sheet_title = 'Evensongarkiv'
-    date_str = Date.today().strftime("%Y-%m-%d")
-
-    spreadsheet = NoteSheet.new([HeaderColumn.new("SysID", 8),
-                                 HeaderColumn.new("Tittel", 50),
-                                 HeaderColumn.new("Salme", 8),
-                                 HeaderColumn.new("Solister", 35),
-                                 HeaderColumn.new("Komponist", 50),
-                                 HeaderColumn.new("Genre", 35)],
-                                Evensong.find(:all, :include => [:composer, :genre]).sort_by{|p| p.title.downcase},
-                                sheet_title,
-                                date_str,
-                                lambda {|row, item|
-                                  row.push item.id
-                                  row.push item.title
-                                  row.push item.psalm
-                                  row.push item.soloists
-                                  row.push item.composer ? item.composer.name : ""
-                                  row.push item.genre ? item.genre.name : ""
-                                })
-
-    send_file spreadsheet.get_spreadsheet,
-              :filename => "#{sheet_title.downcase}_#{date_str}.xls",
-              :type => 'application/vnd.ms-excel',
-              :disposition => 'attachment'
-  end
-
 end
 

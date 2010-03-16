@@ -1,5 +1,11 @@
 require 'archive/archive'
 
+require 'date'
+
+require 'excel/header_column'
+require 'excel/note_sheet'
+
+
 class Note < ActiveRecord::Base
   attr_accessor :doc_file, :music_file
 
@@ -63,6 +69,50 @@ class Note < ActiveRecord::Base
 
     self.save
   end
+
+  def self.find_all_sorted
+    Note.find(:all, :include => [:composer, :genre, :period, :languages]).sort_by{|p| p.title.downcase}
+  end
+
+  def self.excel
+    sheet_title = 'Notearkiv'
+    date_str = Date.today().strftime("%Y-%m-%d")
+
+    NoteSheet.new([HeaderColumn.new("SysID", 8),
+                   HeaderColumn.new("ID", 8),
+                   HeaderColumn.new("Tittel", 50),
+                   HeaderColumn.new("Komponist", 35),
+                   HeaderColumn.new("Genre", 35),
+                   HeaderColumn.new("Epoke", 35),
+                   HeaderColumn.new("Språk", 35),
+                   HeaderColumn.new("Akkomp.", 35),
+                   HeaderColumn.new("Original", 8),
+                   HeaderColumn.new("Kopi", 8),
+                   HeaderColumn.new("Instr.", 8),
+                   HeaderColumn.new("Besetning", 15),
+                   HeaderColumn.new("Solister", 35)],
+                  Note.find_all_sorted,
+                  sheet_title,
+                  date_str,
+                  lambda {|row, item|
+                    langs = item.languages.map{|lang| lang.name }
+
+                    row.push item.id
+                    row.push item.item
+                    row.push item.title
+                    row.push item.composer ? item.composer.name : ""
+                    row.push item.genre ? item.genre.name : ""
+                    row.push item.period ? item.period.name : ""
+                    row.push langs.join(", ")
+                    row.push item.instrument
+                    row.push item.count_originals
+                    row.push item.count_copies
+                    row.push item.count_instrumental
+                    row.push item.voice
+                    row.push item.soloists
+                  })
+  end
+
 
   private
 
