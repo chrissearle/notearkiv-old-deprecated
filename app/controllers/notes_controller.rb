@@ -92,9 +92,14 @@ class NotesController < ApplicationController
   def voice
     data = ""
 
-    # The following query goes thru to the database and needs to be specific for postgres - since production is postgres.
-    Note.find(:all, :conditions => ["voice ilike ?", params[:q] + "%"], :select => 'DISTINCT voice' ).each do |voice|
-      data = data + "#{voice.voice}\n"
+    search = params[:q].downcase
+
+    notes = Note.find(:all, :select => 'DISTINCT voice')
+
+    notes.each do |note|
+      if note.voice.downcase.start_with? search
+        data = data + "#{note.voice}\n"
+      end
     end
 
     send_data data, :type => 'text/plain'
