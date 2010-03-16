@@ -1,7 +1,5 @@
 require 'archive/archive'
 
-require 'date'
-
 require 'excel/header_column'
 require 'excel/note_sheet'
 
@@ -19,6 +17,22 @@ class Note < ActiveRecord::Base
   has_many :languages, :through => :note_language_assignments
 
   validates_presence_of :item, :title, :count_originals
+
+  EXCEL_HEADERS = [HeaderColumn.new("SysID", 8),
+                   HeaderColumn.new("ID", 8),
+                   HeaderColumn.new("Tittel", 50),
+                   HeaderColumn.new("Komponist", 35),
+                   HeaderColumn.new("Genre", 35),
+                   HeaderColumn.new("Epoke", 35),
+                   HeaderColumn.new("Språk", 35),
+                   HeaderColumn.new("Akkomp.", 35),
+                   HeaderColumn.new("Original", 8),
+                   HeaderColumn.new("Kopi", 8),
+                   HeaderColumn.new("Instr.", 8),
+                   HeaderColumn.new("Besetning", 15),
+                   HeaderColumn.new("Solister", 35)].freeze
+
+  SHEET_TITLE = 'Notearkiv'.freeze
 
   def upload
     archive = Archive.new :note_archive, :document
@@ -75,25 +89,10 @@ class Note < ActiveRecord::Base
   end
 
   def self.excel
-    sheet_title = 'Notearkiv'
-    date_str = Date.today().strftime("%Y-%m-%d")
 
-    NoteSheet.new([HeaderColumn.new("SysID", 8),
-                   HeaderColumn.new("ID", 8),
-                   HeaderColumn.new("Tittel", 50),
-                   HeaderColumn.new("Komponist", 35),
-                   HeaderColumn.new("Genre", 35),
-                   HeaderColumn.new("Epoke", 35),
-                   HeaderColumn.new("Språk", 35),
-                   HeaderColumn.new("Akkomp.", 35),
-                   HeaderColumn.new("Original", 8),
-                   HeaderColumn.new("Kopi", 8),
-                   HeaderColumn.new("Instr.", 8),
-                   HeaderColumn.new("Besetning", 15),
-                   HeaderColumn.new("Solister", 35)],
-                  Note.find_all_sorted,
-                  sheet_title,
-                  date_str,
+    NoteSheet.new(EXCEL_HEADERS,
+                  self.find_all_sorted,
+                  SHEET_TITLE,
                   lambda {|row, item|
                     langs = item.languages.map{|lang| lang.name }
 

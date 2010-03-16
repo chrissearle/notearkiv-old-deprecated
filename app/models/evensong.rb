@@ -1,7 +1,5 @@
 require 'archive/archive'
 
-require 'date'
-
 require 'excel/header_column'
 require 'excel/note_sheet'
 
@@ -15,6 +13,16 @@ class Evensong < ActiveRecord::Base
   belongs_to :genre
 
   validates_presence_of :title, :composer, :genre
+
+
+  EXCEL_HEADERS = [HeaderColumn.new("SysID", 8),
+                   HeaderColumn.new("Tittel", 50),
+                   HeaderColumn.new("Salme", 8),
+                   HeaderColumn.new("Solister", 35),
+                   HeaderColumn.new("Komponist", 50),
+                   HeaderColumn.new("Genre", 35)].freeze
+
+  SHEET_TITLE = 'Evensongarkiv'.freeze
 
   def upload
     archive = Archive.new :evensong_archive, :document
@@ -73,18 +81,9 @@ class Evensong < ActiveRecord::Base
   end
 
   def self.excel
-    sheet_title = 'Evensongarkiv'
-    date_str = Date.today().strftime("%Y-%m-%d")
-
-    NoteSheet.new([HeaderColumn.new("SysID", 8),
-                   HeaderColumn.new("Tittel", 50),
-                   HeaderColumn.new("Salme", 8),
-                   HeaderColumn.new("Solister", 35),
-                   HeaderColumn.new("Komponist", 50),
-                   HeaderColumn.new("Genre", 35)],
-                  Evensong.find_all_sorted,
-                  sheet_title,
-                  date_str,
+    NoteSheet.new(EXCEL_HEADERS,
+                  self.find_all_sorted,
+                  SHEET_TITLE,
                   lambda {|row, item|
                     row.push item.id
                     row.push item.title
@@ -110,4 +109,5 @@ class Evensong < ActiveRecord::Base
       archive.remove_file_if_exists self.id
     end
   end
+
 end

@@ -1,14 +1,16 @@
 require 'spreadsheet'
 
+require 'date'
+
 class NoteSheet
 
-  def initialize(headers, items, title, date, row_handler)
+  def initialize(headers, items, title, row_handler)
     @items = items
 
     @header_columns = headers
 
     @title = title
-    @date = date
+    @date = Date.today().strftime("%Y-%m-%d")
 
     @row_handler = row_handler
 
