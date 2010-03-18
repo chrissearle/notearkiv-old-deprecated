@@ -4,6 +4,8 @@ class NotesController < ApplicationController
   def index
     @notes = Note.find_all_sorted
 
+    format ||= format.html
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @notes }
