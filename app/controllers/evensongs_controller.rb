@@ -4,8 +4,6 @@ class EvensongsController < ApplicationController
   def index
     @evensongs = Evensong.find_all_sorted
 
-    format ||= format.html
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @evensongs }
