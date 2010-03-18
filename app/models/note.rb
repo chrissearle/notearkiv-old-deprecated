@@ -33,7 +33,7 @@ class Note < ActiveRecord::Base
                    HeaderColumn.new("Solister", 35)].freeze
 
   SHEET_TITLE = 'Notearkiv'.freeze
-
+  
   def upload
     archive = Archive.new :note_archive, :document
 
@@ -82,6 +82,10 @@ class Note < ActiveRecord::Base
     end
 
     self.save
+  end
+
+  def self.next_item
+    Note.maximum(:item) + 1
   end
 
   def self.find_all_sorted

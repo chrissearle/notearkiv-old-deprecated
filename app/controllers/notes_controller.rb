@@ -29,6 +29,7 @@ class NotesController < ApplicationController
 
   def new
     @note = Note.new
+    @note.item = Note.next_item
 
     respond_to do |format|
       format.html # new.html.erb
