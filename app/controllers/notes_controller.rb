@@ -2,6 +2,7 @@ class NotesController < ApplicationController
   filter_access_to :all
 
   def index
+    set_accept_header
     @notes = Note.find_all_sorted
     
     respond_to do |format|
