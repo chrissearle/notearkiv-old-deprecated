@@ -2,8 +2,10 @@ class NotesController < ApplicationController
   filter_access_to :all
 
   def index
+    logger.info request.inspect
+    
     @notes = Note.find_all_sorted
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @notes }
