@@ -2,8 +2,9 @@ class NotesController < ApplicationController
   filter_access_to :all
 
   def index
+    set_accept_header
     @notes = Note.find_all_sorted
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @notes }
@@ -29,6 +30,7 @@ class NotesController < ApplicationController
 
   def new
     @note = Note.new
+    @note.item = Note.next_item
 
     respond_to do |format|
       format.html # new.html.erb

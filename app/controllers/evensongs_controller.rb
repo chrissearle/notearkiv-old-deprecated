@@ -2,6 +2,7 @@ class EvensongsController < ApplicationController
   filter_access_to :all
 
   def index
+    set_accept_header
     @evensongs = Evensong.find_all_sorted
 
     respond_to do |format|
