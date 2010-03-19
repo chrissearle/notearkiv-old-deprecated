@@ -52,6 +52,10 @@ class Evensong < ActiveRecord::Base
     end
   end
 
+  def has_attachment?
+    !(doc_url.blank? && music_url.blank?)
+  end
+
   def update_link
     archive = Archive.new :evensong_archive, :document
 

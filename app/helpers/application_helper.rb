@@ -1,6 +1,6 @@
 module ApplicationHelper
   def list_link_dropbox_files(object)
-    if (object.doc_url.blank? && object.music_url.blank?)
+    if (!object.has_attachment?)
       s = "Ikke tilgjengelig"
     else
       s = "<ul>"

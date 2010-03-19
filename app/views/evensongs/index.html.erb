@@ -60,7 +60,13 @@
         <td><%= evensong.psalm %></td>
         <td><%= evensong.composer.name if evensong.composer %></td>
         <td><%= evensong.genre.name if evensong.genre %></td>
-        <td><%= list_link_dropbox_files(evensong) %></td>
+        <td>
+          <% if (!evensong.has_attachment?) && permitted_to?(:edit, evensong) %>
+              <%= link_to 'Last&nbsp;opp', edit_evensong_path(evensong) %>
+          <% else %>
+              <%= list_link_dropbox_files(evensong) %>
+          <% end %>
+        </td>
       </tr>
   <% end %>
   </tbody>

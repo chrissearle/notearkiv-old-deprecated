@@ -60,6 +60,10 @@ class Note < ActiveRecord::Base
     end
   end
 
+  def has_attachment?
+    !(doc_url.blank? && music_url.blank?)
+  end
+
   def update_link
     archive = Archive.new :note_archive, :document
 
