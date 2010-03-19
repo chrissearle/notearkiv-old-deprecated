@@ -18,7 +18,6 @@
 
 <% semantic_form_for @note, :html => { :enctype => "multipart/form-data" }  do |form| %>
     <% form.inputs do %>
-        <%= form.input :item, :label => "ID" %>
         <%= form.input :title, :label => "Tittel" %>
         <%= form.input :composer, :label => "Komponist", :required => false %>
         <%= form.input :period, :label => "Epoke", :required => false %>

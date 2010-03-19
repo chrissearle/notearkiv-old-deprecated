@@ -30,7 +30,6 @@ class NotesController < ApplicationController
 
   def new
     @note = Note.new
-    @note.item = Note.next_item
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +40,8 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(params[:note])
 
+    @note.item = Note.next_item
+    
     respond_to do |format|
       if @note.save
         @note.upload
