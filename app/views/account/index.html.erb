@@ -1,0 +1,25 @@
+<h2><%= @user.username %></h2>
+
+<br/>
+
+<table>
+
+  <tr>
+    <td>E-post</td>
+    <td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <td>Sist pålogging</td>
+    <td>
+      <%= @user.current_login_at %>
+    </td>
+  </tr>
+</table>
+
+<br/>
+
+
+<% if permitted_to? :edit, @user, :context => :account %>
+    <%= link_to 'Endre', edit_account_path(@user) %>
+<% end %>
+

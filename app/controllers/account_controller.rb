@@ -1,33 +1,29 @@
-class UsersController < ApplicationController
-  filter_access_to :all
-
+class AccountController < ApplicationController
   def index
-    @users = User.find(:all)
+    @user = User.find_by_username(current_user.username)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml { render :xml => @users }
+      format.xml { render :xml => @user }
     end
   end
 
   def edit
-    @user = User.find(params[:id])
-  end
-
-  def show
-    @user = User.find(params[:id])
+    @user = User.find_by_username(current_user.username)
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # edit.html.erb
       format.xml { render :xml => @user }
     end
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by_username(current_user.username)
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      @user.email = params["user"]["email"]
+
+      if @user.save
         flash[:notice] = 'Bruker oppdatert.'
         format.html { redirect_to :action => "index" }
         format.xml  { head :ok }

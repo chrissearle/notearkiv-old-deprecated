@@ -48,6 +48,9 @@
           <h2><%= current_user.username %></h2>
           <ul>
             <li><%= link_to 'Logg av', logout_path %></li>
+            <% if permitted_to? :index, :account %>
+                <li><%= link_to 'Min konto', account_index_path %></li>
+            <% end %>
             <% if permitted_to? :index, :users %>
                 <li><%= link_to 'Users', users_path %></li>
             <% end %>

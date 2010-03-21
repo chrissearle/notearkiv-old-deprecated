@@ -28,15 +28,12 @@
   <tr>
     <th>Username</th>
     <th>E-mail</th>
-    <th>Created</th>
     <th>Updated</th>
     <th>Login Count</th>
     <th>Failed Login Count</th>
     <th>Last Request</th>
     <th>Current Login</th>
-    <th>Last Login</th>
     <th>Current Login IP</th>
-    <th>Last Login IP</th>
     <th>Roles</th>
   </tr>
   </thead>
@@ -44,13 +41,10 @@
   <% for user in @users %>
       <tr>
         <td>
-          <%= user.username %>
+          <%= link_to user.username, user_path(user) %>
         </td>
         <td>
           <%= user.email %>
-        </td>
-        <td>
-          <%= user.created_at %>
         </td>
         <td>
           <%= user.updated_at %>
@@ -68,13 +62,7 @@
           <%= user.current_login_at %>
         </td>
         <td>
-          <%= user.last_login_at %>
-        </td>
-        <td>
           <%= user.current_login_ip %>
-        </td>
-        <td>
-          <%= user.last_login_ip %>
         </td>
         <td>
           <ul>

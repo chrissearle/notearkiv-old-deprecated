@@ -1,0 +1,86 @@
+<h2>User: <%= @user.username %></h2>
+
+<br/>
+
+<table>
+
+  <tr>
+    <td>Email</td>
+    <td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <td>Created</td>
+    <td>
+      <%= @user.created_at %>
+    </td>
+  </tr>
+  <tr>
+    <td>Updated</td>
+    <td>
+      <%= @user.updated_at %>
+    </td>
+  </tr>
+  <tr>
+    <td>Login Count</td>
+    <td>
+      <%= @user.login_count %>
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Login Count</td>
+    <td>
+      <%= @user.failed_login_count %>
+    </td>
+  </tr>
+  <tr>
+    <td>Last Request</td>
+    <td>
+      <%= @user.last_request_at %>
+    </td>
+  </tr>
+  <tr>
+    <td>Current Login</td>
+    <td>
+      <%= @user.current_login_at %>
+    </td>
+  </tr>
+  <tr>
+    <td>Last Login</td>
+    <td>
+      <%= @user.last_login_at %>
+    </td>
+  </tr>
+  <tr>
+    <td>Current Login IP</td>
+    <td>
+      <%= @user.current_login_ip %>
+    </td>
+  </tr>
+  <tr>
+    <td>Last Login IP</td>
+    <td>
+      <%= @user.last_login_ip %>
+    </td>
+  </tr>
+  <tr>
+    <td>Roles</td>
+    <td>
+      <ul>
+        <% @user.roles.each do |role| %>
+            <li><%= role.name %></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<br/>
+
+<% if permitted_to? :edit, @user %>
+    <%= link_to 'Endre', edit_user_path(@user) %>
+    |
+<% end %>
+
+<% if permitted_to? :index, :users %>
+    <%= link_to 'Back to users', users_path %>
+<% end %>
