@@ -1,4 +1,6 @@
 class AccountController < ApplicationController
+  filter_access_to :all
+
   def index
     @user = User.find_by_username(current_user.username)
 
@@ -22,6 +24,8 @@ class AccountController < ApplicationController
 
     respond_to do |format|
       @user.email = params["user"]["email"]
+      @user.password = params["user"]["password"]
+      @user.password_confirmation = params["user"]["password_confirmation"]
 
       if @user.save
         flash[:notice] = 'Bruker oppdatert.'
