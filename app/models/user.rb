@@ -1,3 +1,5 @@
+require 'digest/sha1'
+
 class User < ActiveRecord::Base
   acts_as_authentic do |c|
     c.logged_in_timeout(30.minutes)
@@ -10,5 +12,25 @@ class User < ActiveRecord::Base
     roles.map do |role|
       role.name.underscore.to_sym
     end
+  end
+
+  def one_time_code
+    self.onetime = Digest::SHA1.hexdigest('onetime #{Time.now.to_i} #{password_salt} #{current_login_ip}' )
+
+    self.save
+
+    self.onetime
+  end
+
+  def send_reset_password
+    code = one_time_code
+    
+    Arkiv.deliver_reset_password(self, code)
+  end
+
+  def clear_one_time_code
+    self.onetime = nil
+    
+    self.save
   end
 end
