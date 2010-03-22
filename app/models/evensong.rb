@@ -20,7 +20,8 @@ class Evensong < ActiveRecord::Base
                    HeaderColumn.new("Salme", 8),
                    HeaderColumn.new("Solister", 35),
                    HeaderColumn.new("Komponist", 50),
-                   HeaderColumn.new("Genre", 35)].freeze
+                   HeaderColumn.new("Genre", 35),
+                   HeaderColumn.new("Kommentar", 50)].freeze
 
   SHEET_TITLE = 'Evensongarkiv'.freeze
 
@@ -95,6 +96,7 @@ class Evensong < ActiveRecord::Base
                     row.push item.soloists
                     row.push item.composer ? item.composer.name : ""
                     row.push item.genre ? item.genre.name : ""
+                    row.push item.comment
                   })
   end
 

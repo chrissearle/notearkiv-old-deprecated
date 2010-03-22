@@ -30,7 +30,8 @@ class Note < ActiveRecord::Base
                    HeaderColumn.new("Kopi", 8),
                    HeaderColumn.new("Instr.", 8),
                    HeaderColumn.new("Besetning", 15),
-                   HeaderColumn.new("Solister", 35)].freeze
+                   HeaderColumn.new("Solister", 35),
+                   HeaderColumn.new("Kommentar", 50)].freeze
 
   SHEET_TITLE = 'Notearkiv'.freeze
   
@@ -117,6 +118,7 @@ class Note < ActiveRecord::Base
                     row.push item.count_instrumental
                     row.push item.voice
                     row.push item.soloists
+                    row.push item.comment
                   })
   end
 

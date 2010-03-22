@@ -5,6 +5,7 @@
         <%= form.input :soloists, :label => "Solister", :required => false %>
         <%= form.input :composer, :label => "Komponist" %>
         <%= form.input :genre, :label => "Genre" %>
+        <%= form.input :comment, :label => "Kommentar", :required => false, :input_html => { :rows => 5 } %>
         <%= form.input :doc_file, :label => "PDF", :as => :file, :required => false %>
         <%= form.input :music_file, :label => "MP3/M4A", :as => :file, :required => false %>
     <% end %>
