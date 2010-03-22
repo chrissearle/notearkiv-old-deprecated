@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   end
 
   def one_time_code
-    self.onetime = Digest::SHA1.hexdigest('onetime #{Time.now.to_i} #{password_salt} #{current_login_ip}' )
+    self.onetime = Digest::SHA1.hexdigest("onetime #{Time.now} #{current_login_ip}")
 
     self.save
 
