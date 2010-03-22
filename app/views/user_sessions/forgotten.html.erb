@@ -4,7 +4,7 @@
 <h4>Hvis du har glemt passordet ditt - kan du få tilsendt en lenke hvor du kan resette passordet.</h4>
 
 <% form_tag '/reset_password', :method => :post do %>
-    <p>Ditt registrerte e-post:</p>
+    <p>Din registrerte e-postadresse:</p>
     <p><%= text_field_tag 'email' %></p>
     <p><%= submit_tag 'Resett passord' %></p>
 <% end %>
