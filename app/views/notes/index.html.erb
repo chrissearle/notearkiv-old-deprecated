@@ -58,6 +58,10 @@
       <%= link_to 'Ny note', new_note_path %>
       |
   <% end %>
+  <% if permitted_to? :upload, :notes_upload %>
+      <%= link_to 'Last opp', notesupload_path %>
+      |
+  <% end %>
   <%= link_to 'Last ned', notes_path(:format => :xls) %>
 </p>
 
@@ -115,6 +119,10 @@
 <p>
   <% if permitted_to? :new, :notes %>
       <%= link_to 'Ny note', new_note_path %>
+      |
+  <% end %>
+  <% if permitted_to? :upload, :notes_upload %>
+      <%= link_to 'Last opp', notesupload_path %>
       |
   <% end %>
   <%= link_to 'Last ned', notes_path(:format => :xls) %>

@@ -1,0 +1,7 @@
+<h1>Last opp evensongnoter</h1>
+
+<% form_tag(evensongsimport_path, :multipart => true) do %>
+    <label for="file">Oppdatert evensongnotearkiv (xls)</label><%= file_field_tag "file" %>
+    <br/>
+    <%= submit_tag 'Last opp' %>
+<% end %>

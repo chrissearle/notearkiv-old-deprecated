@@ -19,6 +19,9 @@ class NotesController < ApplicationController
     end
   end
 
+  def import
+  end
+
   def show
     @note = Note.find(params[:id])
 

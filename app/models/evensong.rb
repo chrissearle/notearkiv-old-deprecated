@@ -100,6 +100,14 @@ class Evensong < ActiveRecord::Base
                   })
   end
 
+  def self.import(file)
+    if (file.content_type == "application/vnd.ms-excel")
+      return true
+    else
+      return false
+    end
+  end
+
   private
 
   def remove_files
