@@ -6,11 +6,14 @@ class EvensongsUploadController < ApplicationController
 
   def import
     if (params[:file])
-      if (Evensong.import(params[:file]))
-        flash[:notice] = 'Evensongnoter oppdatert.'
-      else
-        flash[:error] = 'Oppdatering av evensongnoter hadde problemmer. Sjekk opplastingsfilen'
+      begin
+        if (Evensong.import(params[:file]))
+          flash[:notice] = 'Evensongnoter oppdatert.'
+        end
+      rescue Exception => e
+        flash[:error] = e.message
       end
+
       redirect_to evensongs_path
     else
       flash[:notice] = 'Du må velge en fil'

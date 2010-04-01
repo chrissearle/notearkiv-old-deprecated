@@ -2,6 +2,7 @@ require 'archive/archive'
 
 require 'excel/header_column'
 require 'excel/note_sheet'
+require 'excel/importer'
 
 
 class Note < ActiveRecord::Base
@@ -123,10 +124,11 @@ class Note < ActiveRecord::Base
   end
 
   def self.import(file)
-    if (file.content_type == "application/vnd.ms-excel")
-      return true
-    else
-      return false
+    importer = Importer.new(file,
+                            EXCEL_HEADERS.map { |header| header.title } )
+
+    importer.rows.each do |row|
+      logger.debug row.inspect
     end
   end
 

@@ -6,11 +6,14 @@ class NotesUploadController < ApplicationController
 
   def import
     if (params[:file])
-      if (Note.import(params[:file]))
-        flash[:notice] = 'Noter oppdatert.'
-      else
-        flash[:error] = 'Oppdatering av noter hadde problemmer. Sjekk opplastingsfilen'
+      begin
+        if (Note.import(params[:file]))
+          flash[:notice] = 'Noter oppdatert.'
+        end
+      rescue Exception => e
+        flash[:error] = e.message
       end
+      
       redirect_to notes_path
     else
       flash[:notice] = 'Du må velge en fil'
