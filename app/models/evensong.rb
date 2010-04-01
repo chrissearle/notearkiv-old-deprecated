@@ -106,11 +106,50 @@ class Evensong < ActiveRecord::Base
                             EXCEL_HEADERS.map { |header| header.title } )
 
     importer.rows.each do |row|
-      logger.debug row.inspect
+      item = Hash.new
+      item[:sysid] = row[0]
+      item[:title] = row[1]
+      item[:salme] = row[2]
+      item[:solo] = row[3]
+      item[:composer] = row[4]
+      item[:genre] = row[5]
+      item[:comment] = row[6]
+
+      item[:sysid].blank? ? import_create(item) : import_update(item)
     end
   end
 
   private
+
+  def self.import_create(item)
+    evensong = Evensong.new
+    populate_from_import(evensong, item)
+    if (!evensong.save)
+      logger.warn("Unable to create evensong #{evensong.inspect}")
+    end
+  end
+
+  def self.import_update(item)
+    begin
+      evensong = Evensong.find(item[:sysid])
+    rescue ActiveRecord::RecordNotFound
+      evensong = Evensong.new
+    end
+    populate_from_import(evensong, item)
+    if (!evensong.save)
+      logger.warn("Unable to update evensong #{evensong.inspect}")
+    end
+  end
+
+  def self.populate_from_import(evensong, item)
+    evensong.title = item[:title] unless item[:title].blank?
+    evensong.psalm = item[:salme] unless item[:salme].blank?
+    evensong.soloists = item[:solo] unless item[:solo].blank?
+    evensong.composer = Composer.find_or_create_by_name(item[:composer]) unless item[:composer].blank?
+    evensong.genre = Genre.find_or_create_by_name(item[:genre]) unless item[:genre].blank?
+    evensong.comment = item[:comment] unless item[:comment].blank?
+  end
+
 
   def remove_files
     if (!self.doc_url.blank?)
