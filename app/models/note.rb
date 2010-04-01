@@ -160,7 +160,12 @@ class Note < ActiveRecord::Base
   end
 
   def self.import_update(item)
-    note = Note.find(item[:sysid])
+    begin
+      note = Note.find(item[:sysid])
+    rescue ActiveRecord::RecordNotFound
+      note = Note.new
+      note.item = Note.next_item
+    end
     populate_from_import(note, item)
     if (!note.save)
       logger.warn("Unable to update note #{note.inspect}")
