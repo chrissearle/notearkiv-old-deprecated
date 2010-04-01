@@ -8,7 +8,7 @@ class EvensongsUploadController < ApplicationController
     if (params[:file])
       begin
         if (Evensong.import(params[:file]))
-          flash[:notice] = 'Evensongnoter oppdatert.'
+          flash[:notice] = 'Evensongnoter oppdatert. Det er anbefalt å laste ned et nytt kopi av arkivet med en gang.'
         end
       rescue Exception => e
         flash[:error] = e.message
