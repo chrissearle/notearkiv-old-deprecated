@@ -102,10 +102,12 @@ class Evensong < ActiveRecord::Base
   end
 
   def self.import(file)
+    ImportLog.delete_all
+    
     importer = Importer.new(file,
                             EXCEL_HEADERS.map { |header| header.title } )
 
-    importer.rows.each do |row|
+    importer.rows.each_with_index do |row, i|
       item = Hash.new
       item[:sysid] = row[0]
       item[:title] = row[1]
@@ -115,21 +117,24 @@ class Evensong < ActiveRecord::Base
       item[:genre] = row[5]
       item[:comment] = row[6]
 
-      item[:sysid].blank? ? import_create(item) : import_update(item)
+      item[:sysid].blank? ? import_create(item, i) : import_update(item, i)
     end
   end
 
   private
 
-  def self.import_create(item)
+  def self.import_create(item, i)
     evensong = Evensong.new
     populate_from_import(evensong, item)
     if (!evensong.save)
-      logger.warn("Unable to create evensong #{evensong.inspect}")
+      evensong.errors.each do |attr, msg|
+        import_log = ImportLog.new(:field => attr, :message => msg, :item => i + 2)
+        import_log.save
+      end
     end
   end
 
-  def self.import_update(item)
+  def self.import_update(item, i)
     begin
       evensong = Evensong.find(item[:sysid])
     rescue ActiveRecord::RecordNotFound
@@ -137,15 +142,18 @@ class Evensong < ActiveRecord::Base
     end
     populate_from_import(evensong, item)
     if (!evensong.save)
-      logger.warn("Unable to update evensong #{evensong.inspect}")
+      evensong.errors.each do |attr, msg|
+        import_log = ImportLog.new(:field => attr, :message => msg, :item => i + 2)
+        import_log.save
+      end
     end
   end
 
   def self.populate_from_import(evensong, item)
     # Mandatory fields
-    evensong.title = item[:title] unless item[:title].blank?
-    evensong.composer = Composer.find_or_create_by_name(item[:composer]) unless item[:composer].blank?
-    evensong.genre = Genre.find_or_create_by_name(item[:genre]) unless item[:genre].blank?
+    evensong.title = item[:title]
+    evensong.composer = item[:composer].blank? ? nil : Composer.find_or_create_by_name(item[:composer])
+    evensong.genre = item[:genre].blank? ? nil : Genre.find_or_create_by_name(item[:genre])
 
     # Optional fields - allows overwriting with empty
     evensong.psalm = item[:salme]

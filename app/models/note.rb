@@ -124,10 +124,12 @@ class Note < ActiveRecord::Base
   end
 
   def self.import(file)
+    ImportLog.delete_all
+
     importer = Importer.new(file,
                             EXCEL_HEADERS.map { |header| header.title } )
 
-    importer.rows.each do |row|
+    importer.rows.each_with_index do |row, i|
       item = Hash.new
       item[:sysid] = row[0]
       item[:id] = row[1]
@@ -144,22 +146,25 @@ class Note < ActiveRecord::Base
       item[:solo] = row[12]
       item[:comment] = row[13]
 
-      item[:sysid].blank? ? import_create(item) : import_update(item)
+      item[:sysid].blank? ? import_create(item, i) : import_update(item, i)
     end
   end
 
   private
 
-  def self.import_create(item)
+  def self.import_create(item, i)
     note = Note.new
     note.item = Note.next_item
     populate_from_import(note, item)
     if (!note.save)
-      logger.warn("Unable to create note #{note.inspect}")
+      note.errors.each do |attr, msg|
+        import_log = ImportLog.new(:field => attr, :message => msg, :item => i + 2)
+        import_log.save
+      end
     end
   end
 
-  def self.import_update(item)
+  def self.import_update(item, i)
     begin
       note = Note.find(item[:sysid])
     rescue ActiveRecord::RecordNotFound
@@ -168,14 +173,17 @@ class Note < ActiveRecord::Base
     end
     populate_from_import(note, item)
     if (!note.save)
-      logger.warn("Unable to update note #{note.inspect}")
+      note.errors.each do |attr, msg|
+        import_log = ImportLog.new(:field => attr, :message => msg, :item => i + 2)
+        import_log.save
+      end
     end
   end
 
   def self.populate_from_import(note, item)
     # Mandatory fields
-    note.title = item[:title] unless item[:title].blank?
-    note.count_originals = item[:original] unless item[:original].blank?
+    note.title = item[:title]
+    note.count_originals = item[:original]
 
     # Optional fields - allows overwriting with blank
     note.soloists = item[:solo]

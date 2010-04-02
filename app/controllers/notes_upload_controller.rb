@@ -8,13 +8,15 @@ class NotesUploadController < ApplicationController
     if (params[:file])
       begin
         if (Note.import(params[:file]))
-          flash[:notice] = 'Noter oppdatert. Det er anbefalt å laste ned et nytt kopi av arkivet med en gang.'
+          flash.now[:notice] = 'Noter oppdatert. Det er anbefalt å laste ned et nytt kopi av arkivet med en gang.'
+
+          @logs = ImportLog.find(:all, :order => 'item ASC, created_at ASC')
         end
       rescue Exception => e
         flash[:error] = e.message
+
+        redirect_to notesupload_path
       end
-      
-      redirect_to notes_path
     else
       flash[:notice] = 'Du må velge en fil'
       redirect_to notesupload_path

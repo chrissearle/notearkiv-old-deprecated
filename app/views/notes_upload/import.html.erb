@@ -1,0 +1,32 @@
+<h1>Ferdig opplastet</h1>
+
+<p>Du bør nå ta en ny nedlasting av arkivet. Det er fordi den vil inkludere alle nye system ID
+  verdier. Husk å bytte ut eksisterende kopier med den nye eller så risikere du at ved neste opplasting så blir det
+  laget duplikater. Du vil bli minnet på dette etter opplastingen er ferdig.</p>
+
+<p><%= link_to 'Last ned', notes_path(:format => :xls) %></p>
+
+<% if @logs.size > 0 %>
+    <h2>Problemmer</h2>
+
+    <p>Følgende feil var oppdaget under import:</p>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Rad</th>
+        <th>Felt</th>
+        <th>Beskjed</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @logs.each do |log| %>
+      <tr>
+        <td><%= log.item %></td>
+        <td><%= log.field %></td>
+        <td><%= log.message %></td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
