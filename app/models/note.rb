@@ -173,25 +173,29 @@ class Note < ActiveRecord::Base
   end
 
   def self.populate_from_import(note, item)
-    note.soloists = item[:solo] unless item[:solo].blank?
-    note.count_originals = item[:original] unless item[:original].blank?
-    note.count_copies = item[:copy] unless item[:copy].blank?
-    note.count_instrumental = item[:instrumental] unless item[:instrumental].blank?
+    # Mandatory fields
     note.title = item[:title] unless item[:title].blank?
-    note.comment = item[:comment] unless item[:comment].blank?
-    note.voice = item[:voice] unless item[:voice].blank?
-    note.instrument = item[:instrument] unless item[:instrument].blank?
-    note.period = Period.find_or_create_by_name(item[:epoch]) unless item[:epoch].blank?
-    note.composer = Composer.find_or_create_by_name(item[:composer]) unless item[:composer].blank?
-    note.genre = Genre.find_or_create_by_name(item[:genre]) unless item[:genre].blank?
+    note.count_originals = item[:original] unless item[:original].blank?
 
+    # Optional fields - allows overwriting with blank
+    note.soloists = item[:solo]
+    note.count_copies = item[:copy]
+    note.count_instrumental = item[:instrumental]
+    note.comment = item[:comment]
+    note.voice = item[:voice]
+    note.instrument = item[:instrument]
+
+    note.period = item[:epoch].blank? ? nil : Period.find_or_create_by_name(item[:epoch])
+    note.composer = item[:composer].blank? ? nil : Composer.find_or_create_by_name(item[:composer])
+    note.genre = item[:genre].blank? ? nil : Genre.find_or_create_by_name(item[:genre])
+
+    langs = Array.new
     if (!item[:languages].blank?)
-      langs = Array.new
       item[:languages].each do |lang|
         langs << Language.find_or_create_by_name(lang)
       end
-      note.languages = langs
     end
+    note.languages = langs
   end
 
   def remove_files

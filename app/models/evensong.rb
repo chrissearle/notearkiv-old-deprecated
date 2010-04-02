@@ -142,12 +142,15 @@ class Evensong < ActiveRecord::Base
   end
 
   def self.populate_from_import(evensong, item)
+    # Mandatory fields
     evensong.title = item[:title] unless item[:title].blank?
-    evensong.psalm = item[:salme] unless item[:salme].blank?
-    evensong.soloists = item[:solo] unless item[:solo].blank?
     evensong.composer = Composer.find_or_create_by_name(item[:composer]) unless item[:composer].blank?
     evensong.genre = Genre.find_or_create_by_name(item[:genre]) unless item[:genre].blank?
-    evensong.comment = item[:comment] unless item[:comment].blank?
+
+    # Optional fields - allows overwriting with empty
+    evensong.psalm = item[:salme]
+    evensong.soloists = item[:solo]
+    evensong.comment = item[:comment]
   end
 
 
