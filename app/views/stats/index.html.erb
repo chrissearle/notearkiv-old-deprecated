@@ -1,13 +1,30 @@
-<dl>
-  <dt>Percentage Used</dt>
-  <dd><%= @percent %></dd>
-
-  <dt>Used</dt>
-  <dd><%= "%.2f" % @used %> GB</dd>
-
-  <dt>Free</dt>
-  <dd><%= "%.2f" % @free %> GB</dd>
-
-  <dt>Total</dt>
-  <dd><%= "%.2f" % @total %> GB</dd>
-</dl>
+<table>
+  <tr>
+    <td>Percentage Used</td>
+    <td><%= @stats[:percent] %></td>
+  </tr>
+  <tr valign="top">
+    <td>
+      Used
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;Regular
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;Shared
+    </td>
+    <td>
+      <%= "%.2f" % @stats[:used] %> MB
+      <br/>
+      <%= "%.2f" % (@stats[:regular_used].nil? ? 0 : @stats[:regular_used]) %> MB
+      <br/>
+      <%= "%.2f" % (@stats[:shared_used].nil? ? 0 : @stats[:shared_used]) %> MB
+    </td>
+  </tr>
+  <tr>
+    <td>Free</td>
+    <td><%= "%.2f" % @stats[:free] %> MB</td>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td><%= "%.2f" % @stats[:total] %> MB</td>
+  </tr>
+</table>
