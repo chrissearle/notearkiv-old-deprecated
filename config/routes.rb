@@ -6,12 +6,10 @@ ActionController::Routing::Routes.draw do |map|
   map.forgot 'forgotten_password', :controller => 'user_sessions', :action => 'forgotten'
   map.reset 'reset_password', :controller => 'user_sessions', :action => 'reset'
 
-  map.resources :user_sessions
-
-  map.resources :users
-
   map.root :controller => "notes"
 
+  map.resources :user_sessions
+  map.resources :users
   map.resources :stats
   map.resources :periods
   map.resources :genres
