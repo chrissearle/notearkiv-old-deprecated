@@ -5,6 +5,13 @@ require 'excel/note_sheet'
 require 'excel/importer'
 require 'pdf/pdf_doc'
 require 'pdf/pdf_col'
+require 'iconv'
+
+class String
+  def to_latin1
+    Iconv.iconv("LATIN1", "UTF-8", self)
+  end
+end
 
 class Note < ActiveRecord::Base
   attr_accessor :doc_file, :music_file
