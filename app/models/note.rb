@@ -3,7 +3,7 @@ require 'archive/archive'
 require 'excel/header_column'
 require 'excel/note_sheet'
 require 'excel/importer'
-
+require 'pdf/pdf_doc'
 
 class Note < ActiveRecord::Base
   attr_accessor :doc_file, :music_file
@@ -34,7 +34,7 @@ class Note < ActiveRecord::Base
                    HeaderColumn.new("Solister", 35),
                    HeaderColumn.new("Kommentar", 50)].freeze
 
-  SHEET_TITLE = 'Notearkiv'.freeze
+  DOCUMENT_TITLE = 'Notearkiv'.freeze
 
   def upload
     archive = Archive.new :note_archive, :document
@@ -102,7 +102,7 @@ class Note < ActiveRecord::Base
 
     NoteSheet.new(EXCEL_HEADERS,
                   self.find_all_sorted,
-                  SHEET_TITLE,
+                  DOCUMENT_TITLE,
                   lambda {|row, item|
                     langs = item.languages.map{|lang| lang.name }
 
@@ -121,6 +121,12 @@ class Note < ActiveRecord::Base
                     row.push item.soloists
                     row.push item.comment
                   })
+  end
+
+  def self.pdf
+    PDFDoc.new(self.find_all_sorted,
+               DOCUMENT_TITLE,
+               lambda {|item| })
   end
 
   def self.import(file)

@@ -8,6 +8,14 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @notes }
+      format.pdf do
+        pdf = Note.pdf
+
+        send_data(pdf.get_document,
+                  :type => 'application/pdf',
+                  :disposition => 'attachment',
+                  :filename => pdf.get_filename)
+      end
       format.xls do
         excel = Note.excel
 
