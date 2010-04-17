@@ -4,6 +4,7 @@ require 'excel/header_column'
 require 'excel/note_sheet'
 require 'excel/importer'
 require 'pdf/pdf_doc'
+require 'pdf/pdf_col'
 
 class Note < ActiveRecord::Base
   attr_accessor :doc_file, :music_file
@@ -33,6 +34,14 @@ class Note < ActiveRecord::Base
                    HeaderColumn.new("Besetning", 15),
                    HeaderColumn.new("Solister", 35),
                    HeaderColumn.new("Kommentar", 50)].freeze
+
+  PDF_HEADERS = [PDFCol.new("ID"),
+                 PDFCol.new("Tittel"),
+                 PDFCol.new("Komponist"),
+                 PDFCol.new("Genre"),
+                 PDFCol.new("Epoke"),
+                 PDFCol.new("Språk".to_latin1),
+                 PDFCol.new("Akkomp")].freeze
 
   DOCUMENT_TITLE = 'Notearkiv'.freeze
 
@@ -124,9 +133,20 @@ class Note < ActiveRecord::Base
   end
 
   def self.pdf
-    PDFDoc.new(self.find_all_sorted,
+    data = self.find_all_sorted.map do |item|
+      Hash['ID' => item.item,
+              'Tittel' => item.title.to_latin1,
+              'Komponist' => item.composer ? item.composer.name.to_latin1 : "",
+              'Genre' => item.genre ? item.genre.name.to_latin1 : "",
+              'Epoke' => item.period ? item.period.name.to_latin1 : "",
+              'Språk'.to_latin1 => item.languages.map{|lang| lang.name }.join(", ").to_latin1,
+              'Akkomp' => item.instrument ? item.instrument.to_latin1 : ""
+      ]
+    end
+
+    PDFDoc.new(data,
                DOCUMENT_TITLE,
-               lambda {|item| })
+               PDF_HEADERS)
   end
 
   def self.import(file)

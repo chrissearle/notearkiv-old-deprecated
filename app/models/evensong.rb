@@ -3,6 +3,8 @@ require 'archive/archive'
 require 'excel/header_column'
 require 'excel/note_sheet'
 require 'excel/importer'
+require 'pdf/pdf_doc'
+require 'pdf/pdf_col'
 
 
 class Evensong < ActiveRecord::Base
@@ -23,6 +25,12 @@ class Evensong < ActiveRecord::Base
                    HeaderColumn.new("Komponist", 50),
                    HeaderColumn.new("Genre", 35),
                    HeaderColumn.new("Kommentar", 50)].freeze
+
+  PDF_HEADERS = [PDFCol.new("Tittel"),
+                 PDFCol.new("Salme"),
+                 PDFCol.new("Komponist"),
+                 PDFCol.new("Genre")].freeze
+
 
   DOCUMENT_TITLE = 'Evensongarkiv'.freeze
 
@@ -102,14 +110,22 @@ class Evensong < ActiveRecord::Base
   end
 
   def self.pdf
-    PDFDoc.new(self.find_all_sorted,
+    data = self.find_all_sorted.map do |item|
+      Hash['Tittel' => item.title.to_latin1,
+              'Komponist' => item.composer ? item.composer.name.to_latin1 : "",
+              'Salme' => item.psalm,
+              'Genre' => item.genre ? item.genre.name.to_latin1 : ""
+      ]
+    end
+
+    PDFDoc.new(data,
                DOCUMENT_TITLE,
-               lambda {|item| })
+               PDF_HEADERS)
   end
 
   def self.import(file)
     ImportLog.delete_all
-    
+
     importer = Importer.new(file,
                             EXCEL_HEADERS.map { |header| header.title } )
 

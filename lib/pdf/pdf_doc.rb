@@ -1,14 +1,15 @@
 require 'pdf/writer'
+require 'pdf/simpletable'
 
 class PDFDoc
-  def initialize(items, title, item_handler)
+  def initialize(items, title, headers)
     @items = items
 
     @date = Date.today().strftime("%Y-%m-%d")
 
     @title = title
 
-    @handler = item_handler
+    @headers = headers
   end
 
   def get_filename
@@ -16,9 +17,26 @@ class PDFDoc
   end
 
   def get_document
-    pdf = PDF::Writer.new
+    pdf = PDF::Writer.new(:paper => "A4", :orientation => :landscape)
 
-    pdf.text @title
+    pdf.select_font("Helvetica", { :encoding => "WinAnsiEncoding" })
+
+    table = PDF::SimpleTable.new
+    table.title_font_size = 9
+    table.heading_font_size = 7
+    table.font_size = 7
+
+    table.title = "#{@title} - #{@date}"
+
+    table.data = []
+    
+    @items.each do |item|
+      table.data << item
+    end
+
+    table.column_order = @headers.map { |header| header.title }
+
+    table.render_on(pdf)
 
     pdf.render
   end
