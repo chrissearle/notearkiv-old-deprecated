@@ -1,0 +1,32 @@
+<tr>
+  <td>
+    <% link_to(note) do %>
+        <%= note.item %>
+    <% end %>
+  </td>
+  <td>
+    <% link_to(note) do %>
+        <%= note.title %>
+    <% end %>
+  </td>
+  <td><%= note.composer.name if note.composer %></td>
+  <td><%= note.genre.name if note.genre %></td>
+  <td><%= note.period.name if note.period %></td>
+  <td>
+    <% if note.languages.size() > 0 %>
+        <ul>
+          <% note.languages.each do |lang| %>
+              <li><%= lang.name %></li>
+          <% end %>
+        </ul>
+    <% end %>
+  </td>
+  <td><%= note.instrument %></td>
+  <td>
+    <% if (!note.has_attachment?) && permitted_to?(:edit, note) %>
+        <%= link_to 'Last&nbsp;opp', edit_note_path(note) %>
+    <% else %>
+        <%= list_link_dropbox_files(note) %>
+    <% end %>
+  </td>
+</tr>

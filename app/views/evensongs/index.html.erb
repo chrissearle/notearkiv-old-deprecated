@@ -31,19 +31,7 @@
 
 <h2>Evensongnoter</h2>
 
-<p>
-  <% if permitted_to? :new, :evensongs %>
-      <%= link_to 'Ny evensongnote', new_evensong_path %>
-      |
-  <% end %>
-  <% if permitted_to? :upload, :evensongs_upload %>
-      <%= link_to 'Last opp', evensongsupload_path %>
-      |
-  <% end %>
-  <%= link_to 'Last ned (xls)', evensongs_path(:format => :xls) %>
-  |
-  <%= link_to 'Last ned (pdf)', evensongs_path(:format => :pdf) %>
-</p>
+<%= render :partial => 'evensong_links' %>
 
 <table id="noteTable">
   <thead>
@@ -56,38 +44,8 @@
   </tr>
   </thead>
   <tbody>
-  <% for evensong in @evensongs %>
-      <tr>
-        <td>
-          <% link_to(evensong) do %>
-              <%= evensong.title %>
-          <% end %>
-        </td>
-        <td><%= evensong.psalm %></td>
-        <td><%= evensong.composer.name if evensong.composer %></td>
-        <td><%= evensong.genre.name if evensong.genre %></td>
-        <td>
-          <% if (!evensong.has_attachment?) && permitted_to?(:edit, evensong) %>
-              <%= link_to 'Last&nbsp;opp', edit_evensong_path(evensong) %>
-          <% else %>
-              <%= list_link_dropbox_files(evensong) %>
-          <% end %>
-        </td>
-      </tr>
-  <% end %>
+  <%= render :partial => 'evensong_row', :collection => @evensongs, :as => :evensong %>
   </tbody>
 </table>
 
-<p>
-  <% if permitted_to? :new, :evensongs %>
-      <%= link_to 'Ny evensongnote', new_evensong_path %>
-      |
-  <% end %>
-  <% if permitted_to? :upload, :evensongs_upload %>
-      <%= link_to 'Last opp', evensongsupload_path %>
-      |
-  <% end %>
-  <%= link_to 'Last ned (xls)', evensongs_path(:format => :xls) %>
-  |
-  <%= link_to 'Last ned (pdf)', evensongs_path(:format => :pdf) %>
-</p>
+<%= render :partial => 'evensong_links' %>
