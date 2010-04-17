@@ -24,7 +24,7 @@ class Evensong < ActiveRecord::Base
                    HeaderColumn.new("Genre", 35),
                    HeaderColumn.new("Kommentar", 50)].freeze
 
-  SHEET_TITLE = 'Evensongarkiv'.freeze
+  DOCUMENT_TITLE = 'Evensongarkiv'.freeze
 
   def upload
     archive = Archive.new :evensong_archive, :document
@@ -89,7 +89,7 @@ class Evensong < ActiveRecord::Base
   def self.excel
     NoteSheet.new(EXCEL_HEADERS,
                   self.find_all_sorted,
-                  SHEET_TITLE,
+                  DOCUMENT_TITLE,
                   lambda {|row, item|
                     row.push item.id
                     row.push item.title
@@ -99,6 +99,12 @@ class Evensong < ActiveRecord::Base
                     row.push item.genre ? item.genre.name : ""
                     row.push item.comment
                   })
+  end
+
+  def self.pdf
+    PDFDoc.new(self.find_all_sorted,
+               DOCUMENT_TITLE,
+               lambda {|item| })
   end
 
   def self.import(file)

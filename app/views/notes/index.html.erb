@@ -62,7 +62,8 @@
       <%= link_to 'Last opp', notesupload_path %>
       |
   <% end %>
-  <%= link_to 'Last ned', notes_path(:format => :xls) %>
+  <%= link_to 'Last ned (xls)', notes_path(:format => :xls) %>
+  <%= link_to 'Last ned (pdf)', notes_path(:format => :pdf) %>
 </p>
 
 <table id="noteTable">
@@ -125,5 +126,6 @@
       <%= link_to 'Last opp', notesupload_path %>
       |
   <% end %>
-  <%= link_to 'Last ned', notes_path(:format => :xls) %>
+  <%= link_to 'Last ned (xls)', notes_path(:format => :xls) %>
+  <%= link_to 'Last ned (pdf)', notes_path(:format => :pdf) %>
 </p>
