@@ -24,7 +24,6 @@ Rails::Initializer.run do |config|
   config.gem "authlogic", :version => "2.1.3"
   config.gem "declarative_authorization", :version => "0.4"
   config.gem "dropbox", :version => "0.0.9"
-  config.gem "pdf-writer", :version => "1.1.8"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -57,3 +56,5 @@ ActionMailer::Base.smtp_settings = {
         :domain => ENV['MAIL_DOMAIN'],
         :authentication  => :login
 }
+
+require 'pdf/writer'
