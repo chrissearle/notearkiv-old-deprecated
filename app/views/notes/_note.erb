@@ -10,7 +10,7 @@
     <script type="text/javascript">
         $(document).ready(function()
         {
-            $("#note_voice").autocomplete('<%= voice_notes_path %>');
+            $("#note_voice").autocomplete('<%= notes_path(:format => :txt) %>');
         });
     </script>
 <% end %>

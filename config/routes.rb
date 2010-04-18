@@ -15,7 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :genres
   map.resources :composers
   map.resources :languages
-  map.resources :notes, :collection => { :voice => :get }
+  map.resources :notes
   map.resources :evensongs
   map.resources :account
 
