@@ -1,7 +1,3 @@
-require 'archive'
-require 'excel'
-require 'pdf'
-
 require 'iconv'
 
 class String
