@@ -1,5 +1,3 @@
-require 'spreadsheet'
-
 module Exceptions
   class IncorrectMimetype < StandardError
     def message()

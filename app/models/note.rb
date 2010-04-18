@@ -1,10 +1,7 @@
-require 'archive/archive'
+require 'pdf'
+require 'excel'
+require 'archive'
 
-require 'excel/header_column'
-require 'excel/note_sheet'
-require 'excel/importer'
-require 'pdf/pdf_doc'
-require 'pdf/pdf_col'
 require 'iconv'
 
 class String

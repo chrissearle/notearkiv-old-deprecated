@@ -1,5 +1,3 @@
-require 'spreadsheet'
-
 require 'date'
 
 class NoteSheet
