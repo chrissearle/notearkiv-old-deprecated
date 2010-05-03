@@ -13,7 +13,9 @@ class Archive
     @types = [SupportedFileTypes.new("pdf", "application/pdf", :document),
               SupportedFileTypes.new("mp3", "audio/mpeg", :music),
               SupportedFileTypes.new("m4a", "audio/mp4", :music),
-              SupportedFileTypes.new("m4a", "audio/x-m4a", :music)
+              SupportedFileTypes.new("m4a", "audio/x-m4a", :music),
+              SupportedFileTypes.new("zip", "application/zip", :document),
+              SupportedFileTypes.new("lyd.zip", "application/zip", :music),
     ]
 
     @doctype = doctype
@@ -34,7 +36,7 @@ class Archive
   def find_file(id)
     Rails.logger.debug "Finding files for ID #{id} for type #{@doctype}"
 
-    possible_filenames = @types.find_all { |t| t.type == @doctype}.map {|t| "#{@prefix}_#{id}.#{t.extension}" }
+    possible_filenames = @types.find_all { |t| t.type == @doctype }.map {|t| "#{@prefix}_#{id}.#{t.extension}" }
 
     Rails.logger.debug possible_filenames.inspect
 
@@ -56,7 +58,7 @@ class Archive
   def upload(id, file)
     remove_file_if_exists id
 
-    type = @types.find { |t| t.mimetype == file.content_type }
+    type = @types.find { |t| t.mimetype == file.content_type && t.type == @doctype }
 
     @db.create(file.path)
     @db.rename(file.path.gsub(/.*\//, ''), "#{@prefix}_#{id}.#{type.extension}")

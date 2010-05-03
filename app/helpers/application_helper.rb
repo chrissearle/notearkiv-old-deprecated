@@ -7,17 +7,21 @@ module ApplicationHelper
 
       if (!object.doc_url.blank?)
         s+= %{
-        <li><a href="#{object.doc_url}">PDF</a></li>
+        <li><a href="#{object.doc_url}">#{getType(object.doc_url)}</a></li>
         }
       end
 
       if (!object.music_url.blank?)
         s+= %{
-        <li><a href="#{object.music_url}">MP3/M4A</a></li>
+        <li><a href="#{object.music_url}">#{getType(object.doc_url)}</a></li>
         }
       end
 
       s+= "</ul>"
     end
+  end
+
+  def getType(url)
+    /.*\.(.*)/.match(url)[1].upcase
   end
 end

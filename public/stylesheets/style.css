@@ -113,3 +113,10 @@ a[href$='.xls'] {
     line-height:18px;
     background:transparent url(../images/icons/disk.png) center left no-repeat;
 }
+
+a[href$='.zip'] {
+    display:inline-block;
+    padding-left:20px;
+    line-height:18px;
+    background:transparent url(../images/icons/compress.png) center left no-repeat;
+}
