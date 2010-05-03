@@ -1,2 +1,0 @@
-module NotesUploadHelper
-end
