@@ -11,6 +11,7 @@ authorization do
   role :admin do
     has_permission_on [:notes], :to => [:index, :show, :new, :create, :edit, :update, :destroy, :voice]
     has_permission_on [:evensongs, :composers, :genres, :periods, :languages], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+    has_permission_on [:archive], :to => [:download]
   end
 
   role :account do
@@ -19,5 +20,6 @@ authorization do
 
   role :normal do
     has_permission_on [:notes, :evensongs, :composers, :genres, :periods, :languages], :to => [:index, :show]
+    has_permission_on [:archive], :to => [:download]
   end
 end

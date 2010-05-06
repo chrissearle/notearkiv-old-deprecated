@@ -1,4 +1,6 @@
 class ArchiveController < ApplicationController
+  filter_access_to :all
+
   def download
     prefix = params[:prefix]
     type = params[:type]

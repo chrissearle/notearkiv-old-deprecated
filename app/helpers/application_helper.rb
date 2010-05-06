@@ -3,19 +3,21 @@ module ApplicationHelper
     if (!object.has_attachment?)
       s = "Ikke tilgjengelig"
     else
-      s = "<ul>"
+      if permitted_to? :download, :archive
+        s = "<ul>"
 
-      [object.doc_url, object.music_url].each do |url|
-        if (!url.blank?)
-          s+= content_tag :li do
-            content_tag :a, :href => "/download/#{url}" do
-              get_type(url)
+        [object.doc_url, object.music_url].each do |url|
+          if (!url.blank?)
+            s+= content_tag :li do
+              content_tag :a, :href => "/download/#{url}" do
+                get_type(url)
+              end
             end
           end
         end
-      end
 
-      s+= "</ul>"
+        s+= "</ul>"
+      end
     end
   end
 
