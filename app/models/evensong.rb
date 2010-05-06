@@ -26,11 +26,11 @@ class Evensong < ActiveRecord::Base
   DOCUMENT_TITLE = 'Evensongarkiv'.freeze
 
   def upload
-    archive = Archive.new :evensong_archive, :document
+    doc_connection = get_doc_connection
+    music_connection = get_music_connection
 
-    if @doc_file && archive.mimetypes.include?(@doc_file.content_type)
-
-      url = archive.upload self.id, @doc_file
+    if doc_connection.upload_permitted? @doc_file
+      url = doc_connection.upload @doc_file, self.id
 
       if (url)
         self.doc_url = url
@@ -39,11 +39,8 @@ class Evensong < ActiveRecord::Base
       end
     end
 
-    archive = Archive.new :evensong_archive, :music
-
-    if @music_file && archive.mimetypes.include?(@music_file.content_type)
-
-      url = archive.upload self.id, @music_file
+    if music_connection.upload_permitted? @music_file
+      url = music_connection.upload @music_file, self.id
 
       if (url)
         self.music_url = url
@@ -55,30 +52,6 @@ class Evensong < ActiveRecord::Base
 
   def has_attachment?
     !(doc_url.blank? && music_url.blank?)
-  end
-
-  def update_link
-    archive = Archive.new :evensong_archive, :document
-
-    url = archive.link_to_file self.id
-
-    if (url)
-      self.doc_url = url
-    else
-      self.doc_url = nil
-    end
-
-    archive = Archive.new :evensong_archive, :music
-
-    url = archive.link_to_file self.id
-
-    if (url)
-      self.music_url = url
-    else
-      self.music_url = nil
-    end
-
-    self.save
   end
 
   def self.find_all_sorted
@@ -174,19 +147,26 @@ class Evensong < ActiveRecord::Base
     evensong.comment = item[:comment]
   end
 
-
   def remove_files
-    if (!self.doc_url.blank?)
-      archive = Archive.new :evensong_archive, :document
-
-      archive.remove_file_if_exists self.id
+    if (!doc_url.blank?)
+      get_doc_connection.remove doc_url
     end
 
-    if (!self.music_url.blank?)
-      archive = Archive.new :evensong_archive, :music
-
-      archive.remove_file_if_exists self.id
+    if (!music_url.blank?)
+      get_music_connection.remove music_url
     end
+  end
+
+  def get_doc_connection
+    @connection ||= ArchiveConnection.new
+
+    @doc_connection ||= @connection.get_instance :evensong, :document
+  end
+
+  def get_music_connection
+    @connection ||= ArchiveConnection.new
+
+    @music_connection ||= @connection.get_instance :evensong, :music
   end
 
 end
