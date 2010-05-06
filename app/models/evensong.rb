@@ -26,11 +26,11 @@ class Evensong < ActiveRecord::Base
   DOCUMENT_TITLE = 'Evensongarkiv'.freeze
 
   def upload
-    doc_connection = get_doc_connection
-    music_connection = get_music_connection
+    doc_uploader = get_doc_uploader
+    music_uploader = get_music_uploader
 
-    if doc_connection.upload_permitted? @doc_file
-      url = doc_connection.upload @doc_file, self.id
+    if doc_uploader.upload_permitted? @doc_file
+      url = doc_uploader.upload @doc_file, self.id
 
       if (url)
         self.doc_url = url
@@ -39,8 +39,8 @@ class Evensong < ActiveRecord::Base
       end
     end
 
-    if music_connection.upload_permitted? @music_file
-      url = music_connection.upload @music_file, self.id
+    if music_uploader.upload_permitted? @music_file
+      url = music_uploader.upload @music_file, self.id
 
       if (url)
         self.music_url = url
@@ -149,24 +149,24 @@ class Evensong < ActiveRecord::Base
 
   def remove_files
     if (!doc_url.blank?)
-      get_doc_connection.remove doc_url
+      get_archive_connection.remove doc_url
     end
 
     if (!music_url.blank?)
-      get_music_connection.remove music_url
+      get_archive_connection.remove music_url
     end
   end
 
-  def get_doc_connection
-    @connection ||= ArchiveConnection.new
 
-    @doc_connection ||= @connection.get_instance :evensong, :document
+  def get_archive_connection
+    @connection ||= ArchiveConnection.new
   end
 
-  def get_music_connection
-    @connection ||= ArchiveConnection.new
-
-    @music_connection ||= @connection.get_instance :evensong, :music
+  def get_doc_uploader
+    @doc_connection ||= get_archive_connection.get_uploader :evensong, :document
   end
 
+  def get_music_uploader
+    @music_connection ||= get_archive_connection.get_uploader :evensong, :music
+  end
 end

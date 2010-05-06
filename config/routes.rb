@@ -6,6 +6,8 @@ ActionController::Routing::Routes.draw do |map|
   map.forgot 'forgotten_password', :controller => 'user_sessions', :action => 'forgotten'
   map.reset 'reset_password', :controller => 'user_sessions', :action => 'reset'
 
+  map.download 'download/:prefix/:file', :controller => 'archive', :action => 'download'
+
   map.root :controller => "notes"
 
   map.resources :user_sessions

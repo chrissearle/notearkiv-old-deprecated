@@ -5,23 +5,23 @@ module ApplicationHelper
     else
       s = "<ul>"
 
-      if (!object.doc_url.blank?)
-        s+= %{
-        <li><a href="#{object.doc_url}">#{getType(object.doc_url)}</a></li>
-        }
-      end
+      [object.doc_url, object.music_url].each do |url|
+        if (!url.blank?)
+          prefix = url.gsub /\/[^\/]*$/, ""
+          file = url.gsub /.*\//, ""
 
-      if (!object.music_url.blank?)
-        s+= %{
-        <li><a href="#{object.music_url}">#{getType(object.doc_url)}</a></li>
-        }
+          s+= content_tag :li do
+            link_to get_type(url), download_path(:prefix => prefix, :file => file)
+
+          end
+        end
       end
 
       s+= "</ul>"
     end
   end
 
-  def getType(url)
+  def get_type(url)
     /.*\.(.*)/.match(url)[1].upcase
   end
 end
