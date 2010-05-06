@@ -4,8 +4,7 @@ class StatsController < ApplicationController
   filter_access_to :all
 
   def index
-    # We can use any archive type - stats are global
-    archive = Archive.new :note_archive, :document
+    archive = ArchiveConnection.new
 
     @stats = archive.stats
   end

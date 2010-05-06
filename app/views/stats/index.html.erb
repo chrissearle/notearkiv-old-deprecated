@@ -1,30 +1,22 @@
 <table>
   <tr>
-    <td>Percentage Used</td>
-    <td><%= @stats[:percent] %></td>
+    <td>Account</td>
+    <td><%= @stats[:account] %> (<%= @stats[:id] %>)</td>
   </tr>
   <tr valign="top">
     <td>
       Used
-      <br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;Regular
-      <br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;Shared
     </td>
     <td>
-      <%= "%.2f" % @stats[:used] %> MB
-      <br/>
-      <%= "%.2f" % (@stats[:regular_used].nil? ? 0 : @stats[:regular_used]) %> MB
-      <br/>
-      <%= "%.2f" % (@stats[:shared_used].nil? ? 0 : @stats[:shared_used]) %> MB
+      <%= "%.2f" % @stats[:normal] %> MB
     </td>
   </tr>
   <tr>
-    <td>Free</td>
-    <td><%= "%.2f" % @stats[:free] %> MB</td>
-  </tr>
-  <tr>
-    <td>Total</td>
-    <td><%= "%.2f" % @stats[:total] %> MB</td>
+    <td>
+      Total
+    </td>
+    <td>
+      <%= "%.2f" % @stats[:max] %> MB
+    </td>
   </tr>
 </table>

@@ -31,7 +31,7 @@ class ArchiveConnection
       type = @instance_types.find { |t| t.mimetype == file.content_type }
 
       @instance_session.upload(file, "#{@instance_prefix}/#{@instance_type_prefix}")
-      
+
       @instance_session.rename("#{@instance_prefix}/#{@instance_type_prefix}/#{file.original_path}", item_path(id, type))
 
       full_path(id, type)
@@ -96,4 +96,15 @@ class ArchiveConnection
   def disposition_for_path(path)
     @types.find { |t| t.extension == path.split(".").last }.disposition
   end
+
+  def stats
+    stats = @session.account
+
+    {:normal => stats[:quota_info][:normal] / (1024.0*1024.0),
+     :max => stats[:quota_info][:quota] / (1024.0*1024.0),
+     :account => stats[:display_name],
+     :id => stats[:uid]}
+  end
 end
+
+3758096384
