@@ -3,12 +3,20 @@
     <td>Account</td>
     <td><%= @stats[:account] %> (<%= @stats[:id] %>)</td>
   </tr>
-  <tr valign="top">
+  <tr>
     <td>
       Used
     </td>
     <td>
       <%= "%.2f" % @stats[:normal] %> MB
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Shared
+    </td>
+    <td>
+      <%= "%.2f" % @stats[:shared] %> MB
     </td>
   </tr>
   <tr>

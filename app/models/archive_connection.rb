@@ -101,6 +101,7 @@ class ArchiveConnection
     stats = @session.account
 
     {:normal => stats[:quota_info][:normal] / (1024.0*1024.0),
+     :shared => stats[:quota_info][:shared] / (1024.0*1024.0),
      :max => stats[:quota_info][:quota] / (1024.0*1024.0),
      :account => stats[:display_name],
      :id => stats[:uid]}
