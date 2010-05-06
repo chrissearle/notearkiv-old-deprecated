@@ -1,12 +1,13 @@
 class ArchiveConnection
 
   class SupportedFileTypes
-    attr_reader :extension, :mimetype, :type
+    attr_reader :extension, :mimetype, :type, :disposition
 
-    def initialize(extension, mimetype, type)
+    def initialize(extension, mimetype, type, disposition)
       @extension = extension
       @mimetype = mimetype
       @type = type
+      @disposition = disposition
     end
   end
 
@@ -16,6 +17,8 @@ class ArchiveConnection
       @instance_types = types.find_all { |t| t.type == document_type }
       @instance_prefix = "Note" if session_type == :note
       @instance_prefix = "Evensong" if session_type == :evensong
+      @instance_type_prefix = "D" if document_type == :document
+      @instance_type_prefix = "L" if document_type == :music
     end
 
     def upload_permitted?(file)
@@ -27,9 +30,9 @@ class ArchiveConnection
 
       type = @instance_types.find { |t| t.mimetype == file.content_type }
 
-      @instance_session.upload(file, @instance_prefix)
+      @instance_session.upload(file, "#{@instance_prefix}/#{@instance_type_prefix}")
       
-      @instance_session.rename("#{@instance_prefix}/#{file.original_path}", item_path(id, type))
+      @instance_session.rename("#{@instance_prefix}/#{@instance_type_prefix}/#{file.original_path}", item_path(id, type))
 
       full_path(id, type)
     end
@@ -41,7 +44,7 @@ class ArchiveConnection
     end
 
     def full_path(id, type)
-      "#{@instance_prefix}/#{item_path(id, type)}"
+      "#{@instance_prefix}/#{@instance_type_prefix}/#{item_path(id, type)}"
     end
 
     def mimetypes()
@@ -66,12 +69,12 @@ class ArchiveConnection
                                                     ENV['DROPBOX_TOKEN_SECRET'],
                                                     true)
 
-    @types = [SupportedFileTypes.new("pdf", "application/pdf", :document),
-              SupportedFileTypes.new("mp3", "audio/mpeg", :music),
-              SupportedFileTypes.new("m4a", "audio/mp4", :music),
-              SupportedFileTypes.new("m4a", "audio/x-m4a", :music),
-              SupportedFileTypes.new("zip", "application/zip", :document),
-              SupportedFileTypes.new("lyd.zip", "application/zip", :music)]
+    @types = [SupportedFileTypes.new("pdf", "application/pdf", :document, "inline"),
+              SupportedFileTypes.new("mp3", "audio/mpeg", :music, "attachment"),
+              SupportedFileTypes.new("m4a", "audio/mp4", :music, "attachment"),
+              SupportedFileTypes.new("m4a", "audio/x-m4a", :music, "attachment"),
+              SupportedFileTypes.new("zip", "application/zip", :document, "attachment"),
+              SupportedFileTypes.new("zip", "application/zip", :music, "attachment")]
   end
 
   def get_uploader(session_type, document_type)
@@ -88,5 +91,9 @@ class ArchiveConnection
 
   def mimetype_for_path(path)
     @types.find { |t| t.extension == path.split(".").last }.mimetype
+  end
+
+  def disposition_for_path(path)
+    @types.find { |t| t.extension == path.split(".").last }.disposition
   end
 end

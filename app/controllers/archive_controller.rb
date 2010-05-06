@@ -1,10 +1,15 @@
 class ArchiveController < ApplicationController
   def download
     prefix = params[:prefix]
+    type = params[:type]
     file = params[:file]
+    ext = params[:format]
 
-    ArchiveConnection connection = ArchiveConnection.new
+    connection = ArchiveConnection.new
 
-    send_data(connection.download("#{prefix}/#{file}"), :filename => file, :type => connection.mimetype_for_path(file), :disposition => "inline" )
+    send_data(connection.download("#{prefix}/#{type}/#{file}.#{ext}"),
+              :filename => file,
+              :type => connection.mimetype_for_path(ext),
+              :disposition => connection.disposition_for_path(ext) )
   end
 end

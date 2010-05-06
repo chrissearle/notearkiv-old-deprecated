@@ -7,12 +7,10 @@ module ApplicationHelper
 
       [object.doc_url, object.music_url].each do |url|
         if (!url.blank?)
-          prefix = url.gsub /\/[^\/]*$/, ""
-          file = url.gsub /.*\//, ""
-
           s+= content_tag :li do
-            link_to get_type(url), download_path(:prefix => prefix, :file => file)
-
+            content_tag :a, :href => "/download/#{url}" do
+              get_type(url)
+            end
           end
         end
       end
