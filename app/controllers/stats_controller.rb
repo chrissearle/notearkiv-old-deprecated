@@ -1,5 +1,3 @@
-require 'archive/archive'
-
 class StatsController < ApplicationController
   filter_access_to :all
 
