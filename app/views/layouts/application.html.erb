@@ -97,7 +97,7 @@
 <script type="text/javascript" src="//static.woopra.com/js/woopra.v2.js"></script>
 <script type="text/javascript">
     <% if current_user %>
-    woopraTracker.addVisitorProperty("name", "<%= current_user.username %>");
+    woopraTracker.addVisitorProperty("name", "<%= current_user.name %>");
     woopraTracker.addVisitorProperty("username", "<%= current_user.username %>");
     <% end %>
     woopraTracker.track();
