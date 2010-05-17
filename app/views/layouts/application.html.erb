@@ -10,15 +10,17 @@
 <body>
 <script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', '<%= ENV['GA_ACCOUNT'] %>']);
-  _gaq.push(['_trackPageview']);
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '<%= ENV['GA_ACCOUNT'] %>']);
+    _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
-  })();
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+    })();
 
 </script>
 <div id="header">
@@ -38,6 +40,7 @@
 <div id="content">
   <div id="right">
     <p style="color: green"><%= flash[:notice] %></p>
+
     <p style="color: red"><%= flash[:error] %></p>
 
     <%= yield %>
@@ -90,5 +93,14 @@
     </div>
   </div>
 </div>
+<!-- Woopra Code Start -->
+<script type="text/javascript" src="//static.woopra.com/js/woopra.v2.js"></script>
+<script type="text/javascript">
+    <% if current_user %>
+    woopraTracker.addVisitorProperty("name", <%= current_user.username %>);
+    <% end %>
+    woopraTracker.track();
+</script>
+<!-- Woopra Code End -->
 </body>
 </html>
