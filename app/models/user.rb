@@ -33,4 +33,8 @@ class User < ActiveRecord::Base
     
     self.save
   end
+
+  def display_name
+    name.blank? ? username : name
+  end
 end

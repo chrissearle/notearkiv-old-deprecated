@@ -49,7 +49,7 @@
   <div id="left">
     <% if current_user %>
         <div class="box">
-          <h2><%= current_user.username %></h2>
+          <h2><%= current_user.display_name %></h2>
           <ul>
             <li><%= link_to 'Logg av', logout_path %></li>
             <% if permitted_to? :index, :account %>
@@ -97,7 +97,7 @@
 <script type="text/javascript" src="//static.woopra.com/js/woopra.v2.js"></script>
 <script type="text/javascript">
     <% if current_user %>
-    woopraTracker.addVisitorProperty("name", "<%= current_user.name %>");
+    woopraTracker.addVisitorProperty("name", "<%= current_user.display_name %>");
     woopraTracker.addVisitorProperty("username", "<%= current_user.username %>");
     <% end %>
     woopraTracker.track();
