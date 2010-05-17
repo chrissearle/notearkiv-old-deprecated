@@ -98,6 +98,7 @@
 <script type="text/javascript">
     <% if current_user %>
     woopraTracker.addVisitorProperty("name", <%= current_user.username %>);
+    woopraTracker.addVisitorProperty("username", <%= current_user.username %>);
     <% end %>
     woopraTracker.track();
 </script>
