@@ -17,12 +17,6 @@ class Evensong < ActiveRecord::Base
                    HeaderColumn.new("Genre", 35),
                    HeaderColumn.new("Kommentar", 50)].freeze
 
-  PDF_HEADERS = [PDFCol.new("Tittel"),
-                 PDFCol.new("Salme"),
-                 PDFCol.new("Komponist"),
-                 PDFCol.new("Genre")].freeze
-
-
   DOCUMENT_TITLE = 'Evensongarkiv'.freeze
 
   def upload
@@ -71,20 +65,6 @@ class Evensong < ActiveRecord::Base
                     row.push item.genre ? item.genre.name : ""
                     row.push item.comment
                   })
-  end
-
-  def self.pdf
-    data = self.find_all_sorted.map do |item|
-      Hash['Tittel' => item.title.to_latin1,
-              'Komponist' => item.composer ? item.composer.name.to_latin1 : "",
-              'Salme' => item.psalm,
-              'Genre' => item.genre ? item.genre.name.to_latin1 : ""
-      ]
-    end
-
-    PDFDoc.new(data,
-               DOCUMENT_TITLE,
-               PDF_HEADERS)
   end
 
   def self.import(file)

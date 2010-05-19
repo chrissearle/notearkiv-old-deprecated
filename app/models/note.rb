@@ -27,14 +27,6 @@ class Note < ActiveRecord::Base
                    HeaderColumn.new("Solister", 35),
                    HeaderColumn.new("Kommentar", 50)].freeze
 
-  PDF_HEADERS = [PDFCol.new("ID"),
-                 PDFCol.new("Tittel"),
-                 PDFCol.new("Komponist"),
-                 PDFCol.new("Genre"),
-                 PDFCol.new("Epoke"),
-                 PDFCol.new("Språk".to_latin1),
-                 PDFCol.new("Akkomp")].freeze
-
   DOCUMENT_TITLE = 'Notearkiv'.freeze
 
   def self.suggest_voice(search)
@@ -111,23 +103,6 @@ class Note < ActiveRecord::Base
                     row.push item.soloists
                     row.push item.comment
                   })
-  end
-
-  def self.pdf
-    data = self.find_all_sorted.map do |item|
-      Hash['ID' => item.item,
-              'Tittel' => item.title.to_latin1,
-              'Komponist' => item.composer ? item.composer.name.to_latin1 : "",
-              'Genre' => item.genre ? item.genre.name.to_latin1 : "",
-              'Epoke' => item.period ? item.period.name.to_latin1 : "",
-              'Språk'.to_latin1 => item.languages.map { |lang| lang.name }.join(", ").to_latin1,
-              'Akkomp' => item.instrument ? item.instrument.to_latin1 : ""
-      ]
-    end
-
-    PDFDoc.new(data,
-               DOCUMENT_TITLE,
-               PDF_HEADERS)
   end
 
   def self.import(file)

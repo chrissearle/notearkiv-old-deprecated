@@ -5,17 +5,13 @@ class EvensongsController < ApplicationController
     set_accept_header
     @evensongs = Evensong.find_all_sorted
 
+    prawnto :prawn => {:page_layout=>:landscape, :top_margin => 10, :bottom_margin => 10}, :inline => false,
+            :filename => "Evensongarkiv_#{Date.today().strftime("%Y-%m-%d")}.pdf"
+
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @evensongs }
-      format.pdf do
-        pdf = Evensong.pdf
-
-        send_data(pdf.get_document,
-                  :type => 'application/pdf',
-                  :disposition => 'attachment',
-                  :filename => pdf.get_filename)
-      end
+      format.xml { render :xml => @evensongs }
+      format.pdf
       format.xls do
         excel = Evensong.excel
 
@@ -32,7 +28,7 @@ class EvensongsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @evensong }
+      format.xml { render :xml => @evensong }
     end
   end
 
@@ -41,7 +37,7 @@ class EvensongsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @evensong }
+      format.xml { render :xml => @evensong }
     end
   end
 
@@ -54,12 +50,12 @@ class EvensongsController < ApplicationController
 
         flash[:notice] = 'Evensongnote opprettet.'
         format.html { redirect_to :action => "index" }
-        format.xml  { render :xml => @evensong, :status => :created,
-                             :location => @evensong }
+        format.xml { render :xml => @evensong, :status => :created,
+                            :location => @evensong }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @evensong.errors,
-                             :status => :unprocessable_entity }
+        format.xml { render :xml => @evensong.errors,
+                            :status => :unprocessable_entity }
       end
     end
   end
@@ -77,10 +73,10 @@ class EvensongsController < ApplicationController
 
         flash[:notice] = 'Evensongnote oppdatert.'
         format.html { redirect_to :action => "index" }
-        format.xml  { head :ok }
+        format.xml { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @evensong.errors, :status => :unprocessable_entity }
+        format.xml { render :xml => @evensong.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -94,7 +90,7 @@ class EvensongsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(evensongs_url) }
-      format.xml  { head :ok }
+      format.xml { head :ok }
     end
   end
 end
