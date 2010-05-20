@@ -10,7 +10,7 @@ class ArchiveController < ApplicationController
     connection = ArchiveConnection.new
 
     send_data(connection.download("#{prefix}/#{type}/#{file}.#{ext}"),
-              :filename => file,
+              :filename => "#{file}.#{ext}",
               :type => connection.mimetype_for_path(ext),
               :disposition => connection.disposition_for_path(ext) )
   end
