@@ -27,6 +27,7 @@ Feature: Composer
     | normal | see "Mozart"         | see "Bach"                                      | see "Strauss"     |
     | guest  | be on the login page | see "Beklager - du har ikke tilgang til dette." | not see "Strauss" |
 
+
   Scenario Outline: Composers List Edit Link
     Given I have composers called Mozart
     And I am logged in as "<login>" with password "secret"
