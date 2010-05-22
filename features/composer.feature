@@ -21,7 +21,7 @@ Feature: Composer
     And I should <action3>
 
   Examples:
-    | login  | action1          | action2                                         | action3           |
-    | admin  | see "Mozart"     | see "Bach"                                      | see "Strauss"     |
-    | normal | see "Mozart"     | see "Bach"                                      | see "Strauss"     |
-    | guest  | be on login_path | see "Beklager - du har ikke tilgang til dette." | not see "Strauss" |
+    | login  | action1              | action2                                         | action3           |
+    | admin  | see "Mozart"         | see "Bach"                                      | see "Strauss"     |
+    | normal | see "Mozart"         | see "Bach"                                      | see "Strauss"     |
+    | guest  | be on the login page | see "Beklager - du har ikke tilgang til dette." | not see "Strauss" |

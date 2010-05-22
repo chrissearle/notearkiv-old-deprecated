@@ -10,8 +10,8 @@ module NavigationHelpers
 
       when /the list of composers/
         composers_path
-      when /login_path/
-        login_path
+      when /the list of genres/
+        genres_path
 
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
