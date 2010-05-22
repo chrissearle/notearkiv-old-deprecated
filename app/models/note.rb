@@ -48,25 +48,33 @@ class Note < ActiveRecord::Base
     doc_uploader = get_doc_uploader
     music_uploader = get_music_uploader
 
-    if doc_uploader.upload_permitted? @doc_file
-      url = doc_uploader.upload @doc_file, self.id
+    url = nil
 
-      if (url)
-        self.doc_url = url
-
-        self.save
+    if @doc_file.blank?
+      url = doc_uploader.find_existing_file self.id
+    else
+      if doc_uploader.upload_permitted? @doc_file
+        url = doc_uploader.upload @doc_file, self.id
       end
     end
 
-    if music_uploader.upload_permitted? @music_file
-      url = music_uploader.upload @music_file, self.id
+    self.doc_url = url
 
-      if (url)
-        self.music_url = url
+    self.save
 
-        self.save
+    url = nil
+
+    if @music_file.blank?
+      url = music_uploader.find_existing_file self.id
+    else
+      if music_uploader.upload_permitted? @music_file
+        url = music_uploader.upload @music_file, self.id
       end
     end
+
+    self.music_url = url
+
+    self.save
   end
 
   def has_attachment?
@@ -209,4 +217,5 @@ class Note < ActiveRecord::Base
   def get_music_uploader
     @music_connection ||= get_archive_connection.get_uploader :note, :music
   end
+
 end

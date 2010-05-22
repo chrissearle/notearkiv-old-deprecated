@@ -23,25 +23,33 @@ class Evensong < ActiveRecord::Base
     doc_uploader = get_doc_uploader
     music_uploader = get_music_uploader
 
-    if doc_uploader.upload_permitted? @doc_file
-      url = doc_uploader.upload @doc_file, self.id
+    url = nil
 
-      if (url)
-        self.doc_url = url
-
-        self.save
+    if @doc_file.blank?
+      url = doc_uploader.find_existing_file self.id
+    else
+      if doc_uploader.upload_permitted? @doc_file
+        url = doc_uploader.upload @doc_file, self.id
       end
     end
 
-    if music_uploader.upload_permitted? @music_file
-      url = music_uploader.upload @music_file, self.id
+    self.doc_url = url
 
-      if (url)
-        self.music_url = url
+    self.save
 
-        self.save
+    url = nil
+
+    if @music_file.blank?
+      url = music_uploader.find_existing_file self.id
+    else
+      if music_uploader.upload_permitted? @music_file
+        url = music_uploader.upload @music_file, self.id
       end
     end
+
+    self.music_url = url
+
+    self.save
   end
 
   def has_attachment?
@@ -49,14 +57,14 @@ class Evensong < ActiveRecord::Base
   end
 
   def self.find_all_sorted
-    Evensong.find(:all, :include => [:composer, :genre]).sort_by{|p| p.title.downcase}
+    Evensong.find(:all, :include => [:composer, :genre]).sort_by { |p| p.title.downcase }
   end
 
   def self.excel
     NoteSheet.new(EXCEL_HEADERS,
                   self.find_all_sorted,
                   DOCUMENT_TITLE,
-                  lambda {|row, item|
+                  lambda { |row, item|
                     row.push item.id
                     row.push item.title
                     row.push item.psalm
@@ -71,7 +79,7 @@ class Evensong < ActiveRecord::Base
     ImportLog.delete_all
 
     importer = Importer.new(file,
-                            EXCEL_HEADERS.map { |header| header.title } )
+                            EXCEL_HEADERS.map { |header| header.title })
 
     importer.rows.each_with_index do |row, i|
       item = Hash.new
