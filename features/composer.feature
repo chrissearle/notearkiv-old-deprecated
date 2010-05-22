@@ -15,7 +15,6 @@ Feature: Composer
       | normal   | secret   | normal |
     And I have composers called Mozart, Bach, Strauss
     And I am logged in as "<login>" with password "secret"
-    Given I have composers called Mozart, Bach, Strauss
     When I go to the list of composers
     Then I should <action1>
     And I should <action2>
