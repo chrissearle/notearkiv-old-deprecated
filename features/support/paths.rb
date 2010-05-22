@@ -14,6 +14,8 @@ module NavigationHelpers
         genres_path
       when /the list of epochs/
         periods_path
+      when /the list of languages/
+        languages_path
 
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
