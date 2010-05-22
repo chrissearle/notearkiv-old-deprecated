@@ -2,6 +2,10 @@ Factory.define :composer do |f|
   f.sequence(:name) { |n| "foo#{n}" }
 end
 
+Factory.define :genre do |f|
+  f.sequence(:name) { |n| "foo#{n}" }
+end
+
 Factory.define :user do |f|
   f.username "foo"
   f.name "Foo McFoo"
