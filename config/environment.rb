@@ -1,7 +1,7 @@
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.6' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -20,14 +20,14 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
 
-  config.gem 'formtastic', :version => '0.9.7'
+  config.gem 'formtastic', :version => '0.9.8'
   config.gem 'authlogic', :version => '2.1.3'
-  config.gem 'declarative_authorization', :version => '0.4'
+  config.gem 'declarative_authorization', :version => '0.4.1'
   config.gem 'prawn', :version => '0.8.4'
   config.gem 'prawnto', :version => '0.0.1'
   config.gem 'spreadsheet', :version => '0.6.4.1'
-  config.gem 'exceptional', :version => '2.0.9'
-  config.gem 'nokogiri', :version => '1.4.1'
+  config.gem 'exceptional', :version => '2.0.14'
+  config.gem 'nokogiri', :version => '1.4.2'
   config.gem 'mechanize', :version => '1.0.0'
   config.gem 'rdropbox', :version => '1.0.0', :lib => 'dropbox'
 
