@@ -7,36 +7,42 @@ Feature: Language
     Given the following role records
       | name   |
       | admin  |
-      | normal |
     And the following user records
       | username | password | role   |
       | admin    | secret   | admin  |
-      | normal   | secret   | normal |
+    And I am logged in as "admin" with password "secret"
 
-  Scenario Outline: Languages List
+  Scenario: Languages List
     Given I have languages called Fransk, Latin, Svensk
-    And I am logged in as "<login>" with password "secret"
     When I go to the list of languages
-    Then I should <action1>
-    And I should <action2>
-    And I should <action3>
+    Then I should see "Fransk"
+    And I should see "Latin"
+    And I should see "Svensk"
+    And I should see "endre"
+    And I should see "slett"
 
-  Examples:
-    | login  | action1              | action2                                         | action3          |
-    | admin  | see "Fransk"         | see "Latin"                                     | see "Svensk"     |
-    | normal | see "Fransk"         | see "Latin"                                     | see "Svensk"     |
-    | guest  | be on the login page | see "Beklager - du har ikke tilgang til dette." | not see "Svensk" |
+  Scenario: Add language as admin
+    Given I have no languages
+    When I add the language Norsk
+    Then I have 1 language
+    And the language name is Norsk
 
+  Scenario: Edit language form as admin
+    Given I have language called Fransk
+    When I visit the edit language page
+    Then the "Språk" field should contain "Fransk"
 
-  Scenario Outline: Languages List Edit Link
-    Given I have languages called Fransk
-    And I am logged in as "<login>" with password "secret"
-    When I go to the list of languages
-    Then I should <action1>
-    And I should <action2>
+  Scenario: Edit language as admin
+    Given I have language called Fransk
+    When I edit the language name to Svensk
+    Then I have 1 language
+    And the language name is Svensk
+    And I should see "Svensk"
+    And I should not see "Fransk"
 
-  Examples:
-    | login  | action1              | action2                                         |
-    | admin  | see "Fransk"         | see "endre"                                     |
-    | normal | see "Fransk"         | not see "endre"                                 |
-    | guest  | be on the login page | see "Beklager - du har ikke tilgang til dette." |
+  Scenario: Delete language as admin
+    Given I have language called "Tysk"
+    And I am on the languages page
+    When I follow "slett"
+    Then I have 0 languages
+    And I should see /Språk "Tysk" slettet/
