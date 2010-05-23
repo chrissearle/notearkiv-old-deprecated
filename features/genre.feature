@@ -7,36 +7,42 @@ Feature: Genre
     Given the following role records
       | name   |
       | admin  |
-      | normal |
     And the following user records
       | username | password | role   |
       | admin    | secret   | admin  |
-      | normal   | secret   | normal |
+    And I am logged in as "admin" with password "secret"
 
-  Scenario Outline: Genre List
+  Scenario: Genre List
     Given I have genres called Folketone, Koral, Nasjonalsang
-    And I am logged in as "<login>" with password "secret"
     When I go to the list of genres
-    Then I should <action1>
-    And I should <action2>
-    And I should <action3>
+    Then I should see "Folketone"
+    And I should see "Koral"
+    And I should see "Nasjonalsang"
+    And I should see "endre"
+    And I should see "slett"
 
-  Examples:
-    | login  | action1              | action2                                         | action3                |
-    | admin  | see "Folketone"      | see "Koral"                                     | see "Nasjonalsang"     |
-    | normal | see "Folketone"      | see "Koral"                                     | see "Nasjonalsang"     |
-    | guest  | be on the login page | see "Beklager - du har ikke tilgang til dette." | not see "Nasjonalsang" |
+  Scenario: Add genre as admin
+    Given I have no genres
+    When I add the genre Folketone
+    Then I have 1 genre
+    And the genre name is Folketone
 
+  Scenario: Edit genre form as admin
+    Given I have genre called Koral
+    When I visit the edit genre page
+    Then the "Genre" field should contain "Koral"
 
-  Scenario Outline: Genre List Edit Link
-    Given I have genres called Folketone
-    And I am logged in as "<login>" with password "secret"
-    When I go to the list of genres
-    Then I should <action1>
-    And I should <action2>
+  Scenario: Edit genre as admin
+    Given I have genre called Koral
+    When I edit the genre name to Nasjonalsang
+    Then I have 1 genre
+    And the genre name is Nasjonalsang
+    And I should see "Nasjonalsang"
+    And I should not see "Koral"
 
-  Examples:
-    | login  | action1              | action2                                         |
-    | admin  | see "Folketone"      | see "endre"                                     |
-    | normal | see "Folketone"      | not see "endre"                                 |
-    | guest  | be on the login page | see "Beklager - du har ikke tilgang til dette." |
+  Scenario: Delete genre as admin
+    Given I have genre called "Hymne"
+    And I am on the genres page
+    When I follow "slett"
+    Then I have 0 genres
+    And I should see /Genre "Hymne" slettet/
