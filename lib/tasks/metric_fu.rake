@@ -1,12 +1,11 @@
 begin
   require 'metric_fu'
 
+  cucumber_path = `which cucumber`.strip
+
   MetricFu::Configuration.run do |config|
-    #define which metrics you want to use
-    # config.metrics  = [:churn, :saikuro, :stats, :flog, :flay, :reek, :roodi, :rcov]
-    config.metrics  = [:churn, :saikuro, :stats, :flog, :flay, :reek, :roodi]
-    # config.graphs   = [:flog, :flay, :reek, :roodi, :rcov]
-    config.graphs   = [:flog, :flay, :reek, :roodi]
+    config.metrics  = [:churn, :saikuro, :stats, :flog, :flay, :reek, :roodi, :rcov]
+    config.graphs   = [:flog, :flay, :reek, :roodi, :rcov]
     config.flay     = { :dirs_to_flay => ['app', 'lib'],
                         :minimum_score => 100  } 
     config.flog     = { :dirs_to_flog => ['app', 'lib']  }
@@ -23,14 +22,26 @@ begin
     config.rcov     = { :environment => 'test',
                         :test_files => ['test/**/*_test.rb', 
                                         'spec/**/*_spec.rb'],
-                        :rcov_opts => ["--sort coverage", 
-                                       "--no-html", 
+                        :rcov_opts => ["--sort coverage",
+                                       "--no-html",
                                        "--text-coverage",
                                        "--no-color",
                                        "--profile",
                                        "--rails",
-                                       "--exclude /gems/,/Library/,spec"]}
+                                       "--aggregate tmp/metric_fu/scratch/rcov/coverage.data",
+                                       "--exclude /gems/,/Library/,spec",
+                                       "&&",
+                                       "rcov #{cucumber_path}",
+                                       "--sort coverage",
+                                       "--no-html",
+                                       "--text-coverage",
+                                       "--no-color",
+                                       "--profile",
+                                       "--rails",
+                                       "--aggregate tmp/metric_fu/scratch/rcov/coverage.data",
+                                       "--exclude /gems/,/Library/,spec,features"]}
     config.graph_engine = :bluff
   end
 rescue LoadError
 end
+ 
