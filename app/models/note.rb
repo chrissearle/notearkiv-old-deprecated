@@ -30,17 +30,9 @@ class Note < ActiveRecord::Base
   DOCUMENT_TITLE = 'Notearkiv'.freeze
 
   def self.suggest_voice(search)
-    data = ""
-
     notes = find(:all, :select => 'DISTINCT voice')
 
-    notes.each do |note|
-      if note.voice.downcase.start_with? search
-        data = data + "#{note.voice}\n"
-      end
-    end
-
-    data
+    notes.select { |note| note.voice.downcase.start_with? search }.map{ |note| note.voice }
   end
 
 

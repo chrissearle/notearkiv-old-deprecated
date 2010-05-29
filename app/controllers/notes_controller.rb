@@ -105,7 +105,7 @@ class NotesController < ApplicationController
   end
 
   def index_suggest_voices
-    send_data Note.suggest_voice(params[:q].downcase),
+    send_data Note.suggest_voice(params[:q].downcase).join("\n"),
               :type => 'text/plain',
               :disposition => 'inline'
   end
