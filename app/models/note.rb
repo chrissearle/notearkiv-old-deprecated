@@ -120,27 +120,30 @@ class Note < ActiveRecord::Base
                             EXCEL_HEADERS.map { |header| header.title })
 
     importer.rows.each_with_index do |row, i|
-      item = Hash.new
-      item[:sysid] = row[0]
-      item[:id] = row[1]
-      item[:title] = row[2]
-      item[:composer] = row[3]
-      item[:genre] = row[4]
-      item[:epoch] = row[5]
-      item[:languages] = row[6].blank? ? nil : row[6].split(", ")
-      item[:instrument] = row[7]
-      item[:original] = row[8]
-      item[:copy] = row[9]
-      item[:instrumental] = row[10]
-      item[:voice] = row[11]
-      item[:solo] = row[12]
-      item[:comment] = row[13]
+      item = {:sysid => row[0],
+              :id => row[1],
+              :title => row[2],
+              :composer => row[3],
+              :genre => row[4],
+              :epoch => row[5],
+              :languages => import_language_list(row[6]),
+              :instrument => row[7],
+              :original => row[8],
+              :copy => row[9],
+              :instrumental => row[10],
+              :voice => row[11],
+              :solo => row[12],
+              :comment => row[13]}
 
       item[:sysid].blank? ? import_create(item, i) : import_update(item, i)
     end
   end
 
   private
+
+  def self.import_language_list(languages)
+    languages.blank? ? nil : languages.split(", ")
+  end
 
   def self.import_create(item, i)
     note = Note.new
