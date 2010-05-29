@@ -12,4 +12,8 @@ describe Note do
     voices.should_not include("SATBB")
     voices.should_not include("SATTBBB")
   end
+
+  it "should generate a new item id" do
+    Note.next_item.should == 6
+  end
 end
