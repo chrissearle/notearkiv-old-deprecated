@@ -1,0 +1,29 @@
+one:
+  item: 1
+  title: Note 1
+  count_originals: 1
+  voice: SSATB
+
+two:
+  item: 2
+  title: Note 2
+  count_originals: 1
+  voice: SATBB
+
+three:
+  item: 3
+  title: Note 3
+  count_originals: 1
+  voice: SSAAT
+
+four:
+  item: 4
+  title: Note 4
+  count_originals: 1
+  voice: SATTBBB
+
+five:
+  item: 5
+  title: Note 5
+  count_originals: 1
+  voice: SSATB
