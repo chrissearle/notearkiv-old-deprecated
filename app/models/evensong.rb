@@ -1,4 +1,7 @@
 class Evensong < ActiveRecord::Base
+  include Attachable
+  include Importable
+
   attr_accessor :doc_file, :music_file
 
   before_destroy :remove_files
@@ -19,10 +22,6 @@ class Evensong < ActiveRecord::Base
                    HeaderColumn.new("Kommentar", 50)].freeze
 
   DOCUMENT_TITLE = 'Evensongarkiv'.freeze
-
-  def has_attachment?
-    !(doc_url.blank? && music_url.blank?)
-  end
 
   def self.find_all_sorted
     find(:all, :include => [:composer, :genre]).sort_by { |p| p.title.downcase }
@@ -58,34 +57,10 @@ class Evensong < ActiveRecord::Base
               :genre => row[5],
               :comment => row[6]}
 
-      item[:sysid].blank? ? import_create(item, i) : import_update(item, i)
+      evensong = find_existing_if_present(item[:sysid])
+
+      evensong.import_item(item, i + 2)
     end
-  end
-
-  private
-
-  def upload
-    self.doc_url = upload_file get_doc_uploader, @doc_file
-    self.music_url = upload_file get_music_uploader, @music_file
-
-    # Can't call save - that would recurse. Send a message to the update_without_callbacks method
-    self.send(:update_without_callbacks)
-  end
-
-  def self.import_create(item, i)
-    evensong = Evensong.new
-
-    evensong.import_item(item, i + 2)
-  end
-
-  def self.import_update(item, i)
-    begin
-      evensong = Evensong.find(item[:sysid])
-    rescue ActiveRecord::RecordNotFound
-      evensong = Evensong.new
-    end
-
-    evensong.import_item(item, i + 2)
   end
 
   def import_item(item, row)
@@ -107,40 +82,23 @@ class Evensong < ActiveRecord::Base
     end
   end
 
-  def remove_files
-    if (!doc_url.blank?)
-      get_archive_connection.remove doc_url
-    end
+  private
 
-    if (!music_url.blank?)
-      get_archive_connection.remove music_url
-    end
-  end
+  def self.find_existing_if_present(id)
+    return Evensong.new if id.blank?
 
-
-  def get_archive_connection
-    @connection ||= ArchiveConnection.new
-  end
-
-  def get_doc_uploader
-    @doc_connection ||= get_archive_connection.get_uploader :evensong, :document
-  end
-
-  def get_music_uploader
-    @music_connection ||= get_archive_connection.get_uploader :evensong, :music
-  end
-
-  def upload_file(uploader, file)
-    url = nil
-
-    if file.blank?
-      url = uploader.find_existing_file id
+    if (Evensong.exists? id)
+      Evensong.find(id)
     else
-      if uploader.upload_permitted? file
-        url = uploader.upload file, id
-      end
+      Evensong.new
     end
+  end
 
-    return url
+  def upload
+    self.doc_url = upload_file get_doc_uploader(:evensong), @doc_file
+    self.music_url = upload_file get_music_uploader(:evensong), @music_file
+
+    # Can't call save - that would recurse. Send a message to the update_without_callbacks method
+    self.send(:update_without_callbacks)
   end
 end

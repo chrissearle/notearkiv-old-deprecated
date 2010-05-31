@@ -1,4 +1,7 @@
 class Note < ActiveRecord::Base
+  include Attachable
+  include Importable
+  
   attr_accessor :doc_file, :music_file
 
   before_destroy :remove_files
@@ -36,10 +39,6 @@ class Note < ActiveRecord::Base
     notes = find(:all, :select => 'DISTINCT voice')
 
     notes.select { |note| note.voice.downcase.start_with? search }.map { |note| note.voice }
-  end
-
-  def has_attachment?
-    !(doc_url.blank? && music_url.blank?)
   end
 
   def self.find_all_sorted
@@ -92,55 +91,12 @@ class Note < ActiveRecord::Base
               :solo => row[12],
               :comment => row[13]}
 
-      item[:sysid].blank? ? import_create(item, i) : import_update(item, i)
+      note = find_existing_if_present(item[:sysid])
+
+      note.import_item(item, i + 2)
     end
   end
 
-  private
-
-  def set_next_item
-    self.item = Note.maximum(:item) + 1
-  end
-
-
-  def upload
-    self.doc_url = upload_file get_doc_uploader, @doc_file
-    self.music_url = upload_file get_music_uploader, @music_file
-
-    # Can't call save - that would recurse. Send a message to the update_without_callbacks method
-    self.send(:update_without_callbacks)
-  end
-
-  def self.import_language_list(languages)
-    languages.blank? ? nil : languages.split(", ")
-  end
-
-  def import_item(item, row)
-    populate_from_import(item)
-
-    if (!save)
-      errors.each do |attr, msg|
-        import_log = ImportLog.new(:field => attr, :message => msg, :item => row)
-        import_log.save
-      end
-    end
-  end
-
-  def self.import_create(item, i)
-    note = Note.new
-
-    note.import_item(item, i + 2)
-  end
-
-  def self.import_update(item, i)
-    begin
-      note = Note.find(item[:sysid])
-    rescue ActiveRecord::RecordNotFound
-      note = Note.new
-    end
-
-    note.import_item(item, i + 2)
-  end
 
   def populate_from_import(item)
     # Mandatory fields
@@ -167,40 +123,32 @@ class Note < ActiveRecord::Base
     end
     self.languages = langs
   end
+  
+  private
 
-  def remove_files
-    if (!doc_url.blank?)
-      get_archive_connection.remove doc_url
-    end
-
-    if (!music_url.blank?)
-      get_archive_connection.remove music_url
-    end
+  def set_next_item
+    self.item = Note.maximum(:item) + 1
   end
 
-  def get_archive_connection
-    @connection ||= ArchiveConnection.new
+  def upload
+    self.doc_url = upload_file get_doc_uploader(:note), @doc_file
+    self.music_url = upload_file get_music_uploader(:note), @music_file
+
+    # Can't call save - that would recurse. Send a message to the update_without_callbacks method
+    self.send(:update_without_callbacks)
   end
 
-  def get_doc_uploader
-    @doc_connection ||= get_archive_connection.get_uploader :note, :document
+  def self.import_language_list(languages)
+    languages.blank? ? nil : languages.split(", ")
   end
 
-  def get_music_uploader
-    @music_connection ||= get_archive_connection.get_uploader :note, :music
-  end
+  def self.find_existing_if_present(id)
+    return Note.new if id.blank?
 
-  def upload_file(uploader, file)
-    url = nil
-
-    if file.blank?
-      url = uploader.find_existing_file id
+    if (Note.exists? id)
+      Note.find(id)
     else
-      if uploader.upload_permitted? file
-        url = uploader.upload file, id
-      end
+      Note.new
     end
-
-    return url
   end
 end
