@@ -46,8 +46,6 @@ class EvensongsController < ApplicationController
 
     respond_to do |format|
       if @evensong.save
-        @evensong.upload
-
         flash[:notice] = 'Evensongnote opprettet.'
         format.html { redirect_to :action => "index" }
         format.xml { render :xml => @evensong, :status => :created,
@@ -69,8 +67,6 @@ class EvensongsController < ApplicationController
 
     respond_to do |format|
       if @evensong.update_attributes(params[:evensong])
-        @evensong.upload
-
         flash[:notice] = 'Evensongnote oppdatert.'
         format.html { redirect_to :action => "index" }
         format.xml { head :ok }

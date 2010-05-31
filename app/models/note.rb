@@ -12,6 +12,9 @@ class Note < ActiveRecord::Base
 
   validates_presence_of :item, :title, :count_originals
 
+  before_save :set_next_item
+  after_save :upload
+
   EXCEL_HEADERS = [HeaderColumn.new("SysID", 8),
                    HeaderColumn.new("ID", 8),
                    HeaderColumn.new("Tittel", 50),
@@ -32,49 +35,11 @@ class Note < ActiveRecord::Base
   def self.suggest_voice(search)
     notes = find(:all, :select => 'DISTINCT voice')
 
-    notes.select { |note| note.voice.downcase.start_with? search }.map{ |note| note.voice }
-  end
-
-
-  def upload
-    doc_uploader = get_doc_uploader
-    music_uploader = get_music_uploader
-
-    url = nil
-
-    if @doc_file.blank?
-      url = doc_uploader.find_existing_file self.id
-    else
-      if doc_uploader.upload_permitted? @doc_file
-        url = doc_uploader.upload @doc_file, self.id
-      end
-    end
-
-    self.doc_url = url
-
-    self.save
-
-    url = nil
-
-    if @music_file.blank?
-      url = music_uploader.find_existing_file self.id
-    else
-      if music_uploader.upload_permitted? @music_file
-        url = music_uploader.upload @music_file, self.id
-      end
-    end
-
-    self.music_url = url
-
-    self.save
+    notes.select { |note| note.voice.downcase.start_with? search }.map { |note| note.voice }
   end
 
   def has_attachment?
     !(doc_url.blank? && music_url.blank?)
-  end
-
-  def self.next_item
-    Note.maximum(:item) + 1
   end
 
   def self.find_all_sorted
@@ -132,6 +97,20 @@ class Note < ActiveRecord::Base
   end
 
   private
+
+  def set_next_item
+    if  new_record?
+      item = Note.maximum(:item) + 1
+    end
+  end
+
+
+  def upload
+    doc_url = upload_file get_doc_uploader, @doc_file
+    music_url = upload_file get_music_uploader, @music_file
+
+    save
+  end
 
   def self.import_language_list(languages)
     languages.blank? ? nil : languages.split(", ")
@@ -213,4 +192,17 @@ class Note < ActiveRecord::Base
     @music_connection ||= get_archive_connection.get_uploader :note, :music
   end
 
+  def upload_file(uploader, file)
+    url = nil
+
+    if file.blank?
+      url = uploader.find_existing_file id
+    else
+      if uploader.upload_permitted? file
+        url = uploader.upload file, id
+      end
+    end
+
+    return url
+  end
 end

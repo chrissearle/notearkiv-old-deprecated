@@ -8,6 +8,7 @@ class Evensong < ActiveRecord::Base
 
   validates_presence_of :title, :composer, :genre
 
+  after_save :upload
 
   EXCEL_HEADERS = [HeaderColumn.new("SysID", 8),
                    HeaderColumn.new("Tittel", 50),
@@ -18,39 +19,6 @@ class Evensong < ActiveRecord::Base
                    HeaderColumn.new("Kommentar", 50)].freeze
 
   DOCUMENT_TITLE = 'Evensongarkiv'.freeze
-
-  def upload
-    doc_uploader = get_doc_uploader
-    music_uploader = get_music_uploader
-
-    url = nil
-
-    if @doc_file.blank?
-      url = doc_uploader.find_existing_file self.id
-    else
-      if doc_uploader.upload_permitted? @doc_file
-        url = doc_uploader.upload @doc_file, self.id
-      end
-    end
-
-    self.doc_url = url
-
-    self.save
-
-    url = nil
-
-    if @music_file.blank?
-      url = music_uploader.find_existing_file self.id
-    else
-      if music_uploader.upload_permitted? @music_file
-        url = music_uploader.upload @music_file, self.id
-      end
-    end
-
-    self.music_url = url
-
-    self.save
-  end
 
   def has_attachment?
     !(doc_url.blank? && music_url.blank?)
@@ -96,6 +64,13 @@ class Evensong < ActiveRecord::Base
   end
 
   private
+
+  def upload
+    doc_url = upload_file get_doc_uploader, @doc_file
+    music_url = upload_file get_music_uploader, @music_file
+
+    save
+  end
 
   def self.import_create(item, i)
     evensong = Evensong.new
@@ -156,5 +131,19 @@ class Evensong < ActiveRecord::Base
 
   def get_music_uploader
     @music_connection ||= get_archive_connection.get_uploader :evensong, :music
+  end
+
+  def upload_file(uploader, file)
+    url = nil
+
+    if file.blank?
+      url = uploader.find_existing_file id
+    else
+      if uploader.upload_permitted? file
+        url = uploader.upload file, id
+      end
+    end
+
+    return url
   end
 end

@@ -41,12 +41,8 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(params[:note])
 
-    @note.item = Note.next_item
-
     respond_to do |format|
       if @note.save
-        @note.upload
-
         flash[:notice] = 'Note opprettet.'
         format.html { redirect_to :action => "index" }
         format.xml { render :xml => @note, :status => :created,
@@ -68,8 +64,6 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.update_attributes(params[:note])
-        @note.upload
-
         flash[:notice] = 'Note oppdatert.'
         format.html { redirect_to :action => "index" }
         format.xml { head :ok }
