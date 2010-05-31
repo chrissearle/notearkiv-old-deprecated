@@ -68,7 +68,8 @@ class Evensong < ActiveRecord::Base
     self.doc_url = upload_file get_doc_uploader, @doc_file
     self.music_url = upload_file get_music_uploader, @music_file
 
-    self.save
+    # Can't call save - that would recurse. Send a message to the update_without_callbacks method
+    self.send(:update_without_callbacks)
   end
 
   def self.import_create(item, i)

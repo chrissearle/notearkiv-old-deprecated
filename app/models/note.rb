@@ -12,7 +12,7 @@ class Note < ActiveRecord::Base
 
   validates_presence_of :item, :title, :count_originals
 
-  before_save :set_next_item
+  before_validation_on_create :set_next_item
   after_save :upload
 
   EXCEL_HEADERS = [HeaderColumn.new("SysID", 8),
@@ -99,9 +99,7 @@ class Note < ActiveRecord::Base
   private
 
   def set_next_item
-    if  new_record?
-      self.item = Note.maximum(:item) + 1
-    end
+    self.item = Note.maximum(:item) + 1
   end
 
 
@@ -109,7 +107,8 @@ class Note < ActiveRecord::Base
     self.doc_url = upload_file get_doc_uploader, @doc_file
     self.music_url = upload_file get_music_uploader, @music_file
 
-    self.save
+    # Can't call save - that would recurse. Send a message to the update_without_callbacks method
+    self.send(:update_without_callbacks)
   end
 
   def self.import_language_list(languages)

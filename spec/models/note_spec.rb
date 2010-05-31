@@ -10,8 +10,4 @@ describe Note do
 
     voices.each { |voice| voice.should be_true(voice.starts_with? "SS") }
   end
-
-  it "should generate a new item id" do
-    Note.next_item.should == 6
-  end
 end
