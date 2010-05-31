@@ -25,12 +25,12 @@ class Evensong < ActiveRecord::Base
   end
 
   def self.find_all_sorted
-    Evensong.find(:all, :include => [:composer, :genre]).sort_by { |p| p.title.downcase }
+    find(:all, :include => [:composer, :genre]).sort_by { |p| p.title.downcase }
   end
 
   def self.excel
     NoteSheet.new(EXCEL_HEADERS,
-                  self.find_all_sorted,
+                  find_all_sorted,
                   DOCUMENT_TITLE,
                   lambda { |row, item|
                     row.push item.id
@@ -50,14 +50,13 @@ class Evensong < ActiveRecord::Base
                             EXCEL_HEADERS.map { |header| header.title })
 
     importer.rows.each_with_index do |row, i|
-      item = Hash.new
-      item[:sysid] = row[0]
-      item[:title] = row[1]
-      item[:salme] = row[2]
-      item[:solo] = row[3]
-      item[:composer] = row[4]
-      item[:genre] = row[5]
-      item[:comment] = row[6]
+      item = {:sysid => row[0],
+              :title => row[1],
+              :salme => row[2],
+              :solo => row[3],
+              :composer => row[4],
+              :genre => row[5],
+              :comment => row[6]}
 
       item[:sysid].blank? ? import_create(item, i) : import_update(item, i)
     end
@@ -66,21 +65,16 @@ class Evensong < ActiveRecord::Base
   private
 
   def upload
-    doc_url = upload_file get_doc_uploader, @doc_file
-    music_url = upload_file get_music_uploader, @music_file
+    self.doc_url = upload_file get_doc_uploader, @doc_file
+    self.music_url = upload_file get_music_uploader, @music_file
 
-    save
+    self.save
   end
 
   def self.import_create(item, i)
     evensong = Evensong.new
-    populate_from_import(evensong, item)
-    if (!evensong.save)
-      evensong.errors.each do |attr, msg|
-        import_log = ImportLog.new(:field => attr, :message => msg, :item => i + 2)
-        import_log.save
-      end
-    end
+
+    evensong.import_item(item, i + 2)
   end
 
   def self.import_update(item, i)
@@ -89,25 +83,27 @@ class Evensong < ActiveRecord::Base
     rescue ActiveRecord::RecordNotFound
       evensong = Evensong.new
     end
-    populate_from_import(evensong, item)
-    if (!evensong.save)
-      evensong.errors.each do |attr, msg|
-        import_log = ImportLog.new(:field => attr, :message => msg, :item => i + 2)
+
+    evensong.import_item(item, i + 2)
+  end
+
+  def import_item(item, row)
+    # Mandatory fields
+    self.title = item[:title]
+    self.composer = item[:composer].blank? ? nil : Composer.find_or_create_by_name(item[:composer])
+    self.genre = item[:genre].blank? ? nil : Genre.find_or_create_by_name(item[:genre])
+
+    # Optional fields - allows overwriting with empty
+    self.psalm = item[:salme]
+    self.soloists = item[:solo]
+    self.comment = item[:comment]
+
+    if (!save)
+      errors.each do |attr, msg|
+        import_log = ImportLog.new(:field => attr, :message => msg, :item => row)
         import_log.save
       end
     end
-  end
-
-  def self.populate_from_import(evensong, item)
-    # Mandatory fields
-    evensong.title = item[:title]
-    evensong.composer = item[:composer].blank? ? nil : Composer.find_or_create_by_name(item[:composer])
-    evensong.genre = item[:genre].blank? ? nil : Genre.find_or_create_by_name(item[:genre])
-
-    # Optional fields - allows overwriting with empty
-    evensong.psalm = item[:salme]
-    evensong.soloists = item[:solo]
-    evensong.comment = item[:comment]
   end
 
   def remove_files

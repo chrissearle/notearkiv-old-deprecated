@@ -43,7 +43,7 @@ class Note < ActiveRecord::Base
   end
 
   def self.find_all_sorted
-    Note.find(:all, :include => [:composer, :genre, :period, :languages]).sort_by { |p| p.title.downcase }
+    find(:all, :include => [:composer, :genre, :period, :languages]).sort_by { |p| p.title.downcase }
   end
 
   def self.excel
@@ -100,32 +100,37 @@ class Note < ActiveRecord::Base
 
   def set_next_item
     if  new_record?
-      item = Note.maximum(:item) + 1
+      self.item = Note.maximum(:item) + 1
     end
   end
 
 
   def upload
-    doc_url = upload_file get_doc_uploader, @doc_file
-    music_url = upload_file get_music_uploader, @music_file
+    self.doc_url = upload_file get_doc_uploader, @doc_file
+    self.music_url = upload_file get_music_uploader, @music_file
 
-    save
+    self.save
   end
 
   def self.import_language_list(languages)
     languages.blank? ? nil : languages.split(", ")
   end
 
-  def self.import_create(item, i)
-    note = Note.new
-    note.item = Note.next_item
-    populate_from_import(note, item)
-    if (!note.save)
-      note.errors.each do |attr, msg|
-        import_log = ImportLog.new(:field => attr, :message => msg, :item => i + 2)
+  def import_item(item, row)
+    populate_from_import(item)
+
+    if (!save)
+      errors.each do |attr, msg|
+        import_log = ImportLog.new(:field => attr, :message => msg, :item => row)
         import_log.save
       end
     end
+  end
+
+  def self.import_create(item, i)
+    note = Note.new
+
+    note.import_item(item, i + 2)
   end
 
   def self.import_update(item, i)
@@ -133,33 +138,27 @@ class Note < ActiveRecord::Base
       note = Note.find(item[:sysid])
     rescue ActiveRecord::RecordNotFound
       note = Note.new
-      note.item = Note.next_item
     end
-    populate_from_import(note, item)
-    if (!note.save)
-      note.errors.each do |attr, msg|
-        import_log = ImportLog.new(:field => attr, :message => msg, :item => i + 2)
-        import_log.save
-      end
-    end
+
+    note.import_item(item, i + 2)
   end
 
-  def self.populate_from_import(note, item)
+  def populate_from_import(item)
     # Mandatory fields
-    note.title = item[:title]
-    note.count_originals = item[:original]
+    self.title = item[:title]
+    self.count_originals = item[:original]
 
     # Optional fields - allows overwriting with blank
-    note.soloists = item[:solo]
-    note.count_copies = item[:copy]
-    note.count_instrumental = item[:instrumental]
-    note.comment = item[:comment]
-    note.voice = item[:voice]
-    note.instrument = item[:instrument]
+    self.soloists = item[:solo]
+    self.count_copies = item[:copy]
+    self.count_instrumental = item[:instrumental]
+    self.comment = item[:comment]
+    self.voice = item[:voice]
+    self.instrument = item[:instrument]
 
-    note.period = item[:epoch].blank? ? nil : Period.find_or_create_by_name(item[:epoch])
-    note.composer = item[:composer].blank? ? nil : Composer.find_or_create_by_name(item[:composer])
-    note.genre = item[:genre].blank? ? nil : Genre.find_or_create_by_name(item[:genre])
+    self.period = item[:epoch].blank? ? nil : Period.find_or_create_by_name(item[:epoch])
+    self.composer = item[:composer].blank? ? nil : Composer.find_or_create_by_name(item[:composer])
+    self.genre = item[:genre].blank? ? nil : Genre.find_or_create_by_name(item[:genre])
 
     langs = Array.new
     if (!item[:languages].blank?)
@@ -167,7 +166,7 @@ class Note < ActiveRecord::Base
         langs << Language.find_or_create_by_name(lang)
       end
     end
-    note.languages = langs
+    self.languages = langs
   end
 
   def remove_files
