@@ -1,3 +1,4 @@
+tmp
 db/schema.rb
 db/*.sqlite3
 .idea
@@ -6,3 +7,6 @@ bin
 vendor/gems
 vendor/bundler_gems
 vendor/plugins
+results.html
+coverage
+coverage.data

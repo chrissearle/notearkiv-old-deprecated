@@ -1,4 +1,7 @@
 class Note < ActiveRecord::Base
+  include Attachable
+  include Importable
+  
   attr_accessor :doc_file, :music_file
 
   before_destroy :remove_files
@@ -11,6 +14,9 @@ class Note < ActiveRecord::Base
   has_many :languages, :through => :note_language_assignments
 
   validates_presence_of :item, :title, :count_originals
+
+  before_validation_on_create :set_next_item
+  after_save :upload
 
   EXCEL_HEADERS = [HeaderColumn.new("SysID", 8),
                    HeaderColumn.new("ID", 8),
@@ -30,63 +36,13 @@ class Note < ActiveRecord::Base
   DOCUMENT_TITLE = 'Notearkiv'.freeze
 
   def self.suggest_voice(search)
-    data = ""
-
     notes = find(:all, :select => 'DISTINCT voice')
 
-    notes.each do |note|
-      if note.voice.downcase.start_with? search
-        data = data + "#{note.voice}\n"
-      end
-    end
-
-    data
-  end
-
-
-  def upload
-    doc_uploader = get_doc_uploader
-    music_uploader = get_music_uploader
-
-    url = nil
-
-    if @doc_file.blank?
-      url = doc_uploader.find_existing_file self.id
-    else
-      if doc_uploader.upload_permitted? @doc_file
-        url = doc_uploader.upload @doc_file, self.id
-      end
-    end
-
-    self.doc_url = url
-
-    self.save
-
-    url = nil
-
-    if @music_file.blank?
-      url = music_uploader.find_existing_file self.id
-    else
-      if music_uploader.upload_permitted? @music_file
-        url = music_uploader.upload @music_file, self.id
-      end
-    end
-
-    self.music_url = url
-
-    self.save
-  end
-
-  def has_attachment?
-    !(doc_url.blank? && music_url.blank?)
-  end
-
-  def self.next_item
-    Note.maximum(:item) + 1
+    notes.select { |note| note.voice.downcase.start_with? search }.map { |note| note.voice }
   end
 
   def self.find_all_sorted
-    Note.find(:all, :include => [:composer, :genre, :period, :languages]).sort_by { |p| p.title.downcase }
+    find(:all, :include => [:composer, :genre, :period, :languages]).sort_by { |p| p.title.downcase }
   end
 
   def self.excel
@@ -120,72 +76,44 @@ class Note < ActiveRecord::Base
                             EXCEL_HEADERS.map { |header| header.title })
 
     importer.rows.each_with_index do |row, i|
-      item = Hash.new
-      item[:sysid] = row[0]
-      item[:id] = row[1]
-      item[:title] = row[2]
-      item[:composer] = row[3]
-      item[:genre] = row[4]
-      item[:epoch] = row[5]
-      item[:languages] = row[6].blank? ? nil : row[6].split(", ")
-      item[:instrument] = row[7]
-      item[:original] = row[8]
-      item[:copy] = row[9]
-      item[:instrumental] = row[10]
-      item[:voice] = row[11]
-      item[:solo] = row[12]
-      item[:comment] = row[13]
+      item = {:sysid => row[0],
+              :id => row[1],
+              :title => row[2],
+              :composer => row[3],
+              :genre => row[4],
+              :epoch => row[5],
+              :languages => import_language_list(row[6]),
+              :instrument => row[7],
+              :original => row[8],
+              :copy => row[9],
+              :instrumental => row[10],
+              :voice => row[11],
+              :solo => row[12],
+              :comment => row[13]}
 
-      item[:sysid].blank? ? import_create(item, i) : import_update(item, i)
+      note = find_existing_if_present(item[:sysid])
+
+      note.import_item(item, i + 2)
     end
   end
 
-  private
 
-  def self.import_create(item, i)
-    note = Note.new
-    note.item = Note.next_item
-    populate_from_import(note, item)
-    if (!note.save)
-      note.errors.each do |attr, msg|
-        import_log = ImportLog.new(:field => attr, :message => msg, :item => i + 2)
-        import_log.save
-      end
-    end
-  end
-
-  def self.import_update(item, i)
-    begin
-      note = Note.find(item[:sysid])
-    rescue ActiveRecord::RecordNotFound
-      note = Note.new
-      note.item = Note.next_item
-    end
-    populate_from_import(note, item)
-    if (!note.save)
-      note.errors.each do |attr, msg|
-        import_log = ImportLog.new(:field => attr, :message => msg, :item => i + 2)
-        import_log.save
-      end
-    end
-  end
-
-  def self.populate_from_import(note, item)
+  def populate_from_import(item)
     # Mandatory fields
-    note.title = item[:title]
-    note.count_originals = item[:original]
+    self.title = item[:title]
+    self.count_originals = item[:original]
 
     # Optional fields - allows overwriting with blank
-    note.soloists = item[:solo]
-    note.count_copies = item[:copy]
-    note.count_instrumental = item[:instrumental]
-    note.comment = item[:comment]
-    note.voice = item[:voice]
-    note.instrument = item[:instrument]
+    self.soloists = item[:solo]
+    self.count_copies = item[:copy]
+    self.count_instrumental = item[:instrumental]
+    self.comment = item[:comment]
+    self.voice = item[:voice]
+    self.instrument = item[:instrument]
 
-    note.period = item[:epoch].blank? ? nil : Period.find_or_create_by_name(item[:epoch])
-    note.composer = item[:composer].blank? ? nil : Composer.find_or_create_by_name(item[:composer])
-    note.genre = item[:genre].blank? ? nil : Genre.find_or_create_by_name(item[:genre])
+    self.period = item[:epoch].blank? ? nil : Period.find_or_create_by_name(item[:epoch])
+    self.composer = item[:composer].blank? ? nil : Composer.find_or_create_by_name(item[:composer])
+    self.genre = item[:genre].blank? ? nil : Genre.find_or_create_by_name(item[:genre])
 
     langs = Array.new
     if (!item[:languages].blank?)
@@ -193,29 +121,34 @@ class Note < ActiveRecord::Base
         langs << Language.find_or_create_by_name(lang)
       end
     end
-    note.languages = langs
+    self.languages = langs
+  end
+  
+  private
+
+  def set_next_item
+    self.item = Note.maximum(:item) + 1
   end
 
-  def remove_files
-    if (!doc_url.blank?)
-      get_archive_connection.remove doc_url
+  def upload
+    self.doc_url = upload_file get_doc_uploader(:note), @doc_file
+    self.music_url = upload_file get_music_uploader(:note), @music_file
+
+    # Can't call save - that would recurse. Send a message to the update_without_callbacks method
+    self.send(:update_without_callbacks)
+  end
+
+  def self.import_language_list(languages)
+    languages.blank? ? nil : languages.split(", ")
+  end
+
+  def self.find_existing_if_present(id)
+    return Note.new if id.blank?
+
+    if (Note.exists? id)
+      Note.find(id)
+    else
+      Note.new
     end
-
-    if (!music_url.blank?)
-      get_archive_connection.remove music_url
-    end
   end
-
-  def get_archive_connection
-    @connection ||= ArchiveConnection.new
-  end
-
-  def get_doc_uploader
-    @doc_connection ||= get_archive_connection.get_uploader :note, :document
-  end
-
-  def get_music_uploader
-    @music_connection ||= get_archive_connection.get_uploader :note, :music
-  end
-
 end

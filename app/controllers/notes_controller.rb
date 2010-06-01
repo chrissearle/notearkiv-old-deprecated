@@ -11,18 +11,9 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @notes }
-      format.txt { send_data Note.suggest_voice(params[:q].downcase),
-                             :type => 'text/plain',
-                             :disposition => 'inline' }
+      format.txt { index_suggest_voices }
       format.pdf
-      format.xls do
-        excel = Note.excel
-
-        send_file(excel.get_spreadsheet,
-                  :type => 'application/vnd.ms-excel',
-                  :disposition => 'attachment',
-                  :filename => excel.get_filename)
-      end
+      format.xls { index_excel }
     end
   end
 
@@ -50,12 +41,8 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(params[:note])
 
-    @note.item = Note.next_item
-
     respond_to do |format|
       if @note.save
-        @note.upload
-
         flash[:notice] = 'Note opprettet.'
         format.html { redirect_to :action => "index" }
         format.xml { render :xml => @note, :status => :created,
@@ -77,8 +64,6 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.update_attributes(params[:note])
-        @note.upload
-
         flash[:notice] = 'Note oppdatert.'
         format.html { redirect_to :action => "index" }
         format.xml { head :ok }
@@ -100,6 +85,23 @@ class NotesController < ApplicationController
       format.html { redirect_to(notes_url) }
       format.xml { head :ok }
     end
+  end
+
+  private
+
+  def index_excel
+    excel = Note.excel
+
+    send_file(excel.get_spreadsheet,
+              :type => 'application/vnd.ms-excel',
+              :disposition => 'attachment',
+              :filename => excel.get_filename)
+  end
+
+  def index_suggest_voices
+    send_data Note.suggest_voice(params[:q].downcase).join("\n"),
+              :type => 'text/plain',
+              :disposition => 'inline'
   end
 end
 
