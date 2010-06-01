@@ -1,6 +1,6 @@
 spreadsheet -v '0.6.4.1'
 exceptional -v '2.0.9'
-nokogiri -v '1.4.1'
+nokogiri -v '1.4.2'
 mechanize -v '1.0.0'
 formtastic -v '0.9.7'
 rails -v '2.3.8'
