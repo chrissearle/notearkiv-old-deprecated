@@ -28,15 +28,15 @@ module Attachable
   end
 
   def get_archive_connection
-    @connection ||= ArchiveConnection.new
+    ArchiveConnection.new
   end
 
   def get_doc_uploader(type)
-    @doc_connection ||= get_archive_connection.get_uploader type, :document
+    get_archive_connection.get_uploader type, :document
   end
 
   def get_music_uploader(type)
-    @music_connection ||= get_archive_connection.get_uploader type, :music
+    get_archive_connection.get_uploader type, :music
   end
 
 end
