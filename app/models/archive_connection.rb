@@ -44,12 +44,21 @@ class ArchiveConnection
     end
 
     def find_existing_file(id)
+      match_filename = "#{@instance_type_prefix}/#{@instance_prefix}_#{id}".downcase
+
+      Rails.logger.info("Searching for existing files for #{id} with a match of #{match_filename}")
+
       files = @instance_session.list "#{@instance_prefix}/#{@instance_type_prefix}"
 
-      file = files.select { |file| file.path.downcase.include? "#{@instance_type_prefix}/#{@instance_prefix}_#{id}".downcase }[0]
+      files.each do |file|
+        Rails.logger.info("Saw #{file.path.downcase}")
+      end
+
+      file = files.select { |file| file.path.downcase.include? match_filename }[0]
 
       unless file.blank?
-        file = file.path.gsub( /^\//, "")
+        Rails.logger.info("Selected #{file.path}")
+        file = file.path.gsub(/^\//, "")
       end
 
       file
