@@ -10,3 +10,9 @@ prawn -v '0.8.4'
 prawnto -v '0.0.1'
 rdropbox -v '1.0.0
 pg
+rspec -v '1.3.0'
+rspec-rails -v '1.3.2'
+cucumber -v '0.7.3'
+cucumber-rails -v '0.3.1'
+
+
