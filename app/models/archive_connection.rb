@@ -46,7 +46,7 @@ class ArchiveConnection
     def find_existing_file(id)
       files = @instance_session.list "#{@instance_prefix}/#{@instance_type_prefix}"
 
-      file = files.select { |file| file.path.include? "#{@instance_type_prefix}/#{@instance_prefix}_#{id}" }[0]
+      file = files.select { |file| file.path.downcase.include? "#{@instance_type_prefix}/#{@instance_prefix}_#{id}".downcase }[0]
 
       unless file.blank?
         file = file.path.gsub( /^\//, "")
