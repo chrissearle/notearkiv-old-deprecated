@@ -2,6 +2,7 @@ authorization do
   role :siteadmin do
     has_permission_on [:users], :to => [:index, :show, :new, :create, :edit, :update]
     has_permission_on [:stats], :to => [:index]
+    has_permission_on [:session_caches], :to => [:authorize]
   end
 
   role :import do

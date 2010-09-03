@@ -8,7 +8,7 @@ authlogic -v '2.1.3'
 declarative_authorization -v '0.4.1'
 prawn -v '0.8.4'
 prawnto -v '0.0.1'
-rdropbox -v '1.0.0
+dropbox -v '1.1.0
 pg
 rspec -v '1.3.0'
 rspec-rails -v '1.3.2'

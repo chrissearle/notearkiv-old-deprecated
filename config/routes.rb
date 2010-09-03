@@ -21,6 +21,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :evensongs
   map.resources :account
 
+  map.authorize 'db_auth', :controller => 'session_caches', :action => 'authorize'
+
   map.notesupload 'upload/notes', :controller => 'notes_upload', :action => 'upload'
   map.notesimport 'upload/notes/import', :controller => 'notes_upload', :action => 'import'
   map.evensongsupload 'upload/evensongs', :controller => 'evensongs_upload', :action => 'upload'

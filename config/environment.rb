@@ -29,7 +29,7 @@ Rails::Initializer.run do |config|
   config.gem 'exceptional', :version => '2.0.14'
   config.gem 'nokogiri', :version => '1.4.2'
   config.gem 'mechanize', :version => '1.0.0'
-  config.gem 'rdropbox', :version => '1.0.0', :lib => 'dropbox'
+  config.gem 'dropbox', :version => '1.1.0'
 
 
   # Only load the plugins named here, in the order given (default is alphabetical).

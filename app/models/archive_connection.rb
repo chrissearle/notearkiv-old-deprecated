@@ -90,11 +90,7 @@ class ArchiveConnection
   end
 
   def initialize
-    @session = Dropbox::Session.generate_from_token(ENV['DROPBOX_CONSUMER_KEY'],
-                                                    ENV['DROPBOX_CONSUMER_SECRET'],
-                                                    ENV['DROPBOX_TOKEN'],
-                                                    ENV['DROPBOX_TOKEN_SECRET'],
-                                                    true)
+    @session = Dropbox::Session.deserialize(session_cache = SessionCache.find(1).serialized_session)
 
     @types = [SupportedFileTypes.new("pdf", "application/pdf", :document, "inline"),
               SupportedFileTypes.new("mp3", "audio/mpeg", :music, "attachment"),
