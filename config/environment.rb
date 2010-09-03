@@ -24,7 +24,7 @@ Rails::Initializer.run do |config|
   config.gem 'authlogic', :version => '2.1.3'
 #  config.gem 'declarative_authorization', :version => '0.4.1'
   config.gem 'prawn', :version => '0.8.4'
-  config.gem 'prawnto', :version => '0.0.1'
+#  config.gem 'prawnto', :version => '0.0.1'
   config.gem 'spreadsheet', :version => '0.6.4.1'
   config.gem 'exceptional', :version => '2.0.14'
   config.gem 'nokogiri', :version => '1.4.2'
