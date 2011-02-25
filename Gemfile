@@ -48,4 +48,6 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'test-unit'
+  gem 'webrat'
+  gem 'factory_girl'
 end

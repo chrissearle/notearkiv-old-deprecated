@@ -1,3 +1,4 @@
+webrat.log
 .idea
 .bundle
 db/*.sqlite3
