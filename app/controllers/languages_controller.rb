@@ -7,7 +7,7 @@ class LanguagesController < ApplicationController
 
 
   def index
-    @languages = Language.find(:all).sort_by { |p| p.name.downcase }
+    @languages = Language.ordered.preloaded
   end
 
   def new

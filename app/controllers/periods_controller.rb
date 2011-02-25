@@ -6,7 +6,7 @@ class PeriodsController < ApplicationController
   before_filter :get_period, :only => [:edit, :update, :destroy]
 
   def index
-    @periods = Period.find(:all).sort_by { |p| p.name.downcase }
+    @periods = Period.ordered.preloaded
   end
 
   def new

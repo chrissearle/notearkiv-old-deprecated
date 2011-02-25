@@ -6,7 +6,7 @@ class ComposersController < ApplicationController
   before_filter :get_composer, :only => [:edit, :update, :destroy]
 
   def index
-    @composers = Composer.find(:all).sort_by { |p| p.name.downcase }
+    @composers = Composer.ordered.preloaded
   end
 
   def new

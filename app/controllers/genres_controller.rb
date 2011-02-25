@@ -6,7 +6,7 @@ class GenresController < ApplicationController
   before_filter :get_genre, :only => [:edit, :update, :destroy]
 
   def index
-    @genres = Genre.find(:all).sort_by { |p| p.name.downcase }
+    @genres = Genre.ordered.preloaded
   end
 
   def new

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   before_filter :get_user, :only => [:edit, :show, :update]
 
   def index
-    @users = User.find(:all)
+    @users = User.all
   end
 
   def edit

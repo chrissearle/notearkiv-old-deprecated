@@ -7,7 +7,7 @@ class NotesController < ApplicationController
 
   def index
     set_accept_header
-    @notes = Note.find_all_sorted
+    @notes = Note.ordered.preloaded
 
     prawnto :prawn => {:page_layout=>:landscape, :top_margin => 10, :bottom_margin => 10}, :inline => false,
             :filename => "Notearkiv_#{Date.today().strftime("%Y-%m-%d")}.pdf"

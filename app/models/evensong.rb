@@ -18,6 +18,9 @@ class Evensong < ActiveRecord::Base
 
   after_save :upload
 
+  scope :ordered, :order => 'title ASC'
+  scope :preloaded, :include => [:composer, :genre]
+
   EXCEL_HEADERS = [HeaderColumn.new("SysID", 8),
                    HeaderColumn.new("Tittel", 50),
                    HeaderColumn.new("Salme", 8),
@@ -28,13 +31,9 @@ class Evensong < ActiveRecord::Base
 
   DOCUMENT_TITLE = 'Evensongarkiv'.freeze
 
-  def self.find_all_sorted
-    find(:all, :include => [:composer, :genre]).sort_by { |p| p.title.downcase }
-  end
-
   def self.excel
     NoteSheet.new(EXCEL_HEADERS,
-                  find_all_sorted,
+                  Evensong.ordered.preloaded,
                   DOCUMENT_TITLE,
                   lambda { |row, item|
                     row.push item.id

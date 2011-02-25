@@ -7,6 +7,7 @@ class UserSessionsController < ApplicationController
 
   def new_once
     user = User.find_by_onetime(params[:code])
+
     @user_session = UserSession.new(user)
     if @user_session.save
       user.clear_one_time_code
@@ -20,6 +21,7 @@ class UserSessionsController < ApplicationController
 
   def create
     @user_session = UserSession.new(params[:user_session])
+
     if @user_session.save
       User.find_by_username(params[:user_session][:username]).clear_one_time_code
 

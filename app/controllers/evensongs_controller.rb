@@ -7,7 +7,7 @@ class EvensongsController < ApplicationController
 
   def index
     set_accept_header
-    @evensongs = Evensong.find_all_sorted
+    @evensongs = Evensong.ordered.preloaded
 
     prawnto :prawn => {:page_layout=>:landscape, :top_margin => 10, :bottom_margin => 10}, :inline => false,
             :filename => "Evensongarkiv_#{Date.today().strftime("%Y-%m-%d")}.pdf"

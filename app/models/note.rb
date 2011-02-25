@@ -23,8 +23,10 @@ class Note < ActiveRecord::Base
 
   validates_presence_of :item, :title, :count_originals
 
-
   after_save :upload
+
+  scope :ordered, :order => 'title ASC'
+  scope :preloaded, :include => [:composer, :genre, :period, :languages]
 
   EXCEL_HEADERS = [HeaderColumn.new("SysID", 8),
                    HeaderColumn.new("ID", 8),
@@ -49,13 +51,9 @@ class Note < ActiveRecord::Base
     notes.select { |note| note.voice.downcase.start_with? search }.map { |note| note.voice }
   end
 
-  def self.find_all_sorted
-    find(:all, :include => [:composer, :genre, :period, :languages]).sort_by { |p| p.title.downcase }
-  end
-
   def self.excel
     NoteSheet.new(EXCEL_HEADERS,
-                  self.find_all_sorted,
+                  Note.ordered.preloaded,
                   DOCUMENT_TITLE,
                   lambda { |row, item|
                     langs = item.languages.map { |lang| lang.name }
