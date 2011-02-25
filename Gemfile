@@ -41,6 +41,7 @@ gem 'dropbox'
 gem 'formtastic'
 
 gem 'jquery-rails'
+gem 'meta_where'
 
 group :development, :test do
   gem 'cucumber'

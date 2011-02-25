@@ -46,9 +46,7 @@ class Note < ActiveRecord::Base
   DOCUMENT_TITLE = 'Notearkiv'.freeze
 
   def self.suggest_voice(search)
-    notes = find(:all, :select => 'DISTINCT voice')
-
-    notes.select { |note| note.voice.downcase.start_with? search }.map { |note| note.voice }
+    Note.select('distinct voice').where(:voice.matches => search + '%').order('voice').map(&:voice)
   end
 
   def self.excel

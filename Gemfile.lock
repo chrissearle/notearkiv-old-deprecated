@@ -76,6 +76,10 @@ GEM
       treetop (~> 1.4.8)
     mechanize (1.0.0)
       nokogiri (>= 1.2.1)
+    meta_where (1.0.3)
+      activerecord (~> 3.0.4)
+      activesupport (~> 3.0.4)
+      arel (~> 2.0.8)
     mime-types (1.16)
     multipart-post (1.1.0)
     nokogiri (1.4.4)
@@ -153,6 +157,7 @@ DEPENDENCIES
   formtastic
   jquery-rails
   mechanize
+  meta_where
   nokogiri
   pg
   prawn
