@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 module ApplicationHelper
   def list_link_dropbox_files(object)
     if (!object.has_attachment?)
@@ -17,6 +19,8 @@ module ApplicationHelper
         end
 
         s+= "</ul>"
+
+        s.html_safe
       end
     end
   end

@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class CreateUserRoleAssignments < ActiveRecord::Migration
   def self.up
     create_table :user_role_assignments do |t|

@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class AddDropboxUrlToEvensong < ActiveRecord::Migration
   def self.up
     add_column :evensongs, :url, :string

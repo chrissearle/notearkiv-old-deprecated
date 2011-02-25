@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class CreateSessionCaches < ActiveRecord::Migration
   def self.up
     create_table :session_caches do |t|

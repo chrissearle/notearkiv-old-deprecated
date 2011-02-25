@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 module Attachable
   def has_attachment?
     !(doc_url.blank? && music_url.blank?)

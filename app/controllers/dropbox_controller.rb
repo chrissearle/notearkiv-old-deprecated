@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class DropboxController < ApplicationController
   def authorize
     if params[:oauth_token] then

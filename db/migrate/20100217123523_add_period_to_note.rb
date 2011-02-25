@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class AddPeriodToNote < ActiveRecord::Migration
   def self.up
     add_column :notes, :period_id, :integer

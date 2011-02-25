@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class Note < ActiveRecord::Base
   include Attachable
   include Importable
@@ -13,9 +15,11 @@ class Note < ActiveRecord::Base
   has_many :note_language_assignments
   has_many :languages, :through => :note_language_assignments
 
+  before_validation(:on => :create){ set_next_item }
+
   validates_presence_of :item, :title, :count_originals
 
-  before_validation_on_create :set_next_item
+
   after_save :upload
 
   EXCEL_HEADERS = [HeaderColumn.new("SysID", 8),

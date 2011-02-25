@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class RenameUrlToDocUrl < ActiveRecord::Migration
   def self.up
     rename_column :notes, :url, :doc_url

@@ -1,11 +1,11 @@
 <tr>
   <td>
-    <% link_to(note) do %>
+    <%= link_to(note) do %>
         <%= note.item %>
     <% end %>
   </td>
   <td>
-    <% link_to(note) do %>
+    <%= link_to(note) do %>
         <%= note.title %>
     <% end %>
   </td>
@@ -24,7 +24,7 @@
   <td><%= note.instrument %></td>
   <td>
     <% if (!note.has_attachment?) && permitted_to?(:edit, note) %>
-        <%= link_to 'Last&nbsp;opp', edit_note_path(note) %>
+        <%= link_to 'Last&nbsp;opp'.html_safe, edit_note_path(note) %>
     <% else %>
         <%= list_link_dropbox_files(note) %>
     <% end %>

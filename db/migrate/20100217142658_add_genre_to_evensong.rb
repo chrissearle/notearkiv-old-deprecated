@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class AddGenreToEvensong < ActiveRecord::Migration
   def self.up
     add_column :evensongs, :genre_id, :integer

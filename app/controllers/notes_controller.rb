@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class NotesController < ApplicationController
   filter_access_to :all
 

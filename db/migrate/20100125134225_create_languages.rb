@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class CreateLanguages < ActiveRecord::Migration
   def self.up
     create_table :languages do |t|

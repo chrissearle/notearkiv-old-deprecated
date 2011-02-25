@@ -1,30 +1,34 @@
-ActionController::Routing::Routes.draw do |map|
-  map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
-  map.login 'login', :controller => 'user_sessions', :action => 'new'
-  map.onelogin 'login_once/:code', :controller => 'user_sessions', :action => 'new_once'
-  
-  map.forgot 'forgotten_password', :controller => 'user_sessions', :action => 'forgotten'
-  map.reset 'reset_password', :controller => 'user_sessions', :action => 'reset'
+# coding: UTF-8
 
-  map.download 'download/:prefix/:type/:file.:format', :controller => 'archive', :action => 'download'
+Notearkiv::Application.routes.draw do
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'login_once/:code' => 'user_sessions#new_once', :as => :onelogin
 
-  map.root :controller => "notes"
+  match 'forgotten_password' => 'user_sessions#forgotten', :as => :forgot
+  match 'reset_password' => 'user_sessions#reset', :as => :reset
 
-  map.resources :user_sessions
-  map.resources :users
-  map.resources :stats
-  map.resources :periods
-  map.resources :genres
-  map.resources :composers
-  map.resources :languages
-  map.resources :notes
-  map.resources :evensongs
-  map.resources :account
+  match 'download/:prefix/:type/:file.:format' => 'archive#download', :as => :download
 
-  map.authorize 'db_auth', :controller => 'session_caches', :action => 'authorize'
+  resources :user_sessions
+  resources :users
+  resources :stats
+  resources :periods
+  resources :genres
+  resources :composers
+  resources :languages
+  resources :notes
+  resources :evensongs
+  resources :account
 
-  map.notesupload 'upload/notes', :controller => 'notes_upload', :action => 'upload'
-  map.notesimport 'upload/notes/import', :controller => 'notes_upload', :action => 'import'
-  map.evensongsupload 'upload/evensongs', :controller => 'evensongs_upload', :action => 'upload'
-  map.evensongsimport 'upload/evensongs/import', :controller => 'evensongs_upload', :action => 'import'
+  match 'db_auth' => 'session_caches#authorize', :as => :authorize
+
+  match 'upload/notes' => 'notes_upload#upload', :as => :notesupload
+  match 'upload/notes/import' => 'notes_upload#import', :as => :notesimport
+
+  match 'upload/evensongs' => 'evensongs_upload#upload', :as => :evensongsupload
+  match 'upload/evensongs/import' => 'evensongs_upload#import', :as => :evensongsimport
+
+
+  root :to => "notes#index"
 end

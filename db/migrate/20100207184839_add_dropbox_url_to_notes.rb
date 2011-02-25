@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class AddDropboxUrlToNotes < ActiveRecord::Migration
   def self.up
     add_column :notes, :url, :string

@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class Genre < ActiveRecord::Base
   has_many :notes
   has_many :evensongs

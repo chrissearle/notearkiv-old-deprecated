@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class AddImportRole < ActiveRecord::Migration
   def self.up
     Role.new( :name => 'import').save!

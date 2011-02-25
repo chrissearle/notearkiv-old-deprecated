@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 ActionMailer::Base.smtp_settings = {
         :address  => ENV['MAIL_SERVER'],
         :port  => 25,

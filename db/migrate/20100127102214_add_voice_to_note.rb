@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class AddVoiceToNote < ActiveRecord::Migration
   def self.up
     add_column :notes, :voice, :string

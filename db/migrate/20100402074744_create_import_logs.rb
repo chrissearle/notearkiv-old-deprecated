@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class CreateImportLogs < ActiveRecord::Migration
   def self.up
     create_table :import_logs do |t|

@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 # This module is included in your application controller which makes
 # several methods available to all controllers and views. Here's a
 # common example you might add to your application layout file.
@@ -17,7 +19,6 @@
 module Authentication
   def self.included(controller)
     controller.send :helper_method, :current_user, :logged_in?, :redirect_to_target_or_default
-    controller.filter_parameter_logging :password
   end
   
   def current_user_session
