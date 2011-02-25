@@ -12,7 +12,7 @@
         <% end %>
         <% if permitted_to? :destroy, genre %>
             <td>
-              <% if genre.notes.size() == 0 && genre.evensongs.size() == 0 %>
+              <% if genre.deletable? %>
                   <%= link_to 'slett', genre, :confirm => 'Er du sikker?',
                               :method => :delete %>
               <% else %>

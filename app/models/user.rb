@@ -26,17 +26,23 @@ class User < ActiveRecord::Base
 
   def send_reset_password
     code = one_time_code
-    
+
     Arkiv.deliver_reset_password(self, code)
   end
 
   def clear_one_time_code
     self.onetime = nil
-    
+
     self.save
   end
 
   def display_name
     name.blank? ? username : name
+  end
+
+  def update_from_user_params(user)
+    self.email = user["email"]
+    self.password = user["password"]
+    self.password_confirmation = user["password_confirmation"]
   end
 end

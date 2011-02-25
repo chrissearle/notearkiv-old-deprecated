@@ -1,5 +1,5 @@
 <h1>Endre <%= @genre.name %></h1>
 
-<%= render :partial => "genre" %>
+<%= render :partial => "genre", :locals => { :genre => @genre }  %>
 
 <%= link_to 'Tilbake til genre', genres_path %>

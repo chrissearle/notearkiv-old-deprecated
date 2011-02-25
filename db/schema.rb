@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100903193758) do
+ActiveRecord::Schema.define(:version => 20110225120906) do
 
   create_table "composers", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(:version => 20100903193758) do
     t.string   "soloists"
     t.text     "comment"
   end
+
+  add_index "evensongs", ["composer_id"], :name => "index_evensongs_on_composer_id"
+  add_index "evensongs", ["genre_id"], :name => "index_evensongs_on_genre_id"
 
   create_table "genres", :force => true do |t|
     t.string   "name"
@@ -64,6 +67,9 @@ ActiveRecord::Schema.define(:version => 20100903193758) do
     t.datetime "updated_at"
   end
 
+  add_index "note_language_assignments", ["language_id"], :name => "index_note_language_assignments_on_language_id"
+  add_index "note_language_assignments", ["note_id"], :name => "index_note_language_assignments_on_note_id"
+
   create_table "notes", :force => true do |t|
     t.integer  "item"
     t.string   "title"
@@ -82,6 +88,10 @@ ActiveRecord::Schema.define(:version => 20100903193758) do
     t.string   "soloists"
     t.text     "comment"
   end
+
+  add_index "notes", ["composer_id"], :name => "index_notes_on_composer_id"
+  add_index "notes", ["genre_id"], :name => "index_notes_on_genre_id"
+  add_index "notes", ["period_id"], :name => "index_notes_on_period_id"
 
   create_table "periods", :force => true do |t|
     t.string   "name"
@@ -107,6 +117,9 @@ ActiveRecord::Schema.define(:version => 20100903193758) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "user_role_assignments", ["role_id"], :name => "index_user_role_assignments_on_role_id"
+  add_index "user_role_assignments", ["user_id"], :name => "index_user_role_assignments_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"

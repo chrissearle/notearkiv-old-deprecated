@@ -13,7 +13,7 @@ class SessionCachesController < ApplicationController
       rescue ActiveRecord::RecordNotFound
         session_cache = SessionCache.new
       end
-      
+
       session_cache.serialized_session = dropbox_session.serialize
 
       session_cache.save

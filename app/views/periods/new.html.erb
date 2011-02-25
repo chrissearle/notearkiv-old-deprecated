@@ -1,5 +1,5 @@
 <h1>Ny epoke</h1>
 
-<%= render :partial => "period" %>
+<%= render :partial => "period", :locals => { :period => @period } %>
 
 <%= link_to 'Tilbake til epoker', periods_path %>

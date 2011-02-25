@@ -12,7 +12,7 @@ class NotesUploadController < ApplicationController
         if (Note.import(params[:file]))
           flash.now[:notice] = 'Noter oppdatert. Det er anbefalt å laste ned et nytt kopi av arkivet med en gang.'
 
-          @logs = ImportLog.find(:all, :order => 'item ASC, created_at ASC')
+          @logs = ImportLog.ordered
         end
       rescue Exception => e
         flash[:error] = e.message

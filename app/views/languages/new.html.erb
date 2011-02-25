@@ -1,5 +1,5 @@
 <h1>Ny språk</h1>
 
-<%= render :partial => "language" %>
+<%= render :partial => "language", :locals => { :language => @language }  %>
 
 <%= link_to 'Tilbake til språk', languages_path %>
