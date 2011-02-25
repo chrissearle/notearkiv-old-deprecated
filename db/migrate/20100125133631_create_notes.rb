@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class CreateNotes < ActiveRecord::Migration
   def self.up
     create_table :notes do |t|

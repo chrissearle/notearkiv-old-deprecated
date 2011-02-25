@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class RenameDisplayId < ActiveRecord::Migration
   def self.up
     rename_column :notes, :display_id, :item

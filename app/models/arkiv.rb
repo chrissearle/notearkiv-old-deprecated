@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class Arkiv < ActionMailer::Base
   def reset_password(user, code)
     recipients "#{user.email}"

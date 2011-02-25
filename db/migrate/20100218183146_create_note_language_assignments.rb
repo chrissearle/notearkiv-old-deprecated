@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class CreateNoteLanguageAssignments < ActiveRecord::Migration
   def self.up
     create_table :note_language_assignments do |t|

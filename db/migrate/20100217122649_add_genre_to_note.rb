@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class AddGenreToNote < ActiveRecord::Migration
   def self.up
     add_column :notes, :genre_id, :integer

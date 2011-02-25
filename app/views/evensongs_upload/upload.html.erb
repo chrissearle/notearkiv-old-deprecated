@@ -8,7 +8,7 @@
 
 <p>Excel arket må ha samme format som den du laster ned. Første rad må være det samme.</p>
 
-<% form_tag(evensongsimport_path, :multipart => true) do %>
+<%= form_tag(evensongsimport_path, :multipart => true) do %>
     <label for="file">Oppdatert evensongnotearkiv (xls)</label><%= file_field_tag "file" %>
     <br/>
     <%= submit_tag 'Last opp' %>

@@ -1,5 +1,5 @@
-<% semantic_form_for @evensong, :html => { :enctype => "multipart/form-data" } do |form| %>
-    <% form.inputs do %>
+<%= semantic_form_for @evensong, :html => { :enctype => "multipart/form-data" } do |form| %>
+    <%= form.inputs do %>
         <%= form.input :title, :label => "Tittel" %>
         <%= form.input :psalm, :label => "Salme", :required => false %>
         <%= form.input :soloists, :label => "Solister", :required => false %>
@@ -9,7 +9,7 @@
         <%= form.input :doc_file, :label => "PDF/ZIP", :as => :file, :required => false %>
         <%= form.input :music_file, :label => "MP3/M4A/ZIP", :as => :file, :required => false %>
     <% end %>
-    <% form.buttons do %>
+    <%= form.buttons do %>
         <%= form.commit_button :label => "Lagre" %>
     <% end %>
 <% end %>

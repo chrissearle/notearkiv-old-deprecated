@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 Factory.define :composer do |f|
   f.sequence(:name) { |n| "foo#{n}" }
 end

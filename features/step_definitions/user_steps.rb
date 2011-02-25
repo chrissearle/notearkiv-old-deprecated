@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 Given /^the following role records$/ do |table|
   table.hashes.each do |hash|
     Factory(:role, hash)

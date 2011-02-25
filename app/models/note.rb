@@ -1,7 +1,9 @@
+# coding: UTF-8
+
 class Note < ActiveRecord::Base
   include Attachable
   include Importable
-  
+
   attr_accessor :doc_file, :music_file
 
   before_destroy :remove_files
@@ -13,9 +15,15 @@ class Note < ActiveRecord::Base
   has_many :note_language_assignments
   has_many :languages, :through => :note_language_assignments
 
+  delegate :name, :to => :genre, :prefix => true, :allow_nil => true
+  delegate :name, :to => :composer, :prefix => true, :allow_nil => true
+  delegate :name, :to => :period, :prefix => true, :allow_nil => true
+
+  before_validation(:on => :create){ set_next_item }
+
   validates_presence_of :item, :title, :count_originals
 
-  before_validation_on_create :set_next_item
+
   after_save :upload
 
   EXCEL_HEADERS = [HeaderColumn.new("SysID", 8),
@@ -123,7 +131,7 @@ class Note < ActiveRecord::Base
     end
     self.languages = langs
   end
-  
+
   private
 
   def set_next_item

@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 module Importable
   def import_item(item, row)
     populate_from_import(item)

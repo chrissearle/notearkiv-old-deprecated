@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class RemoveEvensongGenres < ActiveRecord::Migration
   def self.up
     drop_table :evensong_genres

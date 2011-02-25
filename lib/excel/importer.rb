@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 module Exceptions
   class IncorrectMimetype < StandardError
     def message()

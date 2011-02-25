@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 require 'date'
 
 class NoteSheet

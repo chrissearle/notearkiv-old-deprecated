@@ -1,8 +1,10 @@
+# coding: UTF-8
+
 class UserSessionsController < ApplicationController
   def new
     @user_session = UserSession.new
   end
-  
+
   def new_once
     user = User.find_by_onetime(params[:code])
     @user_session = UserSession.new(user)
@@ -26,7 +28,7 @@ class UserSessionsController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def destroy
     @user_session = UserSession.find
     @user_session.destroy

@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 authorization do
   role :siteadmin do
     has_permission_on [:users], :to => [:index, :show, :new, :create, :edit, :update]

@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class AddMusicUrl < ActiveRecord::Migration
   def self.up
     add_column :notes, :music_url, :string

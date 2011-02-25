@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class ConvertInstrumentToString < ActiveRecord::Migration
   def self.up
     remove_column :notes, :instrument_id

@@ -1,40 +1,30 @@
+# coding: UTF-8
+
 class AccountController < ApplicationController
   filter_access_to :all
 
-  def index
-    @user = User.find_by_username(current_user.username)
+  before_filter :get_user, :only => [:index, :edit, :update]
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml { render :xml => @user }
-    end
+  def index
   end
 
   def edit
-    @user = User.find_by_username(current_user.username)
-
-    respond_to do |format|
-      format.html # edit.html.erb
-      format.xml { render :xml => @user }
-    end
   end
 
   def update
-    @user = User.find_by_username(current_user.username)
+    @user.update_from_user_params params["user"]
 
-    respond_to do |format|
-      @user.email = params["user"]["email"]
-      @user.password = params["user"]["password"]
-      @user.password_confirmation = params["user"]["password_confirmation"]
-
-      if @user.save
-        flash[:notice] = 'Bruker oppdatert.'
-        format.html { redirect_to :action => "index" }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @genre.errors, :status => :unprocessable_entity }
-      end
+    if @user.save
+      flash[:notice] = 'Bruker oppdatert.'
+      redirect_to :action => "index"
+    else
+      render :action => "edit"
     end
+  end
+
+  private
+
+  def get_user
+    @user = User.find_by_username(current_user.username)
   end
 end

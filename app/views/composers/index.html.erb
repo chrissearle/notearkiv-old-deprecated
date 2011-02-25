@@ -13,7 +13,7 @@
         <% end %>
         <% if permitted_to? :destroy, composer %>
             <td>
-              <% if composer.notes.size() == 0 && composer.evensongs.size() == 0 %>
+              <% if composer.deletable? %>
                   <%= link_to 'slett', composer, :confirm => 'Er du sikker?',
                               :method => :delete %>
               <% else %>

@@ -1,5 +1,5 @@
 <h1>Endre <%= @note.title %></h1>
 
-<%= render :partial => "note" %>
+<%= render :partial => "note", :locals => { :note => @note } %>
 
 <%= link_to 'Tilbake til noter', notes_path %>

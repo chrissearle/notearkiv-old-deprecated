@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class Evensong < ActiveRecord::Base
   include Attachable
   include Importable
@@ -8,6 +10,9 @@ class Evensong < ActiveRecord::Base
 
   belongs_to :composer
   belongs_to :genre
+
+  delegate :name, :to => :genre, :prefix => true, :allow_nil => true
+  delegate :name, :to => :composer, :prefix => true, :allow_nil => true
 
   validates_presence_of :title, :composer, :genre
 

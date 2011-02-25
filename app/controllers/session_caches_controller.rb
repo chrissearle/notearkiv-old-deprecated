@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class SessionCachesController < ApplicationController
   filter_access_to :all
 
@@ -11,7 +13,7 @@ class SessionCachesController < ApplicationController
       rescue ActiveRecord::RecordNotFound
         session_cache = SessionCache.new
       end
-      
+
       session_cache.serialized_session = dropbox_session.serialize
 
       session_cache.save

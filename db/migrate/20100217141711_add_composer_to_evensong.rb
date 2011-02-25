@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class AddComposerToEvensong < ActiveRecord::Migration
   def self.up
     add_column :evensongs, :composer_id, :integer

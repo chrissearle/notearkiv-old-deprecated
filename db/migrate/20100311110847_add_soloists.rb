@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class AddSoloists < ActiveRecord::Migration
   def self.up
     add_column :notes, :soloists, :string

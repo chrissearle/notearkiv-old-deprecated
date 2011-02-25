@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class CreateEvensongs < ActiveRecord::Migration
   def self.up
     create_table :evensongs do |t|
