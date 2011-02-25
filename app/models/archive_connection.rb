@@ -1,6 +1,7 @@
 # coding: UTF-8
 
 class ArchiveConnection
+  extend ActiveModel::Naming
 
   class SupportedFileTypes
     attr_reader :extension, :mimetype, :type, :disposition

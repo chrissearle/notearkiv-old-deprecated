@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   def send_reset_password
     code = one_time_code
 
-    Arkiv.deliver_reset_password(self, code)
+    Arkiv.reset_password(self, code).deliver
   end
 
   def clear_one_time_code
