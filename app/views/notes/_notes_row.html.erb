@@ -28,5 +28,17 @@
     <% else %>
         <%= list_link_dropbox_files(note) %>
     <% end %>
+    <ul class="external">
+      <% if permitted_to?(:show, :links) %>
+          <% if note.links %>
+              <% note.links.each do |link| %>
+                  <li><%= link_to link.title, link.url %></li>
+              <% end %>
+          <% end %>
+      <% end %>
+      <% if permitted_to?(:new, :links) %>
+          <li><%= link_to 'Ny lenke', new_link_path(:note => note.id) %></li>
+      <% end %>
+    </ul>
   </td>
 </tr>

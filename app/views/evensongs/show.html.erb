@@ -45,6 +45,29 @@
     <td><%= list_link_dropbox_files(@evensong) %></td>
   </tr>
 
+  <% if permitted_to?(:show, :links) %>
+      <tr>
+        <td>Lenker</td>
+        <td>
+          <ul>
+            <% @evensong.links.each do |link| %>
+                <li>
+                  <% if permitted_to?(:edit, :links) %>
+                      <%= link_to '[R] ', edit_link_path(link), :title => "Rediger" %>
+                  <% end %>
+                  <% if permitted_to?(:destroy, :links) %>
+                      <%= link_to '[S] ', link, :title => "Slett", :confirm => 'Sikker?', :method => :delete %>
+                  <% end %>
+                  <%= link_to link.title, link.url %>
+                </li>
+            <% end %>
+            <% if permitted_to?(:new, :links) %>
+                <li><%= link_to 'Ny lenke', new_link_path(:evensong => @evensong.id) %></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+  <% end %>
 </table>
 
 

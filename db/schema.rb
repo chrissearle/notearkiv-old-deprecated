@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110225120906) do
+ActiveRecord::Schema.define(:version => 20110226195942) do
 
   create_table "composers", :force => true do |t|
     t.string   "name"
@@ -59,6 +59,18 @@ ActiveRecord::Schema.define(:version => 20110225120906) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "links", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.integer  "note_id"
+    t.integer  "evensong_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "links", ["evensong_id"], :name => "index_links_on_evensong_id"
+  add_index "links", ["note_id"], :name => "index_links_on_note_id"
 
   create_table "note_language_assignments", :force => true do |t|
     t.integer  "note_id"

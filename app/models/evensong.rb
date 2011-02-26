@@ -7,9 +7,12 @@ class Evensong < ActiveRecord::Base
   attr_accessor :doc_file, :music_file
 
   before_destroy :remove_files
+  before_destroy :remove_links
 
   belongs_to :composer
   belongs_to :genre
+
+  has_many :links
 
   delegate :name, :to => :genre, :prefix => true, :allow_nil => true
   delegate :name, :to => :composer, :prefix => true, :allow_nil => true
@@ -111,4 +114,10 @@ class Evensong < ActiveRecord::Base
     # Can't call save - that would recurse. Send a message to the update_without_callbacks method
     self.send(:update_without_callbacks)
   end
+
+  def remove_links
+    self.links.each do |link|
+      link.destroy
+    end
+    end
 end

@@ -129,3 +129,7 @@ div.results {
 div.results ul {
     margin-top: 10px;
 }
+
+ul.external {
+    margin-top: 15px;
+}

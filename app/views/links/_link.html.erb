@@ -1,0 +1,16 @@
+<br/>
+<%= semantic_form_for link do |form| %>
+    <%= form.inputs do %>
+        <% if (link.note) %>
+            <%= form.input :note_id, :as => :hidden, :value => link.note.id %>
+        <% end %>
+        <% if (link.evensong) %>
+            <%= form.input :evensong_id, :as => :hidden, :value => link.evensong.id %>
+        <% end %>
+        <%= form.input :title, :label => 'Tittel' %>
+        <%= form.input :url, :label => 'URL' %>
+    <% end %>
+    <%= form.buttons do %>
+        <%= form.commit_button :label => "Lagre" %>
+    <% end %>
+<% end %>

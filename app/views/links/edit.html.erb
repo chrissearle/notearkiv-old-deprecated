@@ -1,0 +1,11 @@
+<h2>
+  Rediger lenke for
+  <% if @link.note %>
+      note: <%= @link.note.title %>
+  <% end %>
+  <% if @link.evensong %>
+      evensongnote: <%= @link.evensong.title %>
+  <% end %>
+</h2>
+<%= render :partial => 'link', :locals => { :link => @link } %>
+

@@ -7,6 +7,7 @@ class Note < ActiveRecord::Base
   attr_accessor :doc_file, :music_file
 
   before_destroy :remove_files
+  before_destroy :remove_links
 
   belongs_to :composer
   belongs_to :genre
@@ -14,6 +15,8 @@ class Note < ActiveRecord::Base
 
   has_many :note_language_assignments
   has_many :languages, :through => :note_language_assignments
+
+  has_many :links
 
   delegate :name, :to => :genre, :prefix => true, :allow_nil => true
   delegate :name, :to => :composer, :prefix => true, :allow_nil => true
@@ -159,6 +162,12 @@ class Note < ActiveRecord::Base
       Note.find(id)
     else
       Note.new
+    end
+  end
+
+  def remove_links
+    self.links.each do |link|
+      link.destroy
     end
   end
 end

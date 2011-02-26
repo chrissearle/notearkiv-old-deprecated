@@ -24,6 +24,7 @@ Notearkiv::Application.routes.draw do
   resources :notes
   resources :evensongs
   resources :account
+  resources :links
 
   match 'db_auth' => 'session_caches#authorize', :as => :authorize
 
