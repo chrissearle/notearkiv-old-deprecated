@@ -19,10 +19,10 @@
 <%= semantic_form_for @note, :html => { :enctype => "multipart/form-data" }  do |form| %>
     <%= form.inputs do %>
         <%= form.input :title, :label => "Tittel" %>
-        <%= form.input :composer, :label => "Komponist", :required => false %>
-        <%= form.input :period, :label => "Epoke", :required => false %>
-        <%= form.input :genre, :label => "Genre", :required => false %>
-        <%= form.input :languages, :label => "Språk", :required => false %>
+        <%= form.input :composer, :label => "Komponist", :required => false, :collection => Composer.ordered %>
+        <%= form.input :period, :label => "Epoke", :required => false, :collection => Period.ordered %>
+        <%= form.input :genre, :label => "Genre", :required => false, :collection => Genre.ordered %>
+        <%= form.input :languages, :label => "Språk", :required => false, :collection => Language.ordered %>
         <%= form.input :instrument, :label => "Akkomp.", :required => false %>
         <%= form.input :voice, :label => "Besetning", :required => false %>
         <%= form.input :soloists, :label => "Solister", :required => false %>

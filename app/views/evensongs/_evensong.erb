@@ -3,8 +3,8 @@
         <%= form.input :title, :label => "Tittel" %>
         <%= form.input :psalm, :label => "Salme", :required => false %>
         <%= form.input :soloists, :label => "Solister", :required => false %>
-        <%= form.input :composer, :label => "Komponist" %>
-        <%= form.input :genre, :label => "Genre" %>
+        <%= form.input :composer, :label => "Komponist", :collection => Composer.ordered %>
+        <%= form.input :genre, :label => "Genre", :collection => Genre.ordered %>
         <%= form.input :comment, :label => "Kommentar", :required => false, :input_html => { :rows => 5 } %>
         <%= form.input :doc_file, :label => "PDF/ZIP", :as => :file, :required => false %>
         <%= form.input :music_file, :label => "MP3/M4A/ZIP", :as => :file, :required => false %>
