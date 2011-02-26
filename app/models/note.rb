@@ -49,6 +49,12 @@ class Note < ActiveRecord::Base
     Note.select('distinct voice').where(:voice.matches => search + '%').order('voice').map(&:voice)
   end
 
+  def self.search(search)
+    notes = Note.where(:title.matches => '%' + search + '%')
+    notes << Composer.where(:name.matches => '%' + search + '%').map(&:notes)
+    notes.flatten.uniq.sort{|a,b| a.title <=> b.title}
+  end
+
   def self.excel
     NoteSheet.new(EXCEL_HEADERS,
                   Note.ordered.preloaded,

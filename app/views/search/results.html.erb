@@ -1,0 +1,31 @@
+<h2>Resultater</h2>
+<br/>
+<p>Søk: <%= params[:search] %></p>
+
+<% if @notes.size > 0 %>
+    <div class="results">
+      <h3>Noter</h3>
+
+      <ul>
+        <% @notes.each do |note| %>
+            <li>
+              <%= link_to note.title, note_path(note) %> - <%= note.composer_name %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<% if @evensongs.size > 0 %>
+    <div class="results">
+      <h3>Evensongnoter</h3>
+
+      <ul>
+        <% @evensongs.each do |evensong| %>
+            <li>
+              <%= link_to evensong.title, evensong_path(evensong) %> - <%= evensong.composer_name %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

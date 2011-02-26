@@ -1,6 +1,7 @@
 # coding: UTF-8
 
 Notearkiv::Application.routes.draw do
+
   match 'logout' => 'user_sessions#destroy', :as => :logout
   match 'login' => 'user_sessions#new', :as => :login
   match 'login_once/:code' => 'user_sessions#new_once', :as => :onelogin
@@ -9,6 +10,9 @@ Notearkiv::Application.routes.draw do
   match 'reset_password' => 'user_sessions#reset', :as => :reset
 
   match 'download/:prefix/:type/:file.:format' => 'archive#download', :as => :download
+
+  match 'search' => 'search#search', :as => :search
+  match 'results' => 'search#results', :as => :results
 
   resources :user_sessions
   resources :users

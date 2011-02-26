@@ -31,6 +31,12 @@ class Evensong < ActiveRecord::Base
 
   DOCUMENT_TITLE = 'Evensongarkiv'.freeze
 
+  def self.search(search)
+    evensongs = Evensong.where(:title.matches => '%' + search + '%')
+    evensongs << Composer.where(:name.matches => '%' + search + '%').map(&:evensongs)
+    evensongs.flatten.uniq.sort{|a,b| a.title <=> b.title}
+  end
+
   def self.excel
     NoteSheet.new(EXCEL_HEADERS,
                   Evensong.ordered.preloaded,

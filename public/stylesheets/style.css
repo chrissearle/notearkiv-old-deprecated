@@ -120,3 +120,12 @@ a[href$='.zip'] {
     line-height:18px;
     background:transparent url(../images/icons/compress.png) center left no-repeat;
 }
+
+div.results {
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+div.results ul {
+    margin-top: 10px;
+}
