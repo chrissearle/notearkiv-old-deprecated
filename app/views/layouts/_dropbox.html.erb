@@ -1,0 +1,12 @@
+<% if permitted_to? :authorize, :session_caches %>
+    <div class="box">
+      <h2>Oppdater dropbox godkjenning</h2>
+
+      <p>Hvis filhenting har sluttet å fungere du kan prøve å re-godkjenne. Det er ikke noe garanti - det kan bare være
+        at ting har timet ut. Men - du <b>MÅ</b> ha dropbox brukernavn og passord for OCHS liggende før du klikke ellers
+        vil du risikere å fjerne en fungerende kobling som har bare tatt for lang tid.</p>
+      <ul>
+        <li><%= link_to 'Dropbox godkjenning', authorize_path %></li>
+      </ul>
+    </div>
+<% end %>

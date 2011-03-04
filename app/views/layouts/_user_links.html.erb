@@ -1,0 +1,15 @@
+<div class="box">
+  <h2><%= current_user.display_name %></h2>
+  <ul>
+    <li><%= link_to 'Logg av', logout_path %></li>
+    <% if permitted_to? :index, :account %>
+        <li><%= link_to 'Min konto', account_index_path %></li>
+    <% end %>
+    <% if permitted_to? :index, :users %>
+        <li><%= link_to 'Brukere', users_path %></li>
+    <% end %>
+    <% if permitted_to? :index, :stats %>
+        <li><%= link_to 'Filstatistikk', stats_path %></li>
+    <% end %>
+  </ul>
+</div>
