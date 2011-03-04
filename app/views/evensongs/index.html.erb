@@ -1,38 +1,8 @@
-<% content_for :head do %>
-    <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function()
-        {
-            $('#noteTable').dataTable({
-                "bPaginate": false,
-                "bInfo": false,
-                "oLanguage": {
-                    "sSearch": "S&oslash;k:",
-                    "sZeroRecords": "Ingen treff"
-                },
-                "aoColumns": [
-                    {
-                        "sType": "html"
-                    },
-                    null,
-                    null,
-                    null,
-                    {
-                        "bSearchable": false
-                    }
-                ]
-            });
-        }
-                );
-    </script>
-<% end %>
-
 <h2>Evensongnoter</h2>
 
 <%= render :partial => 'evensong_links' %>
 
-<table id="noteTable">
+<table id="evensongTable">
   <thead>
   <tr>
     <th>Tittel</th>

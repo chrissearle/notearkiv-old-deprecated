@@ -1,22 +1,14 @@
 <% content_for :head do %>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/jquery.autocomplete.css"/>
-    <link rel="stylesheet" type="text/css" href="/stylesheets//thickbox.css"/>
-    <script type="text/javascript" src="/js/jquery-1.4.1.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.autocomplete.min.js"></script>
-    <script type='text/javascript' src='/js/jquery.bgiframe.min.js'></script>
-    <script type='text/javascript' src='/js/jquery.ajaxQueue.js'></script>
-    <script type='text/javascript' src='/js/thickbox-compressed.js'></script>
 
     <script type="text/javascript">
-        $(document).ready(function()
-        {
+        $(document).ready(function() {
             $("#note_voice").autocomplete('<%= notes_path(:format => :txt) %>');
         });
     </script>
 <% end %>
 
 
-<%= semantic_form_for @note, :html => { :enctype => "multipart/form-data" }  do |form| %>
+<%= semantic_form_for @note, :html => {:enctype => "multipart/form-data"} do |form| %>
     <%= form.inputs do %>
         <%= form.input :title, :label => "Tittel" %>
         <%= form.input :composer, :label => "Komponist", :required => false, :collection => Composer.ordered %>
@@ -29,7 +21,7 @@
         <%= form.input :count_originals, :label => "Antall original" %>
         <%= form.input :count_copies, :label => "Antall kopi", :required => false %>
         <%= form.input :count_instrumental, :label => "Antall instrumental", :required => false %>
-        <%= form.input :comment, :label => "Kommentar", :required => false, :input_html => { :rows => 5 } %>
+        <%= form.input :comment, :label => "Kommentar", :required => false, :input_html => {:rows => 5} %>
         <%= form.input :doc_file, :label => "PDF/ZIP", :as => :file, :required => false %>
         <%= form.input :music_file, :label => "MP3/M4A/ZIP", :as => :file, :required => false %>
     <% end %>
