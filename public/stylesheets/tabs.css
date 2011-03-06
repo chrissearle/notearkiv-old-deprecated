@@ -48,33 +48,3 @@
 	cursor:default !important;
 	color:#000 !important;
 }
-
-/* Different widths for tabs: use a class name: w1, w2, w3 or w2 */
-
-
-/* width 1 */
-.tabs .w1 			{ background-position: -519px 0; width:134px; }
-.tabs .w1:hover 	{ background-position: -519px -31px; }
-.tabs .w1.current { background-position: -519px -62px; }
-
-/* width 2 */
-.tabs .w2 			{ background-position: -366px -0px; width:154px; }
-.tabs .w2:hover 	{ background-position: -366px -31px; }
-.tabs .w2.current { background-position: -366px -62px; }
-
-
-/* width 3 */
-.tabs .w3 			{ background-position: -193px -0px; width:174px; }
-.tabs .w3:hover 	{ background-position: -193px -31px; }
-.tabs .w3.current { background-position: -193px -62px; }
-
-/* width 4 */
-.tabs .w4 			{ background-position: -0px -0px; width:194px; }
-.tabs .w4:hover 	{ background-position: -0px -31px; }
-.tabs .w4.current { background-position: -0px -62px; }
-
-
-/* initially all panes are hidden */
-.panes .pane {
-	display:none;
-}
