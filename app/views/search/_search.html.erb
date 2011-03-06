@@ -1,0 +1,126 @@
+<% content_for :head do %>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".search_boiler").hide();
+            $('.tabs').show().tabs('.search_box');
+
+            var api = $(".tabs").data("tabs");
+
+            <% if (params[:esearch]) %>
+                api.click(2);
+            <% elsif (params[:nsearch]) %>
+                api.click(1);
+            <% else %>
+                api.click(0);
+            <% end %>
+        });
+    </script>
+<% end %>
+
+<ul class="tabs" style="display: none;">
+	<li><a id="simple_search_tab" href="#">Søk</a></li>
+	<li><a id="notes_search_tab" href="#">Avansert Søk - Noter</a></li>
+	<li><a id="evensong_search_tab" href="#">Avansert Søk - Evensongnoter</a></li>
+</ul>
+
+<p class="search_boiler"><strong>Enkel søk</strong></p>
+
+<div id="simple_search" class="search_box">
+  <p><em>Du kan søke på tvers av noter og evensongnoter her men kun i titler og komponisters navn.</em></p>
+
+  <br/>
+
+  <%= form_tag results_path do %>
+      <%= text_field_tag 'search', params[:search], :size => 75 %>
+      <%= submit_tag "Søk" %>
+  <% end %>
+</div>
+
+<p class="search_boiler"><strong>Avansert søk</strong></p>
+
+<div id="note_search" class="search_box">
+  <p><em>Noter</em></p>
+
+  <%= form_for @nsearch, :as => :nsearch, :url => results_path, :html => {:method => :get} do |f| %>
+      <table class="search">
+        <tr>
+          <td><%= f.label :item_equals, "ID #" %></td>
+          <td><%= f.text_field :item_equals %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :title_contains, "Tittel inneholder" %></td>
+          <td><%= f.text_field :title_contains %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :voice_contains, "Besetning inneholder" %></td>
+          <td><%= f.text_field :voice_contains %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :instrument_contains, "Akkomp. inneholder" %></td>
+          <td><%= f.text_field :instrument_contains %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :soloists_contains, "Tittel inneholder" %></td>
+          <td><%= f.text_field :soloists_contains %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :comment_contains, "Tittel inneholder" %></td>
+          <td><%= f.text_field :comment_contains %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :composer_name_contains, "Komponist inneholder" %></td>
+          <td><%= f.text_field :composer_name_contains %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :genre_name_contains, "Genre inneholder" %></td>
+          <td><%= f.text_field :genre_name_contains %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :period_name_contains, "Epoke inneholder" %></td>
+          <td><%= f.text_field :period_name_contains %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :languages_name_contains, "Språk inneholder" %></td>
+          <td><%= f.text_field :languages_name_contains %></td>
+        </tr>
+      </table>
+      
+      <%= f.submit 'Søk i noter' %>
+  <% end %>
+</div>
+
+<div id="evensong_search" class="search_box">
+  <p><em>Evensongnoter</em></p>
+
+  <%= form_for @esearch, :as => :esearch, :url => results_path, :html => {:method => :get} do |f| %>
+      <table class="search">
+        <tr>
+          <td><%= f.label :title_contains, "Tittel inneholder" %></td>
+          <td><%= f.text_field :title_contains %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :psalm_equals, "Psalm #" %></td>
+          <td><%= f.text_field :psalm_equals %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :soloists_contains, "Tittel inneholder" %></td>
+          <td><%= f.text_field :soloists_contains %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :comment_contains, "Tittel inneholder" %></td>
+          <td><%= f.text_field :comment_contains %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :composer_name_contains, "Komponist inneholder" %></td>
+          <td><%= f.text_field :composer_name_contains %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :genre_name_contains, "Genre inneholder" %></td>
+          <td><%= f.text_field :genre_name_contains %></td>
+        </tr>
+      </table>
+
+      <%= f.submit 'Søk i evensongnoter' %>
+  <% end %>
+</div>

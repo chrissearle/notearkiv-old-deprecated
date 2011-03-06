@@ -52,7 +52,7 @@ class Note < ActiveRecord::Base
     Note.select('distinct voice').where(:voice.matches => search + '%').order('voice').map(&:voice)
   end
 
-  def self.search(search)
+  def self.simple_search(search)
     notes = Note.where(:title.matches => '%' + search + '%')
     notes << Composer.where(:name.matches => '%' + search + '%').map(&:notes)
     notes.flatten.uniq.sort{|a,b| a.title <=> b.title}

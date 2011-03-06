@@ -42,6 +42,7 @@ gem 'formtastic'
 
 gem 'jquery-rails'
 gem 'meta_where'
+gem 'meta_search'
 
 group :development, :test do
   gem 'cucumber'

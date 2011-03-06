@@ -34,7 +34,7 @@ class Evensong < ActiveRecord::Base
 
   DOCUMENT_TITLE = 'Evensongarkiv'.freeze
 
-  def self.search(search)
+  def self.simple_search(search)
     evensongs = Evensong.where(:title.matches => '%' + search + '%')
     evensongs << Composer.where(:name.matches => '%' + search + '%').map(&:evensongs)
     evensongs.flatten.uniq.sort{|a,b| a.title <=> b.title}

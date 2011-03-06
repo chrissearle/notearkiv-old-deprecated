@@ -1,0 +1,14 @@
+<table id="evensongTable">
+  <thead>
+  <tr>
+    <th>Tittel</th>
+    <th>Salme</th>
+    <th>Komponist</th>
+    <th>Genre</th>
+    <th>Lenker</th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render :partial => '/evensongs/evensong_row', :collection => @evensongs, :as => :evensong %>
+  </tbody>
+</table>

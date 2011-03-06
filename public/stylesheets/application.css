@@ -9,3 +9,12 @@ h1, h2, h3, h4 {
 ul#nav a {
     font-family: 'Expletus Sans', sans-serif;
 }
+
+table.search, table.search tr, table.search td {
+    border: 0;
+}
+
+.search_box {
+    margin: 0;
+    padding: 10px;
+}

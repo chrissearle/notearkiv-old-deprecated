@@ -2,22 +2,6 @@
 
 <%= render :partial => 'notes_links' %>
 
-<table id="noteTable">
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>Tittel</th>
-    <th>Komponist</th>
-    <th>Genre</th>
-    <th>Epoke</th>
-    <th>Språk</th>
-    <th>Akkomp.</th>
-    <th>Lenker</th>
-  </tr>
-  </thead>
-  <tbody>
-  <%= render :partial => 'notes_row', :collection => @notes, :as => :note %>
-  </tbody>
-</table>
+<%= render :partial => 'notes' %>
 
 <%= render :partial => 'notes_links' %>

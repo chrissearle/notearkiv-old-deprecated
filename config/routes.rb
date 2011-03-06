@@ -13,6 +13,11 @@ Notearkiv::Application.routes.draw do
 
   match 'search' => 'search#search', :as => :search
   match 'results' => 'search#results', :as => :results
+  match 'search/advanced/note' => 'search#adv_search_notes', :as => :notesearch
+  match 'search/advanced/evensong' => 'search#adv_search_evensongs', :as => :evensongsearch
+  match 'results/advanced/note' => 'search#adv_results_notes', :as => :noteresults
+  match 'results/advanced/evensong' => 'search#adv_results_evensongs', :as => :evensongresults
+
 
   resources :user_sessions
   resources :users
