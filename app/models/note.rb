@@ -29,7 +29,7 @@ class Note < ActiveRecord::Base
   after_save :upload
 
   scope :ordered, :order => 'title ASC'
-  scope :preloaded, :include => [:composer, :genre, :period, :languages]
+  scope :preloaded, :include => [:composer, :genre, :period, :languages, :links]
 
   EXCEL_HEADERS = [HeaderColumn.new("SysID", 8),
                    HeaderColumn.new("ID", 8),

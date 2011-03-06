@@ -22,7 +22,7 @@ class Evensong < ActiveRecord::Base
   after_save :upload
 
   scope :ordered, :order => 'title ASC'
-  scope :preloaded, :include => [:composer, :genre]
+  scope :preloaded, :include => [:composer, :genre, :links]
 
   EXCEL_HEADERS = [HeaderColumn.new("SysID", 8),
                    HeaderColumn.new("Tittel", 50),
