@@ -72,4 +72,26 @@ $(document).ready(function() {
             [1,'asc']
         ]
     });
+
+    $('.menu-link').show();
+
+    $('.menu-link').click(function() {
+        toggleMenu();
+    });
+
+    toggleMenu();
 });
+
+function toggleMenu() {
+    if ($('#left').is(':visible')) {
+        $('#left').hide();
+        $('#right').css('width', '96%');
+        $('table').css('width', '100%');
+        $('#menu-control').show();
+    } else {
+        $('#right').css('width', '76%');
+        $('table').css('width', '100%');
+        $('#left').show();
+        $('#menu-control').hide();
+    }
+}

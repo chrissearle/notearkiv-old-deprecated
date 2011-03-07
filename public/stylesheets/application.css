@@ -18,3 +18,10 @@ table.search, table.search tr, table.search td {
     margin: 0;
     padding: 10px;
 }
+
+#menu-control {
+    padding: 10px;
+    margin-bottom: 1em;
+    text-align: right;
+    background : #FFF6BF;
+}

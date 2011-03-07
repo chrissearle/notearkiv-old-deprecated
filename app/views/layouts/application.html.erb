@@ -27,6 +27,9 @@
   </div>
 </div>
 <div id="content">
+  <div id="menu-control" style="display: none">
+    <a href="#" id="show-menu" style="display: none" class="menu-link">Vis meny</a>
+  </div>
   <div id="right">
     <p style="color: green"><%= flash[:notice] %></p>
 
@@ -36,6 +39,10 @@
   </div>
 
   <div id="left">
+    <div class="box">
+      <a href="#" id="hide-menu" style="display: none" class="menu-link">Fjern meny</a>
+    </div>
+
     <% if current_user %>
 
         <%= render :partial => '/layouts/user_links' %>
