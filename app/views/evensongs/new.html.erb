@@ -2,4 +2,11 @@
 
 <%= render :partial => "evensong" %>
 
-<%= link_to 'Tilbake til evensongnoter', evensongs_path %>
+<% content_for :links do %>
+    <div class="box">
+      <h2>Evensongnote</h2>
+      <ul>
+        <li><%= link_to 'Tilbake til evensongnoter', evensongs_path %></li>
+      </ul>
+    </div>
+<% end %>

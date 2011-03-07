@@ -75,11 +75,15 @@ $(document).ready(function() {
 
     $('.menu-link').show();
 
-    $('.menu-link').click(function() {
+    $('.menu-link').click(function(e) {
         toggleMenu();
+
+        // Saves in session
+        $.get('/menu?side=' + $(this).data('action'));
+
+        e.preventDefault();
     });
 
-    toggleMenu();
 });
 
 function toggleMenu() {

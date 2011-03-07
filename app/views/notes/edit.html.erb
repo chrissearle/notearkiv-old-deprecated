@@ -2,4 +2,12 @@
 
 <%= render :partial => "note", :locals => { :note => @note } %>
 
-<%= link_to 'Tilbake til noter', notes_path %>
+
+<% content_for :links do %>
+    <div class="box">
+      <h2>Note</h2>
+      <ul>
+        <li><%= link_to 'Tilbake til noter', notes_path %></li>
+      </ul>
+    </div>
+<% end %>

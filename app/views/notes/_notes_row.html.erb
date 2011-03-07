@@ -32,7 +32,7 @@
       <% if permitted_to?(:show, :links) %>
           <% if note.links %>
               <% note.links.each do |link| %>
-                  <li><%= link_to link.title, link.url %></li>
+                  <li><%= link_to link.title, link.url, :class => 'link_out' %></li>
               <% end %>
           <% end %>
       <% end %>

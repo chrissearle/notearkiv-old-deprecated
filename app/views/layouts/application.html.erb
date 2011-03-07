@@ -7,6 +7,10 @@
   <%= javascript_include_tag 'jquery', 'jquery.dataTables.min', 'rails' %>
   <%= javascript_include_tag 'jquery.autocomplete.min', 'jquery.bgiframe.min', 'jquery.ajaxQueue', 'thickbox-compressed', 'tabs.min' %>
   <%= javascript_include_tag 'application' %>
+  <% if menu_side == "top" %>
+       <%= javascript_include_tag 'toggle_menu' %>
+  <% end %>
+
   <%= csrf_meta_tag %>
   <%= yield :head %>
 
@@ -28,7 +32,11 @@
 </div>
 <div id="content">
   <div id="menu-control" style="display: none">
-    <a href="#" id="show-menu" style="display: none" class="menu-link">Vis meny</a>
+    <div class="menu-links">
+      <%= yield :links %>
+    </div>
+
+    <a href="#" id="show-menu" style="display: none" class="menu-link" data-action="right">Meny</a>
   </div>
   <div id="right">
     <p style="color: green"><%= flash[:notice] %></p>
@@ -40,10 +48,11 @@
 
   <div id="left">
     <div class="box">
-      <a href="#" id="hide-menu" style="display: none" class="menu-link">Fjern meny</a>
+      <a href="#" id="hide-menu" style="display: none" class="menu-link" data-action="top">Meny</a>
     </div>
 
     <% if current_user %>
+        <%= yield :links %>
 
         <%= render :partial => '/layouts/user_links' %>
 
