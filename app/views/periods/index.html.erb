@@ -13,28 +13,35 @@
         <% if permitted_to? :destroy, period %>
             <td>
               <% if period.notes.size() == 0 %>
-                   <%= link_to 'slett', period, :confirm => 'Er du sikker?',
-                               :method => :delete %>
-               <% else %>
-                   <ul>
-                     <% if period.notes.size() > 0 %>
-                         <li>
-                           <%= period.notes.size() %>
-                           <% if period.notes.size() == 1 %>
-                               note
-                           <% else %>
-                               noter
-                           <% end %>
-                         </li>
-                     <% end %>
-                   </ul>
-               <% end %>
+                  <%= link_to 'slett', period, :confirm => 'Er du sikker?',
+                              :method => :delete %>
+              <% else %>
+                  <ul>
+                    <% if period.notes.size() > 0 %>
+                        <li>
+                          <%= period.notes.size() %>
+                          <% if period.notes.size() == 1 %>
+                              note
+                          <% else %>
+                              noter
+                          <% end %>
+                        </li>
+                    <% end %>
+                  </ul>
+              <% end %>
             </td>
         <% end %>
       </tr>
   <% end %>
 </table>
 
-<br/>
-
-<%= link_to 'Ny epoke', new_period_path if permitted_to? :new, :periods %>
+<% if permitted_to? :new, :periods %>
+    <% content_for :links do %>
+        <div class="box">
+          <h2>Epoker</h2>
+          <ul>
+            <li><%= link_to 'Ny epoke', new_period_path %></li>
+          </ul>
+        </div>
+    <% end %>
+<% end %>

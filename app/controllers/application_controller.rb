@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   helper :all
 
   before_filter { |c| Authorization.current_user = c.current_user }
+  before_filter :set_side
 
   protected
 
@@ -23,4 +24,17 @@ class ApplicationController < ActionController::Base
 
     request.env["HTTP_ACCEPT"] = "application/xml,application/xhtml+xml,text/html;q=0.9,#{accept}"
   end
+
+  def set_side
+    if session[:side].nil?
+      session[:side] = 'top'
+    end
+
+    if !params[:side].nil?
+      if (params[:side] == 'top' || params[:side] == 'right')
+        session[:side] = params[:side]
+      end
+    end
+  end
+
 end

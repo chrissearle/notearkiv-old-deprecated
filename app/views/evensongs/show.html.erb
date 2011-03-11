@@ -58,7 +58,7 @@
                   <% if permitted_to?(:destroy, :links) %>
                       <%= link_to '[S] ', link, :title => "Slett", :confirm => 'Sikker?', :method => :delete %>
                   <% end %>
-                  <%= link_to link.title, link.url %>
+                  <%= link_to link.title, link.url, :class => 'link_out' %>
                 </li>
             <% end %>
             <% if permitted_to?(:new, :links) %>
@@ -70,15 +70,17 @@
   <% end %>
 </table>
 
-
-<br/>
-
-<% if permitted_to? :edit, @evensong %>
-    <%= link_to 'Endre', edit_evensong_path %>
-    |
+<% content_for :links do %>
+    <div class="box">
+      <h2>Evensongnote</h2>
+      <ul>
+        <% if permitted_to? :edit, @evensong %>
+            <li><%= link_to 'Endre', edit_evensong_path %></li>
+        <% end %>
+        <% if permitted_to? :destroy, @evensong %>
+            <li><%= link_to 'Slett', @evensong, :confirm => 'Sikker?', :method => :delete %></li>
+        <% end %>
+        <li><%= link_to 'Tilbake til evensongnoter', evensongs_path %></li>
+      </ul>
+    </div>
 <% end %>
-<% if permitted_to? :destroy, @evensong %>
-    <%= link_to 'Slett', @evensong, :confirm => 'Sikker?', :method => :delete %>
-    |
-<% end %>
-<%= link_to 'Tilbake til evensongnoter', evensongs_path %>

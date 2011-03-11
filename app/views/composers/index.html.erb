@@ -46,6 +46,13 @@
   <% end %>
 </table>
 
-<br/>
-
-<%= link_to 'Ny komponist', new_composer_path  if permitted_to? :new, :composers %>
+<% if permitted_to? :new, :composers %>
+    <% content_for :links do %>
+        <div class="box">
+          <h2>Epoker</h2>
+          <ul>
+            <li><%= link_to 'Ny komponist', new_composer_path %></li>
+          </ul>
+        </div>
+    <% end %>
+<% end %>

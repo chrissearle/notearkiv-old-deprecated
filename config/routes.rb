@@ -31,6 +31,8 @@ Notearkiv::Application.routes.draw do
   resources :account
   resources :links
 
+  match "/menu" => "menu#index", :as => :menu
+
   match 'db_auth' => 'session_caches#authorize', :as => :authorize
 
   match 'upload/notes' => 'notes_upload#upload', :as => :notesupload

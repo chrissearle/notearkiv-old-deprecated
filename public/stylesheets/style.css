@@ -121,6 +121,13 @@ a[href$='.zip'] {
     background:transparent url(../images/icons/compress.png) center left no-repeat;
 }
 
+a.link_out {
+    display:inline-block;
+    padding-left:20px;
+    line-height:18px;
+    background:transparent url(../images/icons/world_go.png) center left no-repeat;
+}
+
 div.results {
     margin-top: 10px;
     padding-left: 15px;

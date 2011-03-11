@@ -17,7 +17,7 @@
       <% if permitted_to?(:show, :links) %>
           <% if evensong.links %>
               <% evensong.links.each do |link| %>
-                  <li><%= link_to link.title, link.url %></li>
+                  <li><%= link_to link.title, link.url, :class => 'link_out' %></li>
               <% end %>
           <% end %>
       <% end %>
