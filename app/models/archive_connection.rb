@@ -25,7 +25,7 @@ class ArchiveConnection
     end
 
     def upload_permitted?(file)
-      Rails.logger.info "Upload test for #{file.original_path} with type #{file.content_type}" unless file.blank?
+      Rails.logger.info "Upload test for #{file.original_filename} with type #{file.content_type}" unless file.blank?
 
       return !file.blank? && mimetypes.include?(file.content_type)
     end
@@ -35,9 +35,9 @@ class ArchiveConnection
 
       type = @instance_types.find { |t| t.mimetype == file.content_type }
 
-      @instance_session.upload(file, "#{@instance_prefix}/#{@instance_type_prefix}")
+      @instance_session.upload(file.tempfile, "#{@instance_prefix}/#{@instance_type_prefix}")
 
-      @instance_session.rename("#{@instance_prefix}/#{@instance_type_prefix}/#{file.original_path}", item_path(id, type))
+      @instance_session.rename("#{@instance_prefix}/#{@instance_type_prefix}/#{File.basename(file.tempfile.path)}", item_path(id, type))
 
       fullpath = full_path(id, type)
 
